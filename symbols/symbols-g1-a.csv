@@ -1,0 +1,122 @@
+address,name,kind,nargs,library,status,notes
+0x446ae0,game_pause_tick,data,,GAME,orig,game.h ulong (= game_hook_hi[0])
+0x446ae4,game_last_tick,data,,GAME,orig,game.h ulong (= game_hook_hi[1])
+0x446af0,game_time_rate,data,,GAME,orig,game.h short
+0x35f3f4,game_paused,data,,GAME,orig,game.h uchar
+0x35f3f8,game_frame_dt,data,,GAME,orig,game.h ulong
+0x35f3fc,game_slow,data,,GAME,orig,game.h uchar
+0x35f3fe,game_max_step,data,,GAME,orig,game.h short
+0x35f400,game_frame,data,,GAME,orig,game.h ulong
+0x35c02e,game_replay_req_rec,data,,GAME,orig,game.h uchar
+0x35c02f,game_replay_req_play,data,,GAME,orig,game.h uchar
+0x35c038,game_replay_version,data,,GAME,orig,game.h long
+0x35982d,snd_channels,data,,GAME,decomp,game.h uchar (sound.c)
+0x35982e,snd_flags,data,,GAME,decomp,game.h uchar (sound.c)
+0x35982f,snd_sfx_vol,data,,GAME,decomp,game.h uchar (sound.c)
+0x359830,snd_speech_vol,data,,GAME,decomp,game.h uchar (sound.c)
+0x359832,snd_music_vol,data,,GAME,decomp,game.h uchar (sound.c)
+0x2edc18,dpmi_unlock_data,func,2v,DOS,orig,cdecl unlock [p; p+size] (name ours)
+0x2ddd70,RndRange,func,3,GAME,decomp,rnd.c (M126)
+0x2ddd88,RndRangeFix,func,3,GAME,decomp,rnd.c
+0x2ddda4,RndLc16,func,1,GAME,decomp,rnd.c
+0x2dddc4,RndLc16Seed,func,2,GAME,decomp,rnd.c (also RndGauss16Seed)
+0x2dddd0,RndGauss16,func,1,GAME,decomp,rnd.c (map rnd_2DDDD0)
+0x2dde8c,RndGauss16Fast,func,1,GAME,decomp,rnd.c (map rnd_2DDE8C)
+0x2ddec0,RndGauss16FastSeed,func,2,GAME,decomp,rnd.c (map rnd_2DDEC0)
+0x4468d0,rnd_gauss_table,data,,GAME,decomp,rnd.c ushort* (8192 entries)
+0x2de880,GameTimeClearPeriodic,func,0,GAME,decomp,gametime.c (map gametime_2DE880; jmp periodic_clear)
+0x2de888,GameTimeFrame,func,0,GAME,decomp,gametime.c
+0x2deae0,GameTimeReset,func,0,GAME,decomp,gametime.c (map gametime_2DEAE0)
+0x2deb14,GameTimeSetRate,func,1,GAME,decomp,gametime.c (map gametime_2DEB14)
+0x2deb4c,GameTimeResume,func,0,GAME,decomp,gametime.c (map gametime_2DEB4C)
+0x2deb80,GameTimePause,func,0,GAME,decomp,gametime.c (map gametime_2DEB80)
+0x2deba0,GameTimeResume2,func,0,GAME,decomp,gametime.c (map gametime_2DEBA0)
+0x2debd4,GameTimeSetMaxStep,func,1,GAME,decomp,gametime.c (map gametime_2DEBD4)
+0x2f2b30,KeyBitmapUpdate,func,0,GAME,decomp,keybits.c (map keys_2F2B30)
+0x2f2bd4,MouseStateUpdate,func,0,GAME,decomp,keybits.c (map keys_2F2BD4)
+0x246d24,snd_config_load,func,0,GAME,decomp,sound.c (M002)
+0x246ea0,snd_config_save,func,0,GAME,decomp,sound.c (M002)
+0x246f24,SndInit,func,1,GAME,decomp,sound.c (M002)
+0x247134,SndShutdown,func,0,GAME,decomp,sound.c (M002)
+0x2471b0,snd_chan_spatialize,func,1,GAME,decomp,sound.c (M002)
+0x24733c,snd_chan_add_callback,func,3,GAME,decomp,sound.c (M002)
+0x24739c,snd_chan_clear_callbacks,func,1,GAME,decomp,sound.c (M002)
+0x2473bc,snd_finish_pending,func,0,GAME,decomp,sound.c (M002)
+0x247574,snd_update_channels,func,0,GAME,decomp,sound.c (M002)
+0x24765c,snd_kill_low_priority,func,0,GAME,decomp,sound.c (M002)
+0x2476f8,snd_kill_entity_cb,func,1,GAME,decomp,sound.c (M002)
+0x247744,snd_chan_stop,func,1,GAME,decomp,sound.c (M002)
+0x247780,snd_stop_entity,func,1,GAME,decomp,sound.c (M002)
+0x2477d0,snd_stop_looping,func,0,GAME,decomp,sound.c (M002)
+0x247848,snd_chan_start_sample,func,3,GAME,decomp,sound.c (M002)
+0x247978,snd_chan_alloc,func,0,GAME,decomp,sound.c (M002)
+0x247a08,snd_chan_update_dist,func,1,GAME,decomp,sound.c (M002)
+0x247b60,SndPlay,func,7,GAME,decomp,sound.c (M002)
+0x247e30,snd_chan_set_handle_ptr,func,2,GAME,decomp,sound.c (M002)
+0x247e58,snd_chan_set_vol,func,2,GAME,decomp,sound.c (M002)
+0x247ee8,snd_chan_set_vol_pan,func,3,GAME,decomp,sound.c (M002)
+0x247f50,snd_chan_get_vol,func,1,GAME,decomp,sound.c (M002)
+0x247f90,snd_res_volume,func,1,GAME,decomp,sound.c (M002)
+0x247fd0,snd_chan_fade,func,4,GAME,decomp,sound.c (M002)
+0x248018,snd_chan_doppler,func,1,GAME,decomp,sound.c (M002)
+0x2480a4,snd_chans_init,func,0,GAME,decomp,sound.c (M002)
+0x248124,snd_dig_setup,func,1,GAME,decomp,sound.c (M002)
+0x24817c,snd_midi_setup,func,1,GAME,decomp,sound.c (M002)
+0x2481e0,snd_audible,func,4,GAME,decomp,sound.c (M002)
+0x24831c,snd_spatial_vol,func,6,GAME,decomp,sound.c (M002)
+0x248530,snd_play_2d,func,3,GAME,decomp,sound.c (M002)
+0x248548,snd_play_2d_once,func,1,GAME,decomp,sound.c (M002)
+0x24856c,snd_chan_fade_io,func,4,GAME,decomp,sound.c (M002)
+0x2485f4,snd_chan_crossfade,func,4,GAME,decomp,sound.c (M002)
+0x2486a4,snd_null_2486A4,func,0,GAME,decomp,sound.c (M002)
+0x2486a8,SndUpdateHook,func,0,GAME,decomp,sound.c (M002)
+0x2486d0,snd_chan_get_id,func,1,GAME,decomp,sound.c (M002)
+0x2486fc,snd_play_if_idle,func,2,GAME,decomp,sound.c (M002)
+0x24872c,snd_set_speech_volume,func,1,GAME,decomp,sound.c (M002)
+0x248760,snd_preview_sfx_volume,func,1,GAME,decomp,sound.c (M002)
+0x2487f4,snd_set_sfx_volume,func,1,GAME,decomp,sound.c (M002)
+0x24883c,snd_set_sfx_volume_test,func,1,GAME,decomp,sound.c (M002)
+0x2488c0,snd_set_qsound,func,1,GAME,decomp,sound.c (M002)
+0x2488f8,snd_stereo_test_cb,func,0,GAME,decomp,sound.c (M002)
+0x24892c,snd_stereo_test,func,1,GAME,decomp,sound.c (M002)
+0x2489b0,snd_set_stereo_reverse,func,1,GAME,decomp,sound.c (M002)
+0x2489c4,snd_set_channel_level,func,1,GAME,decomp,sound.c (M002)
+0x248a5c,snd_set_music_volume,func,1,GAME,decomp,sound.c (M002)
+0x248ad0,snd_chan_active,func,1,GAME,decomp,sound.c (M002)
+0x248b04,snd_sched_init,func,0,GAME,decomp,sound.c (M002)
+0x248b40,snd_sched_pop,func,0,GAME,decomp,sound.c (M002)
+0x248b5c,snd_sched_run,func,0,GAME,decomp,sound.c (M002)
+0x248c10,snd_sched_alloc,func,1,GAME,decomp,sound.c (M002)
+0x248ca0,SndSchedule,func,8,GAME,decomp,sound.c (M002)
+0x248ce4,snd_count_playing,func,1,GAME,decomp,sound.c (M002)
+0x248d1c,snd_speech_duck,func,1,GAME,decomp,sound.c (M002)
+0x248e00,snd_set_type_volume,func,2,GAME,decomp,sound.c (M002)
+0x248ebc,snd_play_step,func,3,GAME,decomp,sound.c (M002)
+0x248fa8,snd_null_248FA8,func,0,GAME,decomp,sound.c (M002)
+0x248fbc,snd_play_hit,func,3,GAME,decomp,sound.c (M002)
+0x249080,snd_loop_end_cb,func,2,GAME,decomp,sound.c (M002)
+0x249094,snd_loop_ctl,func,2,GAME,decomp,sound.c (M002)
+0x249120,snd_radio_mode,func,1,GAME,decomp,sound.c (M002)
+0x35982c,snd_busy,data,,GAME,decomp,sound.c
+0x359831,snd_vol_359831,data,,GAME,decomp,sound.c
+0x359834,snd_rnd,data,,GAME,decomp,sound.c
+0x359840,snd_rnd2,data,,GAME,decomp,sound.c
+0x35984c,snd_finishing,data,,GAME,decomp,sound.c
+0x359850,snd_sound_speed,data,,GAME,decomp,sound.c
+0x359854,snd_sched_cur,data,,GAME,decomp,sound.c
+0x359858,snd_hit_ids,data,,GAME,decomp,sound.c
+0x35989c,snd_loops,data,,GAME,decomp,sound.c
+0x3598bc,snd_finish_count,data,,GAME,decomp,sound.c
+0x370610,snd_sched_free,data,,GAME,decomp,sound.c
+0x370630,snd_sched_pool,data,,GAME,decomp,sound.c
+0x370728,snd_duck_music,data,,GAME,decomp,sound.c
+0x37072c,snd_music_cur,data,,GAME,decomp,sound.c
+0x370730,snd_duck_sfx,data,,GAME,decomp,sound.c
+0x370734,snd_sfx_base,data,,GAME,decomp,sound.c
+0x370738,snd_chans,data,,GAME,decomp,sound.c
+0x370c28,snd_stereo_flip,data,,GAME,decomp,sound.c
+0x370c2c,snd_sched_free_count,data,,GAME,decomp,sound.c
+0x370c30,snd_finish_queue,data,,GAME,decomp,sound.c
+0x3597c8,snd_sched_list,data,,GAME,decomp,sound.c
+0x3597cc,snd_dist_vol,data,,GAME,decomp,sound.c
+0x3597ec,snd_pan_vol,data,,GAME,decomp,sound.c

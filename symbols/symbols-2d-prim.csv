@@ -1,0 +1,146 @@
+address,name,kind,nargs,library,status,notes
+0x364450,gr_lit_tolerance,data,,2D,orig,long; name ours
+0x36df2c,gr_lin_no_split,data,,2D,orig,uchar; name ours
+0x324ff0,gr_null,func,0,2D,orig,
+0x325ac8,gr_clip_poly,func,4,2D,decomp,clpply.c
+0x327220,flat8_set_upixel,func,3,2D,decomp,fl8pix.c
+0x327248,flat8_clut_set_upixel,func,3,2D,decomp,fl8pix.c
+0x327274,flat8_xor_set_upixel,func,3,2D,decomp,fl8pix.c
+0x32729c,flat8_blend_set_upixel,func,3,2D,decomp,fl8pix.c
+0x3272e8,flat8_solid_set_upixel,func,3,2D,decomp,fl8pix.c
+0x327310,flat8_get_upixel,func,2,2D,decomp,fl8pix.c
+0x32733c,flat8_get_pixel,func,2,2D,decomp,fl8pix.c
+0x327390,flat8_set_upixel24,func,3,2D,decomp,fl8pix.c
+0x3273e0,flat8_set_pixel24,func,3,2D,decomp,fl8pix.c
+0x327450,flat8_get_upixel24,func,2,2D,decomp,fl8pix.c
+0x32748c,flat8_get_pixel24,func,2,2D,decomp,fl8pix.c
+0x3274f0,flat8_clear,func,1,2D,decomp,fl8pix.c
+0x327560,temp_upoint,func,2,2D,decomp,temptm.c
+0x32757c,temp_point,func,2,2D,decomp,temptm.c
+0x327594,temp_rsd8_ubitmap,func,3,2D,decomp,temptm.c
+0x3275a4,temp_rsd8_bitmap,func,3,2D,decomp,temptm.c
+0x3275c0,gen_urect,func,4,2D,decomp,genrect.c
+0x327610,gen_rect,func,4,2D,decomp,genrect.c
+0x327670,gen_ubox,func,4,2D,decomp,genrect.c
+0x327774,gen_box,func,4,2D,decomp,genrect.c
+0x327840,gri_lit_clut,func,2,2D,decomp,temptm.c; name ours
+0x3278a4,temp_flat8_mask_bitmap,func,4,2D,decomp,temptm.c
+0x3278b4,temp_flat8_clut_ubitmap,func,4,2D,decomp,temptm.c
+0x3278c4,temp_tluc8_ubitmap,func,3,2D,decomp,temptm.c
+0x3278d4,temp_poly,func,3,2D,decomp,temptm.c
+0x327914,temp_upoly,func,3,2D,decomp,temptm.c
+0x327954,temp_spoly,func,3,2D,decomp,temptm.c
+0x327990,temp_uspoly,func,3,2D,decomp,temptm.c
+0x3279cc,temp_cpoly,func,3,2D,decomp,temptm.c
+0x327a08,temp_ucpoly,func,3,2D,decomp,temptm.c
+0x327a44,temp_tpoly,func,3,2D,decomp,temptm.c
+0x327a7c,temp_utpoly,func,3,2D,decomp,temptm.c
+0x327ab8,temp_stpoly,func,3,2D,decomp,temptm.c
+0x327af4,temp_ustpoly,func,3,2D,decomp,temptm.c
+0x327b30,temp_per_map,func,3,2D,decomp,temptm.c
+0x327b68,temp_per_umap,func,3,2D,decomp,temptm.c
+0x327ba0,temp_clut_per_map,func,4,2D,decomp,temptm.c
+0x327be4,temp_clut_per_umap,func,4,2D,decomp,temptm.c
+0x327c28,temp_lit_per_umap,func,3,2D,decomp,temptm.c
+0x327c90,temp_lin_umap,func,3,2D,decomp,temptm.c
+0x327e04,temp_lit_lin_umap,func,3,2D,decomp,temptm.c
+0x327fa0,temp_clut_lin_umap,func,4,2D,decomp,temptm.c
+0x3280f4,temp_bilin_umap,func,3,2D,decomp,temptm.c; unreferenced; name ours
+0x328138,temp_clut_bilin_umap,func,4,2D,decomp,temptm.c; unreferenced; name ours
+0x328164,temp_lit_bilin_umap,func,3,2D,decomp,temptm.c; unreferenced; name ours
+0x3281a8,temp_lin_map,func,3,2D,decomp,temptm.c
+0x3281f4,temp_lit_lin_map,func,3,2D,decomp,temptm.c
+0x328240,temp_clut_lin_map,func,4,2D,decomp,temptm.c
+0x328290,temp_floor_umap,func,3,2D,decomp,temptm.c
+0x3282cc,temp_clut_floor_umap,func,4,2D,decomp,temptm.c
+0x328310,temp_lit_floor_umap,func,3,2D,decomp,temptm.c
+0x32837c,temp_wall_umap,func,3,2D,decomp,temptm.c
+0x3283b8,temp_clut_wall_umap,func,4,2D,decomp,temptm.c
+0x3283fc,temp_lit_wall_umap,func,3,2D,decomp,temptm.c
+0x328468,temp_scale_umap,func,5,2D,decomp,temptm.c
+0x328504,temp_clut_scale_umap,func,6,2D,decomp,temptm.c
+0x3285ac,gri_scale_clip,func,2,2D,decomp,temptm.c
+0x3286ec,temp_scale_map2,func,5,2D,decomp,temptm.c; unreferenced; name ours
+0x328784,temp_scale_map3,func,5,2D,decomp,temptm.c; unreferenced; name ours
+0x32882c,temp_scale_map,func,5,2D,decomp,temptm.c
+0x3288e8,temp_clut_scale_map,func,6,2D,decomp,temptm.c
+0x32a530,temp_flat8_ubitmap,func,3,2D,decomp,temptm.c
+0x3289a0,gen_vox_rect,func,8,2D,decomp,genvrect.c
+0x328c20,gen_vox_poly,func,6,2D,decomp,genvpoly.c
+0x3291b0,gen_vox_cpoly,func,6,2D,decomp,genvcply.c
+0x329980,flat8_interp2_ubitmap,func,1,2D,decomp,fl8ntrp2.c
+0x329b10,flat8_filter2_ubitmap,func,1,2D,decomp,fl8ntrp2.c
+0x329c50,flat8_roll_null,func,0,2D,decomp,gencirc.c; name ours (ROLL entries)
+0x329c60,gen_fix_circle,func,3,2D,decomp,gencirc.c
+0x329cb8,gen_fix_ucircle,func,3,2D,decomp,gencirc.c
+0x329d10,gen_int_circle,func,3,2D,decomp,gencirc.c
+0x329d38,gen_int_ucircle,func,3,2D,decomp,gencirc.c
+0x329d60,gen_fix_disk,func,3,2D,decomp,gencirc.c
+0x329db8,gen_fix_udisk,func,3,2D,decomp,gencirc.c
+0x329e10,gen_int_udisk,func,3,2D,decomp,gencirc.c
+0x329e38,gen_int_disk,func,3,2D,decomp,gencirc.c
+0x329e60,gen_rod_null,func,0,2D,decomp,gencirc.c; name ours (ROD entries)
+0x329e70,flat8_flat8_ubitmap,func,3,2D,decomp,fl8fl8.c
+0x329f70,gen_flat8_ubitmap,func,3,2D,decomp,genfl8.c; bank8 function table GRC_BITMAP
+0x32a050,gen_flat8_bitmap,func,3,2D,decomp,genfl8.c
+0x36ef28,bitmask,data,,2D,orig,uchar[8] {0x80..1} (2d-core range)
+0x32a1f0,flat8_mono_ubitmap,func,3,2D,decomp,fl8mono.c
+0x32a330,gen_mono_ubitmap,func,3,2D,decomp,genmono.c; bank8/modex DRAW_MONO_UBITMAP
+0x32a4a4,gen_mono_bitmap,func,3,2D,decomp,genmono.c
+0x32a560,gen_flat24_ubitmap,func,3,2D,decomp,genf24.c
+0x32a690,gen_flat24_bitmap,func,3,2D,decomp,genf24.c
+0x32a700,gen_tluc8_ubitmap,func,3,2D,decomp,gentl8.c; bank8/modex DRAW_TLUC8_UBITMAP
+0x32a8c0,gen_tluc8_bitmap,func,3,2D,decomp,gentl8.c
+0x35f4e4,grd_unpack_buf,data,,2D,orig,uchar* (RSDCVT.C)
+0x2e0f70,gr_rsd8_convert,func,2,2D,orig,
+0x32ad00,unpack_rsd8_ubitmap,func,3,2D,decomp,genrsdbm.c
+0x32ad40,unpack_rsd8_bitmap,func,3,2D,decomp,genrsdbm.c
+0x32ad88,unpack_rsd8_scale_ubitmap,func,5,2D,decomp,genrsdbm.c
+0x32addc,unpack_rsd8_scale_bitmap,func,5,2D,decomp,genrsdbm.c
+0x32ae34,unpack_rsd8_clut_scale_ubitmap,func,6,2D,decomp,genrsdbm.c
+0x32ae88,unpack_rsd8_clut_scale_bitmap,func,6,2D,decomp,genrsdbm.c
+0x32aee4,unpack_rsd8_clut_ubitmap,func,4,2D,decomp,genrsdbm.c
+0x32af24,unpack_rsd8_clut_bitmap,func,4,2D,decomp,genrsdbm.c
+0x32aa50,gen_flat8_clut_ubitmap,func,4,2D,decomp,genfl8c.c; bank8/modex CLUT_DRAW_FLAT8_UBITMAP
+0x32ab64,gen_flat8_clut_bitmap,func,4,2D,decomp,genfl8c.c
+0x32af70,flat8_mono_scale_ubitmap,func,5,2D,decomp,fl8msclb.c
+0x32b1c0,flat8_mono_scale_bitmap,func,5,2D,decomp,fl8msclb.c; opaque path reads garbage (see file)
+0x32b510,flat8_get_flat8_ubitmap,func,3,2D,decomp,fl8gfl8.c
+0x32b5a0,gen_get_flat8_ubitmap,func,3,2D,decomp,gengfl8.c; modex GET_FLAT8_UBITMAP
+0x32b6b0,gen_get_flat8_bitmap,func,3,2D,decomp,gengfl8.c
+0x32b840,flat8_hflip_flat8_ubitmap,func,3,2D,decomp,fl8hfl8.c
+0x32b8e0,gen_hflip_flat8_ubitmap,func,3,2D,decomp,genhfl8.c; bank8/modex HFLIP_FLAT8_UBITMAP
+0x32b96c,gen_hflip_flat8_bitmap,func,3,2D,decomp,genhfl8.c
+0x32bac0,flat8_clut_hflip_flat8_ubitmap,func,4,2D,decomp,fl8hfl8.c
+0x32bb60,gen_clut_hflip_flat8_ubitmap,func,4,2D,decomp,genhfl8.c; bank8/modex CLUT_HFLIP_FLAT8_UBITMAP
+0x32bc10,gen_clut_hflip_flat8_bitmap,func,4,2D,decomp,genhfl8.c
+0x36df30,gr_sub_bm_enabled,data,,2D,orig,uchar; name ours
+0x36df34,grd_last_sub_bm,data,,2D,orig,uchar*
+0x36df38,grd_last_dsub_bm,data,,2D,orig,uchar*; name ours
+0x36df3c,grd_sub_bm_buffer,data,,2D,orig,uchar* (malloc'd 32x32)
+0x32bd70,flat8_flat8_h_double_ubitmap,func,1,2D,decomp,fl8dbl.c; asm
+0x32be3a,flat8_flat8_smooth_h_double_ubitmap,func,2,2D,decomp,fl8dbl.c; asm
+0x32bee1,flat8_flat8_smooth_hv_double_ubitmap,func,2,2D,decomp,fl8dbl.c; asm
+0x32bfa0,gr_sub_bm_init,func,0,2D,decomp,fl8bldbl.c; name ours; unreferenced
+0x32bfe4,gr_sub_bm_close,func,0,2D,decomp,fl8bldbl.c; name ours; unreferenced
+0x32c010,flat8_flat8_v_double_ubitmap,func,1,2D,decomp,fl8bldbl.c
+0x32c104,gri_flat8_hv_quadruple_sub_bitmap,func,4,2D,decomp,fl8bldbl.c
+0x32c46c,gri_flat8_hv_double_sub_bitmap,func,4,2D,decomp,fl8bldbl.c
+0x32c760,gen_font_ustring,func,4,2D,decomp,genstr.c
+0x32c8a0,gen_font_string,func,4,2D,decomp,genstr.c; differs from Shock
+0x32ccb0,gen_font_scale_ustring,func,6,2D,decomp,genstr.c
+0x32ceb0,gen_font_scale_string,func,6,2D,decomp,genstr.c
+0x32d0b0,gen_font_uchar,func,4,2D,decomp,genchr.c
+0x32d1b0,gen_font_char,func,4,2D,decomp,genchr.c
+0x32d2b0,flat8_calc_row,func,1,2D,decomp,fl8row.c
+0x32d2c0,flat8_sub_bitmap,func,3,2D,decomp,fl8row.c; TN: bits only
+0x32d2e0,gri_poly_loop,func,1,2D,decomp,fl8plyl.c
+0x324e50,gen_fix_cline,func,6,2D,decomp,genclin.c
+0x324ee0,gri_cline_clip_fill,func,4,2D,decomp,genclin.c
+0x324f40,gri_wire_poly_cline_clip_fill,func,4,2D,decomp,genclin.c
+0x324f98,gri_wire_poly_line_clip_fill,func,4,2D,decomp,genclin.c
+0x325470,gr_clip_fix_code,func,2,2D,decomp,clpfix.c
+0x3254c4,gr_clip_fix_line4,func,4,2D,decomp,clpfix.c; Shock gr_clip_fix_line (4 ptrs); name ours
+0x325890,gri_sline_clip,func,2,2D,decomp,clpslin.c
+0x325a70,init_inverse_table,func,0,2D,decomp,recip.c; name from 2d-core
+0x325ab0,gri_clip_order_x,func,2,2D,decomp,clpply.c; name ours; unreferenced

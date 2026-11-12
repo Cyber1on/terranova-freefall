@@ -1,0 +1,156 @@
+address,name,kind,nargs,library,status,notes
+0x27c120,damage_27C120,func,6,GAME,decomp,aircinit.c (M038)
+0x27c20c,damage_27C20C,func,4,GAME,decomp,aircinit.c (M038)
+0x27c360,damage_27C360,func,1,GAME,decomp,aircinit.c (M038)
+0x27c840,damage_27C840,func,3,GAME,decomp,cursctrl.c (M040)
+0x27c880,damage_27C880,func,1,GAME,decomp,cursctrl.c (M040)
+0x27c8b8,damage_27C8B8,func,3,GAME,decomp,cursctrl.c (M040)
+0x27c9c4,damage_27C9C4,func,4,GAME,decomp,cursctrl.c (M040)
+0x27c9f4,damage_27C9F4,func,1,GAME,decomp,cursctrl.c (M040)
+0x27c9fc,CursCtrlDrawStickyCursor,func,3,GAME,decomp,cursctrl.c (M040)
+0x27cadc,damage_27CADC,func,6,GAME,decomp,cursctrl.c (M040)
+0x27cb58,damage_27CB58,func,2,GAME,decomp,cursctrl.c (M040)
+0x27cca0,damage_27CCA0,func,5,GAME,decomp,dmgsys.c (M040)
+0x27cde4,DamageInitSystems,func,4,GAME,decomp,dmgsys.c (M040)
+0x27d610,damage_27D610,func,4,GAME,decomp,statinit.c (M043)
+0x27d6e8,damage_27D6E8,func,3,GAME,decomp,statinit.c (M043)
+0x27e1e0,damage_27E1E0,func,5,GAME,decomp,dmgrec.c (M047)
+0x2822f0,vec3_2822F0,func,1,GAME,decomp,ragdoll.c (M050)
+0x28236c,vec3_28236C,func,2,GAME,decomp,ragdoll.c (M050)
+0x2823dc,vec3_2823DC,func,0,GAME,decomp,ragdoll.c (M050)
+0x282450,vec3_282450,func,3,GAME,decomp,ragdoll.c (M050)
+0x2824c8,vec3_2824C8,func,1,GAME,decomp,ragdoll.c (M050)
+0x2825dc,vec3_2825DC,func,2,GAME,decomp,ragdoll.c (M050)
+0x282cbc,vec3_282CBC,func,2,GAME,decomp,ragdoll.c (M050)
+0x282cfc,vec3_282CFC,func,5,GAME,decomp,ragdoll.c (M050)
+0x283240,vec3_283240,func,0,GAME,decomp,ragdoll.c (M050)
+0x283260,vec3_283260,func,0,GAME,decomp,ragdoll.c (M050)
+0x28e850,vehsim_28E850,func,1,GAME,decomp,vehsim.c (M062)
+0x28e8e4,vehsim_28E8E4,func,2,GAME,decomp,vehsim.c (M062)
+0x28e9c0,vehsim_28E9C0,func,1,GAME,decomp,vehsim.c (M062)
+0x28eaa0,vehsim_28EAA0,func,1,GAME,decomp,vehsim.c (M062)
+0x28ec5c,vehsim_28EC5C,func,1,GAME,decomp,vehsim.c (M062)
+0x28ecc4,vehsim_28ECC4,func,5,GAME,decomp,vehsim.c (M062)
+0x28ed68,vehsim_28ED68,func,1,GAME,decomp,vehsim.c (M062)
+0x28edc0,vehsim_28EDC0,func,6,GAME,decomp,vehsim.c (M062)
+0x28ef14,vehsim_28EF14,func,6,GAME,decomp,vehsim.c (M062)
+0x2d3690,physics_2D3690,func,0,GAME,decomp,physglue.c (M115)
+0x2d3694,physics_2D3694,func,0,GAME,decomp,physglue.c (M115)
+0x2d37b8,physics_2D37B8,func,0,GAME,decomp,physglue.c (M115)
+0x2d38bc,physics_2D38BC,func,0,GAME,decomp,physglue.c (M115)
+0x2d3904,PhysicsFrame,func,0,GAME,decomp,physglue.c (M115)
+0x2d398c,physics_2D398C,func,0,GAME,decomp,physglue.c (M115)
+0x2d3994,PhysicsSoliton,func,1,GAME,decomp,physglue.c (M115)
+0x2d3b54,physics_2D3B54,func,0,GAME,decomp,physglue.c (M115)
+0x2d3bfc,physics_2D3BFC,func,2,GAME,decomp,physglue.c (M115)
+0x2d3c80,physics_2D3C80,func,1,GAME,decomp,physglue.c (M115)
+0x2d3e74,physics_2D3E74,func,4,GAME,decomp,physglue.c (M115)
+0x2d3ee4,physics_2D3EE4,func,2,GAME,decomp,physglue.c (M115)
+0x2d3f20,physics_2D3F20,func,1,GAME,decomp,physglue.c (M115)
+0x2d3f78,physics_2D3F78,func,2,GAME,decomp,physglue.c (M115)
+0x2d3fb8,physics_2D3FB8,func,1,GAME,decomp,physglue.c (M115)
+0x2d4174,physics_2D4174,func,1,GAME,decomp,physglue.c (M115)
+0x2d42e0,physics_2D42E0,func,1,GAME,decomp,physglue.c (M115)
+0x2d43dc,physics_2D43DC,func,1,GAME,decomp,physglue.c (M115)
+0x2d44c0,physics_2D44C0,func,1,GAME,decomp,physglue.c (M115)
+0x2d4544,physics_2D4544,func,1,GAME,decomp,physglue.c (M115)
+0x2d455c,physics_2D455C,func,1,GAME,decomp,physglue.c (M115)
+0x2d45cc,physics_2D45CC,func,1,GAME,decomp,physglue.c (M115)
+0x2d467c,physics_2D467C,func,1,GAME,decomp,physglue.c (M115)
+0x2d4794,physics_2D4794,func,3,GAME,decomp,physglue.c (M115)
+0x2d47d8,physics_2D47D8,func,3,GAME,decomp,physglue.c (M115)
+0x2d4a70,physics_2D4A70,func,0,GAME,decomp,physglue.c (M115)
+0x2d4a90,FF_terrain,func,5,GAME,decomp,physglue.c (M115)
+0x2d5c90,physics_2D5C90,func,5,GAME,decomp,physglue.c (M115)
+0x2d5cb8,Terrain,func,3,GAME,decomp,physglue.c (M115)
+0x2d637c,physics_2D637C,func,3,GAME,decomp,physglue.c (M115)
+0x2d64e8,physics_2D64E8,func,9,GAME,decomp,physglue.c (M115)
+0x2d6578,physics_2D6578,func,0,GAME,decomp,physglue.c (M115)
+0x2d65f8,physics_2D65F8,func,1,GAME,decomp,physglue.c (M115)
+0x2d6644,physics_2D6644,func,2,GAME,decomp,physglue.c (M115)
+0x2d672c,physics_2D672C,func,8,GAME,decomp,physglue.c (M115)
+0x2d6a44,physics_2D6A44,func,6,GAME,decomp,physglue.c (M115)
+0x2d6a70,physics_2D6A70,func,3,GAME,decomp,physglue.c (M115)
+0x2d6c18,physics_2D6C18,func,5,GAME,decomp,physglue.c (M115)
+0x2d6d44,physics_2D6D44,func,2,GAME,decomp,physglue.c (M115)
+0x2d70c0,physics_2D70C0,func,0,GAME,decomp,physglue.c (M115)
+0x2d7140,physics_2D7140,func,3,GAME,decomp,physglue.c (M115)
+0x2d7178,physics_2D7178,func,0,GAME,decomp,physglue.c (M115)
+0x2d7718,physics_2D7718,func,1,GAME,decomp,physglue.c (M115)
+0x2d777c,physics_2D777C,func,2,GAME,decomp,physglue.c (M115)
+0x2d7788,physics_2D7788,func,1,GAME,decomp,physglue.c (M115)
+0x2d77b8,physics_2D77B8,func,1,GAME,decomp,physglue.c (M115)
+0x2d77dc,physics_2D77DC,func,1,GAME,decomp,physglue.c (M115)
+0x2d7824,physics_2D7824,func,3,GAME,decomp,physglue.c (M115)
+0x395bd8,game_pba_types,data,,GAME,orig,game.h class 1 types (0x46 bytes)
+0x395850,game_veh_types,data,,GAME,orig,game.h class 2 types (0x36 bytes)
+0x3964b0,game_cls3_types,data,,GAME,orig,game.h class 3 types (0x37 bytes)
+0x396404,game_cls4_types,data,,GAME,orig,game.h class 4 types (9 bytes)
+0x3960c4,game_cls0_types,data,,GAME,orig,game.h class 0 types (3 bytes)
+0x3ba080,game_cls0,data,,GAME,orig,g3_a.h class 0 pool records (9 bytes)
+0x35b60c,game_35B60C,data,,GAME,orig,g3_a.h short aircraft entity of type 10
+0x392460,cursctrl_player,data,,GAME,orig,g3_a.h CursCtrl
+0x39246c,cursctrl_aircraft,data,,GAME,orig,g3_a.h CursCtrl
+0x392478,cursctrl_other,data,,GAME,orig,g3_a.h CursCtrl
+0x392484,game_392484,data,,GAME,orig,g3_a.h long
+0x392488,game_392488,data,,GAME,orig,g3_a.h uchar
+0x35b618,cursctrl_xlim,data,,GAME,orig,g3_a.h long[4]
+0x35b628,cursctrl_ylim,data,,GAME,orig,g3_a.h long[5]
+0x35b63c,cursctrl_refs,data,,GAME,orig,g3_a.h long[]
+0x35b66c,cursctrl_mask,data,,GAME,orig,g3_a.h ushort
+0x396318,game_hp_cls1,data,,GAME,orig,g3_a.h
+0x395bb4,game_hp_cls2,data,,GAME,orig,g3_a.h
+0x3963ce,game_hp_cls3,data,,GAME,orig,g3_a.h
+0x396178,game_hp_cls4,data,,GAME,orig,g3_a.h
+0x395608,game_sys_cls1,data,,GAME,orig,g3_a.h
+0x3955d8,game_sys_cls2,data,,GAME,orig,g3_a.h
+0x3962b2,game_sys_cls3,data,,GAME,orig,g3_a.h
+0x395b20,game_sys_cls4,data,,GAME,orig,g3_a.h
+0x396374,game_hp_skill_a,data,,GAME,orig,g3_a.h short[]
+0x3963a6,game_hp_skill_b,data,,GAME,orig,g3_a.h short[]
+0x39637e,game_sys_skill_a,data,,GAME,orig,g3_a.h short[]
+0x3963b0,game_sys_skill_b,data,,GAME,orig,g3_a.h short[]
+0x392500,ragdoll_used,data,,GAME,orig,g3_a.h uchar[12]
+0x39250c,ragdoll_recs,data,,GAME,orig,g3_a.h 12 x 0x3A9 records
+0x35b6a4,ragdoll_cam,data,,GAME,orig,g3_a.h fix *
+0x3950f8,ragdoll_cur,data,,GAME,orig,g3_a.h uchar *
+0x3950fc,ragdoll_camdir,data,,GAME,orig,g3_a.h fix[3]
+0x395108,ragdoll_p0,data,,GAME,orig,g3_a.h fix *
+0x39510c,ragdoll_p1,data,,GAME,orig,g3_a.h fix *
+0x397a40,vehsim_397A40,data,,GAME,orig,g3_a.h long[2]
+0x446380,phys_marble_a,data,,GAME,orig,g3_a.h Marble
+0x4463a8,phys_marble_b,data,,GAME,orig,g3_a.h Marble
+0x4463d0,phys_marble_c,data,,GAME,orig,g3_a.h Marble
+0x35ed14,phys_last_time,data,,GAME,orig,g3_a.h ulong
+0x35ed18,ff_bit,data,,GAME,orig,g3_a.h long
+0x35ed1c,phys_checksum,data,,GAME,orig,g3_a.h long
+0x35ed20,ff_cache,data,,GAME,orig,g3_a.h long[4]
+0x35ed30,ff_fast,data,,GAME,orig,g3_a.h uchar
+0x44659a,phys_ready,data,,GAME,orig,g3_a.h uchar
+0x446578,phys_nrec,data,,GAME,orig,g3_a.h long
+0x44657c,phys_ntiles,data,,GAME,orig,g3_a.h long
+0x446580,phys_tiles,data,,GAME,orig,g3_a.h void *
+0x446584,phys_nhits,data,,GAME,orig,g3_a.h long
+0x446588,phys_hits,data,,GAME,orig,g3_a.h void *
+0x441359,game_441359,data,,GAME,orig,g3_a.h long
+0x36f490,game_36F490,data,,GAME,orig,g3_a.h long
+0x41dd84,terrain_bitmask,data,,GAME,orig,g3_a.h ulong
+0x44659c,game_44659C,data,,GAME,orig,g3_a.h uchar (g3b name)
+0x4465a0,ff_nobj,data,,GAME,orig,g3_a.h long
+0x4465a2,ff_objs,data,,GAME,orig,g3_a.h short[0x15]
+0x4465cc,ff_h11,data,,GAME,orig,g3_a.h fix
+0x4465d0,ff_h10,data,,GAME,orig,g3_a.h fix
+0x4465d4,ff_h01,data,,GAME,orig,g3_a.h fix
+0x4465d8,ff_h00,data,,GAME,orig,g3_a.h fix
+0x4465dc,ff_p11,data,,GAME,orig,g3_a.h uchar *
+0x4465e0,ff_p10,data,,GAME,orig,g3_a.h uchar *
+0x4465e4,ff_p01,data,,GAME,orig,g3_a.h uchar *
+0x4465e8,ff_p00,data,,GAME,orig,g3_a.h uchar *
+0x41dd60,terrain_cornerbits,data,,GAME,orig,g3_a.h uchar *
+0x41da30,terrain_typebits,data,,GAME,orig,g3_a.h uchar[16][8]
+0x41da28,game_41DA28,data,,GAME,orig,g3_a.h uchar[] (g3b name)
+0x41dd58,game_41DD58,data,,GAME,orig,g3_a.h uchar * (g3b name)
+0x41db50,terrain_kinds,data,,GAME,orig,g3_a.h fix[][3]
+0x41dad0,terrain_kindtab,data,,GAME,orig,g3_a.h uchar[][2]
+0x442fe0,phys_cols,data,,GAME,orig,g3_a.h PhysCol[0x20]
+0x35ed34,phys_msg,data,,GAME,orig,g3_a.h long[2]

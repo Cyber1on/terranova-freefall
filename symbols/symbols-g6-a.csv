@@ -1,0 +1,116 @@
+address,name,kind,nargs,library,status,notes
+0x2b2930,thunder_2B2930,func,4,GAME,decomp,"colras.c asm: ebx depth, ecx height -> hz_sx/hz_sy (M094)"
+0x2b29b0,thunder_2B29B0,func,4,GAME,decomp,"colras.c asm: ebx StripRas, ecx count (0 runs away); self-modifying (M094)"
+0x2b2ad8,thunder_2B2AD8,func,3,GAME,decomp,colras.c asm: ebx StripRas; patches rows/row into both loops (M094)
+0x2b2a1f,colras_fade_loop,data,,GAME,orig,"colras.c code label: fading column loop (patched immediates; map's thunder_2B2A1F, not a function)"
+0x2b2b4f,colras_flat_loop,data,,GAME,orig,"colras.c code label: flat column loop (patched immediates; map's thunder_2B2B4F, not a function)"
+0x2b2bf0,thunder_2B2BF0,func,0,GAME,decomp,thunder.c reset the bolt pools (M094)
+0x2b2c38,bolt_find_free,func,0,GAME,decomp,thunder.c (no callers) free bolt slot 1..7 (M094)
+0x2b2c60,bolt_seg_alloc,func,0,GAME,decomp,thunder.c (M094)
+0x2b2cb8,bolt_pt_alloc,func,0,GAME,decomp,thunder.c (M094)
+0x2b2d10,bolt_pt_release,func,1,GAME,decomp,thunder.c (no callers) (M094)
+0x2b2d3c,bolt_seg_release,func,1,GAME,decomp,thunder.c (M094)
+0x2b2dbc,thunder_2B2DBC,func,1,GAME,decomp,thunder.c free a bolt (M094)
+0x2b2e34,bolt_seg_unlink,func,2,GAME,decomp,thunder.c (M094)
+0x2b2e80,bolt_seg_extend,func,1,GAME,decomp,thunder.c (M094)
+0x2b2ed4,bolt_seg_new,func,1,GAME,decomp,thunder.c (M094)
+0x2b2f04,bolt_seg_branch,func,2,GAME,decomp,thunder.c (M094)
+0x2b2f44,bolt_dir_set,func,2,GAME,decomp,thunder.c (no callers) (M094)
+0x2b2f78,bolt_dir_normalize,func,0,GAME,decomp,thunder.c (M094)
+0x2b300c,bolt_dir_jitter,func,0,GAME,decomp,thunder.c (M094)
+0x2b3098,bolt_seg_step,func,5,GAME,decomp,thunder.c (M094)
+0x2b3170,bolt_seg_life,func,1,GAME,decomp,thunder.c (M094)
+0x2b31dc,bolt_branch,func,3,GAME,decomp,thunder.c (M094)
+0x2b3244,bolt_pt_underground,func,1,GAME,decomp,thunder.c (M094)
+0x2b32bc,thunder_2B32BC,func,2,GAME,decomp,thunder.c set scale / step (M094)
+0x2b32c8,bolt_grow,func,1,GAME,decomp,thunder.c (M094)
+0x2b33e4,thunder_2B33E4,func,2,GAME,decomp,thunder.c grow n steps (M094)
+0x2b3404,thunder_2B3404,func,2,GAME,decomp,thunder.c new bolt (M094)
+0x2b3628,bolt_draw_line,func,3,GAME,decomp,thunder.c callback (M094)
+0x2b365c,bolt_draw_wide,func,3,GAME,decomp,thunder.c (M094)
+0x2b36a4,bolt_walk,func,2,GAME,decomp,thunder.c (M094)
+0x2b372c,bolt_draw_simple,func,3,GAME,decomp,thunder.c (M094)
+0x2b3788,bolt_draw_far,func,3,GAME,decomp,thunder.c callback (M094)
+0x2b3824,bolt_draw_near,func,3,GAME,decomp,thunder.c callback (M094)
+0x2b3898,thunder_2B3898,func,4,GAME,decomp,thunder.c draw a bolt (M094)
+0x438ee0,bolt_head,data,,GAME,orig,thunder.c uchar[8]
+0x438ee8,bolt_seg,data,,GAME,orig,thunder.c BoltSeg[0x100]
+0x4396e8,bolt_pt,data,,GAME,orig,thunder.c BoltPt[0x200]
+0x43b6e8,bolt_root,data,,GAME,orig,thunder.c short[8]
+0x43b6f8,bolt_ybuf,data,,GAME,orig,thunder.c long *
+0x43b6fc,bolt_width_branch,data,,GAME,orig,thunder.c fix
+0x43b700,bolt_width_main,data,,GAME,orig,thunder.c fix
+0x43b704,bolt_len,data,,GAME,orig,thunder.c long
+0x43b708,bolt_dist,data,,GAME,orig,thunder.c fix
+0x43b70c,bolt_dir,data,,GAME,orig,thunder.c fix[3]
+0x43b720,bolt_seg_nfree,data,,GAME,orig,thunder.c long
+0x43b724,bolt_pt_nfree,data,,GAME,orig,thunder.c long
+0x43b728,bolt_col_branch,data,,GAME,orig,thunder.c uchar
+0x43b729,bolt_col_main,data,,GAME,orig,thunder.c uchar
+0x35cc90,bolt_pt_next,data,,GAME,orig,thunder.c long
+0x35cc94,bolt_seg_next,data,,GAME,orig,thunder.c long
+0x35cc98,bolt_seg_free,data,,GAME,orig,thunder.c long
+0x35cc9c,bolt_pt_free,data,,GAME,orig,thunder.c long
+0x35cca0,bolt_scale,data,,GAME,orig,thunder.c fix
+0x35cca4,bolt_step,data,,GAME,orig,thunder.c fix
+0x35cca8,bolt_fade_main,data,,GAME,orig,thunder.c uchar[0x21]
+0x35ccc9,bolt_fade_branch,data,,GAME,orig,thunder.c uchar[0x21]
+0x29ac50,drawobj_29AC50,func,0,GAME,decomp,drawobj.c unlock model tables (M076)
+0x29aca8,drawobj_29ACA8,func,2,GAME,decomp,drawobj.c draw setup (DrawInfo) (M076)
+0x29aed0,drawobj_29AED0,func,1,GAME,decomp,drawobj.c (no refs) (M076)
+0x29af44,ff_image_model_width,func,1,GAME,decomp,drawobj.c sprite width (M076)
+0x29af98,drawobj_29AF98,func,2,GAME,decomp,drawobj.c draw an entity (M076)
+0x29b170,drawobj_29B170,func,5,GAME,decomp,drawobj.c model offset (M076)
+0x29b234,drawobj_29B234,func,1,GAME,decomp,drawobj.c pose skeleton (M076)
+0x29b2c0,drawobj_29B2C0,func,5,GAME,decomp,drawobj.c PBA hand position (M076)
+0x29b3ac,drawobj_29B3AC,func,2,GAME,decomp,drawobj.c start object (map said 3; 2 used) (M076)
+0x29b43c,drawobj_29B43C,func,0,GAME,decomp,drawobj.c (no refs) end object (M076)
+0x29b448,drawobj_29B448,func,3,GAME,decomp,drawobj.c lock / unlock a texture (M076)
+0x29b488,drawobj_29B488,func,2,GAME,decomp,drawobj.c model textures (M076)
+0x29b4d0,drawobj_29B4D0,func,1,GAME,decomp,drawobj.c highlight colour (M076)
+0x29b54c,drawobj_29B54C,func,2,GAME,decomp,drawobj.c draw a 3D model (M076)
+0x29b694,drawobj_29B694,func,1,GAME,decomp,drawobj.c debris textures (M076)
+0x29b730,drawobj_29B730,func,2,GAME,decomp,drawobj.c textured plate (M076)
+0x29ba3c,drawobj_29BA3C,func,0,GAME,decomp,drawobj.c nav marker (M076)
+0x29bc60,drawobj_29BC60,func,2,GAME,decomp,drawobj.c grow a rect by a point (M076)
+0x29bcf0,drawobj_29BCF0,func,3,GAME,decomp,drawobj.c model screen rect (M076)
+0x29be28,drawobj_29BE28,func,3,GAME,decomp,drawobj.c model bounding box (M076)
+0x29be78,drawobj_29BE78,func,4,GAME,decomp,drawobj.c draw a sprite (M076)
+0x29c114,drawobj_29C114,func,6,GAME,decomp,drawobj.c limb vector (M076)
+0x29c1dc,drawobj_29C1DC,func,4,GAME,decomp,drawobj.c bend a limb (M076)
+0x29c348,drawobj_29C348,func,2,GAME,decomp,drawobj.c (no refs) vector add (M076)
+0x29c36c,drawobj_29C36C,func,1,GAME,decomp,drawobj.c half angle around 0xC000 (M076)
+0x29c39c,drawobj_29C39C,func,1,GAME,decomp,drawobj.c half angle (M076)
+0x29c3ac,drawobj_29C3AC,func,2,GAME,decomp,drawobj.c joints -> skeleton (M076)
+0x29c448,drawobj_29C448,func,3,GAME,decomp,drawobj.c one bone -> skeleton (M076)
+0x29c508,drawobj_29C508,func,2,GAME,decomp,drawobj.c pose a PBA (M076)
+0x29c864,drawobj_29C864,func,1,GAME,decomp,drawobj.c draw a PBA (M076)
+0x29ca48,drawobj_29CA48,func,1,GAME,decomp,drawobj.c draw a ragdoll (M076)
+0x29cba4,drawobj_29CBA4,func,2,GAME,decomp,drawobj.c entity screen point (M076)
+0x29cce0,drawobj_29CCE0,func,2,GAME,decomp,drawobj.c entity screen rect (M076)
+0x29cf2c,drawobj_29CF2C,func,3,GAME,decomp,drawobj.c (no refs) rect grow (M076)
+0x29cf68,drawobj_29CF68,func,1,GAME,decomp,drawobj.c (no refs) rect scale (M076)
+0x29cfc4,drawobj_29CFC4,func,7,GAME,decomp,drawobj.c 3D line (M076)
+0x29d238,drawobj_29D238,func,6,GAME,decomp,drawobj.c clip intersection (M076)
+0x29d284,drawobj_29D284,func,3,GAME,decomp,drawobj.c (no refs) outcode (M076)
+0x29d2b0,drawobj_29D2B0,func,8,GAME,decomp,drawobj.c wide 3D line (M076)
+0x29da60,drawobj_29DA60,func,8,GAME,decomp,drawobj.c world -> view / screen (M076)
+0x29dc20,drawobj_29DC20,func,1,GAME,decomp,drawobj.c vehicle pitch (M076)
+0x29dd64,drawobj_29DD64,func,2,GAME,decomp,drawobj.c model pitch (M076)
+0x29de8c,drawobj_29DE8C,func,1,GAME,decomp,drawobj.c beam (M076)
+0x29df38,drawobj_29DF38,func,1,GAME,decomp,drawobj.c particles (M076)
+0x29e0dc,drawobj_29E0DC,func,1,GAME,decomp,drawobj.c (no refs) bolt (M076)
+0x41e21c,drawobj_cls3_models,data,,GAME,orig,drawobj.c uchar *
+0x41e220,drawobj_cls2_models,data,,GAME,orig,drawobj.c uchar *
+0x35c050,drawobj_flat,data,,GAME,orig,drawobj.c uchar
+0x35c054,drawobj_plate,data,,GAME,orig,drawobj.c g3s_vector[4]
+0x35c084,drawobj_nav_shape,data,,GAME,orig,drawobj.c g3s_vector[5]
+0x35c0c0,wl_vlist,data,,GAME,orig,drawobj.c grs_vertex *[8]
+0x41e0d0,wl_verts,data,,GAME,orig,drawobj.c grs_vertex[8]
+0x41e210,drawobj_nav_sx,data,,GAME,orig,drawobj.c long
+0x41e214,drawobj_nav_sy,data,,GAME,orig,drawobj.c long
+0x41e228,drawobj_nav_turn,data,,GAME,orig,drawobj.c ushort
+0x41e22c,drawobj_pose,data,,GAME,orig,drawobj.c long[3]
+0x35b1a0,drawobj_35B1A0,data,,GAME,orig,drawobj.c long
+0x38fb12,drawobj_38FB12,data,,GAME,orig,drawobj.c short
+0x38fff4,ffpipe_38FFF4,data,,GAME,orig,drawobj.c long nav point y

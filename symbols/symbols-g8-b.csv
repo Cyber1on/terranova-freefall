@@ -1,0 +1,123 @@
+address,name,kind,nargs,library,status,notes
+0x266320,mfddata_266320,func,0,GAME,decomp,mfddata.c M019
+0x266340,mfddata_266340,func,0,GAME,decomp,mfddata.c M019
+0x266390,mfddata_266390,func,5,GAME,decomp,mfddata.c M019
+0x26645c,mfddata_26645C,func,1,GAME,decomp,mfddata.c M019
+0x2664ac,mfddata_2664AC,func,1,GAME,decomp,mfddata.c M019
+0x2665b4,mfddata_2665B4,func,1,GAME,decomp,mfddata.c M019
+0x2665e8,mfddata_2665E8,func,1,GAME,decomp,mfddata.c M019
+0x266618,mfddata_266618,func,3,GAME,decomp,mfddata.c M019
+0x266680,mfddata_266680,func,3,GAME,decomp,mfddata.c M019
+0x2666e4,mfddata_2666E4,func,3,GAME,decomp,mfddata.c M019
+0x266748,mfddata_266748,func,2,GAME,decomp,mfddata.c M019
+0x2667ac,mfddata_2667AC,func,2,GAME,decomp,mfddata.c M019
+0x266860,mfddata_266860,func,2,GAME,decomp,mfddata.c M019
+0x266a4c,mfddata_266A4C,func,0,GAME,decomp,mfddata.c M019
+0x266af4,mfddata_266AF4,func,3,GAME,decomp,mfddata.c M019
+0x266c64,mfddata_266C64,func,0,GAME,decomp,mfddata.c M019
+0x266c90,mfddata_266C90,func,0,GAME,decomp,mfddata.c M019
+0x266e84,mfddata_266E84,func,0,GAME,decomp,mfddata.c M019
+0x266eac,mfddata_266EAC,func,0,GAME,decomp,mfddata.c M019
+0x2670b8,mfddata_2670B8,func,0,GAME,decomp,mfddata.c M019
+0x267158,mfddata_267158,func,2,GAME,decomp,mfddata.c M019
+0x267198,mfddata_267198,func,0,GAME,decomp,mfddata.c M019
+0x267224,mfddata_267224,func,4,GAME,decomp,mfddata.c M019
+0x26747c,mfddata_26747C,func,0,GAME,decomp,mfddata.c M019
+0x2675b4,mfddata_2675B4,func,0,GAME,decomp,mfddata.c M019
+0x267690,mfddata_267690,func,3,GAME,decomp,mfddata.c M019
+0x26773c,mfddata_26773C,func,0,GAME,decomp,mfddata.c M019
+0x26776c,mfddata_26776C,func,1,GAME,decomp,mfddata.c M019
+0x2677b4,mfddata_2677B4,func,3,GAME,decomp,mfddata.c M019
+0x267824,mfddata_267824,func,1,GAME,decomp,mfddata.c M019
+0x267840,mfddata_267840,func,2,GAME,decomp,mfddata.c M019
+0x267870,mfddata_267870,func,0,GAME,decomp,mfddata.c M019
+0x2679cc,mfddata_2679CC,func,0,GAME,decomp,mfddata.c M019
+0x2679d0,mfddata_2679D0,func,1,GAME,decomp,mfddata.c M019
+0x267a30,mfddata_267A30,func,1,GAME,decomp,mfddata.c M019
+0x267a90,mfddata_267A90,func,1,GAME,decomp,mfddata.c M019
+0x267af0,mfddata_267AF0,func,1,GAME,decomp,mfddata.c M019
+0x271c60,mfdpage_271C60,func,2,GAME,decomp,mfdairpg.c M024
+0x271c94,mfdpage_271C94,func,1,GAME,decomp,mfdairpg.c M024
+0x271d60,mfdpage_271D60,func,0,GAME,decomp,mfdwpnpg.c M025
+0x271dac,mfdpage_271DAC,func,2,GAME,decomp,mfdwpnpg.c M025
+0x271e08,mfdpage_271E08,func,1,GAME,decomp,mfdwpnpg.c M025
+0x271e14,mfdpage_271E14,func,1,GAME,decomp,mfdwpnpg.c M025
+0x272100,mfdpage_272100,func,5,GAME,decomp,mfdwpnpg.c M025
+0x35aac0,mfd_35AAC0,data,,GAME,orig,g8_b.h uchar AI message flag
+0x35aac4,mfd_35AAC4,data,,GAME,orig,g8_b.h uchar[6] parts per group
+0x35aacb,mfd_35AACB,data,,GAME,orig,g8_b.h uchar part dx
+0x35aacc,mfd_35AACC,data,,GAME,orig,g8_b.h uchar part dy
+0x35aad0,mfd_35AAD0,data,,GAME,orig,g8_b.h uchar[][11] part defs
+0x35add2,mfd_35ADD2,data,,GAME,orig,g8_b.h ushort
+0x35add4,mfd_35ADD4,data,,GAME,orig,g8_b.h ushort
+0x35addc,mfd_35ADDC,data,,GAME,orig,g8_b.h uchar anim running
+0x35b3ed,mfd_35B3ED,data,,GAME,orig,g8_b.h uchar[] member colours
+0x38bb00,mfd_38BB00,data,,GAME,orig,g8_b.h uchar[5][0x78] damage links
+0x38bce0,mfd_38BCE0,data,,GAME,orig,g8_b.h SuitPart *[70]
+0x38bdf8,mfd_38BDF8,data,,GAME,orig,g8_b.h SuitPart *[10] group last/first
+0x38be20,mfd_38BE20,data,,GAME,orig,g8_b.h uchar[0x46] part state
+0x38be68,mfd_38BE68,data,,GAME,orig,g8_b.h SuitPart[70]
+0x390349,mfd_390349,data,,GAME,orig,g8_b.h uchar[][0x1EE]
+0x35b278,mfd_35B278,data,,GAME,orig,g8_b.h Ref[] weapon pictures
+0x272980,hview3d_272980,func,2,GAME,decomp,hview3d.c M028
+0x272a48,hview3d_272A48,func,2,GAME,decomp,hview3d.c M028
+0x272cfc,hview3d_272CFC,func,1,GAME,decomp,hview3d.c M028
+0x272dbc,hview3d_272DBC,func,2,GAME,decomp,hview3d.c M028
+0x272e84,hview3d_272E84,func,1,GAME,decomp,hview3d.c M028
+0x272f10,hview3d_272F10,func,2,GAME,decomp,hview3d.c M028
+0x273020,hview3d_273020,func,2,GAME,decomp,hview3d.c M028
+0x273500,hview3d_273500,func,1,GAME,decomp,hview3d.c M028
+0x2739f4,hview3d_2739F4,func,2,GAME,decomp,hview3d.c M028
+0x273a5c,hview3d_273A5C,func,2,GAME,decomp,hview3d.c M028
+0x273ac4,hview3d_273AC4,func,1,GAME,decomp,hview3d.c M028
+0x273adc,hview3d_273ADC,func,1,GAME,decomp,hview3d.c M028
+0x273b04,hview3d_273B04,func,2,GAME,decomp,hview3d.c M028
+0x273cac,hview3d_273CAC,func,1,GAME,decomp,hview3d.c M028
+0x273cfc,hview3d_273CFC,func,2,GAME,decomp,hview3d.c M028
+0x273d40,hview3d_273D40,func,2,GAME,decomp,hview3d.c M028
+0x273e08,hview3d_273E08,func,2,GAME,decomp,hview3d.c M028
+0x2740c8,hview3d_2740C8,func,1,GAME,decomp,hview3d.c M028
+0x27414c,hview3d_27414C,func,0,GAME,decomp,hview3d.c M028
+0x274184,hview3d_274184,func,1,GAME,decomp,hview3d.c M028
+0x27421c,hview3d_27421C,func,1,GAME,decomp,hview3d.c M028
+0x27434c,hview3d_27434C,func,0,GAME,decomp,hview3d.c M028
+0x274394,hview3d_274394,func,0,GAME,decomp,hview3d.c M028
+0x2743dc,hview3d_2743DC,func,0,GAME,decomp,hview3d.c M028
+0x274410,hview3d_274410,func,0,GAME,decomp,hview3d.c M028
+0x2744d0,hview3d_2744D0,func,0,GAME,decomp,hview3d.c M028
+0x274510,hview3d_274510,func,1,GAME,decomp,hview3d.c M028
+0x274538,hview3d_274538,func,3,GAME,decomp,hview3d.c M028
+0x274570,hview3d_274570,func,3,GAME,decomp,hview3d.c M028
+0x274670,hview3d_274670,func,2,GAME,decomp,hview3d.c M028
+0x274b00,hview3d_274B00,func,4,GAME,decomp,hview3d.c M028
+0x274c30,hview3d_274C30,func,1,GAME,decomp,hview3d.c M028
+0x274da4,hview3d_274DA4,func,1,GAME,decomp,hview3d.c M028
+0x2750cc,hview3d_2750CC,func,1,GAME,decomp,hview3d.c M028
+0x275260,hview3d_275260,func,1,GAME,decomp,hview3d.c M028
+0x2754fc,hview3d_2754FC,func,2,GAME,decomp,hview3d.c M028
+0x275654,hview3d_275654,func,2,GAME,decomp,hview3d.c M028
+0x2757a0,hview3d_2757A0,func,5,GAME,decomp,hview3d.c M028
+0x2757c4,hview3d_2757C4,func,1,GAME,decomp,hview3d.c M028
+0x2757f8,hview3d_2757F8,func,2,GAME,decomp,hview3d.c M028
+0x275830,hview3d_275830,func,1,GAME,decomp,hview3d.c M028
+0x275988,hview3d_275988,func,1,GAME,decomp,hview3d.c M028
+0x3558e0,hv_3558E0,data,,GAME,orig,g8_b.h char[] source file name
+0x35aeec,hv_35AEEC,data,,GAME,orig,g8_b.h short map zoom
+0x35b2c0,hv_35B2C0,data,,GAME,orig,g8_b.h Ref[4]
+0x35b2d0,hv_35B2D0,data,,GAME,orig,g8_b.h HvButton[]
+0x35b2f0,hv_35B2F0,data,,GAME,orig,g8_b.h HvButton[]
+0x35b310,hv_35B310,data,,GAME,orig,g8_b.h HvButton[]
+0x35b320,hv_35B320,data,,GAME,orig,g8_b.h HvButton[]
+0x389bc6,hv_389BC6,data,,GAME,orig,g8_b.h ushort
+0x38fe90,hv_38FE90,data,,GAME,orig,g8_b.h HvWaypoint[16]
+0x38fff8,hv_38FFF8,data,,GAME,orig,g8_b.h short
+0x38fffa,hv_38FFFA,data,,GAME,orig,g8_b.h short
+0x38fffe,hv_38FFFE,data,,GAME,orig,g8_b.h LGPoint
+0x390002,hv_390002,data,,GAME,orig,g8_b.h LGPoint
+0x390006,hv_390006,data,,GAME,orig,g8_b.h LGPoint
+0x390240,hv_390240,data,,GAME,orig,g8_b.h Ref
+0x390244,hv_390244,data,,GAME,orig,g8_b.h uchar
+0x390245,hv_390245,data,,GAME,orig,g8_b.h uchar
+0x390246,hv_390246,data,,GAME,orig,g8_b.h uchar
+0x390247,hv_390247,data,,GAME,orig,g8_b.h uchar[3]
+0x428b83,hv_428B83,data,,GAME,orig,g8_b.h uchar

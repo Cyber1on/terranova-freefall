@@ -1,0 +1,107 @@
+address,name,kind,nargs,library,status,notes
+0x2e66b0,AnimInit,func,0,TNLIB,decomp,tnanim.c (names ours)
+0x2e66d4,AnimSetTimePtr,func,1,TNLIB,decomp,tnanim.c
+0x2e66e4,AnimShutdown,func,0,TNLIB,decomp,tnanim.c AtExit
+0x2e66f0,anim_2E66F0,func,0,TNLIB,decomp,tnanim.c AnimRecur (T1 name kept)
+0x2e68a0,anim_2E68A0,func,4,TNLIB,decomp,tnanim.c AnimPlay (map name kept: T2c calls it)
+0x2e695c,anim_2E695C,func,2,TNLIB,decomp,tnanim.c AnimChangeRef (T1 name kept)
+0x2e6a34,anim_2E6A34,func,1,TNLIB,decomp,tnanim.c AnimKill (T1 name kept)
+0x2e6a64,AnimKillAll,func,0,TNLIB,decomp,tnanim.c
+0x2e6aac,anim_2E6AAC,func,4,TNLIB,decomp,tnanim.c AnimSetVelocity (T1 name kept)
+0x2e6af8,AnimMoveBy,func,4,TNLIB,decomp,tnanim.c (unreferenced)
+0x2e6b3c,anim_2E6B3C,func,4,TNLIB,decomp,tnanim.c AnimSetNotify (T1 name kept)
+0x2e6b48,anim_2E6B48,func,1,TNLIB,decomp,tnanim.c AnimSetPalette (T1 name kept)
+0x2e6b98,anim_2E6B98,func,2,TNLIB,decomp,tnanim.c AnimLoadFrames (T1 name kept)
+0x2e6c08,AnimGetSize,func,1,TNLIB,decomp,tnanim.c
+0x2e6c10,AnimRestart,func,1,TNLIB,decomp,tnanim.c
+0x2e6cc0,AnimFirstFrameRef,func,1,TNLIB,decomp,tnanim.c
+0x2e6d54,AnimDoCodes,func,2,TNLIB,decomp,tnanim.c
+0x2e7044,AnimMove,func,2,TNLIB,decomp,tnanim.c
+0x2e7124,AnimShowFrame,func,1,TNLIB,decomp,tnanim.c
+0x447250,anim_list,data,,TNLIB,decomp,LlistHead of ActAnim (0x80)
+0x44726c,anim_kill_count,data,,TNLIB,decomp,short
+0x35f568,anim_time_ptr,data,,TNLIB,decomp,ulong*
+0x35f56c,anim_use_time_ptr,data,,TNLIB,decomp,uchar
+0x35f56d,anim_op_len,data,,TNLIB,decomp,uchar[13] op lengths (read past the end for ops > 12)
+0x2eaf00,pcx_open_next,func,3,TNLIB,decomp,pcxshot.c (names ours)
+0x2eb070,pcx_screenshot,func,2,TNLIB,decomp,pcxshot.c
+0x2eb090,pcx_write_canvas,func,1,TNLIB,decomp,pcxshot.c
+0x2eb184,pcx_write_line,func,3,TNLIB,decomp,pcxshot.c
+0x2eb5e0,digi_2EB5E0,func,0,TNLIB,decomp,tndigi.c snd_lock_digi (map name kept: T2c calls it)
+0x2eb60c,snd_sample_handle,func,1,TNLIB,decomp,tndigi.c
+0x2eb614,snd_sample_parms,func,1,TNLIB,decomp,tndigi.c (Shock name)
+0x2eb62c,snd_set_finish,func,2,TNLIB,decomp,tndigi.c
+0x2eb644,snd_eos_callback,func,1v,TNLIB,decomp,tndigi.c AIL EOS callback (cdecl)
+0x2eb67c,digi_2EB67C,func,0,TNLIB,decomp,tndigi.c snd_kill_all_samples (Shock name) (map name kept: T2c calls it)
+0x2eb6dc,snd_find_free_handle,func,2,TNLIB,decomp,tndigi.c (Shock name) returns char
+0x2eb7ec,snd_sample_reload_parms,func,1,TNLIB,decomp,tndigi.c (Shock name)
+0x2eb87c,digi_2EB87C,func,5,TNLIB,decomp,tndigi.c snd_sample_load (map name kept: T2c calls it)
+0x2eb9f0,snd_sample_play,func,4,TNLIB,decomp,tndigi.c (Shock name; unreferenced)
+0x2ebbc4,snd_start_sample,func,1,TNLIB,decomp,tndigi.c
+0x2ebbe0,digi_2EBBE0,func,1,TNLIB,decomp,tndigi.c snd_end_sample (map name kept: T2c calls it)
+0x2ebc00,snd_stop_sample,func,1,TNLIB,decomp,tndigi.c
+0x2ebc20,snd_resume_sample,func,1,TNLIB,decomp,tndigi.c
+0x2ebc40,digi_2EBC40,func,1,TNLIB,decomp,tndigi.c snd_count_free (map name kept: T2c calls it)
+0x2ebcd8,snd_foreach_playing,func,2,TNLIB,decomp,tndigi.c
+0x2ebd34,snd_default_parms,func,1,TNLIB,decomp,tndigi.c
+0x2ebd60,snd_copy_parms,func,2,TNLIB,decomp,tndigi.c
+0x2ebda0,digi_2EBDA0,func,3,TNLIB,decomp,tndigi.c snd_set_parm (map name kept: T2c calls it)
+0x2ebdf0,snd_get_parm,func,2,TNLIB,decomp,tndigi.c
+0x2ebe24,digi_2EBE24,func,3,TNLIB,decomp,tndigi.c snd_ail_set_parm (map name kept: T2c calls it)
+0x2ebe44,digi_2EBE44,func,2,TNLIB,decomp,tndigi.c snd_ail_get_parm (map name kept: T2c calls it)
+0x2ebe6c,snd_ail_set_pri,func,2v,TNLIB,decomp,tndigi.c setter table entry (cdecl)
+0x2ebe98,snd_ail_get_pri,func,1v,TNLIB,decomp,tndigi.c getter table entry (cdecl)
+0x2ebec4,snd_ail_set_user,func,2v,TNLIB,decomp,tndigi.c setter table entry (cdecl)
+0x2ebef0,snd_ail_get_user,func,1v,TNLIB,decomp,tndigi.c getter table entry (cdecl)
+0x2ebf18,snd_sample_flags,func,1,TNLIB,decomp,tndigi.c
+0x2ebf34,snd_fade_tick,func,0v,TNLIB,decomp,tndigi.c AIL timer callback (cdecl)
+0x2ec0e4,snd_fade,func,4,TNLIB,decomp,tndigi.c
+0x2ec1a0,snd_ail_start,func,1,TNLIB,decomp,tndigi.c snd_ail_vtbl
+0x2ec1e0,snd_ail_end,func,1,TNLIB,decomp,tndigi.c snd_ail_vtbl
+0x2ec1fc,snd_ail_stop,func,1,TNLIB,decomp,tndigi.c snd_ail_vtbl
+0x2ec218,snd_ail_resume,func,1,TNLIB,decomp,tndigi.c snd_ail_vtbl
+0x2ec234,snd_ail_eos,func,1,TNLIB,decomp,tndigi.c snd_ail_vtbl
+0x35f8fc,snd_finish_data,data,,TNLIB,decomp,long (set by snd_set_finish; unused)
+0x35f900,snd_ail_getters,data,,TNLIB,decomp,7 cdecl getters (s) indexed by SND_PARM_* (t2c snd_sample_get_fns); unified at T2 merge
+0x35f91c,snd_ail_setters,data,,TNLIB,decomp,"7 cdecl setters (s, val) indexed by SND_PARM_* (t2c snd_sample_set_fns); unified at T2 merge"
+0x35f938,snd_ail_vtbl,data,,TNLIB,decomp,snd_chan_vtbl start/end/stop/resume/eos (t2c snd_sample_fns); unified at T2 merge
+0x35f958,snd_fade_timer,data,,TNLIB,decomp,long AIL timer handle (-1 none)
+0x35fa4c,snd_finish_parms,data,,TNLIB,decomp,void (*)(snd_digi_parms *)
+0x35fa58,snd_stereo_reverse,data,,TNLIB,decomp,uchar
+0x44b290,snd_fade_tab,data,,TNLIB,decomp,snd_fade_info[16] (0x11 each)
+0x30a02c,AIL_lock,func,0v,MILES,orig,Miles AIL (cdecl)
+0x30a034,AIL_unlock,func,0v,MILES,orig,Miles AIL (cdecl)
+0x30b720,AIL_init_sample,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30b79c,AIL_set_sample_file,func,3v,MILES,orig,Miles AIL (cdecl)
+0x30b8b4,AIL_set_sample_address,func,3v,MILES,orig,Miles AIL (cdecl)
+0x30b948,AIL_set_sample_type,func,3v,MILES,orig,Miles AIL (cdecl)
+0x30b9dc,AIL_start_sample,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30ba58,AIL_stop_sample,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30bad4,AIL_resume_sample,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30bb50,AIL_end_sample,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30bbcc,AIL_set_sample_playback_rate,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30bc54,AIL_set_sample_volume,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30bcdc,AIL_set_sample_pan,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30bd64,AIL_set_sample_loop_count,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30bdec,AIL_sample_status,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30beec,AIL_sample_playback_rate,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30cbe8,AIL_register_EOS_callback,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30ce9c,AIL_sample_user_data,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30cfac,AIL_active_sample_count,func,1v,MILES,orig,Miles AIL (cdecl)
+0x309f1c,AIL_set_preference,func,2v,MILES,orig,Miles AIL (cdecl)
+0x2f5a30,fn_split,func,2,TNLIB,decomp,fnsplit.c (map: mapld_2F5A30) path -> FnParts; 0 / -1
+0x2f5b94,fn_merge,func,2,TNLIB,decomp,fnsplit.c (map: mapld_2F5B94) FnParts -> path
+0x2f5c24,strncpy0,func,3,TNLIB,decomp,fnsplit.c (map: mapld_2F5C24) strncpy + terminator (unreferenced)
+0x30ff90,sndcfg_30FF90,func,2,TNLIB,decomp,sndcfg.c get io (map name kept: T2c calls it)
+0x30ffc0,sndcfg_30FFC0,func,2,TNLIB,decomp,sndcfg.c check io / BLASTER (map name kept)
+0x310100,sndcfg_310100,func,1,TNLIB,decomp,sndcfg.c io matches the driver's (map name kept)
+0x310170,sndcfg_310170,func,1,TNLIB,decomp,sndcfg.c find sound file along snd_datapath (map name kept)
+0x3101a0,sndcfg_name_template,data,,TNLIB,decomp,sndcfg.c 0x8F zero bytes in the code segment (map had it as function sndcfg_3101A0)
+0x310230,sndcfg_io_vars,data,,TNLIB,decomp,sndcfg.c char *[10] midi_io..digi_extra in the code segment (map had it as function sndcfg_310230)
+0x310258,sndcfg_read_filter,func,1,TNLIB,decomp,sndcfg.c config_read_file filter: returns 3
+0x310260,sndcfg_310260,func,3,TNLIB,decomp,sndcfg.c read audio.cfg (map name kept)
+0x35fa38,snd_datapath,data,,TNLIB,decomp,"Datapath * (T2c's row, duplicated so this csv links alone)"
+0x44e018,sndcfg_found_name,data,,TNLIB,decomp,char[] DatapathFind result of sndcfg_310170
+0x45f2fc,ail_io_parms,data,,MILES,orig,short[4] io / irq / dma of the loaded driver (AIL data)
+0x30fe10,__Init_Argv,func,0,CLIB,orig,Watcom CRT argv builder (map: sndcfg_30FE10)
+0x30feb6,_SplitParms,func,3,CLIB,orig,Watcom CRT command line splitter (map: sndcfg_30FEB6)

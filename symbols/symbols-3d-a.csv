@@ -1,0 +1,206 @@
+address,name,kind,nargs,library,status,notes
+0x362260,point_list,data,,3D,decomp,
+0x362264,n_points,data,,3D,decomp,
+0x362266,first_free,data,,3D,decomp,free-list head
+0x36226a,unscaled_matrix,data,,3D,decomp,
+0x36228e,view_matrix,data,,3D,decomp,
+0x3622b2,_view_position,data,,3D,decomp,
+0x3622be,_view_zoom,data,,3D,decomp,
+0x3622c2,view_heading,data,,3D,decomp,dword slot; fixang in the low word
+0x3622c6,view_pitch,data,,3D,decomp,
+0x3622ca,view_bank,data,,3D,decomp,
+0x3622ce,pixel_ratio,data,,3D,decomp,from grd_cap
+0x3622d2,window_width,data,,3D,decomp,
+0x3622d6,window_height,data,,3D,decomp,
+0x3622da,ww2,data,,3D,decomp,
+0x3622de,wh2,data,,3D,decomp,
+0x3622e2,_scrw,data,,3D,decomp,
+0x3622e6,_scrh,data,,3D,decomp,
+0x3622ea,_biasx,data,,3D,decomp,
+0x3622ee,_biasy,data,,3D,decomp,
+0x3622f2,_matrix_scale,data,,3D,decomp,
+0x3622fe,horizon_vector,data,,3D,decomp,
+0x36230a,shift_table,data,,3D,decomp,
+0x36240a,up_axis,data,,3D,decomp,
+0x36240e,axis_x,data,,3D,decomp,
+0x362412,axis_z,data,,3D,decomp,
+0x362416,axis_y,data,,3D,decomp,
+0x36241a,axis_x_ofs,data,,3D,decomp,
+0x36241e,axis_z_ofs,data,,3D,decomp,
+0x362422,axis_y_ofs,data,,3D,decomp,
+0x362426,axis_swap_flag,data,,3D,decomp,
+0x362427,axis_neg_flag,data,,3D,decomp,
+0x362428,g3d_obj_cen,data,,3D,decomp,TN: object centre (interp op 0x28; eval_light_obj_cen) (name ours)
+0x362434,g3d_clip_flags,data,,3D,decomp,TN: clip interpolation flags (from 0x36443C / 0x3635BE) (name ours)
+0x362435,_g3d_light_type,data,,3D,decomp,
+0x362436,g3d_light_tab,data,,3D,decomp,
+0x36243a,g3d_light_shift,data,,3D,decomp,TN (name ours)
+0x36243b,g3d_light_max,data,,3D,decomp,TN (name ours)
+0x36243f,_g3d_amb_light,data,,3D,decomp,
+0x362443,_g3d_diff_light,data,,3D,decomp,
+0x362447,_g3d_spec_light,data,,3D,decomp,
+0x36244b,_g3d_flash,data,,3D,decomp,
+0x36244f,_g3d_light_src,data,,3D,decomp,(save_context copies 27 dwords from here)
+0x36245b,_g3d_light_trans,data,,3D,decomp,
+0x362467,_g3d_light_vec,data,,3D,decomp,
+0x362473,_g3d_view_vec,data,,3D,decomp,
+0x36247f,_g3d_ldotv,data,,3D,decomp,
+0x362483,_g3d_sdotl,data,,3D,decomp,
+0x362487,_g3d_sdotv,data,,3D,decomp,
+0x36248b,_wtoo_matrix,data,,3D,decomp,TN world-to-object
+0x3624af,_wtoo_position,data,,3D,decomp,(ends 0x3624BB)
+0x362514,g3d_tmap_scale,data,,3D,decomp,(name ours)
+0x362518,gouraud_base,data,,3D,decomp,
+0x35f984,g3d_axis_neg,data,,3D,decomp,(name ours)
+0x3605bc,g_codes,data,,3D,decomp,
+0x3605e8,poly_variant_table,data,,3D,decomp,TN; used by op 0x33; patched by fill (name ours)
+0x3605f4,opcode_table,data,,3D,decomp,mutable: fill.asm swaps slots
+0x3606c8,resbuf,data,,3D,decomp,
+0x361668,poly_list,data,,3D,decomp,(name ours)
+0x3617f8,vcolor_tab,data,,3D,decomp,(name ours)
+0x361818,vpoint_tab,data,,3D,decomp,(name ours)
+0x361898,tmap_tab,data,,3D,decomp,texture table (element type unverified) (name ours)
+0x361998,g3d_interp_callbacks,data,,3D,decomp,TN op 0x2A; written by game 0x28DD80 (name ours)
+0x3619d8,g3d_interp_vecs,data,,3D,decomp,TN op 0x2C (name ours)
+0x361a98,interp_parms,data,,3D,decomp,(name ours)
+0x361a9c,interp_object,data,,3D,decomp,(name ours)
+0x361c7c,g3d_matrix_stack,data,,3D,decomp,(name ours)
+0x361dfc,g3d_matrix_stackp,data,,3D,decomp,(name ours)
+0x361e00,g3d_context_stack,data,,3D,decomp,; 0x6C each (name ours)
+0x362160,g3d_context_stackp,data,,3D,decomp,(name ours)
+0x362164,g3d_stack_depth,data,,3D,decomp,reset by process_view_matrix (name ours)
+0x3640e0,g3d_poly_color,data,,3D,decomp,(name ours)
+0x364442,g3d_poly_type,data,,3D,decomp,G3_POLY.. / G3_SLINE (name ours)
+0x36444c,g3d_detail_a,data,,3D,decomp,(also read by 2D 0x327870; 0x34FC70) (name ours)
+0x36444d,g3d_detail_b,data,,3D,decomp,(name ours)
+0x364450,g3d_detail_dist,data,,3D,decomp,(name ours)
+0x365310,g3_tmap_func,data,,3D,decomp,
+0x365314,g3_lit_tmap_func,data,,3D,decomp,
+0x3654e8,std_min_z,data,,3D,decomp,init 0x7FFFFFFF (name ours)
+0x3654ec,std_max_z,data,,3D,decomp,(name ours)
+0x2ec290,g3_init,func,custom,3D,decomp,alloc: eax=max_points; ebx/ecx/edx=axis codes; ax=points allocated; installs div-0 trap (0x2DF868(1); 0x303F70 ranges 0x2F435B/0x2F4344..0x2F437D); malloc via f_malloc; game callers: 1
+0x2ec40e,g3_shutdown,func,0,3D,decomp,alloc: frees point_list via f_free; game callers: 1
+0x2ec42d,g3_count_free_points,func,0,3D,decomp,alloc: returns eax; no static refs
+0x2ec442,g3_alloc_list,func,custom,3D,decomp,alloc: ecx=n; esi=list -> eax=n; or 0 only if the free list is empty at entry (no check inside the loop: NULL stored; next read from address 0); clobbers ebx
+0x2ec45f,g3_alloc_point,func,custom,3D,decomp,alloc: -> eax=point or 0; clobbers ebx
+0x2ec471,g3_free_point,func,custom,3D,decomp,alloc: eax=point; clobbers ebx; game and skel callers; game callers: 5
+0x2ec47f,g3_free_list,func,custom,3D,decomp,alloc: ecx=n; esi=list; called by game and skel; game callers: 3
+0x2ec495,g3_dup_point,func,custom,3D,decomp,alloc: esi=src point -> edi=new point (copies 32 bytes even if the free list is empty: original bug); clobbers ebx; ecx; esi; no static refs
+0x2ec4b2,g3_start_frame_wh,func,custom,3D,decomp,alloc: TN: eax=ww; ebx=wh; ecx=pixel_ratio then jmp into g3_start_frame at 0x2EC4EA (unreferenced; name ours); no static refs
+0x2ec4c5,g3_start_frame,func,0,3D,decomp,alloc: reads grd_canvas/grd_cap; window sizes; biases; frees all points; game callers: 1
+0x2ec56f,g3_end_frame,func,0,3D,decomp,alloc: TN body: _wtoo_matrix = identity; _wtoo_position = 0; eax = 0; clobbers ecx; edi (Shock end_frame counts used points; name uncertain); game callers: 1
+0x2f3fc4,g3_vec_add,func,custom,3D,decomp,vector: edi=dest; esi=a; ebx=b; game callers: 17
+0x2f3fdd,g3_vec_sub,func,custom,3D,decomp,vector: edi=dest; esi=a; ebx=b; game callers: 13
+0x2f3ff6,g3_vec_scale,func,custom,3D,decomp,vector: edi=dest; esi=src; ebx=scale (not eax as the map said); C (dest src s)
+0x2f4019,g3_vec_mag,func,custom,3D,decomp,vector: esi=v -> eax; calls quad_sqrt; game callers: 3
+0x2f403b,g3_vec_dotprod,func,custom,3D,decomp,vector: esi; edi -> eax; game callers: 2
+0x2f405b,g3_compute_normal,func,custom,3D,decomp,vector: edi=dest; eax/edx/ebx=points; normal then normalize; game callers: 1
+0x2f406a,g3_vec_normalize,func,custom,3D,decomp,vector: esi=v in place; game callers: 3
+0x2f40bb,g3_compute_normal_quick,func,custom,3D,decomp,vector: edi=dest; eax/edx/ebx=vectors
+0x2f41d8,g3_rotate_norm,func,custom,3D,decomp,points: preceded by misaligned padding (0x2F41D7 is not an entry); no static refs
+0x2f4240,g3_world_to_object,func,custom,3D,decomp,points: TN esi=world vec -> edi=dest vec via _wtoo_*; C (dest v) (name ours)
+0x2f42f5,g3_rotate_point,func,custom,3D,decomp,points: esi=vec -> edi=new point (no projection)
+0x2f431e,g3_transform_point,func,custom,3D,decomp,points: esi=vec -> edi=point; rotate + project; many game callers; game callers: 6
+0x2f4323,g3_project_point,func,custom,3D,decomp,points: edi=point; div-0 trap ranges 0x2F4344/0x2F435B..0x2F437D; swaps [0x35F460] with 0x2DF9E9; returns CF/flags
+0x2f4389,g3_transform_list,func,custom,3D,decomp,points: ecx=n; edi=dest list; esi=src vectors; game callers: 2
+0x2f43c0,g3_rotate_list,func,custom,3D,decomp,points: 
+0x2f43f4,g3_project_list,func,custom,3D,decomp,points: game callers: 1
+0x2f4422,g3_rotate_light_norm,func,custom,3D,decomp,points: no static refs
+0x2f444c,rotate_norm,func,custom,3D,decomp,points: internal; uses unscaled_matrix
+0x2f445c,do_norm_rotate,func,custom,3D,decomp,points: internal
+0x2f44eb,xlate_rotate_point,func,custom,3D,decomp,points: internal
+0x2f450d,do_rotate,func,custom,3D,decomp,points: internal; view_matrix
+0x2f459c,g3_rotate_delta_x,func,custom,3D,decomp,points: no static refs
+0x2f45c9,g3_rotate_delta_y,func,custom,3D,decomp,points: no static refs
+0x2f45f6,g3_rotate_delta_z,func,custom,3D,decomp,points: no static refs
+0x2f4623,g3_rotate_delta_xz,func,custom,3D,decomp,points: no static refs
+0x2f4692,g3_rotate_delta_xy,func,custom,3D,decomp,points: no static refs
+0x2f4701,g3_rotate_delta_yz,func,custom,3D,decomp,points: no static refs
+0x2f4770,g3_rotate_delta_xyz,func,custom,3D,decomp,points: no static refs
+0x2f4788,g3_rotate_delta_v,func,custom,3D,decomp,points: no static refs
+0x2f47a2,g3_copy_add_delta_v,func,custom,3D,decomp,points: no static refs
+0x2f47d4,g3_add_delta_v,func,custom,3D,decomp,points: no static refs
+0x2f47ed,g3_add_delta_x,func,custom,3D,decomp,points: no static refs
+0x2f4822,g3_add_delta_y,func,custom,3D,decomp,points: no static refs
+0x2f4857,g3_add_delta_z,func,custom,3D,decomp,points: no static refs
+0x2f488c,g3_add_delta_xy,func,custom,3D,decomp,points: no static refs
+0x2f4903,g3_add_delta_xz,func,custom,3D,decomp,points: no static refs
+0x2f497a,g3_add_delta_yz,func,custom,3D,decomp,points: no static refs
+0x2f49f1,g3_add_delta_xyz,func,custom,3D,decomp,points: no static refs
+0x2f4a11,g3_copy_add_delta_x,func,custom,3D,decomp,points: game callers: 2
+0x2f4a60,g3_copy_add_delta_y,func,custom,3D,decomp,points: game callers: 4
+0x2f4aaf,g3_copy_add_delta_z,func,custom,3D,decomp,points: game callers: 1
+0x2f4afe,g3_replace_add_delta_x,func,custom,3D,decomp,points: no static refs
+0x2f4b3b,g3_replace_add_delta_y,func,custom,3D,decomp,points: no static refs
+0x2f4b78,g3_replace_add_delta_z,func,custom,3D,decomp,points: no static refs
+0x2f4bb5,g3_copy_add_delta_xy,func,custom,3D,decomp,points: 
+0x2f4c4e,g3_copy_add_delta_xz,func,custom,3D,decomp,points: 
+0x2f4ce8,g3_copy_add_delta_yz,func,custom,3D,decomp,points: 
+0x2f4d82,g3_copy_add_delta_xyz,func,custom,3D,decomp,points: no static refs
+0x2f4dc0,g3_screen_size,func,2,3D,decomp,g3util: TN C: (r;z) -> projected size; unreferenced (name ours); no static refs
+0x2f4e34,g3_screen_size_x,func,2,3D,decomp,g3util: TN C: (r;z) x size; game 0x2821EC (name ours); game callers: 1
+0x2f4e7c,g3_screen_size_y,func,2,3D,decomp,g3util: TN C: (r;z) y size; game 0x282111 (name ours); game callers: 1
+0x2f4ec4,g3_set_light_shift,func,1,3D,decomp,g3util: TN C: [0x36243A] = 8 - log2(n); unreferenced (name ours); no static refs
+0x2f4ef0,g3_set_light_max,func,1,3D,decomp,g3util: TN C: x87 pow(2.0 @0x357204) + __CHP -> [0x36243B]; unreferenced (name ours); no static refs
+0x2f4f3c,g3_cross_product,func,3,3D,decomp,g3util: TN C: eax=dest; edx=a; ebx=b; called by skel and game (name ours); game callers: 3
+0x2f99e0,g3_star_set,func,3,3D,decomp,star: [0x44CE28]=eax;[0x44CE18]=edx;[0x44CE20]=ebx; unreferenced; no static refs
+0x2f99f4,g3_star_alloc,func,1,3D,decomp,star: malloc(7n) via 0x2DF631; game callers: 1
+0x2f9a3c,g3_star_free,func,0,3D,decomp,star: unreferenced; tail jmp free; no static refs
+0x2f9a48,star_dist,func,1,3D,decomp,star: vector distance/scale with _matrix_scale (name ours)
+0x2f9aac,g3_star_poly,func,2,3D,decomp,star: (n; list) draws via g3_draw_poly; unreferenced (name ours); no static refs
+0x2f9b10,g3_star_clip_poly,func,2,3D,decomp,star: clip_polygon to stack buffer; unreferenced (name ours); no static refs
+0x2f9b6c,star_reset_bounds,func,0,3D,decomp,star: 0x3654E8=0; 0x3654EC=1.0 (name ours); game callers: 1
+0x2f9b84,star_pixel,func,5,3D,decomp,star: 4 regs + 1 stack (ret 4); grd_pixel_table+0xC (name ours)
+0x2f9bc8,star_color,func,2,3D,decomp,star: (name ours)
+0x2f9c90,star_build_table,func,0,3D,decomp,star: table 0x44CD18 via fix_pow (name ours)
+0x2f9d38,g3_star_render,func,0,3D,decomp,star: calls star_transform 0x317CEC; g3_scale_object; gen_fill_pixel; game callers: 1
+0x2f9f10,g3_star_random,func,2,3D,decomp,star: al; dl; uses rand 0x317DB5; game callers: 1
+0x2fa0f4,g3_set_view_angles,func,custom,3D,decomp,matrix: esi=pos; ebx=angvec; ecx=order; eax=zoom; game callers: 1
+0x2fa12b,g3_set_view_matrix,func,custom,3D,decomp,matrix: esi=pos; ebx=matrix; eax=zoom; no static refs
+0x2fa148,process_view_matrix,func,custom,3D,decomp,matrix: internal; horizon; axis negate; unscaled_matrix copy; scale_view_matrix; 0x362164=0; no static refs
+0x2fa285,scale_view_matrix,func,custom,3D,decomp,matrix: internal
+0x2fa42e,compute_invalid,func,custom,3D,decomp,matrix: just ret; jump table 0x2FA40E slots 2 and 5
+0x2fa42f,angles_2_matrix,func,custom,3D,decomp,matrix: esi=angvec; edi=matrix; ecx=order; jmp cs:[eax*4+0x2FA40E]
+0x2fa478,compute_ZXY,func,custom,3D,decomp,matrix: 
+0x2fa496,compute_XZY,func,custom,3D,decomp,matrix: 
+0x2fa4b4,compute_ZYX,func,custom,3D,decomp,matrix: UNUSED: table slot 7 points to compute_XYZ (TN quirk); no static refs
+0x2fa4d2,compute_YXZ,func,custom,3D,decomp,matrix: 
+0x2fa5aa,compute_YZX,func,custom,3D,decomp,matrix: 
+0x2fa686,compute_XYZ,func,custom,3D,decomp,matrix: slots 0 and 7
+0x2fa762,code_point,func,custom,3D,decomp,matrix: edi=point -> bl codes; also called by star3d
+0x2fa793,g3_vec_rotate,func,custom,3D,decomp,matrix: ebx=dest; esi=src; edi=matrix
+0x2fa820,g3_transpose,func,custom,3D,decomp,matrix: esi=matrix in place
+0x2fa83c,g3_copy_transpose,func,custom,3D,decomp,matrix: edi=dest; esi=src
+0x2fa871,g3_matrix_x_matrix,func,custom,3D,decomp,matrix: ebx=dest; esi=src1; edi=src2 (dest = src1*src2; map said edi=dest); C (dest src1 src2)
+0x2fa9e1,get_pyr_vector,func,custom,3D,decomp,matrix: internal
+0x2fabb7,g3_get_view_pyramid,func,custom,3D,decomp,matrix: edi=4 vectors; no static refs
+0x317a9c,g3_draw_box,func,1,3D,decomp,cliputil: TN C: box from 2 corners; transform + copy_add_delta + draw_line; unreferenced (0x317ABB is mid-instruction; not an entry) (name ours); no static refs
+0x317bb4,g3_get_object_axes,func,2,3D,decomp,cliputil: TN C: world_to_object on 3 axes; unreferenced (name ours); no static refs
+0x317cec,star_transform,func,custom,3D,decomp,star3d: esi=vec -> edi=point; bl codes; reads (does not update) std_min_z; code_point then tail-jmp g3_project_point
+0x360568,g3d_norm_v0,data,,3D,decomp,vector.asm temp (name ours)
+0x360574,g3d_norm_v1,data,,3D,decomp,vector.asm temp (name ours)
+0x360580,g3d_norm_hi,data,,3D,decomp,vector.asm temp long[3] (name ours)
+0x3605b4,g3d_rot_tmp,data,,3D,decomp,points.asm temp (name ours)
+0x364490,g3d_sin_x,data,,3D,decomp,matrix.asm temp (name ours)
+0x364494,g3d_cos_x,data,,3D,decomp,matrix.asm temp (name ours)
+0x364498,g3d_sin_z,data,,3D,decomp,matrix.asm temp (name ours)
+0x36449c,g3d_cos_z,data,,3D,decomp,matrix.asm temp (name ours)
+0x3644a0,g3d_sin_y,data,,3D,decomp,matrix.asm temp (name ours)
+0x3644a4,g3d_cos_y,data,,3D,decomp,matrix.asm temp (name ours)
+0x3644a8,g3d_vrot_x,data,,3D,decomp,matrix.asm temp (name ours)
+0x3644ac,g3d_vrot_y,data,,3D,decomp,matrix.asm temp (name ours)
+0x3644b0,g3d_pyr_t,data,,3D,decomp,matrix.asm temp fix[6] (name ours)
+0x3644c8,g3d_pyr_den,data,,3D,decomp,matrix.asm temp (name ours)
+0x364444,g3d_star_size,data,,3D,decomp,polygon.asm data read by star.c (name ours)
+0x364448,g3d_star_minw,data,,3D,decomp,polygon.asm data read by star.c (name ours)
+0x3640dc,g3d_poly_n,data,,3D,decomp,polygon.asm clipped vertex count (name ours)
+0x364274,g3d_poly_clipped,data,,3D,decomp,polygon.asm clipped vertex list (name ours)
+0x44ce18,std_vec,data,,3D,decomp,star.c BSS (name ours)
+0x44ce1c,std_color_base,data,,3D,decomp,star.c BSS (name ours)
+0x44ce20,std_col,data,,3D,decomp,star.c BSS (name ours)
+0x44ce24,std_color_range,data,,3D,decomp,star.c BSS (name ours)
+0x44ce28,std_num,data,,3D,decomp,star.c BSS (name ours)
+0x44cd18,std_shade,data,,3D,decomp,star.c BSS uchar[256] (name ours)
+0x2df868,g3a_div0_install,func,1,DOS4G,orig,installs the int 0 handler via DPMI (name ours)
+0x303f70,g3a_div0_add_range,func,2,DOS4G,orig,registers a code range for the int 0 handler (name ours)
+0x317db5,rand,func,0,CLIB,orig,Watcom CRT rand

@@ -1,0 +1,294 @@
+address,name,kind,nargs,library,status,notes
+0x44b1a0,grd_canvas,data,,2D,decomp,grs_canvas* current canvas
+0x44b194,grd_canvas_table,data,,2D,decomp,current canvas table (generic or bm type)
+0x44b198,grd_pixel_table,data,,2D,decomp,canvas table of the canvas's bm type
+0x44b19c,grd_device_table,data,,2D,decomp,device driver table
+0x44b190,grd_detect_func,data,,2D,decomp,int (*)(grs_sys_info*)
+0x44b1a4,grd_visible_canvas,data,,2D,decomp,grs_canvas*
+0x44b1a8,grd_screen_canvas,data,,2D,decomp,grs_canvas*
+0x44b1ac,grd_mode_cap,data,,2D,decomp,grs_drvcap
+0x44b1b8,grd_info,data,,2D,decomp,grs_sys_info
+0x44b240,grd_screen_row,data,,2D,decomp,short device bitmap row (name ours)
+0x44b23c,grd_canvas_index,data,,2D,decomp,short
+0x44b23e,grd_pixel_index,data,,2D,decomp,short
+0x44b242,chn_flags,data,,2D,decomp,uchar CHN_ON|CHN_GEN
+0x44ae90,grd_default_pal,data,,2D,decomp,uchar[768]
+0x449e90,grd_default_bpal,data,,2D,decomp,grs_rgb[1024]
+0x35f8bc,grd_screen,data,,2D,decomp,grs_screen*
+0x35f8c0,grd_pal,data,,2D,decomp,uchar*
+0x35f8c4,grd_bpal,data,,2D,decomp,grs_rgb*
+0x35f8c8,grd_ipal,data,,2D,decomp,uchar*
+0x35f8cc,grd_cap,data,,2D,decomp,grs_drvcap*
+0x35f8d0,grd_mode,data,,2D,decomp,int
+0x35f8d4,grd_interrupt,data,,2D,decomp,bool
+0x35f8d8,grd_canvas_stackp,data,,2D,decomp,int
+0x44b244,grd_canvas_stack,data,,2D,decomp,grs_canvas*[16]
+0x360484,grd_defgc,data,,2D,decomp,grs_context
+0x360470,gr_malloc_p,data,,2D,decomp,allocator (malloc)
+0x360474,gr_free_p,data,,2D,decomp,free
+0x360478,tluc8tab_p,data,,2D,decomp,uchar** -> 0x44C180
+0x365194,grd_canvas_table_list,data,,2D,decomp,[9]
+0x3604b0,grd_function_table_list,data,,2D,decomp,[9]
+0x3604d4,grd_uline_fill_table_list,data,,2D,decomp,[9]
+0x368680,grd_canvas_table_set,data,,2D,decomp,[12]
+0x368650,grd_function_table_set,data,,2D,decomp,[12]
+0x3686b0,grd_uline_fill_table_set,data,,2D,decomp,[12]
+0x44c5a0,grd_function_fill_table,data,,2D,decomp,
+0x44c5a4,grd_function_table,data,,2D,decomp,
+0x44c5a8,grd_uline_fill_table,data,,2D,decomp,
+0x44c5ac,grd_uline_fill_vector,data,,2D,decomp,
+0x364df0,grd_mode_info,data,,2D,decomp,grs_mode_info[16]
+0x36c994,grd_active,data,,2D,decomp,int
+0x44c584,gr_alloc_tmp_bm,data,,2D,decomp,grs_bitmap static of gr_alloc_bitmap
+0x3651b8,grd_valloc_mode,data,,2D,decomp,uchar
+0x2eab30,gr_set_canvas,func,1,2D,decomp,canvas.c
+0x2eabf8,gr_push_canvas,func,1,2D,decomp,canvas.c
+0x2eac2c,gr_pop_canvas,func,0,2D,decomp,canvas.c
+0x2eac5c,gr_init_canvas,func,5,2D,decomp,canvas.c
+0x2eacf4,gr_init_sub_canvas,func,6,2D,decomp,canvas.c
+0x2ead88,gr_make_canvas,func,2,2D,decomp,canvas.c
+0x2eae00,gr_alloc_canvas,func,3,2D,decomp,canvas.c
+0x2eae78,gr_free_canvas,func,1,2D,decomp,canvas.c
+0x2eae9c,gr_alloc_sub_canvas,func,5,2D,decomp,canvas.c
+0x2eaeec,gr_free_sub_canvas,func,1,2D,decomp,canvas.c
+0x309ae0,valloc,func,2,2D,decomp,valloc.c
+0x309aec,vfree,func,1,2D,decomp,valloc.c (inside valloc)
+0x2f21d4,gr_init_bitmap,func,6,2D,decomp,bitmap.c
+0x2f22c4,gr_init_sub_bitmap,func,6,2D,decomp,bitmap.c
+0x2f2404,gr_alloc_bitmap,func,4,2D,decomp,bitmap.c
+0x45ddd0,grd_chain_table,data,,2D,decomp,grs_func_chain*[324]
+0x36e352,chn_primitives,data,,2D,decomp,void(**)()[324] stashed primitives
+0x36e862,gr_current_primitive,data,,2D,decomp,int
+0x36df44,gr_current_chain,data,,2D,decomp,grs_func_chain*
+0x36e866,chn_canvas_table,data,,2D,orig,chain handler stubs (chnfuncs.asm 0x341C20..)
+0x31c440,chn_null,func,0,2D,decomp,chain.c (ret)
+0x31c444,gri_chain_stash,func,1,2D,decomp,chain.c (static helper)
+0x31c4c4,gr_chain_add_over,func,2,2D,decomp,chain.c
+0x31c548,gr_chain_add_before,func,2,2D,decomp,chain.c
+0x31c58c,gr_chain_add_after,func,2,2D,decomp,chain.c
+0x31c5f0,gr_unchain,func,1,2D,decomp,chain.c
+0x31c630,gr_rechain,func,1,2D,decomp,chain.c
+0x31c668,gr_unchain_all,func,0,2D,decomp,chain.c
+0x31c680,gr_rechain_all,func,0,2D,decomp,chain.c
+0x31c698,chain_rest,func,0,2D,decomp,chain.c
+0x31c6f0,gr_force_generic,func,0,2D,decomp,chain.c
+0x31c724,gr_unforce_generic,func,0,2D,decomp,chain.c
+0x304be0,gr_init,func,0,2D,decomp,INIT.C installs tables + gri_init
+0x31aa90,gri_init,func,0,2D,decomp,INITINT.C
+0x31aa30,gr_detect,func,1,2D,decomp,DETECT.C vesa_get_info or VGA fallback
+0x3090d0,gr_close,func,0,2D,decomp,CLOSE.C
+0x31d5d0,gr_push_video_state,func,1,2D,decomp,STASTK.C 5x790 byte stack
+0x31d628,gr_pop_video_state,func,1,2D,decomp,STASTK.C
+0x308df0,gr_set_mode,func,2,2D,decomp,SMODE.ASM
+0x308ea0,gr_alloc_screen,func,2,2D,decomp,SCREEN.C
+0x309068,gr_free_screen,func,1,2D,decomp,SCREEN.C
+0x3090b0,gr_set_screen,func,1,2D,decomp,SCREEN.C
+0x45e34c,grd_state_stack,data,,2D,decomp,uchar[5][790] video state stack
+0x36d160,grd_state_depth,data,,2D,decomp,int
+0x365c50,flat8_canvas_table,data,,2D,orig,table set 2 canvas table
+0x366160,flat8_function_table,data,,2D,orig,table set 2 function table
+0x367fd8,flat8_uline_fill_table,data,,2D,orig,table set 2 uline fill table
+0x36808c,modex_canvas_table,data,,2D,orig,table set 10
+0x36859c,modex_uline_fill_table,data,,2D,orig,table set 10
+0x3686e0,bank8_function_table,data,,2D,orig,table set 3
+0x36a558,bank8_canvas_table,data,,2D,orig,table set 3
+0x36aa68,bank8_uline_fill_table,data,,2D,orig,table set 3
+0x36ab1c,modex_function_table,data,,2D,orig,table set 10
+0x2e7c30,gri_set_gamma_screen_pal,func,2,2D,decomp,PAL.C (name ours)
+0x2e7cc4,gr_set_pal,func,3,2D,decomp,PAL.C
+0x2e7da8,gr_get_pal,func,3,2D,decomp,PAL.C
+0x2ed500,gr_set_gamma_pal,func,3,2D,decomp,PAL.C builds gamma table
+0x35f594,grd_gamma_on,data,,2D,decomp,uchar (name ours) set by game
+0x35f595,grd_gamma_tab,data,,2D,decomp,uchar[256] identity initially
+0x44b7f8,grd_gamma,data,,2D,decomp,fix cached gamma
+0x30fc90,fix_pow,func,2,FIX,orig,fix x^y (uses fix_sqrt)
+0x2f1b70,gr_set_malloc,func,1,2D,decomp,GRMALLOC.C
+0x2f1b78,gr_set_free,func,1,2D,decomp,GRMALLOC.C
+0x2f1b80,gr_init_blend_table,func,4,2D,decomp,TLUCTAB.C? (name ours) unused
+0x2f1c64,gr_init_translucency_table,func,4,2D,decomp,TLUCTAB.C
+0x2f1db4,gr_init_lit_translucency_table,func,5,2D,decomp,TLUCTAB.C
+0x2f1f50,gr_init_lit_translucency_tables,func,5,2D,decomp,TLUCTAB.C
+0x2f1fd8,gr_dump_tluc8_table,func,2,2D,decomp,TLUCTAB.C
+0x2f2098,gr_read_tluc8_table,func,1,2D,decomp,TLUCTAB.C
+0x44c180,tluc8tab,data,,2D,decomp,uchar*[256]
+0x44bd80,tluc8ltab,data,,2D,decomp,uchar*[256]
+0x36047c,tluc8ltab_p,data,,2D,decomp,uchar** -> tluc8ltab
+0x360480,tluc8nstab,data,,2D,decomp,int
+0x44c580,tluc8stab,data,,2D,decomp,uchar*
+0x3651c0,grd_line_clip_fill_table,data,,2D,decomp,void(*[9])() CLPLTAB.C
+0x3651e4,grd_line_clip_fill_vector,data,,2D,decomp,= grd_line_clip_fill_table
+0x2ed5a0,gen_hline,func,3,2D,decomp,
+0x2ed5c8,gri_hline_clip_fill,func,5,2D,decomp,
+0x2ed650,gen_vline,func,3,2D,decomp,
+0x2ed678,gri_vline_clip_fill,func,5,2D,decomp,
+0x2f2100,gr_iline,func,4,2D,decomp,name ours
+0x2f213c,gri_iline_clip_fill,func,4,2D,decomp,
+0x2f3d00,gr_fix_line,func,4,2D,decomp,name ours
+0x2f3d34,gri_line_clip_fill,func,4,2D,decomp,
+0x317c50,gr_fix_sline,func,6,2D,decomp,name ours
+0x317c94,gri_sline_clip_fill,func,4,2D,decomp,
+0x313d20,gr_clip_fix_line,func,2,2D,decomp,CLPLIN.C (fix[2] points)
+0x2f3aa0,gr_wire_upoly,func,3,2D,decomp,WIRPOLY.C
+0x2f3b20,gr_wire_poly,func,3,2D,decomp,WIRPOLY.C
+0x2f3c08,gr_wire_ucpoly,func,2,2D,decomp,WIRPOLY.C
+0x2f3c80,gr_wire_cpoly,func,2,2D,decomp,WIRPOLY.C
+0x2fad20,gen_fill_pixel,func,3,2D,decomp,
+0x2fad60,gen_set_pixel,func,3,2D,decomp,canvas table SET_PIXEL8
+0x2fada0,gen_set_pixel_interrupt,func,3,2D,decomp,canvas table SET_PIXEL8_INTERRUPT
+0x2fade0,gr_clip_flat8_bitmap,func,3,2D,decomp,
+0x2fafc0,gr_rsd8_unpack,func,custom,2D,decomp,asm: parm [esi] [edi] value [edi]; C is (src dst) cdecl
+0x2faf1c,gr_delta8_unpack,func,2,2D,decomp,asm (name ours) delta frame decoder; clobbers edx
+0x2fcce0,gr_font_char_width,func,2,2D,decomp,CHRWID.C
+0x2fcd20,gr_font_char_size,func,4,2D,decomp,CHRSIZ.C
+0x2f3050,gr_font_string_wrap,func,3,2D,decomp,STRWRAP.C (TN trailing-space change)
+0x2f3144,gr_font_string_unwrap,func,1,2D,decomp,STRWRAP.C
+0x2f31f0,gr_font_string_size,func,4,2D,decomp,STRSIZ.C
+0x44c69c,pCharPixOff,data,,2D,decomp,short* STRWRAP.C static
+0x34a150,gr_clip_rect,func,4,2D,decomp,clprect.c
+0x34aea0,gr_clip_mono_bitmap,func,3,2D,decomp,clpbm.c
+0x34b030,gr_clip_flat24_bitmap,func,3,2D,decomp,clpbm.c
+0x34b160,gri_build_blend,func,2,2D,decomp,BLEND.C
+0x34b2cc,gr_free_blend,func,0,2D,decomp,BLEND.C
+0x34b2fc,gr_init_blend,func,1,2D,decomp,BLEND.C returns 0 ok / 1 fail (TN)
+0x36ef34,grd_blend,data,,2D,decomp,uchar* BLEND.C
+0x36ef38,grd_half_blend,data,,2D,decomp,uchar*
+0x36ef3c,grd_log_blend_levels,data,,2D,decomp,int
+0x314c60,gri_elipse_spans,func,4,2D,decomp,genel.c (name ours) span list via temp_malloc
+0x34acc0,gen_fix_elipse,func,4,2D,decomp,genel.c
+0x34adf8,gen_int_elipse,func,4,2D,decomp,genel.c (name ours) unreferenced
+0x34ae20,gen_fix_oval,func,4,2D,decomp,genel.c
+0x34ae6c,gen_int_oval,func,4,2D,decomp,genel.c (name ours) unreferenced
+0x2f3d90,gen_fix_ring,func,4,2D,decomp,genel.c (name ours) called by game 0x278c73
+0x2f3f9c,gen_int_ring,func,4,2D,decomp,genel.c (name ours) unreferenced
+0x317fb0,h_umap,func,4,2D,decomp,gentm.c
+0x31847c,h_map,func,4,2D,decomp,gentm.c
+0x3184cc,v_umap,func,4,2D,decomp,gentm.c
+0x3189c4,v_map,func,4,2D,decomp,gentm.c unreferenced
+0x34a1f0,gri_per_lin_fan,func,4,2D,decomp,permap.c (name ours) PER_CODE_LIN: fan of GRC_LIN triangles
+0x34a2ec,per_map,func,4,2D,decomp,permap.c
+0x34a33c,per_umap,func,4,2D,decomp,permap.c quad-blend shortcut live
+0x34fc24,gri_per_umap_setup,func,3,2D,decomp,permap.c (persetup.c) returns percode LIN/BADPLANE/BIGSLOPE/SMALLSLOPE
+0x350a00,gri_per_pick_vertices,func,4,2D,decomp,permap.c (name ours) picks 3 non-collinear vertices
+0x350c00,gri_per_gradients,func,3,2D,decomp,permap.c (name ours) fix29 u/v/z gradients
+0x34f80c,gri_per_plane,func,3,2D,decomp,permap.c (name ours) plane origin u0/v0/z0
+0x34f750,gri_per_check_uv,func,3,2D,decomp,permap.c (name ours) sets gri_per_uv_ok
+0x34f7a4,gri_per_swap_xy,func,2,2D,decomp,permap.c (name ours) swaps vertex x/y for vscan
+0x36444c,flat8_per_ltol,data,0,2D,decomp,uchar = 4 (game code 0x2f9129 sets it)
+0x4608fc,gri_per_uv_ok,data,0,2D,decomp,uchar (name ours) bss
+0x34c490,gri_lin_raster,func,3,2D,decomp,scale.c (2d-tmap's name) span walker
+0x34a8e0,gri_scale_compare_loop,func,1,2D,decomp,scale.c (name ours)
+0x34aa7c,gri_scale_34AA7C,func,3,2D,decomp,scale.c (2d-prim's name) returns fix match fraction
+0x34ab10,gri_tluc8_scale_loop,func,1,2D,decomp,scale.c (name ours)
+0x34ac54,gri_scale_34AC54,func,3,2D,decomp,scale.c (2d-prim's name) tluc8 scale
+0x460810,gri_scale_total,data,,2D,decomp,long (name ours)
+0x460814,gri_scale_match,data,,2D,decomp,long (name ours)
+0x34c270,gri_lin_gradients,func,2,2D,decomp,lingrad.c (2d-tmap's name)
+0x34c640,gri_init_vtab,func,1,2D,decomp,vtab.c (2d-tmap's name) SMC asm
+0x34e6e0,gri_rsd8_blit,func,4,2D,decomp,rsd8.c (name from 2d-tmap) RSD8 unpack with row wrap; returns src (popal)
+0x34b410,gri_x_edge,func,4,2D,decomp,tmapfcn.c (info p_next p_prev side) x only
+0x34b474,gri_ix_edge,func,4,2D,decomp,tmapfcn.c x + i
+0x34b510,gri_rgbx_edge,func,4,2D,decomp,tmapfcn.c x + vertex u/v/w into edge u/v/i
+0x34b610,gri_scale_edge,func,3,2D,decomp,tmapfcn.c scaler: both edges vertical
+0x34b69c,gri_uvx_grad_edge,func,3,2D,decomp,tmapfcn.c (name ours; unreferenced) left edge with u/v gradients in right slots
+0x34b77c,gri_uvix_grad_edge,func,3,2D,decomp,tmapfcn.c (name ours; unreferenced) + i
+0x34b890,gri_uvx_edge,func,4,2D,decomp,tmapfcn.c (Shock name)
+0x34b960,gri_uvix_edge,func,4,2D,decomp,tmapfcn.c (unreferenced)
+0x34ba60,gri_uvwx_edge,func,4,2D,decomp,tmapfcn.c (unreferenced) floor u/v
+0x34bc14,gri_uviwx_edge,func,4,2D,decomp,tmapfcn.c (unreferenced) floor u/v/i
+0x34be68,gri_uvwy_edge,func,4,2D,decomp,tmapfcn.c (unreferenced) wall u/v
+0x34c01c,gri_uviwy_edge,func,4,2D,decomp,tmapfcn.c (unreferenced) wall u/v/i
+0x346220,gri_cline_clip,func,2,2D,decomp,clpclin.c (CLPCLIN.C) returns clip code; writes colours back as bytes
+0x34fe40,gri_per_spans,func,3,2D,decomp,perscan.c (name ours) span list {y_min y_max (xl xr)...}; temp_malloc when buf NULL
+0x3500a8,gri_per_spans_fill,func,3,2D,decomp,perscan.c (name ours; unreferenced) (color n vpl)
+0x350140,gri_per_skew_spans,func,2,2D,decomp,perscan.c (name ours)
+0x35017c,gri_per_span_columns,func,1,2D,decomp,perscan.c (name ours) 0x8000-byte column run lists
+0x34ca40,gri_per_scan,func,3,2D,decomp,perscan.c (name ours) (bm seg ps)
+0x34c9b4,gri_per_hscan,func,4,2D,decomp,perscan.c (2d-tmap's name) shell (bm n vpl ps)
+0x34c8d0,gri_per_vscan,func,4,2D,decomp,perscan.c (2d-tmap's name) shell (bm n vpl ps)
+0x34cfd0,gri_per_haddr,func,2,2D,decomp,perscan.c (2d-tmap's name) bits + row*y + x
+0x34cfec,gri_per_vaddr,func,2,2D,decomp,perscan.c (2d-tmap's name) bits + row*x + y
+0x34c690,gri_per_setup,func,2,2D,decomp,perloop.c (2d-tmap's name) SMC constants of gri_per_loop; returns bm
+0x34c725,gri_per_loop,func,1,2D,decomp,perloop.c SMC asm inner loop
+0x34d010,gri_solid_per_setup,func,2,2D,decomp,perloop.c trans loop writes fill colour
+0x34d031,gri_trans_per_setup,func,2,2D,decomp,perloop.c
+0x34d0e2,gri_trans_per_loop,func,1,2D,decomp,perloop.c
+0x34d2b0,gri_lit_per_vsetup,func,2,2D,decomp,perloop.c steps from canvas row; writes ps+0x10
+0x34d2e6,gri_lit_per_hsetup,func,2,2D,decomp,perloop.c
+0x34d390,gri_lit_per_loop,func,1,2D,decomp,perloop.c ltab[(i<<8)|texel]
+0x34df00,gri_trans_lit_per_vsetup,func,2,2D,decomp,perloop.c
+0x34df36,gri_trans_lit_per_hsetup,func,2,2D,decomp,perloop.c
+0x34dfe0,gri_trans_lit_per_loop,func,1,2D,decomp,perloop.c
+0x34e160,gri_clut_per_setup,func,2,2D,decomp,perloop.c
+0x34e223,gri_clut_per_loop,func,1,2D,decomp,perloop.c
+0x34e410,gri_trans_clut_per_setup,func,2,2D,decomp,perloop.c
+0x34e4ca,gri_trans_clut_per_loop,func,1,2D,decomp,perloop.c
+0x34d6b0,gri_lit_per_scan,func,5,2D,decomp,lit perspective column scan (name ours); 5th arg on stack (ret 4)
+0x34d510,gri_lit_per_vscan,func,4,2D,decomp,lit perspective vscan shell (name ours)
+0x34d61c,gri_lit_per_hscan,func,4,2D,decomp,lit perspective hscan shell (name ours)
+0x460820,gri_per_lit_proj,data,0,2D,decomp,fix[55] vertex projections for the lit scan (name ours) bss
+0x36deec,vga_device_table,data,0,2D,decomp,void(*[17])() VGA/ModeX device driver table (vga.c)
+0x36d10c,vesa_device_table,data,0,2D,decomp,void(*[17])() VESA device driver table (vesa.c)
+0x45e318,vesa_rm,data,0,2D,decomp,dpmi_rmregs (0x32 bytes) real-mode call registers of the drivers (name ours)
+0x36d0c8,vga_regs_a,data,0,2D,decomp,uchar[34] register table of vga_set_crtc_regs (name ours)
+0x36d0ea,vga_regs_b,data,0,2D,decomp,uchar[34] (name ours)
+0x36d150,vga_crtc_x,data,0,2D,decomp,ushort[8] CRTC words of the 240/480-line Mode X modes (name ours)
+0x44db10,vesa_pm_info,data,0,2D,decomp,void* copy of the VBE 2.0 pm interface (name ours) bss
+0x44db14,vesa_bytes_per_line,data,0,2D,decomp,long (name ours) bss
+0x44db18,vesa_selector,data,0,2D,decomp,ushort (name ours) bss
+0x44db1a,vesa_gran_shift,data,0,2D,decomp,uchar (name ours) bss
+0x44db1b,vesa_dac_switchable,data,0,2D,decomp,uchar (name ours) bss
+0x44db1c,vesa_pal_blank,data,0,2D,decomp,uchar (name ours) bss
+0x364dcc,vesa_version,data,0,2D,decomp,short = -1 (name ours)
+0x364dd0,vesa_dac_width,data,0,2D,decomp,long = 6 (name ours)
+0x364dd4,vesa_logical_ok,data,0,2D,decomp,uchar = 1 (name ours)
+0x364dd5,vesa_linear,data,0,2D,decomp,uchar (name ours)
+0x364dd8,vesa_pm_bank,data,0,2D,decomp,void* (name ours)
+0x364ddc,vesa_pm_start,data,0,2D,decomp,void* (name ours)
+0x364de0,vesa_pm_pal,data,0,2D,decomp,void* (name ours)
+0x364de4,vesa_lfb,data,0,2D,decomp,uchar* (name ours)
+0x364de8,vesa_lfb_addr,data,0,2D,decomp,uchar* (name ours)
+0x364dec,vesa_lfb_phys,data,0,2D,decomp,ulong (name ours)
+0x34328c,vga_stat_htrace,func,0,2D,decomp,src/2d/vgastat.c
+0x343298,vga_stat_vtrace,func,0,2D,decomp,src/2d/vgastat.c
+0x3436bc,vesa_save_state,func,1,2D,orig,2d-tmap range (vesa_device_table GRT_SAVE_STATE; name ours)
+0x3439d8,vesa_restore_state,func,1,2D,orig,2d-tmap range (vesa_device_table GRT_RESTORE_STATE; name ours)
+0x31d120,vga_set_crtc_regs,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d1f0,vga_set_pal,func,3,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d440,vga_get_pal,func,3,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d470,vga_set_mode,func,2,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d574,vga_set_focus,func,2,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x349c70,vga_save_bios_state,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x349e30,vga_save_vesa_state,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x349ed4,vga_save_state,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x349f00,vga_restore_bios_state,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x34a0b0,vga_restore_vesa_state,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x34a118,vga_restore_state,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x34a13c,vga_get_focus,func,0,2D,decomp,vga.c (name ours) empty
+0x34a140,vga_set_width,func,1,2D,decomp,vga.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307910,vesa_get_pm_func,func,1,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x3079f4,vesa_alloc_selector,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307ac0,vesa_check_logical,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307b64,vesa_get_mode_info,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307c80,vesa_set_logical_width,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307d54,vesa_set_dac_width,func,1,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307e20,vesa_get_dac_width,func,0,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307e94,vesa_reset_dac,func,0,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x307ea8,vesa_set_pal,func,3,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308040,vesa_get_pal,func,3,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x3081f0,vesa_set_mode_tables,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308490,vesa_set_mode,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x3085bc,vesa_get_mode,func,0,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308640,vesa_set_width,func,1,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308650,vesa_get_width,func,0,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x3086dc,vesa_get_bytes_per_line,func,0,2D,decomp,vesa.c (name ours; unreferenced); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308768,vesa_max_lines,func,0,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x30880c,vesa_get_focus,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308880,vesa_set_focus,func,2,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x3088dc,vesa_get_info,func,1,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x308d4c,vesa_close,func,0,2D,decomp,vesa.c (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d220,vesa_set_bank_pm,func,1,2D,decomp,vesa.c asm helper; keeps all registers (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d240,vesa_set_bank_pm2,func,1,2D,decomp,vesa.c asm helper; keeps all registers (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d269,vesa_set_bank_rm,func,1,2D,decomp,vesa.c asm helper; keeps all registers (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d2e7,vesa_set_bank_rm2,func,1,2D,decomp,vesa.c asm helper; keeps all registers (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d383,vesa_set_start,func,3,2D,decomp,vesa.c asm helper (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)
+0x31d418,vesa_pm_set_pal,func,custom,2D,decomp,vesa.c asm helper: bl sub / dx start / cx n / edi buf; leaves gs (name ours); unverified: hardware (logic verified vs the original with a fake DPMI host + video BIOS + ports)

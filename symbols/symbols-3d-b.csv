@@ -1,0 +1,123 @@
+address,name,kind,nargs,library,status,notes
+0x2f88cc,g3_set_light_src,func,custom,3D,decomp,light.c; asm eax=vector
+0x2f88d8,g3_rotate_light_src,func,custom,3D,decomp,light.c; asm edi=matrix (name ours)
+0x2f88ea,g3_eval_vec_light,func,custom,3D,decomp,light.c; asm
+0x2f8927,g3_trans_loc_light,func,custom,3D,decomp,light.c; asm
+0x2f893e,g3_eval_loc_light,func,custom,3D,decomp,light.c; asm eax=pos
+0x2f89a2,g3_eval_view,func,custom,3D,decomp,light.c; asm eax=pos
+0x2f8a11,g3_eval_ldotv,func,custom,3D,decomp,light.c; asm
+0x2f8a28,g3_eval_light_obj_cen,func,custom,3D,decomp,light.c; asm edi=point
+0x2f8a66,g3_eval_view_ahead,func,custom,3D,decomp,light.c; asm
+0x2f8a91,check_for_near,func,custom,3D,decomp,light.c; asm (args in 0x362230/0x362234)
+0x2f8ac8,g3_light_diff,func,custom,3D,decomp,light.c; asm eax=norm edx=pos -> eax
+0x2f8b04,g3_light_spec,func,custom,3D,decomp,light.c; asm eax=norm edx=pos -> eax
+0x2f8b7d,g3_light_dands,func,custom,3D,decomp,light.c; asm eax=norm edx=pos -> eax; original returns into the point (stack quirk)
+0x2f8c09,g3_light,func,custom,3D,decomp,light.c; asm eax=norm edx=pos -> eax
+0x2f8c4c,g3_draw_tmap_tile,func,custom,3D,decomp,tmap.c; pushad eax ebx ecx edx esi edi -> eax
+0x2f8c69,g3_light_tmap_tile,func,custom,3D,decomp,tmap.c
+0x2f8c86,g3_tmap_tile_t3,func,custom,3D,decomp,tmap.c (name ours)
+0x2f8ca3,g3_tmap_tile_t2,func,custom,3D,decomp,tmap.c (name ours)
+0x2f8cbe,do_tmap_tile,func,custom,3D,decomp,tmap.c; internal jump target
+0x2f8e46,g3_check_and_quad_tile_0,func,custom,3D,decomp,tmap.c; pushad eax=w ebx=h esi=list edi=bm (name ours)
+0x2f8e5d,g3_check_and_quad_tile_1,func,custom,3D,decomp,tmap.c (name ours)
+0x2f8e74,g3_check_and_quad_tile_2,func,custom,3D,decomp,tmap.c (name ours)
+0x2f8e8b,g3_check_and_quad_tile_3,func,custom,3D,decomp,tmap.c (name ours)
+0x2f8ecd,g3_draw_floor_map,func,custom,3D,decomp,tmap.c; pushad eax=n edx=list ebx=bm -> eax
+0x2f8ee7,g3_light_floor_map,func,custom,3D,decomp,tmap.c
+0x2f8f01,g3_draw_wall_map,func,custom,3D,decomp,tmap.c
+0x2f8f18,g3_light_wall_map,func,custom,3D,decomp,tmap.c
+0x2f8f2f,g3_draw_lmap,func,custom,3D,decomp,tmap.c
+0x2f8f46,g3_light_lmap,func,custom,3D,decomp,tmap.c
+0x2f8f5d,g3_light_tmap,func,custom,3D,decomp,tmap.c
+0x2f8f74,g3_draw_tmap,func,custom,3D,decomp,tmap.c
+0x2f8f89,do_tmap,func,custom,3D,decomp,tmap.c; internal jump target
+0x2f8ffb,g3_quad_tile_0,func,custom,3D,decomp,tmap.c; pushad eax=w ebx=h esi=list edi=bm (name ours)
+0x2f9012,g3_quad_tile_1,func,custom,3D,decomp,tmap.c (name ours)
+0x2f9029,g3_quad_tile_2,func,custom,3D,decomp,tmap.c (name ours)
+0x2f9040,g3_quad_tile_3,func,custom,3D,decomp,tmap.c (name ours)
+0x2f9060,quad_tile,func,custom,3D,decomp,tmap.c; internal jump target (name ours)
+0x2f9313,g3_compute_warp,func,custom,3D,decomp,tmap.c; ebx=origin ecx=u point edx=v point (name ours)
+0x2f93b7,calc_warp_matrix,func,custom,3D,decomp,tmap.c; esi=origin
+0x2f953c,g3_check_codes,func,custom,3D,decomp,polygon.c; ecx=n esi=list -> bx
+0x2f9550,g3_check_poly_facing,func,custom,3D,decomp,polygon.c; eax edx ebx -> al/SF
+0x2f9587,g3_check_and_draw_cpoly,func,custom,3D,decomp,polygon.c; eax=color ecx=n esi=list -> eax
+0x2f9590,g3_check_and_draw_tluc_spoly,func,custom,3D,decomp,polygon.c
+0x2f9599,g3_check_and_draw_spoly,func,custom,3D,decomp,polygon.c
+0x2f95a2,g3_check_and_draw_tluc_poly,func,custom,3D,decomp,polygon.c
+0x2f95ab,g3_check_and_draw_poly,func,custom,3D,decomp,polygon.c
+0x2f95ca,g3_draw_cpoly,func,custom,3D,decomp,polygon.c
+0x2f95d3,g3_draw_tluc_spoly,func,custom,3D,decomp,polygon.c
+0x2f95dc,g3_draw_spoly,func,custom,3D,decomp,polygon.c
+0x2f95e5,g3_draw_tluc_poly,func,custom,3D,decomp,polygon.c
+0x2f95ee,g3_draw_poly,func,custom,3D,decomp,polygon.c
+0x2f95f5,draw_poly_common,func,custom,3D,decomp,polygon.c; eax=color ecx=n esi=list -> eax
+0x2f974d,g3_draw_point,func,custom,3D,decomp,polygon.c; esi=point -> eax
+0x2f9781,g3_draw_cline,func,custom,3D,decomp,polygon.c; esi edi -> eax
+0x2f97c8,g3_draw_sline,func,custom,3D,decomp,polygon.c; esi edi -> eax
+0x2f97d8,g3_draw_line,func,custom,3D,decomp,polygon.c; esi edi -> eax
+0x2f99ad,g3_check_normal_facing,func,custom,3D,decomp,polygon.c; esi=vec edi=normal -> al/SF
+0x2fa080,g3_set_detail_params,func,2,3D,decomp,detail.c; asm (name ours)
+0x2fa094,g3_set_detail_dist,func,1,3D,decomp,detail.c; asm (name ours)
+0x2fa09c,g3_set_detail_level,func,1,3D,decomp,detail.c; asm (name ours)
+0x2fa0cc,g3_set_detail_entry,func,4,3D,decomp,detail.c; asm al dl ebx ecx=index (name ours)
+0x3150a0,g3_set_tmaps_linear,func,0,3D,decomp,detail.c
+0x3150bc,g3_reset_tmaps,func,0,3D,decomp,detail.c
+0x316510,clip_restore_uv,func,2,3D,decomp,clip.c (name ours)
+0x316554,clip_save_uv,func,3,3D,decomp,clip.c (name ours)
+0x31659c,g3_clip_line,func,custom,3D,decomp,clip.c; pragma esi=src edi=dest -> eax
+0x316a74,g3_clip_polygon,func,custom,3D,decomp,clip.c; pragma ecx=n esi=src edi=dest -> eax
+0x317120,intersect,func,0,3D,decomp,clip.c
+0x317360,clip_behind,func,0,3D,decomp,clip.c (name ours)
+0x3174c4,clip_left,func,0,3D,decomp,clip.c (name ours)
+0x31760c,clip_top,func,0,3D,decomp,clip.c (name ours)
+0x317754,clip_right,func,0,3D,decomp,clip.c (name ours)
+0x3178a4,clip_bottom,func,0,3D,decomp,clip.c (name ours)
+0x3179d4,clip_project_list,func,2,3D,decomp,clip.c (list n) (name ours)
+0x362230,g3d_light_tmp1,data,,3D,decomp,light.asm
+0x362234,g3d_light_tmp2,data,,3D,decomp,light.asm
+0x362544,g3d_tmap_index,data,,3D,decomp,tmap.asm
+0x362548,g3d_tmap_plist,data,,3D,decomp,tmap.asm
+0x36254c,g3d_tmap_bm,data,,3D,decomp,tmap.asm
+0x362550,g3d_tmap_rsd_bm,data,,3D,decomp,tmap.asm
+0x362568,g3d_tile_w,data,,3D,decomp,tmap.asm
+0x36256c,g3d_tile_h,data,,3D,decomp,tmap.asm
+0x362570,g3d_warp_matrix,data,,3D,decomp,tmap.asm
+0x362594,g3d_tmap_points,data,,3D,decomp,tmap.asm
+0x362724,g3d_tmap_uvs,data,,3D,decomp,tmap.asm
+0x362a44,g3d_tmap_vbuf,data,,3D,decomp,tmap.asm
+0x3633a4,g3d_tmap_vlist,data,,3D,decomp,tmap.asm
+0x363534,g3d_tmap_n,data,,3D,decomp,tmap.asm
+0x363540,g3d_warp_pos,data,,3D,decomp,tmap.asm
+0x363564,g3d_warp_u,data,,3D,decomp,tmap.asm
+0x363570,g3d_warp_v,data,,3D,decomp,tmap.asm
+0x363594,g3d_tile_uvw,data,,3D,decomp,tmap.asm
+0x3635ac,g3d_tile_origin,data,,3D,decomp,tmap.asm
+0x3635b0,g3d_tile_uvec,data,,3D,decomp,tmap.asm
+0x3635b4,g3d_tile_vvec,data,,3D,decomp,tmap.asm
+0x3635b8,g3d_tmap_type,data,,3D,decomp,tmap.asm
+0x3635bc,g3d_tmap_codes,data,,3D,decomp,tmap.asm
+0x3635be,g3d_tmap_clip_flags,data,,3D,decomp,tmap.asm
+0x3635ec,g3d_poly_vbuf,data,,3D,decomp,polygon.asm
+0x363f4c,g3d_poly_vlist,data,,3D,decomp,polygon.asm
+0x3640e4,g3d_poly_src,data,,3D,decomp,polygon.asm
+0x364404,g3d_poly_normal,data,,3D,decomp,polygon.asm
+0x364410,g3d_line_free_list,data,,3D,decomp,polygon.asm (never written)
+0x364420,g3d_line_free_n,data,,3D,decomp,polygon.asm (never written)
+0x364424,g3d_line_color,data,,3D,decomp,polygon.asm
+0x364428,g3d_poly_func_index,data,,3D,decomp,polygon.asm
+0x36443c,g3d_poly_clip_flags,data,,3D,decomp,polygon.asm
+0x364454,g3d_detail_table,data,,3D,decomp,detail asm (6-byte entries)
+0x365348,g3d_fill_func_ofs,data,,3D,decomp,fill.asm data (added to the poly function index) (name ours)
+0x365494,clip_d,data,,3D,decomp,clip.c _d (1)
+0x45d640,clip_uv_buf,data,,3D,decomp,clip.c BSS
+0x45d740,clip_tbuff,data,,3D,decomp,clip.c BSS (0x1C-byte points)
+0x45dac0,clip_e,data,,3D,decomp,clip.c BSS
+0x45dac4,clip_den,data,,3D,decomp,clip.c BSS
+0x45dac8,clip_s,data,,3D,decomp,clip.c BSS
+0x45dacc,clip_tmp,data,,3D,decomp,clip.c BSS
+0x45dad0,clip_a,data,,3D,decomp,clip.c BSS
+0x45dad4,clip_b,data,,3D,decomp,clip.c BSS
+0x45dad8,clip_c,data,,3D,decomp,clip.c BSS
+0x45dadc,clip_swapped,data,,3D,decomp,clip.c BSS
+0x45dae0,clip_num,data,,3D,decomp,clip.c BSS
+0x45dae4,clip_tnum,data,,3D,decomp,clip.c BSS

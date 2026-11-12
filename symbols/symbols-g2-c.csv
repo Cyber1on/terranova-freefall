@@ -1,0 +1,161 @@
+address,name,kind,nargs,library,status,notes
+0x2892d0,killobj_2892D0,func,0,GAME,decomp,killobj.c (M056)
+0x28934c,killobj_28934C,func,0,GAME,decomp,killobj.c (M056)
+0x2894a0,KillObjMark,func,2,GAME,decomp,killobj.c (M056)
+0x28952c,killobj_28952C,func,3,GAME,decomp,killobj.c (M056)
+0x289554,killobj_289554,func,3,GAME,decomp,killobj.c (M056)
+0x289588,killobj_289588,func,2,GAME,decomp,killobj.c (M056)
+0x28b850,objacc_28B850,func,1,GAME,decomp,objmeter.c (M059)
+0x28b854,objacc_28B854,func,4,GAME,decomp,objmeter.c (M059)
+0x28b870,objacc_28B870,func,1,GAME,decomp,objmeter.c (M059)
+0x28b874,objacc_28B874,func,1,GAME,decomp,objmeter.c (M059)
+0x28b878,objacc_28B878,func,2,GAME,decomp,objmeter.c (M059)
+0x28b88c,objacc_28B88C,func,2,GAME,decomp,objmeter.c (M059)
+0x28b8b0,objacc_28B8B0,func,1,GAME,decomp,objmeter.c (M059)
+0x28b914,objacc_28B914,func,6,GAME,decomp,objmeter.c (M059)
+0x28b938,objacc_28B938,func,2,GAME,decomp,objmeter.c (M059)
+0x2908d0,ordnance_2908D0,func,1,GAME,decomp,ordnance.c (M064)
+0x2909cc,ordnance_2909CC,func,1,GAME,decomp,ordnance.c (M064)
+0x290abc,ordnance_290ABC,func,1,GAME,decomp,ordnance.c (M064)
+0x290b38,ordnance_290B38,func,1,GAME,decomp,ordnance.c (M064)
+0x290b70,ordnance_290B70,func,0,GAME,decomp,ordnance.c (M064)
+0x291080,ordnance_291080,func,0,GAME,decomp,ordnance.c (M064)
+0x291110,ordnance_291110,func,1,GAME,decomp,ordnance.c (M064)
+0x29111c,ordnance_29111C,func,0,GAME,decomp,ordnance.c (M064)
+0x29118c,ordnance_29118C,func,0,GAME,decomp,ordnance.c (M064)
+0x2911d0,ordnance_2911D0,func,0,GAME,decomp,ordnance.c (M064)
+0x291220,ordnance_291220,func,0,GAME,decomp,ordnance.c (M064)
+0x2912b8,ordnance_2912B8,func,0,GAME,decomp,ordnance.c (M064)
+0x291374,ordnance_291374,func,1,GAME,decomp,ordnance.c (M064)
+0x291450,ordnance_291450,func,0,GAME,decomp,ordnance.c (M064)
+0x29150c,ordnance_29150C,func,0,GAME,decomp,ordnance.c (M064)
+0x2915a8,ordnance_2915A8,func,0,GAME,decomp,ordnance.c (M064)
+0x291660,ordnance_291660,func,0,GAME,decomp,ordnance.c (M064)
+0x2916d0,ordnance_2916D0,data,,GAME,orig,table {&0x35D0C0, &0x35D0C4, &0x35D0C8} (map listed it as a function)
+0x2916dc,ordnance_2916DC,data,,GAME,orig,table {&0x35D0C0, &0x35D0C4, &0x35D0C8} (map listed it as a function)
+0x2916e8,ordnance_2916E8,data,,GAME,orig,table {&0x35D0C0, &0x35D0C4, &0x35D0C8} (map listed it as a function)
+0x2916f4,ordnance_2916F4,data,,GAME,orig,table {&0x35D0C0, &0x35D0C4, &0x35D0C8} (map listed it as a function)
+0x291700,ordnance_291700,func,0,GAME,decomp,ordnance.c (M064)
+0x291720,ordnance_291720,func,1,GAME,decomp,ordnance.c (M064)
+0x29173c,ordnance_29173C,func,0,GAME,decomp,ordnance.c (M064)
+0x291754,ordnance_291754,func,1,GAME,decomp,ordnance.c (M064)
+0x29177c,ordnance_29177C,func,3,GAME,decomp,ordnance.c (M064)
+0x29188c,ordnance_29188C,func,1,GAME,decomp,ordnance.c (M064)
+0x2918c4,ordnance_2918C4,func,1,GAME,decomp,ordnance.c (M064)
+0x2918d8,ordnance_2918D8,func,1,GAME,decomp,ordnance.c (M064)
+0x2918ec,ordnance_2918EC,func,1,GAME,decomp,ordnance.c (M064)
+0x291934,ordnance_291934,func,1,GAME,decomp,ordnance.c (M064)
+0x2919b4,ordnance_2919B4,func,3,GAME,decomp,ordnance.c (M064)
+0x291bc4,ordnance_291BC4,func,2,GAME,decomp,ordnance.c (M064)
+0x291c34,ordnance_291C34,func,2,GAME,decomp,ordnance.c (M064)
+0x291d14,ordnance_291D14,func,3,GAME,decomp,ordnance.c (M064)
+0x291d78,ordnance_291D78,func,4,GAME,decomp,ordnance.c (M064)
+0x291e6c,ordnance_291E6C,func,4,GAME,decomp,ordnance.c (M064)
+0x291f60,ordnance_291F60,func,1,GAME,decomp,ordnance.c (M064)
+0x292068,ordnance_292068,func,0,GAME,decomp,ordnance.c (M064)
+0x29207c,ordnance_29207C,func,1,GAME,decomp,ordnance.c (M064)
+0x292180,fire_292180,func,0,GAME,decomp,wpnfire.c (M065)
+0x2921a8,fire_2921A8,func,0,GAME,decomp,wpnfire.c (M065)
+0x2921f0,fire_2921F0,func,1,GAME,decomp,wpnfire.c (M065)
+0x292200,fire_292200,func,1,GAME,decomp,wpnfire.c (M065)
+0x292210,fire_292210,func,1,GAME,decomp,wpnfire.c (M065)
+0x292220,fire_292220,data,,GAME,orig,WeaponFire jump table
+0x292248,WeaponFire,func,1,GAME,decomp,wpnfire.c (M065)
+0x292970,fire_292970,func,2,GAME,decomp,wpnfire.c (M065)
+0x292a68,fire_292A68,func,1,GAME,decomp,wpnfire.c (M065)
+0x292c2c,fire_292C2C,func,2,GAME,decomp,wpnfire.c (M065)
+0x292c98,fire_292C98,func,3,GAME,decomp,wpnfire.c (M065)
+0x2933c0,objtype_2933C0,func,1,GAME,decomp,objclass.c (M067)
+0x2933e0,objtype_2933E0,func,0,GAME,decomp,objclass.c (M067)
+0x2933fc,objtype_2933FC,func,2,GAME,decomp,objclass.c (M067)
+0x293464,objtype_293464,func,1,GAME,decomp,objclass.c (M067)
+0x293540,objtype_293540,func,3,GAME,decomp,objclass.c (M067)
+0x2935e0,objtype_2935E0,func,2,GAME,decomp,objclass.c (M067)
+0x293834,objtype_293834,func,3,GAME,decomp,objclass.c (M067)
+0x2938b8,objtype_2938B8,func,2,GAME,decomp,objclass.c (M067)
+0x2938f0,objtype_2938F0,func,3,GAME,decomp,objclass.c (M067)
+0x293a5c,objtype_293A5C,func,6,GAME,decomp,objclass.c (M067)
+0x293aa0,objtype_293AA0,func,1,GAME,decomp,objclass.c (M067)
+0x2972c0,interact_2972C0,func,1,GAME,decomp,objshape.c (M072)
+0x297380,interact_297380,func,0,GAME,decomp,objshape.c (M072)
+0x2973e8,interact_2973E8,func,2,GAME,decomp,objshape.c (M072)
+0x297400,interact_297400,func,3,GAME,decomp,objshape.c (M072)
+0x29775c,interact_29775C,func,3,GAME,decomp,objshape.c (M072)
+0x297924,ObjectInteraction,func,8,GAME,decomp,objshape.c (M072)
+0x2979ac,ObjectTiledInteraction,func,9,GAME,decomp,objshape.c (M072)
+0x297a40,interact_297A40,func,9,GAME,decomp,objshape.c (M072)
+0x297ae0,interact_297AE0,func,1,GAME,decomp,objshape.c (M072)
+0x297dac,interact_297DAC,func,9,GAME,decomp,objshape.c (M072)
+0x2980cc,interact_2980CC,func,8,GAME,decomp,objshape.c (M072)
+0x298218,interact_298218,func,8,GAME,decomp,objshape.c (M072)
+0x29837c,interact_29837C,func,7,GAME,decomp,objshape.c (M072)
+0x2986c0,interact_2986C0,func,1,GAME,decomp,objshape.c (M072)
+0x298730,interact_298730,func,3,GAME,decomp,objshape.c (M072)
+0x298854,interact_298854,func,2,GAME,decomp,objshape.c (M072)
+0x298864,interact_298864,func,2,GAME,decomp,objshape.c (M072)
+0x298870,interact_298870,func,2,GAME,decomp,objshape.c (M072)
+0x298880,interact_298880,func,3,GAME,decomp,objshape.c (M072)
+0x298980,interact_298980,func,5,GAME,decomp,objshape.c (M072)
+0x2989e8,interact_2989E8,func,6,GAME,decomp,objshape.c (M072)
+0x298a50,interact_298A50,func,7,GAME,decomp,objshape.c (M072)
+0x35ade0,game_35ADE0,data,,GAME,orig,used by g2c
+0x35b6a8,game_35B6A8,data,,GAME,orig,used by g2c
+0x35b6d4,game_35B6D4,data,,GAME,orig,used by g2c
+0x35b6d8,game_35B6D8,data,,GAME,orig,used by g2c
+0x35b6e0,game_35B6E0,data,,GAME,orig,used by g2c
+0x35bf30,fire_35BF30,data,,GAME,decomp,wpnfire.c
+0x35bf3c,strike_mode,data,,GAME,decomp,ordnance.c
+0x35bf3e,strike_35BF3E,data,,GAME,decomp,ordnance.c
+0x35bf40,strike_35BF40,data,,GAME,decomp,ordnance.c
+0x35bf44,strike_warned,data,,GAME,decomp,ordnance.c
+0x35bf45,strike_active,data,,GAME,decomp,ordnance.c
+0x35bf46,strike_aborted,data,,GAME,decomp,ordnance.c
+0x35bf47,strike_called,data,,GAME,decomp,ordnance.c
+0x35bf4e,strike_35BF4E,data,,GAME,decomp,ordnance.c
+0x35bf55,strike_35BF55,data,,GAME,decomp,ordnance.c
+0x35bf56,strike_35BF56,data,,GAME,decomp,ordnance.c
+0x35bf57,strike_35BF57,data,,GAME,decomp,ordnance.c
+0x35bf58,strike_35BF58,data,,GAME,decomp,ordnance.c
+0x35bf5c,strike_35BF5C,data,,GAME,decomp,ordnance.c
+0x35bf68,fire_35BF68,data,,GAME,decomp,wpnfire.c
+0x35bf6a,fire_35BF6A,data,,GAME,decomp,wpnfire.c
+0x35bf6c,fire_35BF6C,data,,GAME,decomp,wpnfire.c
+0x35bf70,fire_35BF70,data,,GAME,decomp,wpnfire.c
+0x35bf74,fire_35BF74,data,,GAME,decomp,wpnfire.c
+0x35bf78,fire_35BF78,data,,GAME,decomp,wpnfire.c
+0x35bf7c,fire_35BF7C,data,,GAME,decomp,wpnfire.c
+0x35bf84,objtype_limits,data,,GAME,decomp,objclass.c
+0x35c024,shape_radius,data,,GAME,decomp,objshape.c
+0x35d0c0,ordn_flags,data,,GAME,decomp,ordnance.c
+0x389e4c,game_389E4C,data,,GAME,orig,used by g2c
+0x395100,ordn_objtype,data,,GAME,orig,used by g2c
+0x396868,game_396868,data,,GAME,orig,used by g2c
+0x3968b5,game_3968B5,data,,GAME,orig,used by g2c
+0x396e30,killobj_buf,data,,GAME,decomp,killobj.c
+0x396fb0,killobj_class_cbs,data,,GAME,decomp,killobj.c
+0x3970ac,killobj_count,data,,GAME,decomp,killobj.c
+0x3970b0,killobj_max,data,,GAME,decomp,killobj.c
+0x3970b4,killobj_list,data,,GAME,decomp,killobj.c
+0x3970b8,killobj_obj_cbs,data,,GAME,decomp,killobj.c
+0x397a70,strike_player_x,data,,GAME,decomp,ordnance.c
+0x397a74,strike_player_y,data,,GAME,decomp,ordnance.c
+0x397a78,strike_x,data,,GAME,decomp,ordnance.c
+0x397a7c,strike_y,data,,GAME,decomp,ordnance.c
+0x397a80,strike_z,data,,GAME,decomp,ordnance.c
+0x397a90,ordn_goal_a,data,,GAME,decomp,ordnance.c
+0x397afc,ordn_goal_b,data,,GAME,decomp,ordnance.c
+0x397b68,ordn_goal_c,data,,GAME,decomp,ordnance.c
+0x397b74,ordn_goal_done,data,,GAME,decomp,ordnance.c
+0x397b77,ordn_counts,data,,GAME,decomp,ordnance.c
+0x397c80,ordn_397C80,data,,GAME,decomp,ordnance.c
+0x397c98,fire_next_time,data,,GAME,decomp,wpnfire.c
+0x397c9c,fire_397C9C,data,,GAME,decomp,wpnfire.c
+0x39a530,game_cls6,data,,GAME,orig,used by g2c
+0x3c5dd0,shape_tables,data,,GAME,decomp,objshape.c
+0x3c5df4,shape_base_id,data,,GAME,decomp,objshape.c
+0x3c5df8,shape_pool,data,,GAME,decomp,objshape.c
+0x440978,ordn_mission_state,data,,GAME,orig,used by g2c
+0x4413d0,game_4413D0,data,,GAME,orig,used by g2c
+0x4414c8,game_4414C8,data,,GAME,orig,used by g2c
+0x4414cc,game_4414CC,data,,GAME,orig,used by g2c
+0x4417d0,game_4417D0,data,,GAME,orig,used by g2c

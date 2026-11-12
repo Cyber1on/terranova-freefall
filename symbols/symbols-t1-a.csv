@@ -1,0 +1,171 @@
+address,name,kind,nargs,library,status,notes
+0x2e7e10,ScriptInit,func,0,SCRIPT,decomp,script.c (name ours)
+0x2e7e38,ScriptShutdown,func,0,SCRIPT,decomp,script.c (name ours)
+0x2e7e48,ScriptLoadGlobals,func,3,SCRIPT,decomp,script.c (name ours)
+0x2e7e8c,ScriptKillAll,func,0,SCRIPT,decomp,script.c (name ours)
+0x2e7edc,ScriptSetClocks,func,2,SCRIPT,decomp,script.c (name ours)
+0x2e7ee8,ScriptFrame,func,0,SCRIPT,decomp,script.c; hook slot 2 (name ours)
+0x2e7f08,ScriptThreadFrame,func,1,SCRIPT,decomp,script.c (name ours)
+0x2e7ff4,ScriptStart,func,1,SCRIPT,decomp,script.c (name ours)
+0x2e809c,ScriptWake,func,3,SCRIPT,decomp,script.c (name ours)
+0x2e8148,ScriptSetWait,func,4,SCRIPT,decomp,script.c (name ours)
+0x2e8154,ScriptKill,func,1,SCRIPT,decomp,script.c; functab 89 (name ours)
+0x2e8168,ScriptFind,func,1,SCRIPT,decomp,script.c; functab 90 (name ours)
+0x2e8198,ScriptIdentity,func,1,SCRIPT,decomp,script.c; functab 86; bare ret (name ours)
+0x2e819c,ScriptSendKey,func,1,SCRIPT,decomp,script.c (name ours)
+0x2e81d0,ScriptThreadKey,func,2,SCRIPT,decomp,script.c (name ours)
+0x2e8278,ScriptFreeThread,func,1,SCRIPT,decomp,script.c (name ours)
+0x2e82e0,ScriptPushResult,func,2,SCRIPT,decomp,script.c; unreferenced (name ours)
+0x2e8300,ScriptSetTextBox,func,1,SCRIPT,decomp,script.c (name ours)
+0x2e8308,ScriptSetChoiceBox,func,1,SCRIPT,decomp,script.c (name ours)
+0x2e8310,ScriptTextCallback,func,2,SCRIPT,decomp,script.c; script_text_cb (name ours)
+0x2e831c,ScriptChoiceCallback,func,3,SCRIPT,decomp,script.c; script_choice_cb (name ours)
+0x2e836c,ScriptAbortAnims,func,0,SCRIPT,decomp,script.c (name ours)
+0x2e83a0,ScriptKeyHandler,func,1,SCRIPT,decomp,script.c; tnui key handler (name ours)
+0x2e83fc,ScriptMouseHandler,func,1,SCRIPT,decomp,script.c; tnui mouse handler (name ours)
+0x2e8420,ScriptOpFadeOut,func,1,SCRIPT,decomp,scrpal.c; op 0x48 (name ours)
+0x2e84cc,ScriptOpFadeIn,func,1,SCRIPT,decomp,scrpal.c; op 0x49 (name ours)
+0x2e856c,ScriptOpPalRes,func,1,SCRIPT,decomp,scrpal.c; op 0x4A (name ours)
+0x2e85f4,ScriptOpPalRef,func,1,SCRIPT,decomp,scrpal.c; op 0x4B (name ours)
+0x2e8690,ScriptSavePal,func,0,SCRIPT,decomp,scrpal.c (name ours)
+0x2e86a8,ScriptPalFromRef,func,1,SCRIPT,decomp,scrpal.c; functab 6 (name ours)
+0x2e8740,ScriptPalBlack,func,0,SCRIPT,decomp,scrpal.c; functab 7 (name ours)
+0x2e8788,ScriptPalRestore,func,0,SCRIPT,decomp,scrpal.c; functab 8 (name ours)
+0x2e87a8,ScriptSetPal,func,3,SCRIPT,decomp,scrpal.c (name ours)
+0x2e8800,ScriptOpAnimPlay,func,1,SCRIPT,decomp,scranim.c; op 0x40 (name ours)
+0x2e88fc,ScriptOpAnimSet,func,1,SCRIPT,decomp,scranim.c; op 0x41 (name ours)
+0x2e8968,ScriptOpAnimWait,func,1,SCRIPT,decomp,scranim.c; op 0x42 (name ours)
+0x2e89a8,ScriptOpAnimStop,func,1,SCRIPT,decomp,scranim.c; op 0x43 (name ours)
+0x2e89cc,ScriptOpAnimColor,func,1,SCRIPT,decomp,scranim.c; op 0x44 (name ours)
+0x2e8a18,ScriptOpAnimMove,func,1,SCRIPT,decomp,scranim.c; op 0x45 (name ours)
+0x2e8a78,ScriptOpAnimRef,func,1,SCRIPT,decomp,scranim.c; op 0x46 (name ours)
+0x2e8aa0,ScriptAnimDone,func,1,SCRIPT,decomp,scranim.c; anim callback (name ours)
+0x2e8ac0,ScriptOpsInit,func,0,SCRIPT,decomp,scrinterp.c (name ours)
+0x2e8b04,ScriptRegisterOps,func,1,SCRIPT,decomp,scrinterp.c (name ours)
+0x2e8b2c,ScriptRun,func,1,SCRIPT,decomp,scrinterp.c (name ours)
+0x2e8c60,ScriptOpPushByte,func,1,SCRIPT,decomp,scrinterp.c; op 0x01 (name ours)
+0x2e8c98,ScriptOpPushShort,func,1,SCRIPT,decomp,scrinterp.c; op 0x02 (name ours)
+0x2e8cd0,ScriptOpPushLong,func,1,SCRIPT,decomp,scrinterp.c; op 0x03 (name ours)
+0x2e8d2c,ScriptOpPushVar,func,1,SCRIPT,decomp,scrinterp.c; ops 0x04-0x0C (name ours)
+0x2e9000,ScriptOpPushString,func,1,SCRIPT,decomp,scrinterp.c; op 0x0D (name ours)
+0x2e9038,ScriptOpDrop,func,1,SCRIPT,decomp,scrinterp.c; op 0x0E (name ours)
+0x2e908c,ScriptOpBinary,func,1,SCRIPT,decomp,scrinterp.c; ops 0x0F-0x1E (name ours)
+0x2e91b8,ScriptOpUnary,func,1,SCRIPT,decomp,scrinterp.c; ops 0x1F-0x20 (name ours)
+0x2e9200,ScriptOpIndex,func,1,SCRIPT,decomp,scrinterp.c; op 0x21 (name ours)
+0x2e9274,ScriptOpLoadIndexed,func,1,SCRIPT,decomp,scrinterp.c; op 0x22 (name ours)
+0x2e9318,ScriptOpStore,func,1,SCRIPT,decomp,scrinterp.c; op 0x23 (name ours)
+0x2e9394,ScriptOpJumpFalse,func,1,SCRIPT,decomp,scrinterp.c; op 0x24 (name ours)
+0x2e93e0,ScriptOpCall,func,1,SCRIPT,decomp,scrinterp.c; op 0x25 (name ours)
+0x2e9494,ScriptOpReturn,func,1,SCRIPT,decomp,scrinterp.c; op 0x26 (name ours)
+0x2e9548,ScriptOpEnter,func,1,SCRIPT,decomp,scrinterp.c; op 0x27 (name ours)
+0x2e95e8,ScriptOpPushArg,func,1,SCRIPT,decomp,scrinterp.c; op 0x29 (name ours)
+0x2e9670,ScriptOpNative,func,1,SCRIPT,decomp,scrinterp.c; op 0x2A (name ours)
+0x2e98b4,ScriptOpCase,func,1,SCRIPT,decomp,scrinterp.c; op 0x2B (name ours)
+0x2e9904,ScriptOpCaseString,func,1,SCRIPT,decomp,scrinterp.c; op 0x2C (name ours)
+0x2e99a0,ScriptOpJump,func,1,SCRIPT,decomp,scrinterp.c; op 0x2D (name ours)
+0x2e99c8,ScriptOpSpawn,func,1,SCRIPT,decomp,scrinterp.c; op 0x2E (name ours)
+0x2e9a0c,ScriptOpWake,func,1,SCRIPT,decomp,scrinterp.c; op 0x2F (name ours)
+0x2e9a78,ScriptOpWait,func,1,SCRIPT,decomp,scrinterp.c; op 0x30 (name ours)
+0x2e9acc,ScriptOpYield,func,1,SCRIPT,decomp,scrinterp.c; op 0x31 (name ours)
+0x2e9ad8,ScriptOpWaitUntil,func,1,SCRIPT,decomp,scrinterp.c; op 0x32 (name ours)
+0x2e9b18,ScriptOpWaitFor,func,1,SCRIPT,decomp,scrinterp.c; op 0x33 (name ours)
+0x2e9b60,ScriptOpSleep,func,1,SCRIPT,decomp,scrinterp.c; op 0x34 (name ours)
+0x2e9ba0,ScriptOpChoice,func,1,SCRIPT,decomp,scrinterp.c; op 0x35 (name ours)
+0x2e9d30,ScriptOpPrint,func,1,SCRIPT,decomp,scrinterp.c; op 0x36 (name ours)
+0x2e9db4,ScriptOpWaitKey,func,1,SCRIPT,decomp,scrinterp.c; op 0x37 (name ours)
+0x2e9e00,ScriptOpMsgNew,func,1,SCRIPT,decomp,scrinterp.c; op 0x38 (name ours)
+0x2e9e18,ScriptOpMsgSet,func,1,SCRIPT,decomp,scrinterp.c; op 0x39 (name ours)
+0x2e9e7c,ScriptOpMsgSend,func,1,SCRIPT,decomp,scrinterp.c; op 0x3A (name ours)
+0x2e9f0c,ScriptOpMsgWait,func,1,SCRIPT,decomp,scrinterp.c; op 0x3B (name ours)
+0x2e9f64,ScriptOpMsgIs,func,1,SCRIPT,decomp,scrinterp.c; op 0x3C (name ours)
+0x2e9fa8,ScriptOpMsgFree,func,1,SCRIPT,decomp,scrinterp.c; op 0x3D (name ours)
+0x2e9fd4,ScriptOpLine,func,1,SCRIPT,decomp,scrinterp.c; op 0x7F (name ours)
+0x2e9fd8,ScriptOpNull,func,1,SCRIPT,decomp,scrinterp.c; op 0x3E (name ours)
+0x2e9fdc,ScriptOpEnd,func,1,SCRIPT,decomp,scrinterp.c; op 0x3F and default (name ours)
+0x2ea000,ScriptFormat,func,3,SCRIPT,decomp,scrinterp.c (name ours)
+0x2ea060,ScriptFormatArg,func,3,SCRIPT,decomp,scrinterp.c (name ours)
+0x2ea368,ScriptReadLong,func,1,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea37c,ScriptReadShort,func,1,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea390,ScriptPop,func,0,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea3b8,ScriptPush,func,2,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea3e8,ScriptPopDiscard,func,0,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea404,ScriptLocalPush,func,1,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea458,ScriptLocalPop,func,0,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea474,ScriptLocalAlloc,func,1,SCRIPT,decomp,scrinterp.c; unreferenced (name ours)
+0x2ea4c0,ScriptOpVpOpen,func,1,SCRIPT,decomp,scrgfx.c; op 0x50 (name ours)
+0x2ea540,ScriptOpVpClose,func,1,SCRIPT,decomp,scrgfx.c; op 0x51 (name ours)
+0x2ea564,ScriptOpVpMove,func,1,SCRIPT,decomp,scrgfx.c; op 0x52 (name ours)
+0x2ea5c0,ScriptOpVpMoveRel,func,1,SCRIPT,decomp,scrgfx.c; op 0x53 (name ours)
+0x2ea654,ScriptOpVpHide,func,1,SCRIPT,decomp,scrgfx.c; op 0x54 (name ours)
+0x2ea678,ScriptOpVpShow,func,1,SCRIPT,decomp,scrgfx.c; op 0x55 (name ours)
+0x2ea69c,ScriptOpVpBegin,func,1,SCRIPT,decomp,scrgfx.c; op 0x56 (name ours)
+0x2ea6c8,ScriptOpVpEnd,func,1,SCRIPT,decomp,scrgfx.c; op 0x57 (name ours)
+0x2ea708,ScriptOpFont,func,1,SCRIPT,decomp,scrgfx.c; op 0x58 (name ours)
+0x2ea72c,ScriptOpColor,func,1,SCRIPT,decomp,scrgfx.c; op 0x59 (name ours)
+0x2ea754,ScriptOpBackColor,func,1,SCRIPT,decomp,scrgfx.c; op 0x5A (name ours)
+0x2ea77c,ScriptOpClip,func,1,SCRIPT,decomp,scrgfx.c; op 0x5B (name ours)
+0x2ea7c4,ScriptOpClear,func,1,SCRIPT,decomp,scrgfx.c; op 0x5C (name ours)
+0x2ea7f0,ScriptOpLine2,func,1,SCRIPT,decomp,scrgfx.c; op 0x5D (name ours)
+0x2ea82c,ScriptOpRect,func,1,SCRIPT,decomp,scrgfx.c; op 0x5E (name ours)
+0x2ea870,ScriptOpBox,func,1,SCRIPT,decomp,scrgfx.c; op 0x5F (name ours)
+0x2ea8b4,ScriptOpBitmap,func,1,SCRIPT,decomp,scrgfx.c; op 0x60 (name ours)
+0x2ea940,ScriptOpText,func,1,SCRIPT,decomp,scrgfx.c; op 0x61 (name ours)
+0x2ea9d4,ScriptOpBitmap2,func,1,SCRIPT,decomp,scrgfx.c; op 0x62 (name ours)
+0x2eaa90,ScriptPopRect,func,1,SCRIPT,decomp,scrgfx.c (name ours)
+0x2eaaf0,ScriptOpSound,func,1,SCRIPT,decomp,scrsnd.c; op 0x68 (name ours)
+0x2eab08,ScriptOpMusic,func,1,SCRIPT,decomp,scrsnd.c; op 0x69 (name ours)
+0x309264,gr_int_309264,func,2,2D,orig,lib-internal 2d_int_309264 in game-functions.csv
+0x3091f0,gr_int_3091F0,func,3,2D,orig,lib-internal 2d_int_3091F0 in game-functions.csv
+0x448d90,script_header,data,,SCRIPT,decomp,uchar[8] resource 1000
+0x448d98,script_wait_clock,data,,SCRIPT,decomp,ulong*
+0x448d9c,script_frame_clock,data,,SCRIPT,decomp,ulong*
+0x448da0,script_text_cb,data,,SCRIPT,decomp,callback
+0x448da4,script_globals,data,,SCRIPT,decomp,uchar*
+0x448da8,script_choice_cb,data,,SCRIPT,decomp,callback
+0x448dac,script_threads,data,,SCRIPT,decomp,LlistHead
+0x448dc8,script_next_id,data,,SCRIPT,decomp,short
+0x448dca,script_globals_res,data,,SCRIPT,decomp,ushort
+0x448dd0,script_textbox,data,,SCRIPT,decomp,void*
+0x448dd4,script_choicebox,data,,SCRIPT,decomp,void*
+0x448dd8,script_choice_keys,data,,SCRIPT,decomp,uchar[8]
+0x448e00,script_pal,data,,SCRIPT,decomp,uchar[0x300]
+0x449100,script_ops,data,,SCRIPT,decomp,void*[256]
+0x449500,script_tags,data,,SCRIPT,decomp,uchar[64]
+0x449540,script_stack,data,,SCRIPT,decomp,long[64]
+0x449640,script_vartab,data,,SCRIPT,decomp,long**
+0x449644,script_functab,data,,SCRIPT,decomp,ScriptFunc*
+0x449648,script_cur,data,,SCRIPT,decomp,ScriptThread*
+0x44964c,script_sp,data,,SCRIPT,decomp,short
+0x44964e,script_done,data,,SCRIPT,decomp,uchar
+0x449650,script_choice_ids,data,,SCRIPT,decomp,short[8]
+0x449660,script_choice_strs,data,,SCRIPT,decomp,char*[8]
+0x449680,script_strbuf,data,,SCRIPT,decomp,char[500]
+0x449e80,script_vp,data,,SCRIPT,decomp,uchar*
+0x449e84,script_font,data,,SCRIPT,decomp,ushort
+0x35f698,script_pal_held,data,,SCRIPT,decomp,uchar (initially 1)
+0x35f820,script_strbuf_end,data,,SCRIPT,decomp,char* = script_strbuf + 500
+0x35f898,script_vp_template,data,,SCRIPT,decomp,ScriptVpDesc
+0x35f888,script_vp_style,data,,SCRIPT,decomp,uchar[0x10] viewport style for op 0x50
+0x3c3240,game_entities,data,,GAME,orig,game.h
+0x3c3210,game_entity_lists,data,,GAME,orig,game.h
+0x3c323c,game_entity_3C323C,data,,GAME,orig,game.h
+0x44b9e4,game_body_to_phys,data,,GAME,orig,game.h
+0x441350,game_player_entity,data,,GAME,orig,game.h
+0x44134e,game_44134E,data,,GAME,orig,game.h
+0x3a5608,game_pba,data,,GAME,orig,game.h
+0x3a19e8,game_vehicles,data,,GAME,orig,game.h
+0x388140,game_sides,data,,GAME,orig,game.h
+0x3804f0,game_squads,data,,GAME,orig,game.h
+0x3832f0,game_brains,data,,GAME,orig,game.h
+0x38fb24,game_camera,data,,GAME,orig,game.h
+0x38fb20,game_camera_38FB20,data,,GAME,orig,game.h
+0x4465f0,game_ctl_sum,data,,GAME,orig,game.h
+0x446618,game_ctl_ctrl,data,,GAME,orig,game.h
+0x446690,game_ctl_slots,data,,GAME,orig,game.h
+0x446a60,game_hooks,data,,GAME,orig,game.h (= tn_task_func)
+0x446ae8,game_time,data,,GAME,orig,game.h
+0x446aec,game_hook_mask,data,,GAME,orig,game.h (= tn_task_mask)
+0x4424d4,game_mission_params,data,,GAME,orig,game.h
+0x35c02c,game_replay_flag_c,data,,GAME,orig,game.h (= tn_replay_recording)
+0x35c02d,game_replay_flag_d,data,,GAME,orig,game.h (= tn_replay_playing)
+0x44c5b0,game_key_bitmap,data,,GAME,orig,game.h (= tn_replay_state)

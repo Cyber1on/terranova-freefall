@@ -1,0 +1,208 @@
+address,name,kind,nargs,library,status,notes
+0x293bb0,MapTaskHook,func,0,GAME,decomp,map.c (M068)
+0x293c00,map_293C00,func,0,GAME,decomp,map.c (M068)
+0x293c0c,map_293C0C,func,0,GAME,decomp,map.c (M068)
+0x293c2c,map_293C2C,func,0,GAME,decomp,map.c (M068)
+0x293c34,map_293C34,func,1,GAME,decomp,map.c (M068)
+0x293d5c,map_293D5C,func,0,GAME,decomp,map.c (M068)
+0x293dcc,map_293DCC,func,1,GAME,decomp,map.c (M068)
+0x293e20,map_293E20,func,2,GAME,decomp,map.c (M068)
+0x293ec8,map_293EC8,func,2,GAME,decomp,map.c (M068)
+0x293efc,map_293EFC,func,3,GAME,decomp,map.c (M068)
+0x293f50,MapLoad,func,3,GAME,decomp,map.c (M068)
+0x294148,map_294148,func,0,GAME,decomp,map.c (M068)
+0x294190,map_294190,func,0,GAME,decomp,map.c (M068)
+0x2941a4,map_2941A4,func,1,GAME,decomp,map.c (M068)
+0x2941e8,map_2941E8,func,1,GAME,decomp,map.c (M068)
+0x29431c,map_29431C,func,2,GAME,decomp,map.c (M068)
+0x294468,map_294468,func,0,GAME,decomp,map.c (M068)
+0x29462c,map_29462C,func,0,GAME,decomp,map.c (M068)
+0x294900,map_294900,func,0,GAME,decomp,map.c (M068)
+0x294960,map_294960,func,1,GAME,decomp,map.c (M068)
+0x2949a0,map_2949A0,func,1,GAME,decomp,map.c (M068)
+0x2949c4,map_2949C4,func,2,GAME,decomp,map.c (M068)
+0x294b18,map_294B18,func,2,GAME,decomp,map.c (M068)
+0x294c78,map_294C78,func,0,GAME,decomp,map.c (M068)
+0x294cfc,map_294CFC,func,0,GAME,decomp,map.c (M068)
+0x294ed4,map_294ED4,func,2,GAME,decomp,map.c (M068)
+0x295000,map_295000,func,1,GAME,decomp,map.c (M068)
+0x2950a0,map_2950A0,func,1,GAME,decomp,map.c (M068)
+0x2ad9fc,tcache_2AD9FC,func,1,GAME,decomp,tcache.c (M089/M090)
+0x2ada2c,memstack_2ADA2C,func,0,GAME,decomp,tcache.c (M089/M090)
+0x2adb80,memstack_2ADB80,func,0,GAME,decomp,tcache.c (M089/M090)
+0x2adb8c,memstack_2ADB8C,func,1,GAME,decomp,tcache.c (M089/M090)
+0x2adbd8,memstack_2ADBD8,func,5,GAME,decomp,tcache.c (M089/M090)
+0x2adc84,memstack_2ADC84,func,3,GAME,decomp,tcache.c (M089/M090)
+0x2add14,memstack_2ADD14,func,1,GAME,decomp,tcache.c (M089/M090)
+0x2adeb0,ralloc_2ADEB0,func,0,GAME,decomp,tcache.c (M089/M090)
+0x2adeec,ralloc_2ADEEC,func,0,GAME,decomp,tcache.c (M089/M090)
+0x2ad150,display_2AD150,func,0,GAME,decomp,display.c (M088)
+0x2ad184,display_2AD184,func,0,GAME,decomp,display.c (M088)
+0x2ad19c,display_2AD19C,func,0,GAME,decomp,display.c (M088)
+0x2ad1dc,display_2AD1DC,func,0,GAME,decomp,display.c (M088)
+0x2ad248,display_2AD248,func,5,GAME,decomp,display.c (M088)
+0x2ad2f0,display_2AD2F0,func,5,GAME,decomp,display.c (M088)
+0x2ad338,display_2AD338,func,6,GAME,decomp,display.c (M088)
+0x2ad414,display_2AD414,func,1,GAME,decomp,display.c (M088)
+0x2ad4b8,display_2AD4B8,func,1,GAME,decomp,display.c (M088)
+0x2ad5a0,display_2AD5A0,func,1,GAME,decomp,display.c (M088)
+0x2ad6d4,display_2AD6D4,func,1,GAME,decomp,display.c (M088)
+0x2ad870,display_2AD870,func,1,GAME,decomp,display.c (M088)
+0x2adf00,terrrast_2ADF00,func,0,GAME,decomp,terrrast.c (M091)
+0x2adf34,terrrast_2ADF34,func,0,GAME,decomp,terrrast.c (M091)
+0x2adf58,terrrast_2ADF58,func,2,GAME,decomp,terrrast.c (M091)
+0x2adfd4,terrrast_2ADFD4,func,1,GAME,decomp,terrrast.c (M091)
+0x2ae004,terrrast_2AE004,func,4,GAME,decomp,terrrast.c (M091)
+0x2b3980,haze_2B3980,func,1,GAME,decomp,haze.c (M095)
+0x2b399c,haze_2B399C,func,1,GAME,decomp,haze.c (M095)
+0x2b3a54,haze_2B3A54,func,0,GAME,decomp,haze.c (M095)
+0x2b3a7c,haze_2B3A7C,func,0,GAME,decomp,haze.c (M095)
+0x2b3a94,haze_2B3A94,func,2,GAME,decomp,haze.c (M095)
+0x2b3b20,haze_2B3B20,func,1,GAME,decomp,haze.c (M095)
+0x2b3ba4,haze_2B3BA4,func,3,GAME,decomp,haze.c (M095)
+0x2b3d44,haze_2B3D44,func,2,GAME,decomp,haze.c (M095)
+0x2b3d7c,haze_2B3D7C,func,2,GAME,decomp,haze.c (M095)
+0x2b3e9c,haze_2B3E9C,func,3,GAME,decomp,haze.c (M095)
+0x2b3fd0,haze_2B3FD0,func,2,GAME,decomp,haze.c (M095)
+0x2b402c,haze_2B402C,func,0,GAME,decomp,haze.c (M095)
+0x2b40c8,haze_2B40C8,func,2,GAME,decomp,haze.c (M095)
+0x2b4198,haze_2B4198,func,4,GAME,decomp,haze.c (M095)
+0x2b42c0,haze_2B42C0,func,4,GAME,decomp,haze.c (M095)
+0x2b4428,haze_2B4428,func,0,GAME,decomp,haze.c (M095)
+0x2b44fc,haze_2B44FC,func,4,GAME,decomp,haze.c (M095)
+0x2b458c,haze_2B458C,func,3,GAME,decomp,haze.c (M095)
+0x2b45d8,haze_2B45D8,func,3,GAME,decomp,haze.c (M095)
+0x2b4630,haze_2B4630,func,3,GAME,decomp,haze.c (M095)
+0x2b4674,haze_2B4674,func,3,GAME,decomp,haze.c (M095)
+0x2b46d0,haze_2B46D0,func,1,GAME,decomp,haze.c (M095)
+0x2b4724,haze_2B4724,func,1,GAME,decomp,haze.c (M095)
+0x2b4748,haze_2B4748,func,1,GAME,decomp,haze.c (M095)
+0x2b4780,haze_2B4780,func,2,GAME,decomp,haze.c (M095)
+0x2b47c0,haze_2B47C0,func,3,GAME,decomp,haze.c (M095)
+0x2b486c,haze_2B486C,func,3,GAME,decomp,haze.c (M095)
+0x2b4918,haze_2B4918,func,3,GAME,decomp,haze.c (M095)
+0x2b49c4,haze_2B49C4,func,3,GAME,decomp,haze.c (M095)
+0x2b4a70,haze_2B4A70,func,3,GAME,decomp,haze.c (M095)
+0x2b4b6c,haze_2B4B6C,func,3,GAME,decomp,haze.c (M095)
+0x2b4c78,haze_2B4C78,func,3,GAME,decomp,haze.c (M095)
+0x2b4d88,haze_2B4D88,func,3,GAME,decomp,haze.c (M095)
+0x2b4e8c,haze_2B4E8C,func,0,GAME,decomp,haze.c (M095)
+0x2b4ed0,haze_2B4ED0,func,0,GAME,decomp,haze.c (M095)
+0x2b4efc,haze_2B4EFC,func,4,GAME,decomp,haze.c (M095)
+0x2b4f68,haze_2B4F68,func,4,GAME,decomp,haze.c (M095)
+0x2b4fd0,haze_2B4FD0,func,7,GAME,decomp,haze.c (M095)
+0x2b50dc,haze_2B50DC,func,4,GAME,decomp,haze.c (M095)
+0x2b51ac,haze_2B51AC,func,7,GAME,decomp,haze.c (M095)
+0x2b52d0,haze_2B52D0,func,4,GAME,decomp,haze.c (M095)
+0x2b53b0,haze_2B53B0,func,0,GAME,decomp,haze.c (M095)
+0x2b5448,haze_2B5448,func,2,GAME,decomp,haze.c (M095)
+0x2b5484,haze_2B5484,func,3,GAME,decomp,haze.c (M095)
+0x2b5b70,haze_2B5B70,func,1,GAME,decomp,haze.c (M095)
+0x2b5ba4,haze_2B5BA4,func,1,GAME,decomp,haze.c (M095)
+0x293af0,map_pair_tab,data,,GAME,orig,map.c short[24][4] (code segment) fine-cell pairs (map: map_293AF0)
+0x35bfb8,map_state,data,,GAME,orig,map.c long 0 opened 2 loading in blocks 3 loaded
+0x35bfbc,map_load_ptr,data,,GAME,orig,map.c uchar * block loader destination
+0x35bfc8,map_terrain_names,data,,GAME,orig,map.c char *[] WATER..MUD NULL
+0x35c00c,map_35C00C,data,,GAME,orig,map.c long (GameMap.f3e points here)
+0x35c010,map_rnd,data,,GAME,orig,map.c RndStream texture variants
+0x35c01c,map_bldg_count,data,,GAME,orig,map.c long
+0x35cadc,game_35CADC,data,,GAME,orig,g5_a.h long >= 0x10 flat terrain
+0x397f30,map_bldgs,data,,GAME,orig,map.c MapBldg[0x3F1]
+0x39a3e4,map_shade_max,data,,GAME,orig,map.c long
+0x39a3e8,map_cur,data,,GAME,orig,map.c GameMap *
+0x39a3ec,map_39A3EC,data,,GAME,orig,map.c void * freed after a load
+0x39a3f0,map_file,data,,GAME,orig,map.c int map resource file
+0x39a3f5,map_name,data,,GAME,orig,map.c char[]
+0x39a402,map_res_id,data,,GAME,orig,map.c short
+0x2ad9f0,tcache_dir9,data,,GAME,orig,tcache.c uchar[9] (code segment) step directions (map: memstack_2AD9F0)
+0x438c00,tcache_ms,data,,GAME,orig,tcache.c MemStack
+0x438c0c,tcache_tab,data,,GAME,orig,tcache.c uchar ** (1-based)
+0x438c10,tcache_recs,data,,GAME,orig,tcache.c TcRec * (1-based)
+0x41ebe8,disp_ltab,data,,GAME,orig,display.c uchar * remap
+0x41ebf0,disp_mode,data,,GAME,orig,display.c uchar
+0x41ebf2,disp_flags,data,,GAME,orig,display.c uchar
+0x35ca74,disp_double_fns,data,,GAME,orig,display.c void *[5]
+0x428bf0,disp_blend_buf,data,,GAME,orig,display.c uchar[0x10000]
+0x438bf0,disp_blend,data,,GAME,orig,display.c uchar *
+0x438bf4,disp_blend_ref,data,,GAME,orig,display.c long
+0x438c30,tr_buf30,data,,GAME,orig,terrrast.c void *
+0x438c34,tr_idx,data,,GAME,orig,terrrast.c long * vertex numbers [64][64]
+0x438c38,tr_verts,data,,GAME,orig,terrrast.c TrVert *
+0x43bf60,hz_nodes,data,,GAME,orig,haze.c HzNode[0x40]
+0x43c060,hz_head,data,,GAME,orig,haze.c short[0x80]
+0x35ccf4,hz_init,data,,GAME,orig,haze.c uchar
+0x35ccec,hz_strides,data,,GAME,orig,haze.c long[3]
+0x43cadc,hz_view,data,,GAME,orig,haze.c FfView copy
+0x43cb50,hz_cam,data,,GAME,orig,haze.c FfCamera copy
+0x4287e8,hz_mat,data,,GAME,orig,haze.c fix[9] view rotation (ffpipe)
+0x43c960,hz_log2,data,,GAME,orig,haze.c uchar[0x100]
+0x43c560,hz_divx,data,,GAME,orig,haze.c long[0x100]
+0x43c160,hz_divy,data,,GAME,orig,haze.c long[0x100]
+0x43bb60,hz_rad1,data,,GAME,orig,haze.c uchar[0x400]
+0x43b760,hz_rad2,data,,GAME,orig,haze.c uchar[0x400]
+0x43b730,hz_bands,data,,GAME,orig,haze.c long[8]
+0x43b750,hz_ends,data,,GAME,orig,haze.c long[4]
+0x43ca60,hz_level,data,,GAME,orig,"haze.c long (= game_43CA60, short, of g5_c.h)"
+0x43ca64,hz_nbands,data,,GAME,orig,haze.c long
+0x43ca68,hz_wy,data,,GAME,orig,haze.c long
+0x43ca6c,hz_ca6c,data,,GAME,orig,haze.c long
+0x43ca70,hz_cell,data,,GAME,orig,haze.c uchar *
+0x43ca74,hz_mask,data,,GAME,orig,haze.c long
+0x43ca78,hz_ca78,data,,GAME,orig,haze.c long
+0x43ca7c,hz_ca7c,data,,GAME,orig,haze.c long
+0x43ca80,hz_wx,data,,GAME,orig,haze.c long
+0x43ca84,hz_px,data,,GAME,orig,haze.c long
+0x43ca88,hz_py,data,,GAME,orig,haze.c long
+0x43ca8c,hz_ca8c,data,,GAME,orig,haze.c long
+0x43ca90,hz_ca90,data,,GAME,orig,haze.c fix
+0x43ca94,hz_ca94,data,,GAME,orig,haze.c fix
+0x43ca98,hz_ca98,data,,GAME,orig,haze.c fix
+0x43ca9c,hz_c9c,data,,GAME,orig,haze.c long
+0x43caa0,hz_ca0,data,,GAME,orig,haze.c long
+0x43caa4,hz_ca4,data,,GAME,orig,haze.c long
+0x43caa8,hz_ca8,data,,GAME,orig,haze.c long
+0x43caac,hz_stride,data,,GAME,orig,haze.c long
+0x43cab0,hz_lasty,data,,GAME,orig,haze.c fix
+0x43cab4,hz_shade,data,,GAME,orig,haze.c long
+0x43cab8,hz_step,data,,GAME,orig,haze.c long
+0x43cabc,hz_col,data,,GAME,orig,haze.c long
+0x43cac0,hz_nheads,data,,GAME,orig,haze.c long
+0x43cac4,hz_vx,data,,GAME,orig,haze.c fix
+0x43cac8,hz_vz,data,,GAME,orig,haze.c fix
+0x43cacc,hz_ncols,data,,GAME,orig,haze.c long
+0x43cad0,hz_sx,data,,GAME,orig,haze.c fix
+0x43cad4,hz_sy,data,,GAME,orig,haze.c fix
+0x43cad8,hz_ring,data,,GAME,orig,haze.c long
+0x43cb38,hz_dist6,data,,GAME,orig,haze.c long
+0x43cb3c,hz_dist5,data,,GAME,orig,haze.c long
+0x43cb40,hz_dist4,data,,GAME,orig,haze.c long
+0x43cb44,hz_vy,data,,GAME,orig,haze.c fix
+0x43cb48,hz_cy,data,,GAME,orig,haze.c fix
+0x43cb4c,hz_cx,data,,GAME,orig,haze.c fix
+0x43cc0a,hz_first,data,,GAME,orig,haze.c uchar
+0x43cc0b,hz_near,data,,GAME,orig,haze.c uchar
+0x43cc0c,hz_vis,data,,GAME,orig,haze.c uchar
+0x43cc0d,hz_fine,data,,GAME,orig,haze.c uchar
+0x43cc0e,hz_pos,data,,GAME,orig,haze.c uchar
+0x43cc0f,hz_xmajor,data,,GAME,orig,haze.c uchar
+0x43cc10,hz_coarse,data,,GAME,orig,haze.c uchar
+0x43cc12,hz_key,data,,GAME,orig,haze.c GridXY
+0x43cc20,hz_play,data,,GAME,orig,haze.c fix[3]
+0x43cc2c,hz_play_h,data,,GAME,orig,haze.c short
+0x43cc2e,hz_play_p,data,,GAME,orig,haze.c short
+0x43cc30,hz_play_cam,data,,GAME,orig,haze.c long
+0x43cc34,hz_playing,data,,GAME,orig,haze.c long
+0x427e18,strip_dst,data,,GAME,orig,haze.c long * (strip_2AC19C input)
+0x427e20,strip_y0,data,,GAME,orig,haze.c fix (strip_2AC19C input)
+0x427e24,strip_dy,data,,GAME,orig,haze.c fix (strip_2AC19C input)
+0x35c93c,strip_shade,data,,GAME,orig,haze.c long (strip_2AC19C input)
+0x35c940,strip_neg,data,,GAME,orig,haze.c long (strip_2AC19C input)
+0x427f48,hz_clut,data,,GAME,orig,haze.c long
+0x42875c,hz_shade_row,data,,GAME,orig,haze.c uchar *
+0x390010,ff_cams_390010,data,,GAME,orig,haze.c uchar[3][0xBA] cameras
+0x41dd78,map_vary_mask,data,,GAME,orig,map.c ulong kinds with texture variants
+0x41eb64,ff_bolt_dist,data,,GAME,orig,g5_b.h fix (G5b)
+0x41ec7f,ff_ybuf_set,data,,GAME,orig,g5_b.h uchar (G5b)
+0x43cc11,ffpipe_43CC11,data,,GAME,orig,g5_b.h uchar (G5b; haze.c data)
+0x427f40,vd_center_col,data,,GAME,orig,g5_c.h long (G5c)
+0x2fb71f,crt_2FB71F,func,2v,GAME,orig,Watcom CRT fscanf cdecl varargs

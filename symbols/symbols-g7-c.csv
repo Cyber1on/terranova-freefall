@@ -1,0 +1,187 @@
+address,name,kind,nargs,library,status,notes
+0x2641c0,hudcb_2641C0,func,0,GAME,decomp,hudcb.c (M017)
+0x2642c8,hudcb_2642C8,func,1,GAME,decomp,hudcb.c (M017)
+0x2642d4,hudcb_2642D4,func,0,GAME,decomp,hudcb.c (M017)
+0x264364,hudcb_264364,func,2,GAME,decomp,hudcb.c (M017)
+0x2643f0,hudcb_2643F0,func,3,GAME,decomp,hudcb.c (M017)
+0x26444c,hudcb_26444C,func,1,GAME,decomp,hudcb.c (M017)
+0x264494,hudcb_264494,func,0,GAME,decomp,hudcb.c (M017)
+0x264498,hudcb_264498,func,2,GAME,decomp,hudcb.c (M017)
+0x2644ac,hudcb_2644AC,func,1,GAME,decomp,hudcb.c (M017)
+0x2644e4,hudcb_2644E4,func,2,GAME,decomp,hudcb.c (M017)
+0x26451c,hudcb_26451C,func,0,GAME,decomp,hudcb.c (M017)
+0x264520,hudcb_264520,func,1,GAME,decomp,hudcb.c (M017)
+0x264560,hudcb_264560,func,0,GAME,decomp,hudcb.c (M017)
+0x264598,hudcb_264598,func,2,GAME,decomp,hudcb.c (M017)
+0x2645f0,hudcb_2645F0,func,1,GAME,decomp,hudcb.c (M017)
+0x264630,hudcb_264630,func,0,GAME,decomp,hudcb.c (M017)
+0x264644,hudcb_264644,func,1,GAME,decomp,hudcb.c (M017)
+0x264680,hudcb_264680,func,1,GAME,decomp,hudcb.c (M017)
+0x2646d8,hudcb_2646D8,func,1,GAME,decomp,hudcb.c (M017)
+0x2646f0,hudcb_2646F0,func,2,GAME,decomp,hudcb.c (M017)
+0x264738,hudcb_264738,func,1,GAME,decomp,hudcb.c (M017)
+0x26477c,hudcb_26477C,func,1,GAME,decomp,hudcb.c (M017)
+0x2647d0,hudcb_2647D0,func,2,GAME,decomp,hudcb.c (M017)
+0x2647e8,hudcb_2647E8,func,1,GAME,decomp,hudcb.c (M017)
+0x264840,hudcb_264840,func,2,GAME,decomp,hudcb.c (M017)
+0x26485c,hudcb_26485C,func,1,GAME,decomp,hudcb.c (M017)
+0x2648e4,hudcb_2648E4,func,1,GAME,decomp,hudcb.c (M017)
+0x26493c,hudcb_26493C,func,1,GAME,decomp,hudcb.c (M017)
+0x264948,hudcb_264948,func,1,GAME,decomp,hudcb.c (M017)
+0x26494c,hudcb_26494C,func,0,GAME,decomp,hudcb.c (M017)
+0x264950,hudcb_264950,func,2,GAME,decomp,hudcb.c (M017)
+0x264990,hudcb_264990,func,1,GAME,decomp,hudcb.c (M017)
+0x264a68,hudcb_264A68,func,2,GAME,decomp,hudcb.c (M017)
+0x264a84,hudcb_264A84,func,1,GAME,decomp,hudcb.c (M017)
+0x264ac4,hudcb_264AC4,func,1,GAME,decomp,hudcb.c (M017)
+0x264aec,hudcb_264AEC,func,1,GAME,decomp,hudcb.c (M017)
+0x264b50,hudcb_264B50,func,2,GAME,decomp,hudcb.c (M017)
+0x264b7c,hudcb_264B7C,func,0,GAME,decomp,hudcb.c (M017)
+0x264b98,hudcb_264B98,func,2,GAME,decomp,hudcb.c (M017)
+0x264c38,hudcb_264C38,func,0,GAME,decomp,hudcb.c (M017)
+0x264c5c,hudcb_264C5C,func,1,GAME,decomp,hudcb.c (M017)
+0x264ca4,hudcb_264CA4,func,0,GAME,decomp,hudcb.c (M017)
+0x264cdc,hudcb_264CDC,func,2,GAME,decomp,hudcb.c (M017)
+0x264d68,hudcb_264D68,func,0,GAME,decomp,hudcb.c (M017)
+0x264d84,hudcb_264D84,func,1,GAME,decomp,hudcb.c (M017)
+0x264dcc,hudcb_264DCC,func,0,GAME,decomp,hudcb.c (M017)
+0x264de8,hudcb_264DE8,func,2,GAME,decomp,hudcb.c (M017)
+0x264e70,hudcb_264E70,func,0,GAME,decomp,hudcb.c (M017)
+0x265028,hudcb_265028,func,2,GAME,decomp,hudcb.c (M017)
+0x265080,hudcb_265080,func,0,GAME,decomp,hudcb.c (M017)
+0x265094,hudcb_265094,func,1,GAME,decomp,hudcb.c (M017)
+0x265158,hudcb_265158,func,0,GAME,decomp,hudcb.c (M017)
+0x26516c,hudcb_26516C,func,1,GAME,decomp,hudcb.c (M017)
+0x2651c8,hudcb_2651C8,func,1,GAME,decomp,hudcb.c (M017)
+0x2651ec,hudcb_2651EC,func,1,GAME,decomp,hudcb.c (M017)
+0x26521c,hudcb_26521C,func,1,GAME,decomp,hudcb.c (M017)
+0x265250,hudcb_265250,func,0,GAME,decomp,hudcb.c (M017)
+0x265290,hudcb_265290,func,0,GAME,decomp,hudcb.c (M017)
+0x2652a0,hudcb_2652A0,func,1,GAME,decomp,hudcb.c (M017)
+0x2652f4,hudcb_2652F4,func,1,GAME,decomp,hudcb.c (M017)
+0x265398,hudcb_265398,func,0,GAME,decomp,hudcb.c (M017)
+0x2653d8,hudcb_2653D8,func,1,GAME,decomp,hudcb.c (M017)
+0x26541c,hudcb_26541C,func,1,GAME,decomp,hudcb.c (M017)
+0x2654d0,hudcb_2654D0,func,1,GAME,decomp,hudcb.c (M017)
+0x2654e0,hudcb_2654E0,func,1,GAME,decomp,hudcb.c (M017)
+0x2654f0,hudcb_2654F0,func,2,GAME,decomp,hudcb.c (M017)
+0x265560,hudcb_265560,func,2,GAME,decomp,hudcb.c (M017)
+0x2655cc,hudcb_2655CC,func,1,GAME,decomp,hudcb.c (M017)
+0x265664,hudcb_265664,func,1,GAME,decomp,hudcb.c (M017)
+0x26bba0,hudview_26BBA0,func,1,GAME,decomp,hudvstat.c (M021)
+0x26bbf4,hudview_26BBF4,func,0,GAME,decomp,hudvstat.c (M021)
+0x26bc74,hudview_26BC74,func,0,GAME,decomp,hudvstat.c (M021)
+0x26bca0,hudview_26BCA0,func,2,GAME,decomp,hudvstat.c (M021)
+0x26bd00,hudview_26BD00,func,2,GAME,decomp,hudvstat.c (M021)
+0x26bd44,hudview_26BD44,func,1,GAME,decomp,hudvstat.c (M021)
+0x26be64,hudview_26BE64,func,1,GAME,decomp,hudvstat.c (M021)
+0x26bf3c,hudview_26BF3C,func,0,GAME,decomp,hudvstat.c (M021)
+0x26bfc4,hudview_26BFC4,func,3,GAME,decomp,hudvstat.c (M021)
+0x26c224,hudview_26C224,func,2,GAME,decomp,hudvstat.c (M021)
+0x26c2c8,hudview_26C2C8,func,3,GAME,decomp,hudvstat.c (M021)
+0x26c2f0,hudview_26C2F0,func,3,GAME,decomp,hudvstat.c (M021)
+0x26c318,hudview_26C318,func,2,GAME,decomp,hudvstat.c (M021)
+0x26c360,hudview_26C360,func,3,GAME,decomp,hudvstat.c (M021)
+0x26c410,hudview_26C410,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c44c,hudview_26C44C,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c4a4,hudview_26C4A4,func,0,GAME,decomp,hudvstat.c (M021)
+0x26c4a8,hudview_26C4A8,func,0,GAME,decomp,hudvstat.c (M021)
+0x26c50c,hudview_26C50C,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c598,hudview_26C598,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c5b4,hudview_26C5B4,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c5f4,hudview_26C5F4,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c600,hudview_26C600,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c60c,hudview_26C60C,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c72c,hudview_26C72C,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c820,hudview_26C820,func,0,GAME,decomp,hudvstat.c (M021)
+0x26c848,hudview_26C848,func,1,GAME,decomp,hudvstat.c (M021)
+0x26c898,hudview_26C898,func,0,GAME,decomp,hudvstat.c (M021)
+0x26c8b4,hudview_26C8B4,func,0,GAME,decomp,hudvstat.c (M021)
+0x26c980,hudview_26C980,func,1,GAME,decomp,hudvstat.c (M021)
+0x26caac,hudview_26CAAC,func,1,GAME,decomp,hudvstat.c (M021)
+0x26cac8,hudview_26CAC8,func,1,GAME,decomp,hudvstat.c (M021)
+0x26cad8,hudview_26CAD8,func,1,GAME,decomp,hudvstat.c (M021)
+0x26cae8,hudview_26CAE8,func,0,GAME,decomp,hudvstat.c (M021)
+0x26caf0,hudview_26CAF0,func,1,GAME,decomp,hudvstat.c (M021)
+0x26cb14,hudview_26CB14,func,0,GAME,decomp,hudvstat.c (M021)
+0x27a0d0,dmgdisp_27A0D0,func,0,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a118,dmgdisp_27A118,func,1,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a2bc,dmgdisp_27A2BC,func,3,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a3fc,dmgdisp_27A3FC,func,2,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a4e8,dmgdisp_27A4E8,func,3,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a500,dmgdisp_27A500,func,6,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a618,dmgdisp_27A618,func,0,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a8c0,dmgdisp_27A8C0,func,2,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a908,dmgdisp_27A908,func,0,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a924,dmgdisp_27A924,func,3,GAME,decomp,dmgdisp.c (M033/M034)
+0x27a970,dmgdisp_27A970,func,4,GAME,decomp,dmgdisp.c (M033/M034)
+0x27aa80,dmgdisp_27AA80,func,0,GAME,decomp,dmgdisp.c (M033/M034)
+0x27aac0,dmgdisp_27AAC0,func,1,GAME,decomp,dmgdisp.c (M033/M034)
+0x27ab40,dmgdisp_27AB40,func,0,GAME,decomp,dmgdisp.c (M033/M034)
+0x27b560,hudutil_27B560,func,2,GAME,decomp,hudhint.c (M036)
+0x27b570,hudutil_27B570,func,1,GAME,decomp,hudhint.c (M036)
+0x27b584,hudutil_27B584,func,0,GAME,decomp,hudhint.c (M036)
+0x27b5b0,hudutil_27B5B0,func,3,GAME,decomp,hudhint.c (M036)
+0x27b5e4,hudutil_27B5E4,func,1,GAME,decomp,hudhint.c (M036)
+0x27b7f4,hudutil_27B7F4,func,2,GAME,decomp,hudhint.c (M036)
+0x27b8ec,hudutil_27B8EC,func,1,GAME,decomp,hudhint.c (M036)
+0x27b8fc,hudutil_27B8FC,func,1,GAME,decomp,hudhint.c (M036)
+0x35a9a8,hud_save_valid,data,,GAME,orig,g7_c.h
+0x35a9a9,hud_btn_mode,data,,GAME,orig,g7_c.h
+0x35a9b3,hud_view_first_w,data,,GAME,orig,g7_c.h
+0x35a9b6,hud_view_last_w,data,,GAME,orig,g7_c.h
+0x35a9b9,hud_35A9B9,data,,GAME,orig,g7_c.h
+0x35a9bc,hud_weapon_icon,data,,GAME,orig,g7_c.h
+0x35aeee,hud_map_zoom,data,,GAME,orig,g7_c.h
+0x35aef0,hud_35AEF0,data,,GAME,orig,g7_c.h
+0x35aef4,hud_mode_fns,data,,GAME,orig,g7_c.h
+0x35b0b8,hud_mode_info,data,,GAME,orig,g7_c.h
+0x35b140,hud_last_damage,data,,GAME,orig,g7_c.h
+0x35b141,hud_dmg_mode,data,,GAME,orig,g7_c.h
+0x35b144,hud_rnd,data,,GAME,orig,g7_c.h
+0x35b4a0,dmg_noise_chance,data,,GAME,orig,g7_c.h
+0x35b4b0,dmg_rnd,data,,GAME,orig,g7_c.h
+0x35b4bc,dmg_run_a,data,,GAME,orig,g7_c.h
+0x35b4dc,dmg_run_b,data,,GAME,orig,g7_c.h
+0x35b4fc,dmg_run_c,data,,GAME,orig,g7_c.h
+0x35b51c,dmg_run_d,data,,GAME,orig,g7_c.h
+0x389db8,hud_bar_rects,data,,GAME,orig,g7_c.h
+0x389dc8,hud_tluc_389DC8,data,,GAME,orig,g7_c.h
+0x389dd0,hud_tluc_389DD0,data,,GAME,orig,g7_c.h
+0x389ddc,hud_w_389DDC,data,,GAME,orig,g7_c.h
+0x389de0,hud_w_389DE0,data,,GAME,orig,g7_c.h
+0x389df0,hud_w_389DF0,data,,GAME,orig,g7_c.h
+0x389e04,hud_w_389E04,data,,GAME,orig,g7_c.h
+0x389e08,hud_w_389E08,data,,GAME,orig,g7_c.h
+0x389e10,hud_w_389E10,data,,GAME,orig,g7_c.h
+0x389f34,hud_w_389F34,data,,GAME,orig,g7_c.h
+0x38b9ad,hud_38B9AD,data,,GAME,orig,g7_c.h
+0x38b9b0,hud_save_bm,data,,GAME,orig,g7_c.h
+0x38ba30,hud_38BA30,data,,GAME,orig,g7_c.h
+0x38ba34,hud_38BA34,data,,GAME,orig,g7_c.h
+0x38ba38,hud_38BA38,data,,GAME,orig,g7_c.h
+0x38ba3c,hud_blink_time,data,,GAME,orig,g7_c.h
+0x38ba40,hud_38BA40,data,,GAME,orig,g7_c.h
+0x38ba42,hud_38BA42,data,,GAME,orig,g7_c.h
+0x38ba44,hud_38BA44,data,,GAME,orig,g7_c.h
+0x38ba46,hud_38BA46,data,,GAME,orig,g7_c.h
+0x38ba48,hud_38BA48,data,,GAME,orig,g7_c.h
+0x38ba4a,hud_38BA4A,data,,GAME,orig,g7_c.h
+0x38ba4c,hud_38BA4C,data,,GAME,orig,g7_c.h
+0x38ba4e,hud_38BA4E,data,,GAME,orig,g7_c.h
+0x38ba4f,hud_blink,data,,GAME,orig,g7_c.h
+0x38ba50,hud_38BA50,data,,GAME,orig,g7_c.h
+0x38ba51,hud_38BA51,data,,GAME,orig,g7_c.h
+0x38fc70,hud_view_38FC70,data,,GAME,orig,g7_c.h
+0x38fc7c,hud_view_saved_mode,data,,GAME,orig,g7_c.h
+0x38fd03,hud_38FD03,data,,GAME,orig,g7_c.h
+0x38fffc,hud_38FFFC,data,,GAME,orig,g7_c.h
+0x391fd0,dmg_shake_y,data,,GAME,orig,g7_c.h
+0x391fd6,dmg_shake_x,data,,GAME,orig,g7_c.h
+0x391fdc,dmg_shake_lvl,data,,GAME,orig,g7_c.h
+0x391fe0,dmg_lines,data,,GAME,orig,g7_c.h
+0x392020,dmg_noise,data,,GAME,orig,g7_c.h
+0x392120,dmg_noise_pos,data,,GAME,orig,g7_c.h
+0x3923e0,hud_hint_mode,data,,GAME,orig,g7_c.h
+0x3923e4,hud_hints,data,,GAME,orig,g7_c.h
+0x397b6c,hud_397B6C,data,,GAME,orig,g7_c.h

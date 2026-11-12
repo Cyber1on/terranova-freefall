@@ -1,0 +1,137 @@
+address,name,kind,nargs,library,status,notes
+0x261488,helm_261488,func,0,GAME,decomp,helmet.c M016
+0x2614b0,helm_2614B0,func,0,GAME,decomp,helmet.c M016
+0x2614d8,helm_2614D8,func,1,GAME,decomp,helmet.c M016
+0x2617f4,helm_2617F4,func,0,GAME,decomp,helmet.c M016
+0x2618e0,helm_2618E0,func,0,GAME,decomp,helmet.c M016
+0x261a00,helm_261A00,func,0,GAME,decomp,helmet.c M016
+0x261b54,helm_261B54,func,0,GAME,decomp,helmet.c M016
+0x261bbc,helm_261BBC,func,1,GAME,decomp,helmet.c M016
+0x261bd8,helm_261BD8,func,0,GAME,decomp,helmet.c M016
+0x261c5c,helm_261C5C,func,0,GAME,decomp,helmet.c M016
+0x261d70,helm_261D70,func,0,GAME,decomp,helmet.c M016
+0x261dd4,helm_261DD4,func,0,GAME,decomp,helmet.c M016
+0x261e48,HelmTaskHook,func,0,GAME,decomp,helmet.c M016
+0x262018,helm_262018,func,0,GAME,decomp,helmet.c M016
+0x26214c,helm_26214C,func,0,GAME,decomp,helmet.c M016
+0x262184,helm_262184,func,3,GAME,decomp,helmet.c M016
+0x262244,helm_262244,func,2,GAME,decomp,helmet.c M016
+0x262278,helm_262278,func,0,GAME,decomp,helmet.c M016
+0x2623e4,helm_2623E4,func,2,GAME,decomp,helmet.c M016
+0x2625e4,helm_2625E4,func,3,GAME,decomp,helmet.c M016
+0x2626b8,helm_2626B8,func,0,GAME,decomp,helmet.c M016
+0x2627f8,helm_2627F8,func,2,GAME,decomp,helmet.c M016
+0x262814,helm_262814,func,0,GAME,decomp,helmet.c M016
+0x262a44,helm_262A44,func,0,GAME,decomp,helmet.c M016
+0x262a88,helm_262A88,func,1,GAME,decomp,helmet.c M016
+0x262ac4,helm_262AC4,func,2,GAME,decomp,helmet.c M016
+0x262b00,helm_262B00,func,1,GAME,decomp,helmet.c M016
+0x262c2c,helm_262C2C,func,0,GAME,decomp,helmet.c M016
+0x262d2c,helm_262D2C,func,0,GAME,decomp,helmet.c M016
+0x262d4c,helm_262D4C,func,1,GAME,decomp,helmet.c M016
+0x262db8,helm_262DB8,func,0,GAME,decomp,helmet.c M016
+0x262e34,helm_262E34,func,0,GAME,decomp,helmet.c M016
+0x262e88,helm_262E88,func,0,GAME,decomp,helmet.c M016
+0x262ea0,helm_262EA0,func,0,GAME,decomp,helmet.c M016
+0x2633a0,helm_2633A0,func,1,GAME,decomp,helmet.c M016
+0x263410,helm_263410,func,2,GAME,decomp,helmet.c M016
+0x2634a4,helm_2634A4,func,0,GAME,decomp,helmet.c M016
+0x2634b8,helm_2634B8,func,2,GAME,decomp,helmet.c M016
+0x26350c,helm_26350C,func,2,GAME,decomp,helmet.c M016
+0x26355c,helm_26355C,func,1,GAME,decomp,helmet.c M016
+0x2635c0,helm_2635C0,func,1,GAME,decomp,helmet.c M016
+0x2635c8,helm_2635C8,func,2,GAME,decomp,helmet.c M016
+0x2637dc,helm_2637DC,func,1,GAME,decomp,helmet.c M016
+0x263824,helm_263824,func,0,GAME,decomp,helmet.c M016
+0x263940,helm_263940,func,2,GAME,decomp,helmet.c M016
+0x263bc0,helm_263BC0,func,1,GAME,decomp,helmet.c M016
+0x263be4,helm_263BE4,func,0,GAME,decomp,helmet.c M016
+0x263eb8,helm_263EB8,func,2,GAME,decomp,helmet.c M016
+0x263ee8,helm_263EE8,func,1,GAME,decomp,helmet.c M016
+0x263f00,helm_263F00,func,1,GAME,decomp,helmet.c M016
+0x263fc0,helm_263FC0,func,2,GAME,decomp,helmet.c M016
+0x263ff0,helm_263FF0,func,1,GAME,decomp,helmet.c M016
+0x264008,helm_264008,func,1,GAME,decomp,helmet.c M016
+0x2640d4,helm_2640D4,func,0,GAME,decomp,helmet.c M016
+0x27b918,menudraw_27B918,func,1,GAME,decomp,hudmenu.c M037
+0x27bb30,menudraw_27BB30,func,0,GAME,decomp,hudmenu.c M037
+0x27bb50,menudraw_27BB50,func,0,GAME,decomp,hudmenu.c M037
+0x27bb64,menudraw_27BB64,func,4,GAME,decomp,hudmenu.c M037
+0x27be1c,menudraw_27BE1C,func,0,GAME,decomp,hudmenu.c M037
+0x27bf40,menudraw_27BF40,func,0,GAME,decomp,hudmenu.c M037
+0x27bfbc,menudraw_27BFBC,func,1,GAME,decomp,hudmenu.c M037
+0x265700,radar_265700,func,0,GAME,decomp,hudradar.c M018
+0x265720,radar_265720,func,0,GAME,decomp,hudradar.c M018
+0x265724,radar_265724,func,2,GAME,decomp,hudradar.c M018
+0x2657a8,radar_2657A8,func,1,GAME,decomp,hudradar.c M018
+0x2657f4,radar_2657F4,func,1,GAME,decomp,hudradar.c M018
+0x266248,radar_266248,func,1,GAME,decomp,hudradar.c M018
+0x266254,radar_266254,func,1,GAME,decomp,hudradar.c M018
+0x261480,helm_zero_rect,data,,GAME,orig,G7b callee g7b
+0x35a54c,hud_widget_defs,data,,GAME,orig,G7b callee g7b
+0x35a914,hud_35A914,data,,GAME,orig,G7b callee g7b
+0x35a918,hud_tip_flags,data,,GAME,orig,G7b callee g7b
+0x35a91c,hud_res_names,data,,GAME,orig,G7b callee g7b
+0x35a92c,hud_res_names_hi,data,,GAME,orig,G7b callee g7b
+0x35a945,hud_pal_cycle,data,,GAME,orig,G7b callee g7b
+0x35a958,hud_35A958,data,,GAME,orig,G7b callee g7b
+0x35a960,hud_box_tab,data,,GAME,orig,G7b callee g7b
+0x35a990,hud_35A990,data,,GAME,orig,G7b callee g7b
+0x35a994,hud_tip_time,data,,GAME,orig,G7b callee g7b
+0x35a998,hud_suit_clr,data,,GAME,orig,G7b callee g7b
+0x35a99f,hud_frame_clr,data,,GAME,orig,G7b callee g7b
+0x389cb0,hud_clut,data,,GAME,orig,G7b callee g7b
+0x389db0,hud_tip_rect,data,,GAME,orig,G7b callee g7b
+0x389dcc,hud_tluc_389DCC,data,,GAME,orig,G7b callee g7b
+0x389dd4,hud_res_file,data,,GAME,orig,G7b callee g7b
+0x389dd8,hud_res_file2,data,,GAME,orig,G7b callee g7b
+0x389de8,hud_last,data,,GAME,orig,G7b callee g7b
+0x389dec,hud_first,data,,GAME,orig,G7b callee g7b
+0x389e0c,hud_w_389E0C,data,,GAME,orig,G7b callee g7b
+0x389e14,hud_radar,data,,GAME,orig,G7b callee g7b
+0x389e18,hud_w_389E18,data,,GAME,orig,G7b callee g7b
+0x389e1c,hud_w_389E1C,data,,GAME,orig,G7b callee g7b
+0x389f38,hud_pool,data,,GAME,orig,G7b callee g7b
+0x38b9a2,hud_flags_cam,data,,GAME,orig,G7b callee g7b
+0x38b9a5,hud_flags_std,data,,GAME,orig,G7b callee g7b
+0x38b9a8,hud_38B9A8,data,,GAME,orig,G7b callee g7b
+0x38b9a9,hud_38B9A9,data,,GAME,orig,G7b callee g7b
+0x38b9aa,hud_pal_fx,data,,GAME,orig,G7b callee g7b
+0x390300,hud_390300,data,,GAME,orig,G7b callee g7b
+0x390304,hud_390304,data,,GAME,orig,G7b callee g7b
+0x392407,hud_392407,data,,GAME,orig,G7b callee g7b
+0x392408,hud_392408,data,,GAME,orig,G7b callee g7b
+0x43d534,hud_43D534,data,,GAME,orig,G7b callee g7b
+0x44136a,game_44136A,data,,GAME,orig,G7b callee g7b
+0x44136c,game_44136C,data,,GAME,orig,G7b callee g7b
+0x447117,tnm_447117,data,,GAME,orig,G7b callee g7b
+0x447050,tnm_dirty,data,,GAME,orig,G7b callee g7b
+0x3599e8,game_3599E8,data,,GAME,orig,G7b callee g7b
+0x35b150,game_35B150,data,,GAME,orig,G7b callee g7b
+0x35b175,game_35B175,data,,GAME,orig,G7b callee g7b
+0x35b188,game_35B188,data,,GAME,orig,G7b callee g7b
+0x35b19c,game_35B19C,data,,GAME,orig,G7b callee g7b
+0x35b1a4,game_35B1A4,data,,GAME,orig,G7b callee g7b
+0x35b1a8,game_35B1A8,data,,GAME,orig,G7b callee g7b
+0x35b1ac,game_35B1AC,data,,GAME,orig,G7b callee g7b
+0x35b1b0,game_35B1B0,data,,GAME,orig,G7b callee g7b
+0x389bd0,game_389BD0,data,,GAME,orig,G7b callee g7b
+0x389bd4,game_389BD4,data,,GAME,orig,G7b callee g7b
+0x35aa40,radar_tick_w,data,,GAME,orig,G7b callee g7b
+0x35aa48,radar_tick_bits,data,,GAME,orig,G7b callee g7b
+0x35aa68,radar_bm,data,,GAME,orig,G7b callee g7b
+0x35aa78,radar_tick_refs,data,,GAME,orig,G7b callee g7b
+0x35aabc,radar_noise,data,,GAME,orig,G7b callee g7b
+0x38ba60,radar_x,data,,GAME,orig,G7b callee g7b
+0x38bae0,radar_mark_x,data,,GAME,orig,G7b callee g7b
+0x38bae4,radar_mark_y,data,,GAME,orig,G7b callee g7b
+0x38bae8,radar_time,data,,GAME,orig,G7b callee g7b
+0x38baec,radar_38BAEC,data,,GAME,orig,G7b callee g7b
+0x38baf0,radar_count,data,,GAME,orig,G7b callee g7b
+0x389bc8,hud_389BC8,data,,GAME,orig,G7b callee g7b
+0x27b910,menu_zero_rect,data,,GAME,orig,G7b callee g7b
+0x35b53c,menu_active,data,,GAME,orig,G7b callee g7b
+0x35b540,menu_sel,data,,GAME,orig,G7b callee g7b
+0x35b544,menu_items,data,,GAME,orig,G7b callee g7b
+0x392410,menu_canvas,data,,GAME,orig,G7b callee g7b
+0x392450,menu_rect,data,,GAME,orig,G7b callee g7b

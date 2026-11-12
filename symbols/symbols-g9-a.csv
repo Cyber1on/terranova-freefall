@@ -1,0 +1,126 @@
+address,name,kind,nargs,library,status,notes
+0x27acc0,simtype_27ACC0,func,0,GAME,decomp,simtype.c M035
+0x27adac,simtype_27ADAC,func,3,GAME,decomp,simtype.c M035
+0x27ae24,simtype_27AE24,func,3,GAME,decomp,simtype.c M035
+0x27aeec,simtype_27AEEC,func,3,GAME,decomp,simtype.c M035
+0x27b144,simtype_27B144,func,1,GAME,decomp,simtype.c M035
+0x27b200,simtype_27B200,func,0,GAME,decomp,simtype.c M035
+0x27b240,simtype_27B240,func,3,GAME,decomp,simtype.c M035
+0x27b298,simtype_27B298,func,1,GAME,decomp,simtype.c M035
+0x27b300,simtype_27B300,func,1,GAME,decomp,simtype.c M035
+0x27b368,simtype_27B368,func,1,GAME,decomp,simtype.c M035
+0x27b398,simtype_27B398,func,1,GAME,decomp,simtype.c M035
+0x27b3c8,simtype_27B3C8,func,1,GAME,decomp,simtype.c M035
+0x27b3f4,simtype_27B3F4,func,1,GAME,decomp,simtype.c M035
+0x27b420,simtype_27B420,func,1,GAME,decomp,simtype.c M035
+0x27b450,simtype_27B450,func,1,GAME,decomp,simtype.c M035
+0x27b4ac,simtype_27B4AC,func,1,GAME,decomp,simtype.c M035
+0x27b4d8,simtype_27B4D8,func,1,GAME,decomp,simtype.c M035
+0x27b508,simtype_27B508,func,1,GAME,decomp,simtype.c M035
+0x283270,simload_283270,func,0,GAME,decomp,simload.c M051
+0x2cdbb0,ressim_2CDBB0,func,1,GAME,decomp,ressimld.c M109
+0x392170,mapd_nav,data,,GAME,orig,g8_c.h g9_a.h uchar[4][0x84]
+0x392140,nav_sel,data,,GAME,orig,g9_a.h NavMark[4] (mfd_392141 = +1)
+0x392130,simtype_list8,data,,GAME,orig,g9_a.h short[8]
+0x392380,simtype_list5b,data,,GAME,orig,g9_a.h short[5]
+0x3923d4,simtype_list5a,data,,GAME,orig,g9_a.h short[5]
+0x39238a,cmd_39238A,data,,GAME,orig,g8_c.h g9_a.h uchar[0x4A] res 0x3A8
+0x39634e,simload_39634E,data,,GAME,orig,g9_a.h res 0x3A6
+0x2c6110,mstat_2C6110,func,2,GAME,decomp,mstat.c M101
+0x2c614c,mstat_2C614C,func,3,GAME,decomp,mstat.c M101
+0x2c618c,mstat_2C618C,func,1,GAME,decomp,mstat.c M101
+0x2c6244,mstat_2C6244,func,0,GAME,decomp,mstat.c M101
+0x2c6248,mstat_2C6248,func,0,GAME,decomp,mstat.c M101
+0x2c624c,mstat_2C624C,func,2,GAME,decomp,mstat.c M101
+0x2c6278,mstat_2C6278,func,0,GAME,decomp,mstat.c M101
+0x2c62b4,mstat_2C62B4,func,1,GAME,decomp,mstat.c M101
+0x2c6350,mstat_2C6350,func,0,GAME,decomp,mstat.c M101
+0x2c64e8,mstat_2C64E8,func,0,GAME,decomp,mstat.c M101
+0x2c65a4,mstat_2C65A4,func,0,GAME,decomp,mstat.c M101
+0x2c65b0,mstat_2C65B0,func,0,GAME,decomp,mstat.c M101
+0x2c665c,mstat_2C665C,func,1,GAME,decomp,mstat.c M101
+0x2c66b8,mstat_2C66B8,func,0,GAME,decomp,mstat.c M101
+0x2c6784,mstat_2C6784,func,1,GAME,decomp,mstat.c M101
+0x2c6838,mstat_2C6838,func,0,GAME,decomp,mstat.c M101
+0x2c6888,mstat_2C6888,func,0,GAME,decomp,mstat.c M101
+0x2c68c8,mstat_2C68C8,func,2,GAME,decomp,mstat.c M101
+0x2c68e8,mstat_2C68E8,func,0,GAME,decomp,mstat.c M101
+0x2c6fa4,mstat_2C6FA4,func,1,GAME,decomp,mstat.c M101
+0x2c6fd8,mstat_2C6FD8,func,1,GAME,decomp,mstat.c M101
+0x2c701c,mstat_2C701C,func,2,GAME,decomp,mstat.c M101
+0x2c71e0,mstat_2C71E0,func,0,GAME,decomp,mstat.c M101
+0x2c7220,mstat_2C7220,func,2,GAME,decomp,mstat.c M101
+0x2c734c,mstat_2C734C,func,1,GAME,decomp,mstat.c M101
+0x2c73e8,mstat_2C73E8,func,1,GAME,decomp,mstat.c M101
+0x2c7540,mstat_2C7540,func,3,GAME,decomp,mstat.c M101
+0x2c78f4,mstat_2C78F4,func,1,GAME,decomp,mstat.c M101
+0x2c79d4,mstat_2C79D4,func,0,GAME,decomp,mstat.c M101
+0x2c7a10,mstat_2C7A10,func,0,GAME,decomp,mstat.c M101
+0x2c7a4c,mstat_2C7A4C,func,0,GAME,decomp,mstat.c M101
+0x2c7ac0,mstat_2C7AC0,func,0,GAME,decomp,mstat.c M101
+0x2c7afc,mstat_2C7AFC,func,0,GAME,decomp,mstat.c M101
+0x2c7c24,mstat_2C7C24,func,0,GAME,decomp,mstat.c M101
+0x2c7c54,mstat_2C7C54,func,1,GAME,decomp,mstat.c M101
+0x2c7d14,mstat_2C7D14,func,0,GAME,decomp,mstat.c M101
+0x2c8124,mstat_2C8124,func,0,GAME,decomp,mstat.c M101
+0x2c81bc,mstat_2C81BC,func,0,GAME,decomp,mstat.c M101
+0x2c8230,mstat_2C8230,func,2,GAME,decomp,mstat.c M101
+0x2c8254,mstat_2C8254,func,0,GAME,decomp,mstat.c M101
+0x2c828c,mstat_2C828C,func,0,GAME,decomp,mstat.c M101
+0x2c84c0,mstat_2C84C0,func,4,GAME,decomp,mstat.c M101
+0x2c8530,mstat_2C8530,func,2,GAME,decomp,mstat.c M101
+0x2c856c,mstat_2C856C,func,0,GAME,decomp,mstat.c M101
+0x2c8c70,camplist_2C8C70,func,0,GAME,decomp,camplist.c M102
+0x2c8cc8,camplist_2C8CC8,func,2,GAME,decomp,camplist.c M102
+0x2c8ce8,camplist_2C8CE8,func,3,GAME,decomp,camplist.c M102
+0x2c8d30,camplist_2C8D30,func,3,GAME,decomp,camplist.c M102
+0x2c8e04,camplist_2C8E04,func,0,GAME,decomp,camplist.c M102
+0x2c8e54,camplist_2C8E54,func,0,GAME,decomp,camplist.c M102
+0x2c8e78,camplist_2C8E78,func,0,GAME,decomp,camplist.c M102
+0x2c8fc8,camplist_2C8FC8,func,1,GAME,decomp,camplist.c M102
+0x35d0d0,mstat_cls_counts,data,,GAME,orig,g9_a.h
+0x35d0da,mstat_list_res,data,,GAME,orig,g9_a.h
+0x35d0e0,mstat_list_len,data,,GAME,orig,g9_a.h
+0x35d0e3,mstat_notice,data,,GAME,orig,g9_a.h
+0x35d0e4,mstat_notice_medals,data,,GAME,orig,g9_a.h
+0x35d0e8,mstat_screen_done,data,,GAME,orig,g9_a.h
+0x35d0cc,mstat_35D0CC,data,,GAME,orig,g9_a.h
+0x359714,game_359714,data,,GAME,orig,g9_a.h
+0x390348,camp_soldiers,data,,GAME,orig,g9_a.h
+0x43e370,mstat_goals,data,,GAME,orig,g9_a.h
+0x43e400,mstat_others,data,,GAME,orig,g9_a.h
+0x43e528,mstat_43E528,data,,GAME,orig,g9_a.h
+0x43e558,mstat_43E558,data,,GAME,orig,g9_a.h
+0x43e5b8,mstat_43E5B8,data,,GAME,orig,g9_a.h
+0x43e5ba,mstat_43E5BA,data,,GAME,orig,g9_a.h
+0x43e5bc,mstat_43E5BC,data,,GAME,orig,g9_a.h
+0x43e5eb,mstat_43E5EB,data,,GAME,orig,g9_a.h
+0x43e61c,mstat_43E61C,data,,GAME,orig,g9_a.h
+0x4408c1,speaker_score,data,,GAME,orig,g9_a.h
+0x440903,speaker_cnt,data,,GAME,orig,g9_a.h
+0x440924,game_440924,data,,GAME,orig,g9_a.h
+0x440928,game_440928,data,,GAME,orig,g9_a.h
+0x44092c,game_44092C,data,,GAME,orig,g9_a.h
+0x440934,mstat_fname,data,,GAME,orig,g9_a.h
+0x440970,game_440970,data,,GAME,orig,g9_a.h
+0x440974,game_440974,data,,GAME,orig,g9_a.h
+0x44097c,mstat_44097C,data,,GAME,orig,g9_a.h
+0x4409ae,mstat_kill_pts,data,,GAME,orig,g9_a.h
+0x440a28,mstat_440A28,data,,GAME,orig,g9_a.h
+0x440a30,mstat_default,data,,GAME,orig,g9_a.h
+0x441278,game_441278,data,,GAME,orig,g9_a.h
+0x442418,game_442418,data,,GAME,orig,g9_a.h
+0x44241c,game_44241C,data,,GAME,orig,g9_a.h
+0x442804,game_442804,data,,GAME,orig,g9_a.h
+0x442864,game_442864,data,,GAME,orig,g9_a.h
+0x441280,camp_flags,data,,GAME,orig,g9_a.h
+0x4412b0,camp_sel_b,data,,GAME,orig,g9_a.h
+0x4412bc,camp_sel_c,data,,GAME,orig,g9_a.h
+0x4412bf,camp_sel_a,data,,GAME,orig,g9_a.h
+0x4412ce,camp_level,data,,GAME,orig,g9_a.h
+0x44130d,camp_missions,data,,GAME,orig,g9_a.h
+0x44134c,camp_repeat,data,,GAME,orig,g9_a.h
+0x35d0ec,camp_pos,data,,GAME,orig,g9_a.h
+0x35d0f0,camp_done,data,,GAME,orig,g9_a.h
+0x35d0f4,camp_35D0F4,data,,GAME,orig,g9_a.h
+0x359710,game_359710,data,,GAME,orig,g9_a.h

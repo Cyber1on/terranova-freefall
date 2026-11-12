@@ -1,0 +1,137 @@
+address,name,kind,nargs,library,status,notes
+0x2f4fa0,g3_interpret_sub_object,func,custom,3D,decomp,interp.c; eax=object ebx=parms (name ours)
+0x2f4fcc,g3_interpret_object,func,custom,3D,decomp,interp.c; eax=object ebx=parms; C 3rd arg = caller edi (read by eval_light_obj_cen)
+0x2f517c,interpreter_loop,func,1,3D,decomp,interp.c; asm: ebp=bytecode
+0x2f5187,do_debug,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f518c,do_eof,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f518d,do_jnorm,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f51a7,do_lnres,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f51c7,do_multires,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f51e7,do_scaleres,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5245,do_vpnt_p,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5251,do_vpnt_v,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f526e,do_defres,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5289,do_defres_i,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f52ac,do_polyres,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f52e8,do_tnop_33,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5334,do_poly_var_2F5334,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5359,do_poly_var_2F5359,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f538c,do_poly_var_2F538C,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5401,do_poly_var_2F5401,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5426,do_poly_var_2F5426,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5464,do_tnop_34,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f549e,do_sortnorm,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f54ec,do_goursurf,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f54f2,do_gour_p,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f54ff,do_gour_vc,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f551a,do_draw_mode,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5533,do_setshade,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f555b,do_rgbshades,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5580,do_setuv,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f55a7,do_uvlist,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f55da,do_setcolor,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f55e0,do_getvcolor,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f55ed,do_getpcolor,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f560b,do_getvscolor,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f561c,do_getpscolor,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f564a,do_x_rel,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5670,do_y_rel,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5696,do_z_rel,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f56bc,do_xy_rel,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f56e5,do_xz_rel,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f570e,do_yz_rel,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5737,do_icall_p,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5761,do_icall_h,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f578b,do_icall_b,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f57b5,do_tnop_28,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f57ef,do_tnop_29,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5828,do_tnop_2b,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f585b,do_tnop_2a,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f587c,do_tnop_2c,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f589a,do_tnop_2e,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f58a2,do_tnop_2f,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f58aa,do_tnop_30,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5956,do_sfcal,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f596b,do_dbg,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5973,do_tmap_op,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f59c6,do_tnop_32,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x2f5a06,do_tnop_2d,func,1,3D,decomp,interp.c handler: asm ebp=opcode -> C pc in/out (NULL = ret)
+0x361aa0,interp_saved_fill_type,data,,3D,decomp,(name ours)
+0x361aa4,interp_saved_fill_parm,data,,3D,decomp,(name ours)
+0x361aa8,interp_parm_copy,data,,3D,decomp,(name ours)
+0x361c3c,interp_scale_vec,data,,3D,decomp,(name ours)
+0x361c48,interp_draw_style,data,,3D,decomp,TN (name ours)
+0x2f7d4c,g3_start_object,func,custom,3D,decomp,instance.c; esi
+0x2f7da2,g3_start_object_angles_xyz,func,custom,3D,decomp,instance.c; esi ax bx dx ecx
+0x2f7dc0,g3_start_object_angles_v,func,custom,3D,decomp,instance.c; esi edi ecx
+0x2f7e79,g3_start_object_angles_x,func,custom,3D,decomp,instance.c; esi bx
+0x2f7e9a,instance_x,func,custom,3D,decomp,instance.c; bx; x/z plane
+0x2f8022,g3_start_object_angles_y,func,custom,3D,decomp,instance.c; esi bx
+0x2f8074,instance_y,func,custom,3D,decomp,instance.c; bx; y/z plane + light + wtoo
+0x2f836e,g3_start_object_angles_z,func,custom,3D,decomp,instance.c; esi bx
+0x2f8393,instance_z,func,custom,3D,decomp,instance.c; bx
+0x2f851b,g3_start_object_angles_xy,func,custom,3D,decomp,instance.c; esi bx dx ecx
+0x2f8562,g3_start_object_angles_yz,func,custom,3D,decomp,instance.c; esi bx dx ecx
+0x2f85a9,g3_start_object_angles_xz,func,custom,3D,decomp,instance.c; esi bx dx ecx
+0x2f85f0,g3_start_object_angles_zx,func,custom,3D,decomp,instance.c; esi bx dx ecx (name ours)
+0x2f8621,g3_start_object_matrix,func,custom,3D,decomp,instance.c; esi edi
+0x2f86ba,save_context,func,custom,3D,decomp,instance.c; -> CF
+0x2f8705,g3_scale_object,func,custom,3D,decomp,instance.c; eax
+0x2f8864,g3_end_object,func,custom,3D,decomp,instance.c; 
+0x2f88af,instance_matrix,func,custom,3D,decomp,instance.c; edi=dest esi=src
+0x362168,inst_temp_matrix,data,,3D,decomp,instance temporary (name ours)
+0x36218c,inst_temp_matrix2,data,,3D,decomp,instance temporary (name ours)
+0x3621b0,inst_temp_angles,data,,3D,decomp,instance temporary (name ours)
+0x3621b6,inst_temp_vec,data,,3D,decomp,instance temporary (name ours)
+0x3621c2,inst_sin_y,data,,3D,decomp,instance temporary (name ours)
+0x3621c6,inst_cos_y,data,,3D,decomp,instance temporary (name ours)
+0x3621ca,inst_sin_x,data,,3D,decomp,instance temporary (name ours)
+0x3621ce,inst_cos_x,data,,3D,decomp,instance temporary (name ours)
+0x3621d2,inst_sin_z,data,,3D,decomp,instance temporary (name ours)
+0x3621d6,inst_cos_z,data,,3D,decomp,instance temporary (name ours)
+0x3150d8,g3_push_fill_mode,func,1,3D,decomp,fill.c; eax=mode (name ours)
+0x3150eb,g3_pop_fill_mode,func,0,3D,decomp,fill.c (name ours)
+0x315102,fill_mode0_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 0 (name ours)
+0x315167,fill_mode0_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x3151b9,fill_mode1_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 1 (name ours)
+0x315246,fill_mode1_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x3154b3,fill_mode2_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 2 (name ours)
+0x3154fd,fill_mode2_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x3152aa,fill_mode3_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 3 (name ours)
+0x315391,fill_mode3_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x315406,fill_mode4_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 4 (name ours)
+0x31547a,fill_mode4_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x315523,fill_mode5_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 5 (name ours)
+0x3155ac,fill_mode5_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x315607,fill_mode6_push,func,custom,3D,decomp,fill.c; ebx=stack ptr; table 0x3653D6 entry 6 (name ours)
+0x31567b,fill_mode6_pop,func,custom,3D,decomp,fill.c; ebx=stack ptr (name ours)
+0x3156cc,fill_op_3156CC,func,1,3D,decomp,fill.c replacement handler
+0x3156d4,fill_op_3156D4,func,1,3D,decomp,fill.c replacement handler
+0x3156dc,fill_op_3156DC,func,1,3D,decomp,fill.c replacement handler
+0x315717,fill_op_315717,func,1,3D,decomp,fill.c replacement handler
+0x31571f,fill_op_31571F,func,1,3D,decomp,fill.c replacement handler
+0x315727,fill_op_315727,func,1,3D,decomp,fill.c replacement handler
+0x31574a,fill_op_31574A,func,1,3D,decomp,fill.c replacement handler
+0x315752,fill_op_315752,func,1,3D,decomp,fill.c replacement handler
+0x31575a,fill_op_31575A,func,1,3D,decomp,fill.c replacement handler
+0x315762,fill_op_315762,func,1,3D,decomp,fill.c replacement handler
+0x3157ac,fill_op_3157AC,func,1,3D,decomp,fill.c replacement handler
+0x315811,fill_op_315811,func,1,3D,decomp,fill.c replacement handler
+0x315876,fill_op_315876,func,1,3D,decomp,fill.c replacement handler
+0x3158c4,fill_op_3158C4,func,1,3D,decomp,fill.c replacement handler
+0x315921,fill_op_315921,func,1,3D,decomp,fill.c replacement handler
+0x315953,fill_op_315953,func,1,3D,decomp,fill.c replacement handler
+0x3159c4,fill_op_3159C4,func,1,3D,decomp,fill.c replacement handler
+0x315a84,fill_op_315A84,func,1,3D,decomp,fill.c replacement handler
+0x31577f,fill_facing_light,func,custom,3D,decomp,fill.c; edi=vector -> SF (name ours)
+0x365340,fill_depth,data,,3D,decomp,fill.asm (name ours)
+0x365344,fill_point_rec,data,,3D,decomp,fill.asm (name ours)
+0x36534c,fill_light_ref,data,,3D,decomp,fill.asm (name ours)
+0x365350,fill_light_value,data,,3D,decomp,fill.asm (name ours)
+0x365352,fill_saved_i,data,,3D,decomp,fill.asm (name ours)
+0x36538e,fill_rec_flags,data,,3D,decomp,fill.asm (name ours)
+0x36538f,fill_rec_shift,data,,3D,decomp,fill.asm (name ours)
+0x365390,fill_style,data,,3D,decomp,fill.asm (name ours)
+0x365391,fill_poly_type,data,,3D,decomp,fill.asm (name ours)
+0x365392,fill_stack,data,,3D,decomp,fill.asm (name ours)
+0x3653d2,fill_stackp,data,,3D,decomp,fill.asm (name ours)

@@ -1,0 +1,122 @@
+address,name,kind,nargs,library,status,notes
+0x2e55d8,viewport_2E55D8,func,1,TNLIB,decomp,viewport.c
+0x2e575c,viewport_2E575C,func,1,TNLIB,decomp,viewport.c
+0x2e57f0,viewport_2E57F0,func,1,TNLIB,decomp,viewport.c
+0x2e582c,viewport_2E582C,func,1,TNLIB,decomp,viewport.c
+0x2e5848,viewport_2E5848,func,2,TNLIB,decomp,viewport.c
+0x2e5954,viewport_2E5954,func,6,TNLIB,decomp,viewport.c
+0x2e5a64,tnui_region_at,func,1,TNLIB,decomp,viewport.c
+0x2e5b6c,tnui_key_handler,func,2,TNLIB,decomp,viewport.c
+0x2e5bb0,tnui_region_event,func,2,TNLIB,decomp,viewport.c
+0x2e5bc8,viewport_2E5BC8,func,2,TNLIB,decomp,viewport.c
+0x2e5c94,viewport_2E5C94,func,2,TNLIB,decomp,viewport.c
+0x2e5cc8,tnui_add_dirty_rect,func,1,TNLIB,decomp,viewport.c
+0x2e5db0,tnui_add_blit_rect,func,1,TNLIB,decomp,viewport.c
+0x2e5e98,tnui_redraw_rect,func,1,TNLIB,decomp,viewport.c
+0x2e5fac,tnui_redraw_rect_before,func,2,TNLIB,decomp,viewport.c
+0x2e6020,tnui_redraw_rect_after,func,2,TNLIB,decomp,viewport.c
+0x2e6094,tnui_clear_back,func,0,TNLIB,decomp,viewport.c
+0x2e60e0,tnui_blit_all,func,0,TNLIB,decomp,viewport.c
+0x2e60f4,tnui_task_60f4,func,0,TNLIB,decomp,viewport.c
+0x2e6174,tnui_task_6174,func,0,TNLIB,decomp,viewport.c
+0x2e62d0,tnui_mouse_handler,func,2,TNLIB,decomp,viewport.c
+0x2e6304,tnui_save_under,func,1,TNLIB,decomp,viewport.c
+0x2e6398,tnui_restore_under,func,1,TNLIB,decomp,viewport.c
+0x2e6410,tnui_draw_region_rect,func,2,TNLIB,decomp,viewport.c
+0x2e64bc,tnui_copy_region_rect,func,2,TNLIB,decomp,viewport.c
+0x2e6674,ViewportCheckPtr,func,1,TNLIB,decomp,viewport.c
+0x2ef050,snd_ail_startup,func,0,TNLIB,decomp,ailstart.c
+0x2ef0a8,snd_ail_setup,func,2,TNLIB,decomp,ailstart.c
+0x2ef134,snd_ail_shutdown,func,0,TNLIB,decomp,ailstart.c
+0x2ef148,snd_lock,func,0,TNLIB,decomp,ailstart.c
+0x2ef154,snd_unlock,func,0,TNLIB,decomp,ailstart.c
+0x2ef160,snd_set_midi_volume,func,1,TNLIB,decomp,ailstart.c
+0x2ef190,snd_get_midi_volume,func,0,TNLIB,decomp,ailstart.c
+0x2ef1b0,snd_set_digital_volume,func,1,TNLIB,decomp,ailstart.c
+0x2ef1e0,snd_get_digital_volume,func,0,TNLIB,decomp,ailstart.c
+0x2ef750,snd_cfg_driver_name,func,2,TNLIB,decomp,audiocfg.c
+0x2ef798,snd_read_audio_cfg,func,2,TNLIB,decomp,audiocfg.c
+0x2ef858,snd_cfg_clear,func,1,TNLIB,decomp,audiocfg.c
+0x2ef8b0,snd_music_slots_init,func,0,TNLIB,decomp,audiocfg.c
+0x2ef8ec,snd_midi_install,func,1,TNLIB,decomp,audiocfg.c
+0x2efa0c,snd_set_sequence_count,func,1,TNLIB,decomp,audiocfg.c
+0x2efb2c,snd_midi_uninstall,func,0,TNLIB,decomp,audiocfg.c
+0x2efb8c,snd_load_sbk,func,1,TNLIB,decomp,audiocfg.c
+0x2efc1c,snd_unload_sbk,func,0,TNLIB,decomp,audiocfg.c
+0x2efc30,snd_dig_install,func,1,TNLIB,decomp,audiocfg.c
+0x2efd0c,snd_set_sample_count,func,1,TNLIB,decomp,audiocfg.c
+0x2efe30,snd_samples_reset_user,func,0,TNLIB,decomp,audiocfg.c
+0x2efe6c,snd_dig_is_stereo,func,0,TNLIB,decomp,audiocfg.c
+0x2efe74,snd_dig_uninstall,func,0,TNLIB,decomp,audiocfg.c
+0x2efea0,snd_sample_tables_init,func,0,TNLIB,decomp,audiocfg.c
+0x2eff50,snd_pair_lock,func,0,TNLIB,decomp,audiocfg.c
+0x2eff7c,snd_pair_play,func,6,TNLIB,decomp,audiocfg.c
+0x2f00e8,snd_pair_set,func,3,TNLIB,decomp,audiocfg.c
+0x2f02a8,snd_pair_get,func,2,TNLIB,decomp,audiocfg.c
+0x2f0304,snd_pair_start,func,1,TNLIB,decomp,audiocfg.c
+0x2f03dc,snd_pair_end,func,1,TNLIB,decomp,audiocfg.c
+0x2f0444,snd_pair_stop,func,1,TNLIB,decomp,audiocfg.c
+0x2f0488,snd_pair_resume,func,1,TNLIB,decomp,audiocfg.c
+0x2f04cc,snd_pair_done,func,1,TNLIB,decomp,audiocfg.c
+0x2f0570,snd_pair_unlock,func,0,TNLIB,decomp,audiocfg.c
+0x2ef890,snd_sbk_template,data,,TNLIB,decomp,audiocfg.c char[32] zeros in the code segment (map: audiocfg_2EF890)
+0x2fd330,animrgn_back_on,func,0,TNLIB,decomp,animrgn.c
+0x2fd338,animrgn_back_off,func,0,TNLIB,decomp,animrgn.c
+0x2fd344,tnui2_2FD344,func,2,TNLIB,decomp,animrgn.c
+0x2fd4ac,animrgn_callback,func,3,TNLIB,decomp,animrgn.c
+0x2fd64c,animrgn_draw,func,1,TNLIB,decomp,animrgn.c
+0x2fd710,animrgn_rect,func,5,TNLIB,decomp,animrgn.c
+0x2fd7c4,animrgn_start_rect,func,3,TNLIB,decomp,animrgn.c
+0x2fd88c,animrgn_scale,func,4,TNLIB,decomp,animrgn.c
+0x447220,tnui_hover,data,,TNLIB,decomp,TnRegion* region under the mouse
+0x447244,tnui_blit_count,data,,TNLIB,decomp,short
+0x447246,tnui_dirty_count,data,,TNLIB,decomp,short
+0x447248,tnui_dead_count,data,,TNLIB,decomp,short
+0x447120,tnui_blit_rects,data,,TNLIB,decomp,LGRect[16]
+0x4471a0,tnui_dirty_rects,data,,TNLIB,decomp,LGRect[16]
+0x35713c,viewport_check_msg,data,,TNLIB,decomp,char[]
+0x35fa3c,snd_dig_driver,data,,TNLIB,decomp,AIL DIG_DRIVER* (was snd_digi in t2b); unified at T2 merge
+0x35fa40,snd_mdi_driver,data,,TNLIB,decomp,MDI_DRIVER*
+0x35fa59,snd_gtl_prefix,data,,TNLIB,decomp,char[]
+0x3651e8,snd_drv_names,data,,TNLIB,decomp,char*[40] 0..19 MIDI 20..39 digital
+0x365288,snd_drv_flags,data,,TNLIB,decomp,uchar[40]
+0x3571dc,snd_cfg_name,data,,TNLIB,decomp,"audio.cfg"
+0x3571e8,snd_sbk_ext,data,,TNLIB,decomp,".sbk"
+0x35fa80,snd_mdi_lock,data,,TNLIB,decomp,void*
+0x35fa84,snd_sbk_wanted,data,,TNLIB,decomp,uchar
+0x35fa88,snd_mdi_type,data,,TNLIB,decomp,long
+0x35fa8c,snd_pairs,data,,TNLIB,decomp,SndPair[16] (13 bytes)
+0x36036c,snd_lock_data_end,data,,TNLIB,decomp,end of the DPMI-locked data
+0x35fb5c,snd_pair_fns,data,,TNLIB,decomp,void*[] sample function table for pairs
+0x35fb70,snd_pan_table,data,,TNLIB,decomp,SndPanEntry[128]
+0x44b900,snd_music_slots2,data,,TNLIB,decomp,9-byte records 1..8
+0x35f94c,snd_dig_lock,data,,TNLIB,decomp,void* (digital layer)
+0x35f950,snd_sample_count,data,,TNLIB,decomp,long sample handles allocated (Shock _snd_smp_cnt); unified at T2 merge
+0x35f954,snd_dig_stereo,data,,TNLIB,decomp,uchar pan changes allowed (was snd_stereo in t2b); unified at T2 merge
+0x44b600,snd_sample_handles,data,,TNLIB,decomp,HSAMPLE[16] (Shock _snd_smp_hnd); unified at T2 merge
+0x44b640,snd_sample_cbs,data,,TNLIB,decomp,"snd_chan_ops[16] (0x14 each; t2b type, was snd_chan); unified at T2 merge"
+0x44b3a0,snd_sample_info,data,,TNLIB,decomp,snd_digi_parms[16] (0x26 each) (Shock _snd_smp_prm); unified at T2 merge
+0x44b288,snd_sample_info2,data,,TNLIB,decomp,17-byte records 1..16 (digital layer)
+0x35f8f8,snd_sample_done_hook,data,,TNLIB,decomp,"Shock snd_finish; void (*)(char h, long user) Watcom; unified at T2 merge"
+0x35fa54,snd_last_error,data,,TNLIB,decomp,long; shared by music and digital layers (was music_error / snd_error); unified at T2 merge
+0x364518,animrgn_class,data,,TNLIB,decomp,TnRegionClass
+0x364528,animrgn_params,data,,TNLIB,decomp,TnRegionParams
+0x364539,animrgn_use_back,data,,TNLIB,decomp,uchar
+0x309ce4,AIL_startup,func,0v,MILES,orig,Miles AIL (cdecl)
+0x309e88,AIL_shutdown,func,0v,MILES,orig,Miles AIL (cdecl)
+0x30b300,AIL_install_DIG_driver_file,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30b410,AIL_uninstall_DIG_driver,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30b48c,AIL_allocate_sample_handle,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30b6a4,AIL_release_sample_handle,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30c2ec,AIL_set_digital_master_volume,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30c374,AIL_digital_master_volume,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30ce08,AIL_set_sample_user_data,func,3v,MILES,orig,Miles AIL (cdecl)
+0x30d1ac,AIL_install_MDI_driver_file,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30d2bc,AIL_uninstall_MDI_driver,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30d338,AIL_allocate_sequence_handle,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30d438,AIL_release_sequence_handle,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30dd6c,AIL_set_XMIDI_master_volume,func,2v,MILES,orig,Miles AIL (cdecl)
+0x30ddf4,AIL_XMIDI_master_volume,func,1v,MILES,orig,Miles AIL (cdecl)
+0x30e10c,AIL_set_GTL_filename_prefix,func,1v,MILES,orig,Miles AIL (cdecl)
+0x310d34,sbk_load,func,2,TNLIB,orig,AWE32 sound bank (map: crt_310D34)
+0x31116c,sbk_unload,func,1,TNLIB,orig,(map: crt_31116C)

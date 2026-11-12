@@ -1,0 +1,114 @@
+address,name,kind,nargs,library,status,notes
+0x26cb50,mfd_26CB50,func,2,GAME,decomp,mfdpanel.c M022
+0x26cb78,mfd_26CB78,func,2,GAME,decomp,mfdpanel.c M022
+0x26cc48,mfd_26CC48,func,1,GAME,decomp,mfdpanel.c M022
+0x26cd00,mfd_26CD00,func,0,GAME,decomp,mfdpanel.c M022
+0x26cfcc,mfd_26CFCC,func,0,GAME,decomp,mfdpanel.c M022
+0x26d194,mfd_26D194,func,1,GAME,decomp,mfdpanel.c M022
+0x26d1bc,mfd_26D1BC,func,2,GAME,decomp,mfdpanel.c M022
+0x26d1f4,mfd_26D1F4,func,0,GAME,decomp,mfdpanel.c M022
+0x26d300,mfd_26D300,func,1,GAME,decomp,mfdpanel.c M022
+0x26d398,mfd_26D398,func,2,GAME,decomp,mfdpanel.c M022
+0x26d3dc,mfd_26D3DC,func,2,GAME,decomp,mfdpanel.c M022
+0x26d52c,mfd_26D52C,func,0,GAME,decomp,mfdpanel.c M022
+0x26d618,mfd_26D618,func,2,GAME,decomp,mfdpanel.c M022
+0x26d630,mfd_26D630,func,2,GAME,decomp,mfdpanel.c M022
+0x26d748,mfd_26D748,func,1,GAME,decomp,mfdpanel.c M022
+0x26d754,mfd_26D754,func,0,GAME,decomp,mfdpanel.c M022
+0x26d764,mfd_26D764,func,0,GAME,decomp,mfdpanel.c M022
+0x26dc8c,mfd_26DC8C,func,0,GAME,decomp,mfdpanel.c M022
+0x26dcc0,mfd_26DCC0,func,0,GAME,decomp,mfdpanel.c M022
+0x26dee4,mfd_26DEE4,func,0,GAME,decomp,mfdpanel.c M022
+0x26dee8,mfd_26DEE8,func,0,GAME,decomp,mfdpanel.c M022
+0x26def8,mfd_26DEF8,func,0,GAME,decomp,mfdpanel.c M022
+0x26df10,mfd_26DF10,func,0,GAME,decomp,mfdpanel.c M022
+0x26df20,mfd_26DF20,func,2,GAME,decomp,mfdpanel.c M022
+0x26e208,mfd_26E208,func,0,GAME,decomp,mfdpanel.c M022
+0x26e724,mfd_26E724,func,2,GAME,decomp,mfdpanel.c M022
+0x26e834,MfdDescramblerPanel,func,0,GAME,decomp,mfdpanel.c M022
+0x26efac,mfd_26EFAC,func,2,GAME,decomp,mfdpanel.c M022
+0x26f088,mfd_26F088,func,2,GAME,decomp,mfdpanel.c M022
+0x26f094,mfd_26F094,func,1,GAME,decomp,mfdpanel.c M022
+0x26f13c,mfd_26F13C,func,0,GAME,decomp,mfdpanel.c M022
+0x26f2c8,mfd_26F2C8,func,2,GAME,decomp,mfdpanel.c M022
+0x26f4f8,mfd_26F4F8,func,2,GAME,decomp,mfdpanel.c M022
+0x26f504,mfd_26F504,func,2,GAME,decomp,mfdpanel.c M022
+0x26f5ac,mfd_26F5AC,func,2,GAME,decomp,mfdpanel.c M022
+0x26f8a8,mfd_26F8A8,func,0,GAME,decomp,mfdpanel.c M022
+0x26fab4,mfd_26FAB4,func,1,GAME,decomp,mfdpanel.c M022
+0x26fb38,mfd_26FB38,func,4,GAME,decomp,mfdpanel.c M022
+0x26fd8c,mfd_26FD8C,func,0,GAME,decomp,mfdpanel.c M022
+0x26fda8,mfd_26FDA8,func,3,GAME,decomp,mfdpanel.c M022
+0x26ff38,mfd_26FF38,func,2,GAME,decomp,mfdpanel.c M022
+0x270090,mfd_270090,func,2,GAME,decomp,mfdpanel.c M022
+0x27016c,mfd_27016C,func,5,GAME,decomp,mfdpanel.c M022
+0x27022c,mfd_27022C,func,5,GAME,decomp,mfdpanel.c M022
+0x27047c,mfd_27047C,func,3,GAME,decomp,mfdpanel.c M022
+0x27065c,mfd_27065C,func,2,GAME,decomp,mfdpanel.c M022
+0x270930,mfd_270930,func,2,GAME,decomp,mfdpanel.c M022
+0x270ce0,mfd_270CE0,func,3,GAME,decomp,mfdpanel.c M022
+0x270e70,mfd_270E70,func,0,GAME,decomp,mfdpanel.c M022
+0x270e80,mfd_270E80,func,1,GAME,decomp,mfdpanel.c M022
+0x270f0c,mfd_270F0C,func,0,GAME,decomp,mfdpanel.c M022
+0x270f1c,mfd_270F1C,func,1,GAME,decomp,mfdpanel.c M022
+0x270fb0,mfd_270FB0,func,2,GAME,decomp,mfdpanel.c M022
+0x271428,mfd_271428,func,0,GAME,decomp,mfdpanel.c M022
+0x271470,mfd_271470,func,2,GAME,decomp,mfdpanel.c M022
+0x2715a8,mfd_2715A8,func,2,GAME,decomp,mfdpanel.c M022
+0x271620,mfdpage_271620,func,2,GAME,decomp,mfdsyspg.c M023
+0x271638,mfdpage_271638,func,1,GAME,decomp,mfdsyspg.c M023
+0x271648,mfdpage_271648,func,2,GAME,decomp,mfdsyspg.c M023
+0x271684,mfdpage_271684,func,1,GAME,decomp,mfdsyspg.c M023
+0x271690,mfdpage_271690,func,0,GAME,decomp,mfdsyspg.c M023
+0x2716e8,mfdpage_2716E8,func,0,GAME,decomp,mfdsyspg.c M023
+0x271714,mfdpage_271714,func,0,GAME,decomp,mfdsyspg.c M023
+0x27172c,mfdpage_27172C,func,1,GAME,decomp,mfdsyspg.c M023
+0x2717f0,mfdpage_2717F0,func,1,GAME,decomp,mfdsyspg.c M023
+0x271828,mfdpage_271828,func,2,GAME,decomp,mfdsyspg.c M023
+0x271854,mfdpage_271854,func,3,GAME,decomp,mfdsyspg.c M023
+0x271c0c,mfdpage_271C0C,func,0,GAME,decomp,mfdsyspg.c M023
+0x35b154,mfd_35B154,data,,GAME,orig,g8_a.h
+0x35b160,mfd_35B160,data,,GAME,orig,g8_a.h
+0x35b170,mfd_35B170,data,,GAME,orig,g8_a.h
+0x35b176,mfd_35B176,data,,GAME,orig,g8_a.h
+0x35b180,mfd_35B180,data,,GAME,orig,g8_a.h
+0x35b184,mfd_35B184,data,,GAME,orig,g8_a.h
+0x35b18c,mfd_35B18C,data,,GAME,orig,g8_a.h
+0x35b190,mfd_35B190,data,,GAME,orig,g8_a.h
+0x35b194,mfd_35B194,data,,GAME,orig,g8_a.h
+0x35b198,mfd_35B198,data,,GAME,orig,g8_a.h
+0x35b1b4,mfd_35B1B4,data,,GAME,orig,g8_a.h
+0x35b6e5,mfd_35B6E5,data,,GAME,orig,g8_a.h
+0x35b274,mfdpage_35B274,data,,GAME,orig,g8_a.h
+0x35b275,mfdpage_35B275,data,,GAME,orig,g8_a.h
+0x35b276,mfdpage_35B276,data,,GAME,orig,g8_a.h
+0x35b277,mfdpage_35B277,data,,GAME,orig,g8_a.h
+0x3558c8,mfd_3558C8,data,,GAME,orig,g8_a.h
+0x35a038,mfd_35A038,data,,GAME,orig,g8_a.h
+0x35a090,mfd_35A090,data,,GAME,orig,g8_a.h
+0x35a2fc,mfd_35A2FC,data,,GAME,orig,g8_a.h
+0x3599d4,mfd_3599D4,data,,GAME,orig,g8_a.h
+0x3599ea,mfd_3599EA,data,,GAME,orig,g8_a.h
+0x389bc4,hud_389BC4,data,,GAME,orig,g8_a.h
+0x389bdc,hud_389BDC,data,,GAME,orig,g8_a.h
+0x389e44,hud_w_389E44,data,,GAME,orig,g8_a.h
+0x38fc81,mfd_38FC81,data,,GAME,orig,g8_a.h
+0x38fc87,mfd_38FC87,data,,GAME,orig,g8_a.h
+0x38fc90,mfd_38FC90,data,,GAME,orig,g8_a.h
+0x38fc98,mfd_38FC98,data,,GAME,orig,g8_a.h
+0x38fcc0,mfd_38FCC0,data,,GAME,orig,g8_a.h
+0x38fce8,mfd_38FCE8,data,,GAME,orig,g8_a.h
+0x38fcf4,mfd_38FCF4,data,,GAME,orig,g8_a.h
+0x38fcf8,mfd_38FCF8,data,,GAME,orig,g8_a.h
+0x38fcfc,mfd_38FCFC,data,,GAME,orig,g8_a.h
+0x38fd00,mfd_38FD00,data,,GAME,orig,g8_a.h
+0x38fd01,mfd_38FD01,data,,GAME,orig,g8_a.h
+0x38fd02,mfd_38FD02,data,,GAME,orig,g8_a.h
+0x38fd04,mfd_38FD04,data,,GAME,orig,g8_a.h
+0x38fd10,mfd_38FD10,data,,GAME,orig,g8_a.h
+0x392141,mfd_392141,data,,GAME,orig,g8_a.h
+0x395ad8,mfd_395AD8,data,,GAME,orig,g8_a.h
+0x395aec,mfd_395AEC,data,,GAME,orig,g8_a.h
+0x395b00,mfd_395B00,data,,GAME,orig,g8_a.h
+0x4413d8,mfd_4413D8,data,,GAME,orig,g8_a.h
+0x4413dc,mfd_4413DC,data,,GAME,orig,g8_a.h

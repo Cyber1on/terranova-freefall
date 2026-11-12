@@ -1,0 +1,141 @@
+address,name,kind,nargs,library,status,notes
+0x246380,music_246380,func,1,GAME,decomp,"music.c M001: play entry 1 (count, -1 = 1)"
+0x246428,music_246428,func,0,GAME,decomp,"music.c: MusicInit (table 0x8AE, callbacks, periodic)"
+0x24648c,music_24648C,func,0,GAME,decomp,"music.c: unlock queued entries, timed step (map missed this start)"
+0x2465a8,music_periodic,func,1,GAME,decomp,music.c (was music_2465A8): periodic callback
+0x2465e4,music_load,func,1,GAME,decomp,music.c (was music_2465E4)
+0x246698,music_prepare,func,1,GAME,decomp,music.c (was music_246698)
+0x2467b8,music_2467B8,func,1,GAME,decomp,"music.c: MusicPlay(entry), 0 stops"
+0x2468b0,music_queue,func,2,GAME,decomp,music.c (was music_2468B0)
+0x2469a8,music_get_cur,func,0,GAME,decomp,music.c (was music_2469A8; unreferenced)
+0x2469b0,music_mode,func,0,GAME,decomp,music.c (was music_2469B0; unreferenced)
+0x2469e4,music_2469E4,func,2,GAME,decomp,"music.c: music event (level, kind)"
+0x246ab8,music_step,func,1,GAME,decomp,music.c (was music_246AB8)
+0x246b50,music_246B50,func,0,GAME,decomp,music.c: callback (table 0x35DEF8)
+0x246b90,music_246B90,func,0,GAME,decomp,music.c: callback (table 0x35DEFC)
+0x246bd0,music_246BD0,func,1,GAME,decomp,music.c: event 3 when an entity is near the player
+0x299e70,replay_make_name,func,0,GAME,decomp,replay.c M075 (was replay_299E70)
+0x299f20,replay_299F20,func,1,GAME,decomp,replay.c: open a new recording
+0x299fc0,replay_299FC0,func,0,GAME,decomp,replay.c: record from the next frame
+0x299fdc,replay_299FDC,func,0,GAME,decomp,"replay.c: stop recording, copy to tn.rec (AtExit)"
+0x29a04c,replay_rec_pause,func,0,GAME,decomp,replay.c (was replay_29A04C; unreferenced)
+0x29a068,replay_rec_resume,func,0,GAME,decomp,replay.c (was replay_29A068; unreferenced)
+0x29a084,replay_29A084,func,1,GAME,decomp,replay.c: open a recording to play
+0x29a2f4,replay_read_header,func,2,GAME,decomp,replay.c (was replay_29A2F4)
+0x29a3d8,replay_29A3D8,func,0,GAME,decomp,replay.c: play from the next frame
+0x29a40c,replay_29A40C,func,0,GAME,decomp,replay.c: stop playing
+0x29a434,replay_29A434,func,2,GAME,decomp,replay.c: record frame + time (0xFF)
+0x29a484,replay_29A484,func,0,GAME,decomp,replay.c: record frame without time (0xF7)
+0x29a4a8,game_replay_record_key,func,1,GAME,decomp,replay.c: 0xFE
+0x29a4e0,game_replay_record_mouse,func,1,GAME,decomp,replay.c: 0xFD
+0x29a518,replay_29A518,func,2,GAME,decomp,replay.c: record joystick 0xF6
+0x29a564,replay_29A564,func,1,GAME,decomp,replay.c: record time base 0xFC
+0x29a59c,replay_29A59C,func,1,GAME,decomp,replay.c: record key bitmap 0xFB
+0x29a5d4,replay_29A5D4,func,1,GAME,decomp,replay.c: record mouse position 0xFA
+0x29a60c,replay_29A60C,func,1,GAME,decomp,replay.c: record check value 0xF5
+0x29a644,replay_29A644,func,1,GAME,decomp,replay.c: record hmd_data 0xF3
+0x29a67c,replay_29A67C,func,1,GAME,decomp,replay.c: record save info 0xF2
+0x29a6e8,replay_29A6E8,func,2,GAME,decomp,replay.c: read one frame
+0x29a920,game_replay_get_keys,func,2,GAME,decomp,replay.c
+0x29a930,game_replay_get_mouse,func,2,GAME,decomp,replay.c
+0x29a940,replay_29A940,func,2,GAME,decomp,replay.c: play back joystick
+0x29a970,replay_29A970,func,1,GAME,decomp,replay.c: play back time base
+0x29a97c,replay_29A97C,func,1,GAME,decomp,replay.c: play back key bitmap
+0x29a984,replay_29A984,func,1,GAME,decomp,replay.c: play back mouse position
+0x29a98c,replay_29A98C,func,1,GAME,decomp,replay.c: desync check
+0x29a9b0,replay_29A9B0,func,1,GAME,decomp,replay.c: play back hmd_data
+0x29a9d4,replay_29A9D4,func,1,GAME,decomp,replay.c: play back save info byte
+0x29a9e0,game_replay_filter_key,func,1,GAME,decomp,replay.c: keys that are recorded
+0x29aa84,game_replay_key_ok,func,1,GAME,decomp,replay.c: keys allowed during playback
+0x29aac4,replay_load_blob,func,0,GAME,decomp,replay.c (was replay_29AAC4; unreferenced)
+0x29ab1c,replay_29AB1C,func,1,GAME,decomp,replay.c: record a file (0xF4)
+0x29abe4,replay_29ABE4,func,1,GAME,decomp,replay.c: write the played-back file
+0x2c5600,dead_2C5600,func,0,GAME,decomp,memprobe.c M100 (unreferenced module): malloc probe
+0x2c567c,dead_2C567C,func,1,GAME,decomp,memprobe.c: DPMI 0x500 info
+0x2c5700,dead_2C5700,func,1,GAME,decomp,memprobe.c: IOCTL lock/unlock volume
+0x2c5720,dead_2C5720,func,0,GAME,decomp,memprobe.c
+0x2c57cc,dead_2C57CC,func,0,GAME,decomp,memprobe.c
+0x2c5804,dead_2C5804,func,1,GAME,decomp,memprobe.c: f_malloc probe
+0x2cd3f0,fileutil_2CD3F0,func,3,GAME,decomp,"fileutil.c M107: fopen first free numbered name (eax dir, edx name, ebx mode)"
+0x2cd438,fileutil_2CD438,func,2,GAME,decomp,fileutil.c: bump number (octal) while the file exists
+0x2cd4ec,fileutil_2CD4EC,func,2,GAME,decomp,fileutil.c (unreferenced)
+0x2cd658,fileutil_2CD658,func,2,GAME,decomp,fileutil.c: copy fd to FILE
+0x2cd6cc,fileutil_2CD6CC,func,1,GAME,decomp,fileutil.c: mm:ss of game_time
+0x2cd71c,fileutil_2CD71C,func,0,GAME,decomp,fileutil.c: bug report check (unreferenced)
+0x2cd7b4,fileutil_2CD7B4,func,0,GAME,decomp,fileutil.c: TN_DIR / GEN_DIR / .
+0x2cd804,fileutil_2CD804,func,4,GAME,decomp,"fileutil.c: seconds -> hours%26, min, sec"
+0x2d7910,CtrlClearSlots,func,0,GAME,decomp,control.c M116
+0x2d7960,CtrlApplySlots,func,0,GAME,decomp,control.c
+0x2d7e38,control_2D7E38,func,0,GAME,decomp,control.c: Ctrl slots to the aircraft code
+0x2d7f2c,CtrlKeyboard,func,0,GAME,decomp,control.c
+0x2d8098,control_2D8098,func,2,GAME,decomp,control.c: set joystick sensitivity / dead zone (unreferenced)
+0x2d80c4,joy_axis,func,1,GAME,decomp,control.c (was control_2D80C4)
+0x2d8138,CtrlJoystick,func,0,GAME,decomp,control.c
+0x2d828c,CtrlHmd,func,0,GAME,decomp,control.c: head tracker controls (map missed this start)
+0x2d8568,control_2D8568,func,0,GAME,decomp,control.c: push the player marble
+0x2dbce0,strutil_2DBCE0,func,3,GAME,decomp,strutil.c M119: strncpy n-1 + terminate
+0x2dbcf8,strutil_2DBCF8,func,5,GAME,decomp,strutil.c: draw a garbled string resource
+0x2dbdf0,make_version_string,func,0,GAME,decomp,namegen.c M120 (was namegen_2DBDF0)
+0x2f61b8,fclose,func,1,CLIB,orig,Watcom CRT
+0x2f682f,filelength,func,1,CLIB,orig,Watcom CRT
+0x2fcf60,fwrite,func,4,CLIB,orig,Watcom CRT
+0x2fd18e,printf,func,1v,CLIB,orig,Watcom CRT cdecl varargs
+0x2fd2c8,opendir,func,1,CLIB,orig,Watcom CRT (calls 0x2FD1DD with attr 0x16)
+0x2fdb80,hmd_2FDB80,func,0,HMD,orig,third party (TE6 driver)
+0x35ed3c,ctl_turn_on,data,,GAME,orig,control.c long
+0x35ed40,ctl_turn_start,data,,GAME,orig,control.c ulong game_time
+0x35ed44,ctl_look_on,data,,GAME,orig,control.c long
+0x35ed48,ctl_look_start,data,,GAME,orig,control.c ulong
+0x35ed4c,joy_sens,data,,GAME,orig,control.c fix
+0x35ed50,joy_dead,data,,GAME,orig,control.c long
+0x35ed54,joy_range,data,,GAME,orig,control.c fix
+0x35ed58,ctl_hmd_mode,data,,GAME,orig,control.c uchar
+0x35ed5a,ctl_hmd_prev,data,,GAME,orig,control.c short
+0x446708,ctl_hmd_axes,data,,GAME,orig,control.c char[6]
+0x44670e,ctl_hmd_buttons,data,,GAME,orig,control.c uchar
+0x35f547,hmd_recenter,data,,GAME,orig,uchar (byte after hmd_data_46)
+0x441352,game_player_slot,data,,GAME,orig,short class slot (PBA index) of the player entity
+0x41de33,game_41DE33,data,,GAME,orig,uchar
+0x41de34,game_41DE34,data,,GAME,orig,uchar music set
+0x35cd9c,game_35CD9C,data,,GAME,orig,long
+0x359708,game_359708,data,,GAME,orig,long (0x2E / 0x2F checked by music and obj55)
+0x3596e0,game_rnd_text,data,,GAME,orig,RndStream used by strutil_2DBCF8
+0x355390,music_c_file,data,,GAME,orig,char[] music.c assert path
+0x35ed68,game_version_tag,data,,GAME,orig,char[4] DABV
+0x446784,game_version_buf,data,,GAME,orig,char[]
+0x43d574,game_version,data,,GAME,orig,char[] V1.09
+0x35daa4,fileutil_default_dir,data,,GAME,orig,char * -> .
+0x370600,music_tab,data,,GAME,orig,MusicEntry * (resource 0x8AE)
+0x370cac,music_unlock_ids,data,,GAME,orig,long[] (1-based)
+0x3598b8,music_unlock_count,data,,GAME,orig,long
+0x3598c0,music_cur,data,,GAME,orig,ushort entry playing
+0x3598c2,music_cur_seq,data,,GAME,orig,char sequence index
+0x3597bc,music_pending,data,,GAME,orig,ushort
+0x3597c4,music_seen,data,,GAME,orig,ushort
+0x3597c0,music_level,data,,GAME,orig,long
+0x3597b8,music_event_time,data,,GAME,orig,ulong
+0x3598c8,music_fade_vol,data,,GAME,orig,long
+0x3598cc,music_fade_time,data,,GAME,orig,long
+0x3598c4,music_rnd,data,,GAME,orig,long
+0x35c030,replay_rec_paused,data,,GAME,orig,uchar
+0x35c034,replay_fd,data,,GAME,orig,int
+0x35c03c,replay_check,data,,GAME,orig,long
+0x35c040,replay_desync,data,,GAME,orig,long
+0x35c044,replay_blob_size,data,,GAME,orig,long
+0x35c048,replay_blob,data,,GAME,orig,void *
+0x35c04c,replay_no_time,data,,GAME,orig,uchar
+0x41de40,replay_keys,data,,GAME,orig,ushort[0x24]
+0x41de88,replay_keybits,data,,GAME,orig,uchar[0x20]
+0x41dea8,replay_mouse,data,,GAME,orig,uchar[0x24][12]
+0x41e058,replay_nkeys,data,,GAME,orig,long
+0x41e05c,replay_nmouse,data,,GAME,orig,long
+0x41e060,replay_filename,data,,GAME,orig,char[0x3C]
+0x41e09c,replay_timebase,data,,GAME,orig,long
+0x41e0a0,replay_joy,data,,GAME,orig,uchar[4]
+0x41e0a4,replay_hmd,data,,GAME,orig,uchar[0x12]
+0x41e0b6,replay_mousepos,data,,GAME,orig,uchar[6]
+0x41e0bc,replay_saveinfo,data,,GAME,orig,uchar[10]
+0x41e0c6,replay_joybyte,data,,GAME,orig,uchar
+0x428bc5,replay_play_name,data,,GAME,orig,char[]
+0x43e340,mem_info,data,,GAME,orig,ulong[12] DPMI 0x500 buffer
+0x35d0bc,mem_free_estimate,data,,GAME,orig,ulong

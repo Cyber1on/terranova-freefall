@@ -1,0 +1,23 @@
+TERRA NOVA: FREEFALL - RELEASE NOTES
+====================================
+
+1.0.0 - INITIAL RELEASE
+-----------------------
+- Terra Nova: Strike Force Centauri runs natively on modern Windows,
+  without DOSBox, from your own Steam or GOG copy of the game.
+- Three presets: Classic (the DOS game as it was), Vanilla+ (modern
+  controls, the classic look) and Freefall (every improvement on).
+- Widescreen with 16:9 cockpits and goggles for every suit, sharp 3D up to
+  6 times the original resolution, 60 frames a second.
+- Modern controls: mouse look, auto-aim, keys you can rebind, a new help
+  screen (H).
+- Freefall Mod Pack included: new cockpits with a helmet that moves, your
+  suit's arms, new explosions and effects, trees, bushes and rocks.
+- Music: the soundtrack recorded as MP3 by Rich "Weeds" Nagel, SoundFont
+  music with GeneralUser GS, the Sound Blaster's FM music, General MIDI.
+- Mission Selector, a built-in benchmark, movies smoothed to 30 pictures a
+  second.
+- 48 bugs of the original game fixed (Docs\BUGS.txt lists them all).
+
+Everything can be switched on the options screen (O in a mission, or
+Freefall Options on the main menu). README.txt explains every option.

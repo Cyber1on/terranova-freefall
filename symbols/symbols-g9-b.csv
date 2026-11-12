@@ -1,0 +1,151 @@
+address,name,kind,nargs,library,status,notes
+0x2c9130,mis103_2C9130,func,0,GAME,decomp,mishelp.c M103
+0x2c9180,mis103_2C9180,func,3,GAME,decomp,mishelp.c M103
+0x2dc9c0,install_2DC9C0,func,2,GAME,decomp,instpath.c M123
+0x2dcaa4,install_2DCAA4,func,2,GAME,decomp,instpath.c M123
+0x2dcabc,install_2DCABC,func,2,GAME,decomp,instpath.c M123
+0x2dcb0c,install_2DCB0C,func,1,GAME,decomp,instpath.c M123
+0x2dcb38,install_2DCB38,func,1,GAME,decomp,instpath.c M123
+0x2dcb60,install_2DCB60,func,2,GAME,decomp,instpath.c M123
+0x2dcbe4,install_2DCBE4,func,2,GAME,decomp,instpath.c M123
+0x2dcc24,install_2DCC24,func,1,GAME,decomp,instpath.c M123
+0x2dcd80,install_2DCD80,func,4,GAME,decomp,instcopy.c M124
+0x2dcdcc,install_2DCDCC,func,0,GAME,decomp,instcopy.c M124
+0x2dcdf8,install_2DCDF8,func,0,GAME,decomp,instcopy.c M124
+0x2dcea4,install_2DCEA4,func,0,GAME,decomp,instcopy.c M124
+0x2dd05c,install_2DD05C,func,2,GAME,decomp,instcopy.c M124
+0x2dd344,install_2DD344,func,3,GAME,decomp,instcopy.c M124
+0x2dd5c0,install_2DD5C0,func,1,GAME,decomp,instcopy.c M124
+0x2dd78c,install_2DD78C,func,0,GAME,decomp,instcopy.c M124
+0x2dd828,install_2DD828,func,0,GAME,decomp,instcopy.c M124
+0x2dd8c8,install_2DD8C8,func,1,GAME,decomp,instcopy.c M124
+0x2dd940,install_2DD940,func,0,GAME,decomp,instdisk.c M125 far handler in asm (retf; W_ wrapper unusable)
+0x2dd950,install_2DD950,func,0,GAME,decomp,instdisk.c M125
+0x2dd964,install_2DD964,func,1,GAME,decomp,instdisk.c M125
+0x2dda9c,install_2DDA9C,func,1,GAME,decomp,instdisk.c M125
+0x2ddaf4,install_2DDAF4,func,2,GAME,decomp,instdisk.c M125
+0x2ddc30,install_2DDC30,func,1,GAME,decomp,instdisk.c M125
+0x2ddc40,install_2DDC40,func,3,GAME,decomp,instdisk.c M125
+0x2ddcc4,install_2DDCC4,func,2,GAME,decomp,instdisk.c M125
+0x2ddd18,install_2DDD18,func,2,GAME,decomp,instdisk.c M125
+0x301fab,access,func,2,CLIB,orig,Watcom CRT
+0x2fd129,_dos_findnext,func,1,CLIB,orig,Watcom CRT int 21h 4Fh
+0x302146,mkdir,func,1,CLIB,orig,Watcom CRT int 21h 39h
+0x302163,chdir,func,1,CLIB,orig,Watcom CRT int 21h 3Bh
+0x3020bd,getcwd,func,2,CLIB,orig,Watcom CRT
+0x302180,stat,func,2,CLIB,orig,Watcom CRT
+0x3022eb,system,func,1,CLIB,orig,Watcom CRT (COMSPEC)
+0x30234f,tolower,func,1,CLIB,orig,Watcom CRT
+0x302360,_dos_getdiskfree,func,2,CLIB,orig,Watcom CRT int 21h 36h
+0x301fe6,_harderr,func,2,CLIB,orig,Watcom CRT (eax offset edx segment)
+0x2de7e8,_dos_getfileattr,func,2,CLIB,orig,Watcom CRT int 21h 4300h
+0x2df557,puts,func,1,CLIB,orig,Watcom CRT
+0x2df6aa,exit,func,1,CLIB,orig,Watcom CRT
+0x35970c,game_install_level,data,,GAME,orig,g9_b.h long
+0x35f3c4,install_font,data,,GAME,orig,g9_b.h
+0x35f3c8,install_35F3C8,data,,GAME,orig,g9_b.h
+0x35f3cc,install_crit_err,data,,GAME,orig,g9_b.h
+0x446790,install_targ_dir,data,,GAME,orig,g9_b.h char[0x90]
+0x446820,install_cd_dir,data,,GAME,orig,g9_b.h char[0x90]
+0x4468b0,install_prog,data,,GAME,orig,g9_b.h InstallProgress
+0x391f6e,game_391F6E,data,,GAME,orig,g9_b.h schar
+0x2dd930,install_2DD930,data,,GAME,orig,g9_b.h diskfree template (code segment)
+0x2dd938,install_2DD938,data,,GAME,orig,g9_b.h diskfree template (code segment)
+0x3596d8,res_base_file,data,,GAME,orig,g9_b.h
+0x3596dc,res_tnobj_file,data,,GAME,orig,g9_b.h
+0x36f4a0,res_game_file,data,,GAME,orig,g9_b.h
+0x44135d,game_44135D,data,,GAME,orig,g9_b.h long
+0x2440bc,main_2440BC,func,0,GAME,decomp,ffmain.c M000
+0x2440c8,main_2440C8,func,0,GAME,decomp,ffmain.c M000
+0x244124,main_244124,func,0,GAME,decomp,ffmain.c M000
+0x2441b8,game_main,func,2,GAME,decomp,ffmain.c M000
+0x244a24,main_244A24,func,0,GAME,decomp,ffmain.c M000
+0x244a30,main_244A30,func,1,GAME,decomp,ffmain.c M000
+0x244bd0,main_244BD0,func,0,GAME,decomp,ffmain.c M000
+0x244bdc,FFLoadMission,func,2,GAME,decomp,ffmain.c M000
+0x244d24,MissionSetup,func,0,GAME,decomp,ffmain.c M000
+0x2451d0,main_2451D0,func,0,GAME,decomp,ffmain.c M000
+0x245280,main_245280,func,0,GAME,decomp,ffmain.c M000
+0x2452b8,main_2452B8,func,1,GAME,decomp,ffmain.c M000
+0x245320,main_245320,func,0,GAME,decomp,ffmain.c M000
+0x245334,main_245334,func,0,GAME,decomp,ffmain.c M000
+0x2453b8,main_2453B8,func,0,GAME,decomp,ffmain.c M000
+0x2453dc,main_2453DC,func,0,GAME,decomp,ffmain.c M000
+0x245468,main_245468,func,0,GAME,decomp,ffmain.c M000
+0x24546c,main_24546C,func,0,GAME,decomp,ffmain.c M000
+0x245478,main_245478,func,1,GAME,decomp,ffmain.c M000
+0x2454bc,main_2454BC,func,4,GAME,decomp,ffmain.c M000
+0x245600,main_245600,func,4,GAME,decomp,ffmain.c M000
+0x245788,main_245788,func,1,GAME,decomp,ffmain.c M000
+0x2458c4,main_2458C4,func,1,GAME,decomp,ffmain.c M000
+0x246094,main_246094,func,1,GAME,decomp,ffmain.c M000
+0x2461b0,main_2461B0,func,0,GAME,decomp,ffmain.c M000
+0x2462bc,main_2462BC,func,0,GAME,decomp,ffmain.c M000
+0x2462d8,main_2462D8,func,7,GAME,decomp,ffmain.c M000
+0x355004,univbe_drv_name,data,,GAME,orig,g9_b.h
+0x35971d,game_35971D,data,,GAME,orig,g9_b.h
+0x35971f,game_mission_count,data,,GAME,orig,g9_b.h
+0x359721,game_hires,data,,GAME,orig,g9_b.h
+0x359722,game_cursor_max,data,,GAME,orig,g9_b.h
+0x359728,game_359728,data,,GAME,orig,g9_b.h
+0x35972c,game_quitting,data,,GAME,orig,g9_b.h
+0x35972e,game_in_mission,data,,GAME,orig,g9_b.h
+0x359730,game_unit_tmpl,data,,GAME,orig,g9_b.h
+0x359740,game_359740,data,,GAME,orig,g9_b.h
+0x359744,dlg_text_params,data,,GAME,orig,g9_b.h
+0x359758,dlg_text_style,data,,GAME,orig,g9_b.h
+0x359768,dlg_menu_style,data,,GAME,orig,g9_b.h
+0x359778,dlg_text_margins,data,,GAME,orig,g9_b.h
+0x35977c,dlg_menu_params,data,,GAME,orig,g9_b.h
+0x35978e,dlg_text_rect,data,,GAME,orig,g9_b.h
+0x359796,dlg_menu_rect,data,,GAME,orig,g9_b.h
+0x35979e,dlg_done,data,,GAME,orig,g9_b.h
+0x35979f,dlg_answer,data,,GAME,orig,g9_b.h
+0x3597a0,dlg_pal_saved,data,,GAME,orig,g9_b.h
+0x3597a1,dlg_pause_hooks,data,,GAME,orig,g9_b.h
+0x35d0f8,mission_res_file,data,,GAME,orig,g9_b.h
+0x35dbe8,script_vars_35DBE8,data,,GAME,orig,g9_b.h
+0x35dccc,script_funcs_35DCCC,data,,GAME,orig,g9_b.h
+0x35f460,crt_35F460,data,,GAME,orig,g9_b.h
+0x3596ec,main_3596EC,data,,GAME,orig,g9_b.h
+0x36efe0,dlg_palette,data,,GAME,orig,g9_b.h
+0x36f2e0,dlg_no_rect,data,,GAME,orig,g9_b.h
+0x36f2e8,dlg_yes_rect,data,,GAME,orig,g9_b.h
+0x36f2f0,dlg_rect,data,,GAME,orig,g9_b.h
+0x36f2f8,dlg_save,data,,GAME,orig,g9_b.h
+0x36f308,main_msg_buf,data,,GAME,orig,g9_b.h
+0x36f488,dlg_saved_cursor,data,,GAME,orig,g9_b.h
+0x36f48c,dlg_paused_hooks,data,,GAME,orig,g9_b.h
+0x36f494,game_36F494,data,,GAME,orig,g9_b.h
+0x36f4a8,game_paused_menu,data,,GAME,orig,g9_b.h
+0x36f4ac,game_36F4AC,data,,GAME,orig,g9_b.h
+0x36f4b0,shell_thread_id,data,,GAME,orig,g9_b.h
+0x36f4b4,shell_thread,data,,GAME,orig,g9_b.h
+0x36f4b8,game_gamma,data,,GAME,orig,g9_b.h
+0x36f4c4,game_map,data,,GAME,orig,g9_b.h
+0x3705ee,mission_file_name,data,,GAME,orig,g9_b.h
+0x3705fd,dlg_cursor_was_drawn,data,,GAME,orig,g9_b.h
+0x3705fe,crash_report_on,data,,GAME,orig,g9_b.h
+0x43d318,game_43D318,data,,GAME,orig,g9_b.h
+0x442f18,rescustm_idx,data,,GAME,orig,g9_b.h
+0x446b00,crash_msg,data,,GAME,orig,g9_b.h
+0x446b04,crash_446B04,data,,GAME,orig,g9_b.h
+0x244010,main_244010,data,,GAME,orig,g9_b.h
+0x2df720,crt_2DF720,func,0,CRT,orig,AtExit handler (pointer only)
+0x2df9e9,crt_2DF9E9,func,0,CRT,orig,handler stored at 0x35F460 (pointer only)
+0x2de33b,univbe_2DE33B,func,0v,GAME,orig,UniVBE shutdown (clobbers edx)
+0x2de353,univbe_2DE353,func,4v,GAME,orig,UniVBE driver load (cdecl)
+0x2759f0,play_2759F0,func,1,GAME,decomp,playkey.c M029
+0x275ab4,PlayKeyHandler,func,2,GAME,decomp,playkey.c M029
+0x2765f4,play_2765F4,func,0,GAME,decomp,playkey.c M029
+0x27696c,play_27696C,func,1,GAME,decomp,playkey.c M029
+0x35b338,play_move_keys,data,,GAME,orig,g9_b.h uchar[]
+0x35b344,play_move_table,data,,GAME,orig,g9_b.h PlayMove[]
+0x35b3b4,play_move_size,data,,GAME,orig,g9_b.h long
+0x35b3b8,play_move_default,data,,GAME,orig,g9_b.h long
+0x39025a,play_last_bits,data,,GAME,orig,g9_b.h ushort
+0x35b330,play_pause_rect_tmpl,data,,GAME,orig,g9_b.h LGRect
+0x390250,play_pause_rect,data,,GAME,orig,g9_b.h LGRect
+0x355904,play_str_alt5,data,,GAME,orig,"g9_b.h ""Alt-5"""
+0x35590c,play_str_alt6,data,,GAME,orig,"g9_b.h ""Alt-6"""
+0x355914,play_str_alt7,data,,GAME,orig,"g9_b.h ""Alt-7"""

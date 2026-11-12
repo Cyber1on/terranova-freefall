@@ -1,0 +1,89 @@
+address,name,kind,nargs,library,status,notes
+0x2bca80,shell_2BCA80,func,1,GAME,decomp,M097 debrief.c 18 mouse
+0x2bcae8,shell_2BCAE8,func,2,GAME,decomp,M097 debrief.c list line
+0x2bcb24,shell_2BCB24,func,0,GAME,decomp,M097 debrief.c refill list 5B4
+0x2bcb40,shell_2BCB40,func,0,GAME,decomp,M097 debrief.c screen 18
+0x2bcbdc,shell_2BCBDC,func,1,GAME,decomp,M097 debrief.c 19 mouse
+0x2bcbf0,shell_2BCBF0,func,0,GAME,decomp,M097 debrief.c screen 19
+0x2bcdf0,shell_2BCDF0,func,1,GAME,decomp,M097 debrief.c 20 mouse
+0x2bce58,shell_2BCE58,func,2,GAME,decomp,M097 debrief.c list line
+0x2bceb4,shell_2BCEB4,func,0,GAME,decomp,M097 debrief.c refill mission list
+0x2bcec8,shell_2BCEC8,func,0,GAME,decomp,M097 debrief.c screen 20
+0x2bcfbc,shell_2BCFBC,func,1,GAME,decomp,M097 debrief.c 21 mouse
+0x2bd1b0,shell_2BD1B0,func,3,GAME,decomp,M097 debrief.c status word
+0x2bd2a4,shell_2BD2A4,func,0,GAME,decomp,M097 debrief.c screen 21 debriefing
+0x2bd77c,shell_2BD77C,func,1,GAME,decomp,M097 debrief.c 22 mouse
+0x2bd810,shell_2BD810,func,0,GAME,decomp,M097 debrief.c screen 22 statistics
+0x2be1a8,shell_2BE1A8,func,4,GAME,decomp,M097 debrief.c goal time
+0x2be274,shell_2BE274,func,0,GAME,decomp,M097 debrief.c screen 23 times
+0x2be85c,shell_2BE85C,func,1,GAME,decomp,M097 debrief.c 23 mouse
+0x2be8e8,shell_2BE8E8,func,1,GAME,decomp,M097 debrief.c rearm cost
+0x2be968,shell_2BE968,func,0,GAME,decomp,M097 debrief.c screen 24 soldier
+0x2bf34c,shell_2BF34C,func,1,GAME,decomp,M097 debrief.c 24 mouse
+0x2bf440,shell_2BF440,func,0,GAME,decomp,M097 debrief.c screen 26 mission text
+0x2bf668,shell_2BF668,func,1,GAME,decomp,M097 debrief.c 26 mouse
+0x2bf73c,shell_2BF73C,func,0,GAME,decomp,M097 debrief.c empty
+0x2bf740,shell_2BF740,func,0,GAME,decomp,M097 debrief.c pager start
+0x2bf760,shell_2BF760,func,0,GAME,decomp,M097 debrief.c screen 27 pager
+0x2bfa08,shell_2BFA08,func,1,GAME,decomp,M097 debrief.c 27 mouse
+0x2bfa88,shell_2BFA88,func,2,GAME,decomp,M097 debrief.c qsort compare
+0x2bfac8,shell_2BFAC8,func,0,GAME,decomp,M097 debrief.c screen 28 soldier table
+0x2c02b8,shell_2C02B8,func,1,GAME,decomp,M097 debrief.c 28 mouse
+0x2c0304,shell_2C0304,func,0,GAME,decomp,M097 shlist.c squad strip
+0x2c0418,shell_2C0418,func,0,GAME,decomp,M097 shlist.c header
+0x2c066c,shell_2C066C,func,0,GAME,decomp,M097 shlist.c fill lists
+0x2c06d8,shell_2C06D8,func,1,GAME,decomp,M097 shlist.c tab button
+0x2c072c,shell_2C072C,func,3,GAME,decomp,M097 shlist.c list arrows
+0x2c089c,shell_2C089C,func,3,GAME,decomp,M097 shlist.c text arrows
+0x2c0a08,shell_2C0A08,func,3,GAME,decomp,M097 shlist.c fill a list
+0x2c0acc,shell_2C0ACC,func,3,GAME,decomp,M097 shlist.c draw a list
+0x2c0b7c,shell_2C0B7C,func,2,GAME,decomp,M097 shlist.c list button
+0x2c0c78,shell_2C0C78,func,5,GAME,decomp,M097 shlist.c item chosen (1 stack arg)
+0x2c0de4,shell_2C0DE4,func,2,GAME,decomp,M097 shlist.c fill mission list
+0x2c0e74,shell_2C0E74,func,3,GAME,decomp,M097 shlist.c draw mission list
+0x2c0e9c,shell_2C0E9C,func,2,GAME,decomp,M097 shlist.c mission chosen
+0x2c0f34,shell_2C0F34,func,3,GAME,decomp,M097 shlist.c text screen events
+0x2c11b0,shell_2C11B0,func,2,GAME,decomp,M097 shlist.c scroll text
+0x2c12b4,shell_2C12B4,func,2,GAME,decomp,M097 shlist.c (no callers)
+0x2c12dc,shell_2C12DC,func,0,GAME,decomp,M097 shlist.c wake with screen
+0x2c12ec,shell_2C12EC,func,2,GAME,decomp,M097 shlist.c unit colour
+0x2c1334,shell_2C1334,func,2,GAME,decomp,M097 shlist.c (no callers)
+0x2c136c,shell_2C136C,func,3,GAME,decomp,M097 shlist.c unit card
+0x2c1520,shell_2C1520,func,0,GAME,decomp,M097 shpopup.c notice handlers off
+0x2c1548,shell_2C1548,func,1,GAME,decomp,M097 shpopup.c notice handler
+0x2c16d4,shell_2C16D4,func,0,GAME,decomp,M097 shpopup.c open notices
+0x2c18a0,shell_2C18A0,func,0,GAME,decomp,M097 shpopup.c draw notice
+0x2c205c,shell_2C205C,func,1,GAME,decomp,M097 shpopup.c quit dialog handler
+0x2c21f8,shell_2C21F8,func,0,GAME,decomp,M097 shpopup.c open quit dialog
+0x2c2438,shell_2C2438,func,6,GAME,decomp,M097 shpopup.c pop-up list (2 stack args)
+0x2c292c,shell_2C292C,func,4,GAME,decomp,M097 shpopup.c text in a box
+0x2c29f8,shell_2C29F8,func,3,GAME,decomp,M097 shpopup.c soldier pop-up list
+0x2c2f84,shell_2C2F84,func,1,GAME,decomp,M097 shpopup.c (no callers) soldier colour
+0x2c2fc8,shell_2C2FC8,func,2,GAME,decomp,M097 shpopup.c kit letters
+0x2c3060,shell_2C3060,func,2,GAME,decomp,M097 shpopup.c framed box
+0x2c3124,shell_2C3124,func,1,GAME,decomp,M097 shpopup.c pop-up list handler
+0x2c32d4,shell_2C32D4,func,0,GAME,decomp,M097 shlist.c unread entries
+0x2c3390,shell_2C3390,func,0,GAME,decomp,M097 shlist.c mission has notes
+0x35cf70,shell_35CF70,data,,GAME,decomp,g10_b.h uchar
+0x35cf72,shell_35CF72,data,,GAME,decomp,g10_b.h long
+0x35cf76,shell_dbf_pt,data,,GAME,decomp,g10_b.h long[7]
+0x35cf92,shell_soldier,data,,GAME,decomp,g10_b.h schar
+0x35cf94,shell_tab_pt,data,,GAME,decomp,g10_b.h long[4]
+0x35cfa4,shell_pct_col,data,,GAME,decomp,g10_b.h uchar[5]
+0x35cfa9,shell_text_col,data,,GAME,decomp,g10_b.h uchar[5]
+0x35cfae,shell_tab_of,data,,GAME,decomp,g10_b.h uchar[0x24]
+0x35cfd2,shell_35CFD2,data,,GAME,decomp,g10_b.h long
+0x35cfd6,shell_note_count,data,,GAME,decomp,g10_b.h uchar
+0x35cfd8,shell_note_done,data,,GAME,decomp,g10_b.h long
+0x35cfdc,shell_note_mission,data,,GAME,decomp,g10_b.h uchar
+0x35cfdd,shell_note_n,data,,GAME,decomp,g10_b.h uchar[3]
+0x35cfe0,shell_quit_result,data,,GAME,decomp,g10_b.h long
+0x35cfe4,shell_pop_flags,data,,GAME,decomp,g10_b.h uchar
+0x35cfe5,shell_pop_ok,data,,GAME,decomp,g10_b.h uchar
+0x35cfe8,shell_pop_cur,data,,GAME,decomp,g10_b.h long
+0x35cfec,shell_pop_out,data,,GAME,decomp,g10_b.h uchar
+0x43cdf0,shell_pop_sel,data,,GAME,decomp,g10_b.h LGRect
+0x43cdf8,shell_pop_box,data,,GAME,decomp,g10_b.h LGRect
+0x43d2cc,shell_note_b,data,,GAME,decomp,g10_b.h uchar[13]
+0x43d2e0,shell_note_c,data,,GAME,decomp,g10_b.h uchar[4]
+0x43d2e4,shell_note_a,data,,GAME,decomp,g10_b.h uchar[15]

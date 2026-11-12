@@ -1,0 +1,139 @@
+address,name,kind,nargs,library,status,notes
+0x3045d0,hashlog2,func,1,DSTRUCT,decomp,hash.c
+0x3045ec,expmod,func,3,DSTRUCT,decomp,hash.c
+0x304644,is_fermat_prime,func,2,DSTRUCT,decomp,hash.c; rand
+0x3046a0,hash_init,func,5,DSTRUCT,decomp,hash.c; ret 4
+0x30473c,hash_copy,func,2,DSTRUCT,decomp,hash.c
+0x3047c0,hash_find_elem,func,3,DSTRUCT,decomp,hash.c static find_elem
+0x304858,hash_find_index,func,2,DSTRUCT,decomp,hash.c static find_index
+0x3048cc,hash_grow,func,2,DSTRUCT,decomp,hash.c static grow
+0x3049b4,hash_set,func,2,DSTRUCT,decomp,hash.c
+0x304a44,hash_insert,func,2,DSTRUCT,decomp,hash.c
+0x304ab4,hash_delete,func,2,DSTRUCT,decomp,hash.c
+0x304ae0,hash_lookup,func,3,DSTRUCT,decomp,hash.c
+0x304b14,hash_iter,func,3,DSTRUCT,decomp,hash.c
+0x304b54,hash_step,func,3,DSTRUCT,decomp,hash.c (unreferenced)
+0x304b94,hash_destroy,func,1,DSTRUCT,decomp,hash.c
+0x35f8f0,tn_tick_acc,data,,TIMER,decomp,long fix accumulator (same address as tn_tick_frac)
+0x2e0098,tn_get_ticks,func,0,TIMER,decomp,timer.c (name ours)
+0x2e00a0,tn_timer_startup,func,0,TIMER,decomp,timer.c (name ours)
+0x2eb220,tn_timer_tick,func,1v,TIMER,decomp,timer.c cdecl Miles callback (name ours)
+0x2eb264,tn_timer_set_rate,func,3,TIMER,decomp,timer.c (name ours)
+0x2eb378,tn_timer_get_rate,func,0,TIMER,decomp,timer.c (name ours)
+0x304200,tnt_register,func,3,TIMER,decomp,timer.c driver[0] (name ours)
+0x304228,tnt_release,func,1,TIMER,decomp,timer.c driver[1] (name ours)
+0x30423c,tnt_start,func,1,TIMER,decomp,timer.c driver[2] (name ours)
+0x304250,tnt_stop,func,1,TIMER,decomp,timer.c driver[3] (name ours)
+0x304264,tnt_set_divisor,func,2,TIMER,decomp,timer.c driver[4] (name ours)
+0x304274,tnt_set_frequency,func,2,TIMER,decomp,timer.c driver[5] (name ours)
+0x304284,tnt_set_period,func,2,TIMER,decomp,timer.c driver[6] (name ours)
+0x304294,tn_timer_install_ail,func,0,TIMER,decomp,timer.c (name ours)
+0x3042a4,tn_timer_shutdown,func,0,TIMER,decomp,timer.c via AtExit (name ours)
+0x309b00,tn_timer_drv_open,func,3,TIMER,decomp,timer.c (name ours)
+0x30a824,AIL_register_timer,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30ab44,AIL_set_timer_divisor,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30ae90,AIL_release_timer_handle,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30acc8,AIL_start_timer,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30adac,AIL_stop_timer,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30aabc,AIL_set_timer_frequency,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30aa34,AIL_set_timer_period,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x2edb28,dpmi_lock_region,func,2v,DOS,orig,cdecl DPMI 0x600 lock [start; end] (name ours)
+0x2edb94,dpmi_unlock_region,func,2v,DOS,orig,cdecl DPMI 0x601 (name ours)
+0x2edc00,dpmi_lock_data,func,2v,DOS,orig,cdecl lock [p; p+size] (name ours)
+0x446a60,tn_task_func,data,,TNUI,decomp,void*[32] game per-frame task table (name ours)
+0x446aec,tn_task_mask,data,,TNUI,decomp,ulong enable bits of tn_task_func
+0x35c02d,tn_replay_playing,data,,GAME,orig,uchar input replay active
+0x35c02c,tn_replay_recording,data,,GAME,orig,uchar input recording active
+0x446cf0,tnkey_init_buf,data,,TNUI,decomp,uchar[] kb_startup buffer
+0x446f0c,tnkey_removed,data,,TNUI,decomp,ushort dead key handlers
+0x35f530,tnkey_hook,data,,TNUI,decomp,void*
+0x44c5b0,tn_replay_state,data,,GAME,orig,uchar[0x20]
+0x44c5d0,tn_replay_state_ptr,data,,GAME,orig,void*
+0x447224,tnui_list,data,,TNUI,orig,LlistHead (gfx glue)
+0x446fb8,tnui_full_rect,data,,TNUI,orig,LGRect (gfx glue)
+0x446f78,tnui_back_canvas,data,,TNUI,orig,grs_canvas game back buffer
+0x446fd0,tnm_back_canvas,data,,TNUI,decomp,grs_canvas cursor sub canvas (back)
+0x447010,tnm_screen_canvas,data,,TNUI,decomp,grs_canvas cursor sub canvas (screen)
+0x447060,tnm_last_pos,data,,TNUI,decomp,LGPoint
+0x447064,tnm_screen_size,data,,TNUI,decomp,LGPoint
+0x447068,tnm_cursor_max,data,,TNUI,decomp,LGPoint
+0x44706c,tnm_poll_time,data,,TNUI,decomp,ulong
+0x447070,tnm_click_time,data,,TNUI,decomp,ulong[2]
+0x447078,tnm_draw_func,data,,TNUI,decomp,TnCursorDrawFunc
+0x44707c,tnm_cursor_ref,data,,TNUI,decomp,Ref
+0x44709c,tnm_stencil,data,,TNUI,decomp,grs_stencil*
+0x4470a0,tnm_sten_origin,data,,TNUI,decomp,LGPoint
+0x4470a4,tnm_draw_pos,data,,TNUI,decomp,LGPoint
+0x4470a8,tnm_cursor,data,,TNUI,decomp,TnCursor
+0x4470bc,tnm_state_ptr,data,,TNUI,decomp,void* (game replay)
+0x4470c0,tnm_pos,data,,TNUI,decomp,LGPoint
+0x4470c6,tnm_state_copy,data,,TNUI,decomp,uchar[6]
+0x4470cc,tnm_removed,data,,TNUI,decomp,ushort
+0x4470ce,tnm_sten_h,data,,TNUI,decomp,short
+0x4470d0,tnm_4470d0,data,,TNUI,decomp,short
+0x4470d4,tnm_su2,data,,TNUI,decomp,TnSaveUnder
+0x4470f4,tnm_su,data,,TNUI,decomp,TnSaveUnder
+0x447111,tnm_lefty,data,,TNUI,decomp,uchar
+0x447112,tnm_frozen,data,,TNUI,decomp,uchar
+0x447113,tnm_moved_at_int,data,,TNUI,decomp,uchar
+0x447114,tnm_int_on,data,,TNUI,decomp,uchar
+0x447115,tnm_lock,data,,TNUI,decomp,uchar MouseLock
+0x447116,tnm_cursor_color,data,,TNUI,decomp,uchar
+0x447118,tnm_cursor_drawn,data,,TNUI,decomp,uchar
+0x447119,tnm_no_events,data,,TNUI,decomp,uchar
+0x44711a,tnm_no_hide,data,,TNUI,decomp,uchar
+0x35f560,tnm_saved_hide,data,,TNUI,decomp,short (999 none)
+0x35f564,tnm_int_cb_id,data,,TNUI,decomp,int
+0x2f2c2c,tnui_replay_task,func,0,GAME,orig,task 5 (name ours)
+0x2e3690,tnkey_init,func,0,TNUI,decomp,tnkey.c
+0x2e3730,tnkey_shutdown,func,0,TNUI,decomp,tnkey.c
+0x2e3748,tnkey_poll,func,0,TNUI,decomp,tnkey.c task 8
+0x2e38ac,tnkey_wait,func,0,TNUI,decomp,tnkey.c (unreferenced)
+0x2e38d8,KeyAddHandler,func,4,TNUI,decomp,tnkey.c
+0x2e3900,KeyRemoveHandler,func,2,TNUI,decomp,tnkey.c
+0x2e3950,tnkey_dispatch_code,func,1,TNUI,decomp,tnkey.c
+0x2e3984,tnkey_dispatch,func,1,TNUI,decomp,tnkey.c
+0x2e39c4,tnkey_null_handler,func,0,TNUI,decomp,tnkey.c
+0x2e39d0,tnkey_set_hook,func,1,TNUI,decomp,tnkey.c
+0x2e4540,tnmouse_init,func,2,TNUI,decomp,tnmouse.c
+0x2e462c,tnmouse_set_screensize,func,2,TNUI,decomp,tnmouse.c
+0x2e4744,tnmouse_shutdown,func,0,TNUI,decomp,tnmouse.c
+0x2e475c,MouseSetDrawFunc,func,1,TNUI,decomp,tnmouse.c (unreferenced)
+0x2e47fc,MouseSetCursorBitmap,func,1,TNUI,decomp,tnmouse.c (unreferenced)
+0x2e4930,MouseSetCursor,func,1,TNUI,decomp,tnmouse.c
+0x2e4a68,MouseMoveTo,func,1,TNUI,decomp,tnmouse.c
+0x2e4b1c,MouseHide,func,0,TNUI,decomp,tnmouse.c
+0x2e4b78,MouseShow,func,0,TNUI,decomp,tnmouse.c
+0x2e4bc4,MouseSaveHide,func,0,TNUI,decomp,tnmouse.c
+0x2e4bd4,MouseHideRect,func,1,TNUI,decomp,tnmouse.c
+0x2e4ca8,MouseRestoreHide,func,0,TNUI,decomp,tnmouse.c
+0x2e4d58,MouseSaveUnderAt,func,3,TNUI,decomp,tnmouse.c
+0x2e4dd4,MouseGetSaveRect,func,2,TNUI,decomp,tnmouse.c
+0x2e4e10,MouseFreeze,func,0,TNUI,decomp,tnmouse.c
+0x2e4e18,MouseUnfreeze,func,0,TNUI,decomp,tnmouse.c
+0x2e4e24,MouseConstrain,func,1,TNUI,decomp,tnmouse.c
+0x2e4ea8,MouseSetStencil,func,3,TNUI,decomp,tnmouse.c
+0x2e4f8c,MouseClearStencil,func,0,TNUI,decomp,tnmouse.c
+0x2e5004,MouseIntDrawOn,func,0,TNUI,decomp,tnmouse.c
+0x2e502c,MouseIntDrawOff,func,0,TNUI,decomp,tnmouse.c
+0x2e504c,tnmouse_poll,func,0,TNUI,decomp,tnmouse.c task 7
+0x2e5388,MouseAddHandler,func,3,TNUI,decomp,tnmouse.c
+0x2e53a4,MouseRemoveHandler,func,3,TNUI,decomp,tnmouse.c
+0x2e5408,MouseRemoveAllHandlers,func,0,TNUI,decomp,tnmouse.c (unreferenced)
+0x2e5414,tnmouse_dispatch,func,1,TNUI,decomp,tnmouse.c
+0x2e546c,tnmouse_null_handler,func,0,TNUI,decomp,tnmouse.c
+0x2e5470,tnmouse_draw,func,0,TNUI,decomp,tnmouse.c
+0x2e54bc,tnmouse_undraw,func,0,TNUI,decomp,tnmouse.c
+0x2e54e0,tnmouse_draw_cb,func,3,TNUI,decomp,tnmouse.c default draw func
+0x2e5508,MouseSetLefty,func,1,TNUI,decomp,tnmouse.c
+0x2e5510,tnui_init,func,0,TNUI,decomp,tnmouse.c
+0x2e5584,tnui_shutdown,func,0,TNUI,decomp,tnmouse.c
+0x2f2480,cursor_lock_a,func,0,TNUI,decomp,tncursor.c
+0x2f249c,cursor_sten_test,func,3,TNUI,decomp,tncursor.c
+0x2f24e4,cursor_unlock_a,func,0,TNUI,decomp,tncursor.c
+0x2f2500,cursor_lock_all,func,0,TNUI,decomp,tncursor.c
+0x2f2528,cursor_interrupt_draw,func,2,TNUI,decomp,tncursor.c mouse callback
+0x2f25e0,cursor_save_under,func,4,TNUI,decomp,tncursor.c
+0x2f26e8,cursor_restore_under,func,1,TNUI,decomp,tncursor.c
+0x2f2748,cursor_in_stencil,func,2,TNUI,decomp,tncursor.c
+0x2f2788,cursor_constrain,func,2,TNUI,decomp,tncursor.c returns LGPoint in eax

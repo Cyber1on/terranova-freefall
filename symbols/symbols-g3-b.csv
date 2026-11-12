@@ -1,0 +1,122 @@
+address,name,kind,nargs,library,status,notes
+0x27c3f0,damage_27C3F0,func,4,GAME,decomp,partgroup.c (M039) create a part group
+0x27c5a4,damage_27C5A4,func,5,GAME,decomp,partgroup.c (M039) place the parts
+0x27c70c,damage_27C70C,func,3,GAME,decomp,partgroup.c (M039) unlink a part (no callers)
+0x27c7cc,damage_27C7CC,func,1,GAME,decomp,partgroup.c (M039) kill a group (no callers)
+0x27cf30,damage_27CF30,func,6,GAME,decomp,partobj.c (M041) create a class 4 part
+0x27d018,damage_27D018,func,4,GAME,decomp,partobj.c (M041) init class 4 record
+0x27d720,damage_27D720,func,6,GAME,decomp,pbacreate.c (M044) create a PBA
+0x27d818,damage_27D818,func,5,GAME,decomp,pbacreate.c (M044) init PBA record
+0x27dbb8,damage_27DBB8,func,1,GAME,decomp,pbacreate.c (M044)
+0x27dbd4,damage_27DBD4,func,2,GAME,decomp,pbacreate.c (M044)
+0x27dc2c,damage_27DC2C,func,2,GAME,decomp,pbacreate.c (M044)
+0x2da0d0,raycast_2DA0D0,func,4,GAME,decomp,raycast.c (M118) objects of the current cell
+0x2da3c0,raycast_2DA3C0,func,3,GAME,decomp,raycast.c (M118) triangles crossed
+0x2da454,raycast_2DA454,func,2,GAME,decomp,raycast.c (M118) triangle of a point
+0x2da48c,raycast_2DA48C,func,6,GAME,decomp,raycast.c (M118) step to the next cell edge
+0x2da678,FF_raycast,func,7,GAME,decomp,raycast.c (M118) game: (fix x,y,z, fix vec[3], fix range, fix where_hit[3], terrain_ff*) ret 0xc
+0x2db1a4,raycast_2DB1A4,func,9,GAME,decomp,raycast.c (M118) entity shape
+0x2db20c,raycast_2DB20C,func,10,GAME,decomp,raycast.c (M118) tile object shape
+0x2db27c,FF_raycast_generic_obj,func,10,GAME,decomp,raycast.c (M118)
+0x2db310,raycast_2DB310,func,1,GAME,decomp,raycast.c (M118) 3x3 determinant
+0x2db3b4,raycast_2DB3B4,func,8,GAME,decomp,raycast.c (M118) plane
+0x2db4b4,raycast_2DB4B4,func,10,GAME,decomp,raycast.c (M118) polygon (box) shape
+0x2db8d8,raycast_2DB8D8,func,10,GAME,decomp,raycast.c (M118) sphere shape (type 2)
+0x2dbaa0,RaycastCylinder,func,10,GAME,decomp,raycast.c (M118) cylinder shape (type 3)
+0x27e250,biped_27E250,func,4,GAME,decomp,biped.c (M049) ground kind under a point
+0x27e354,biped_27E354,func,3,GAME,decomp,biped.c (M049) 2D add (no callers)
+0x27e370,biped_27E370,func,3,GAME,decomp,biped.c (M049) 2D subtract
+0x27e38c,biped_27E38C,func,3,GAME,decomp,biped.c (M049) 2D scale (no callers)
+0x27e3b0,biped_27E3B0,func,2,GAME,decomp,biped.c (M049) 2D cross product
+0x27e3d8,biped_27E3D8,func,2,GAME,decomp,biped.c (M049) 2D dot product
+0x27e400,biped_27E400,func,2,GAME,decomp,biped.c (M049) pelvis-relative to world
+0x27e470,biped_27E470,func,1,GAME,decomp,biped.c (M049) plant a foot
+0x27e514,biped_27E514,func,3,GAME,decomp,biped.c (M049) advance a step
+0x27e678,biped_27E678,func,2,GAME,decomp,biped.c (M049) interpolate a step
+0x27e778,biped_27E778,func,1,GAME,decomp,biped.c (M049) step length for a speed
+0x27e8c0,biped_27E8C0,func,3,GAME,decomp,biped.c (M049) (no callers)
+0x27e8fc,biped_27E8FC,func,3,GAME,decomp,biped.c (M049) lean / crouch posture
+0x27e99c,biped_27E99C,func,2,GAME,decomp,biped.c (M049) crouch posture
+0x27ea60,biped_27EA60,func,1,GAME,decomp,biped.c (M049) undo posture
+0x27eab8,biped_27EAB8,func,1,GAME,decomp,biped.c (M049) (no callers) type 0xB soldier
+0x27eaf4,biped_27EAF4,func,3,GAME,decomp,biped.c (M049) chest screen position
+0x27ebd4,biped_27EBD4,func,2,GAME,decomp,biped.c (M049) (no callers) chest position
+0x27ec90,biped_27EC90,func,2,GAME,decomp,biped.c (M049) top of the head
+0x27ed34,biped_27ED34,func,1,GAME,decomp,biped.c (M049) chest height above the entity
+0x27eda0,biped_27EDA0,func,1,GAME,decomp,biped.c (M049) standing with both feet down
+0x27edf4,biped_27EDF4,func,1,GAME,decomp,biped.c (M049) 
+0x27ee34,biped_27EE34,func,1,GAME,decomp,biped.c (M049) pose reset (IDLE_RESET)
+0x27efe4,biped_27EFE4,func,1,GAME,decomp,biped.c (M049) (no callers) skeleton resource id
+0x27f00c,biped_27F00C,func,1,GAME,decomp,biped.c (M049) body size
+0x27f0d0,biped_27F0D0,func,1,GAME,decomp,biped.c (M049) 
+0x27f0dc,biped_27F0DC,func,0,GAME,decomp,biped.c (M049) resize speaker bipeds
+0x27f150,biped_27F150,func,2,GAME,decomp,biped.c (M049) create a biped
+0x27f2a4,biped_27F2A4,func,2,GAME,decomp,biped.c (M049) knee IK
+0x27f620,biped_27F620,func,2,GAME,decomp,biped.c (M049) (no callers) step end position
+0x27f658,biped_27F658,func,0,GAME,decomp,biped.c (M049) choose and start a step
+0x27fb28,biped_27FB28,func,2,GAME,decomp,biped.c (M049) toe and knee plane
+0x27fe10,biped_27FE10,func,3,GAME,decomp,biped.c (M049) leg heading
+0x27fed8,biped_27FED8,func,5,GAME,decomp,biped.c (M049) foot place; ret 4
+0x27ffdc,biped_27FFDC,func,0,GAME,decomp,biped.c (M049) both feet down
+0x2800bc,biped_2800BC,func,3,GAME,decomp,biped.c (M049) ground height for a foot
+0x280254,biped_280254,func,1,GAME,decomp,biped.c (M049) standing step
+0x280364,biped_280364,func,4,GAME,decomp,biped.c (M049) walking step
+0x280544,biped_280544,func,0,GAME,decomp,biped.c (M049) arm planes, type 0xB
+0x28059c,biped_28059C,func,0,GAME,decomp,biped.c (M049) arms
+0x280934,BipedComputePose,func,2,GAME,decomp,biped.c (M049) pose for drawing
+0x280a84,BipedIdleTurn,func,3,GAME,decomp,biped.c (M049) per-frame update
+0x281488,biped_281488,func,4,GAME,decomp,biped.c (M049) lerp
+0x2814e4,biped_2814E4,func,3,GAME,decomp,biped.c (M049) per-frame update in 0.1 s steps
+0x281728,biped_281728,func,3,GAME,decomp,biped.c (M049) (no callers) segment length
+0x281750,biped_281750,func,3,GAME,decomp,biped.c (M049) segment length * scale
+0x28176c,biped_28176C,func,2,GAME,decomp,biped.c (M049) (no callers)
+0x2817b0,biped_2817B0,func,2,GAME,decomp,biped.c (M049) body dimensions
+0x2820a4,biped_2820A4,func,1,GAME,decomp,biped.c (M049) screen radius
+0x28213c,biped_28213C,func,2,GAME,decomp,biped.c (M049) screen box
+0x39bcb0,game_cls7,data,,GAME,orig,"class 7 pool records (PartGroup, 10 bytes)"
+0x35b670,game_35B670,data,,GAME,orig,"long: entity of the last type 0x3E part"
+0x35b674,game_rnd_35B674,data,,GAME,orig,"RndStream"
+0x395728,game_395728,data,,GAME,orig,"ushort[][2] class 4 meter max / rate"
+0x35b610,game_35B610,data,,GAME,orig,"default class 4 template"
+0x396386,game_396386,data,,GAME,orig,"short[] skill percentages (+2 + 2 * skill)"
+0x441369,game_441369,data,,GAME,orig,"shared system record of PBA kinds 0xE..0x11"
+0x446720,rc_tff,data,,GAME,orig,"raycast.c terrain_ff *"
+0x446724,rc_sy,data,,GAME,orig,"raycast.c long"
+0x446728,rc_sx,data,,GAME,orig,"raycast.c long"
+0x44672c,rc_fy,data,,GAME,orig,"raycast.c fix"
+0x446730,rc_fx,data,,GAME,orig,"raycast.c fix"
+0x446734,rc_dx,data,,GAME,orig,"raycast.c fix"
+0x446738,rc_dy,data,,GAME,orig,"raycast.c fix"
+0x44673c,rc_dz,data,,GAME,orig,"raycast.c fix"
+0x446740,rc_nx,data,,GAME,orig,"raycast.c fix"
+0x446744,rc_ny,data,,GAME,orig,"raycast.c fix"
+0x446748,rc_nz,data,,GAME,orig,"raycast.c fix"
+0x44674c,rc_ex,data,,GAME,orig,"raycast.c fix"
+0x446750,rc_ey,data,,GAME,orig,"raycast.c fix"
+0x446754,rc_ez,data,,GAME,orig,"raycast.c fix"
+0x446758,rc_ecy,data,,GAME,orig,"raycast.c long"
+0x44675c,rc_cy,data,,GAME,orig,"raycast.c long"
+0x446760,rc_tcx,data,,GAME,orig,"raycast.c long"
+0x446764,rc_tcy,data,,GAME,orig,"raycast.c long"
+0x446768,rc_ecx,data,,GAME,orig,"raycast.c long"
+0x44676c,rc_cx,data,,GAME,orig,"raycast.c long"
+0x446770,rc_x,data,,GAME,orig,"raycast.c fix"
+0x446774,rc_y,data,,GAME,orig,"raycast.c fix"
+0x446778,rc_z,data,,GAME,orig,"raycast.c fix"
+0x3924b0,bp_cs,data,,GAME,orig,"biped.c fix[2]"
+0x3924b8,bp_mv,data,,GAME,orig,"biped.c fix[2]"
+0x3924c0,bp_p,data,,GAME,orig,"biped.c fix[2]"
+0x3924c8,bp_fwd,data,,GAME,orig,"biped.c fix"
+0x3924cc,bp_halfw,data,,GAME,orig,"biped.c fix"
+0x3924d0,bp_lift,data,,GAME,orig,"biped.c fix"
+0x3924d4,bp_now,data,,GAME,orig,"biped.c long"
+0x3924d8,bp_cur,data,,GAME,orig,"biped.c uchar *"
+0x3924dc,bp_stride,data,,GAME,orig,"biped.c fix"
+0x3924e0,bp_dt,data,,GAME,orig,"biped.c fix"
+0x3924e4,bp_joints,data,,GAME,orig,"biped.c fix *"
+0x3924e8,bp_lead,data,,GAME,orig,"biped.c fix"
+0x3924ec,bp_v,data,,GAME,orig,"biped.c fix[3]"
+0x3924f8,bp_heading,data,,GAME,orig,"biped.c ushort"
+0x441361,game_441361,data,,GAME,orig,"biped.c long footstep counter"
+0x41db58,game_41DB58,data,,GAME,orig,"uchar[] ground kinds, 12 bytes each"
+0x35b680,game_35B680,data,,GAME,orig,"uchar[] speaker biped sizes"

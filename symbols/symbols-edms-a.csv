@@ -1,0 +1,108 @@
+address,name,kind,nargs,library,status,notes
+0x44b9d0,edms_object_collision,data,,EDMS,decomp,interfac.cc EDMS_object_collision callback
+0x44b9d4,edms_autodestruct,data,,EDMS,decomp,interfac.cc EDMS_autodestruct callback
+0x44b9d8,edms_off_playfield,data,,EDMS,decomp,interfac.cc EDMS_off_playfield (awol) callback
+0x44b9dc,edms_sleepy_snoozy,data,,EDMS,decomp,interfac.cc EDMS_sleepy_snoozy callback
+0x44b9e0,edms_terrain_event,data,,EDMS,decomp,TN terrain event callback (name ours)
+0x44b9e4,edms_ph2on,data,,EDMS,decomp,ph2on[96]
+0x44bb64,edms_on2ph,data,,EDMS,decomp,on2ph[96]
+0x44bce4,edms_fix_zero,data,,EDMS,decomp,fix_zero
+0x44e0b0,edms_initial_X,data,,EDMS,decomp,ff_ftl.cc initial_X[3] (static)
+0x44e0bc,edms_final_X,data,,EDMS,decomp,ff_ftl.cc final_X[3] (static)
+0x44e0c8,edms_sampling_period,data,,EDMS,decomp,ff_ftl.cc sampling_period
+0x44e0cc,edms_D_old,data,,EDMS,decomp,ff_ftl.cc D_old[3] (static)
+0x44e0d8,edms_soliton_remainder,data,,EDMS,decomp,soliton_vector function-static remainder (name ours)
+0x44e0dc,edms_soliton_remainder_guard,data,,EDMS,decomp,guard byte bit 0
+0x44e0dd,edms_S,data,,EDMS,decomp,S[96][3][4]
+0x44f2e0,edms_integrating,data,,EDMS,decomp,EDMS_integrating
+0x44f2e4,edms_timestep,data,,EDMS,decomp,last soliton_lite timestep (name ours)
+0x44f2e8,edms_A,data,,EDMS,decomp,A argblock pointer
+0x44f2ec,edms_I,data,,EDMS,decomp,I[96][40]
+0x452eec,edms_k,data,,EDMS,decomp,k[96][3]
+0x45336c,edms_idof_functions,data,,EDMS,decomp,idof_functions[96]
+0x4534ec,edms_soliton_object,data,,EDMS,decomp,soliton_lite loop variable (name ours)
+0x4534f4,edms_hash_scale,data,,EDMS,decomp,hash_scale
+0x4534f8,edms_one_sixth,data,,EDMS,decomp,
+0x4534fc,edms_point_five,data,,EDMS,decomp,
+0x453500,edms_point_one_two_five,data,,EDMS,decomp,
+0x453504,edms_two,data,,EDMS,decomp,
+0x453508,edms_point_1,data,,EDMS,decomp,
+0x45350c,edms_no_no_not_me,data,,EDMS,decomp,no_no_not_me[96] 1=awake
+0x45368c,edms_alarm_clock,data,,EDMS,decomp,alarm_clock[96]
+0x45380c,edms_industrial_strength,data,,EDMS,decomp,industrial_strength[96]
+0x45398c,edms_wakeup_pending,data,,EDMS,decomp,(name ours)
+0x453990,edms_A_is_active,data,,EDMS,decomp,bool A_is_active
+0x453991,edms_min_scale_slice,data,,EDMS,decomp,min_scale_slice .03
+0x453998,edms_data,data,,EDMS,decomp,collide.cc data[100][100]
+0x45d5d8,edms_test_bitmask,data,,EDMS,decomp,collide.cc test_bitmask
+0x45d5dc,edms_pt_consts,data,,EDMS,decomp,phy_tool.cc const copies [5] (name ours)
+0x45d5f0,edms_END,data,,EDMS,decomp,END -9999
+0x45d5f4,edms_VACUUM,data,,EDMS,decomp,
+0x45d5f8,edms_MARBLE,data,,EDMS,decomp,
+0x45d5fc,edms_FIELD_POINT,data,,EDMS,decomp,
+0x45d600,edms_ROBOT,data,,EDMS,decomp,
+0x45d604,edms_BIPED,data,,EDMS,decomp,
+0x45d608,edms_PELVIS,data,,EDMS,decomp,
+0x45d60c,edms_DEATH,data,,EDMS,decomp,
+0x45d610,edms_D_FRAME,data,,EDMS,decomp,
+0x45d614,edms_TYPE8,data,,EDMS,decomp,TN extra type 8 (name ours)
+0x45d618,edms_min_physics_handle,data,,EDMS,decomp,min_physics_handle
+0x45d61c,edms_marble_one,data,,EDMS,decomp,marble 1.0 (name ours)
+0x45d620,edms_marble_last,data,,EDMS,decomp,marble statics [3] (name ours)
+0x3197e1,crt_memcpy,func,3,CLIB,orig,"Watcom CRT memcpy (called by soliton_lite); C memcpy is src/crt/inline.c"
+0x32510a,crt_abs,func,1,CLIB,orig,Watcom CRT abs
+0x325111,crt_labs,func,1,CLIB,orig,Watcom CRT labs (same code as abs; used by collide.cc)
+0x2f07e0,Q_delete_helper,func,2,FIXPP,orig,"Watcom C++ deleting helper for Q: eax=this, dl=flags"
+0x2f0804,Q_copy_ctor,func,2,FIXPP,orig,Q::Q(const Q&)
+0x2f080c,Q_ctor,func,1,FIXPP,orig,Q::Q() (empty)
+0x3111f6,wcpp_ctor_array,func,3,CLIB,orig,"Watcom C++ runtime array constructor (array, count, sig); no-op for Q"
+0x2f074c,EDMS_cast_projectile,func,11,EDMS,decomp,edms.interfac
+0x2f0810,interfac_static_init,func,0,EDMS,decomp,edms.interfac
+0x2f081b,terrain,func,4,EDMS,decomp,edms.interfac
+0x2f0829,ff_terrain,func,5,EDMS,decomp,edms.interfac
+0x2f0847,ff_raycast,func,7,EDMS,decomp,edms.interfac
+0x2f086b,EDMS_startup,func,1,EDMS,decomp,edms.interfac
+0x2f08a2,EDMS_set_workspace,func,1,EDMS,decomp,edms.interfac
+0x2f08a8,EDMS_set_autodestruct,func,1,EDMS,decomp,edms.interfac
+0x2f08d1,EDMS_defuse_autodestruct,func,1,EDMS,decomp,edms.interfac
+0x2f08fa,EDMS_kill_object,func,1,EDMS,decomp,edms.interfac
+0x2f092d,EDMS_get_state,func,2,EDMS,decomp,edms.interfac
+0x2f097c,EDMS_get_state_accel,func,2,EDMS,decomp,edms.interfac
+0x2f09e3,EDMS_holistic_teleport,func,2,EDMS,decomp,edms.interfac
+0x2f0a66,EDMS_ignore_collisions,func,2,EDMS,decomp,edms.interfac
+0x2f0a83,EDMS_obey_collisions,func,1,EDMS,decomp,edms.interfac
+0x2f0a94,EDMS_mprint_state,func,1,EDMS,decomp,edms.interfac
+0x2f0aa0,EDMS_inventory_and_statistics,func,1,EDMS,decomp,edms.interfac
+0x2f0aa5,EDMS_sanity_check,func,0,EDMS,decomp,edms.interfac
+0x2f0aaa,EDMS_soliton_vector,func,1,EDMS,decomp,edms.interfac
+0x2f0abb,EDMS_init_handles,func,0,EDMS,decomp,edms.interfac
+0x2f0add,EDMS_bind_object_number,func,1,EDMS,decomp,edms.interfac
+0x2f0afa,EDMS_remap_object_number,func,2,EDMS,decomp,edms.interfac
+0x2f0b29,EDMS_release_object,func,1,EDMS,decomp,edms.interfac
+0x2f0b48,EDMS_get_free_ph,func,0,EDMS,decomp,edms.interfac
+0x2f0b66,EDMS_set_param39,func,2,EDMS,decomp,edms.interfac
+0x2f0b88,EDMS_set_X_dot,func,2,EDMS,decomp,edms.interfac
+0x2f0ba8,EDMS_set_Y_dot,func,2,EDMS,decomp,edms.interfac
+0x2f0bc8,EDMS_set_Z_dot,func,2,EDMS,decomp,edms.interfac
+0x2f0be8,EDMS_get_marble_parameters,func,2,EDMS,decomp,edms.interfac
+0x2f0c55,EDMS_control_marble,func,4,EDMS,decomp,edms.interfac
+0x2f0c7d,EDMS_marble_set_I11,func,4,EDMS,decomp,edms.interfac
+0x2f0ca5,EDMS_marble_add_I14,func,4,EDMS,decomp,edms.interfac
+0x2f0ccd,EDMS_make_marble,func,2,EDMS,decomp,edms.interfac
+0x2f0dbc,EDMS_set_marble_parameters,func,2,EDMS,decomp,edms.interfac
+0x2fdc7c,EDMS_make_death,func,2,EDMS,decomp,edms.fodeath
+0x2fdd10,EDMS_set_death_parameters,func,2,EDMS,decomp,edms.fodeath
+0x2fdd5c,EDMS_get_death_parameters,func,2,EDMS,decomp,edms.fodeath
+0x3126c8,generic_write_object,func,2,EDMS,decomp,edms.collide
+0x3127c8,generic_delete_object,func,2,EDMS,decomp,edms.collide
+0x3128c5,object_check_hash,func,3,EDMS,decomp,edms.collide
+0x312948,reset_collisions,func,1,EDMS,decomp,edms.collide
+0x3129ab,exclude_from_collisions,func,2,EDMS,decomp,edms.collide
+0x312a3a,are_you_there,func,1,EDMS,decomp,edms.collide
+0x312a98,phy_tool_static_init,func,0,EDMS,decomp,edms.phy_tool
+0x312acb,mprint_state,func,1,EDMS,decomp,edms.phy_tool
+0x312b2e,inventory_and_statistics,func,1,EDMS,decomp,edms.phy_tool
+0x312b60,sanity_check,func,0,EDMS,decomp,edms.phy_tool
+0x312c0e,EDMS_frere_jaques,func,1,EDMS,decomp,edms.phy_tool
+0x312c2d,EDMS_crystal_meth,func,1,EDMS,decomp,edms.phy_tool
+0x312c48,globals_static_init,func,0,EDMS,decomp,edms.globals

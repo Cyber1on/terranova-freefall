@@ -1,0 +1,123 @@
+address,name,kind,nargs,library,status,notes
+0x2dc5b0,install_2DC5B0,func,2,GAME,decomp,filecopy.c M122: set copy buffer
+0x2dc5bc,install_2DC5BC,func,2,GAME,decomp,filecopy.c: strdup into *dst (al)
+0x2dc610,install_2DC610,func,2,GAME,decomp,filecopy.c: close a copy job
+0x2dc674,install_2DC674,func,3,GAME,decomp,filecopy.c: open a copy job
+0x2dc760,install_2DC760,func,3,GAME,decomp,filecopy.c: new copy job
+0x2dc7c8,install_2DC7C8,func,1,GAME,decomp,filecopy.c: copy one chunk
+0x2dc85c,install_2DC85C,func,1,GAME,decomp,filecopy.c: copy all (unreferenced)
+0x2dc88c,install_2DC88C,func,2,GAME,decomp,"filecopy.c: close, returns 0"
+0x2dc89c,install_2DC89C,func,2,GAME,decomp,filecopy.c: copy a file (unreferenced)
+0x35f3bc,copy_buf,data,,GAME,orig,filecopy.c
+0x35f3c0,copy_buf_size,data,,GAME,orig,filecopy.c
+0x2dbe50,intro_2DBE50,func,custom,GAME,decomp,"movie.c M121: Smacker malloc callback, stdcall 1 arg; W_ entry in movie.c"
+0x2dbe6c,intro_2DBE6C,func,custom,GAME,decomp,"movie.c: Smacker free callback, stdcall 1 arg; W_ entry in movie.c"
+0x2dbe7c,intro_2DBE7C,func,0,GAME,decomp,movie.c: opening movies
+0x2dbed8,intro_2DBED8,func,0,GAME,decomp,movie.c: ending movies
+0x2dbf14,intro_2DBF14,func,1,GAME,decomp,movie.c: mouse range for a mode
+0x2dbf94,intro_2DBF94,func,0,GAME,decomp,movie.c: briefing movie
+0x2dc014,intro_2DC014,func,1,GAME,decomp,movie.c: mission movie due
+0x2dc06c,intro_2DC06C,func,0,GAME,decomp,movie.c: mission end movie
+0x2dc07c,intro_2DC07C,func,0,GAME,decomp,movie.c: Smacker sound setup
+0x2dc0b0,intro_2DC0B0,func,0,GAME,decomp,movie.c: movie files present (al)
+0x2dc0fc,intro_2DC0FC,func,1,GAME,decomp,movie.c: movie palette + backdrop (unreferenced)
+0x2dc254,intro_2DC254,func,2,GAME,decomp,movie.c: play a movie
+0x35ed78,movie_tab,data,,GAME,orig,"movie.c: 0x5A x {name[15], hires}"
+0x35f318,mission_movie,data,,GAME,orig,"movie.c: per mission {movie, when}"
+0x35f388,mission_movie_end,data,,GAME,orig,movie.c
+0x43e638,movie_played,data,,GAME,orig,movie.c: per mission (0x28)
+0x2fdd94,smacker_2FDD94,func,1,GAME,orig,Smacker area: jmp 0x319E24 wait ms
+0x2fdda0,smacker_2FDDA0,func,custom,GAME,orig,"Smacker: 0 args, returns a global"
+0x2fddb0,smacker_2FDDB0,func,custom,GAME,orig,Smacker: 0 args
+0x2fddc0,smacker_2FDDC0,func,custom,GAME,orig,Smacker: 0 args
+0x2fddd0,smacker_2FDDD0,func,custom,GAME,orig,Smacker: stdcall 1
+0x2fde80,smacker_2FDE80,func,custom,GAME,orig,"Smacker: 0 args, clobbers ebx"
+0x2fdf50,smacker_2FDF50,func,custom,GAME,orig,Smacker: stdcall 2
+0x2fe1c0,smacker_2FE1C0,func,custom,GAME,orig,Smacker: stdcall 1
+0x2fe610,smacker_2FE610,func,custom,GAME,orig,Smacker: stdcall 2
+0x2fed30,smacker_2FED30,func,custom,GAME,orig,Smacker: cdecl 1 (palette)
+0x2fedf0,smacker_2FEDF0,func,custom,GAME,orig,Smacker: stdcall 1 (wait)
+0x2fef20,smacker_2FEF20,func,custom,GAME,orig,Smacker: stdcall 4
+0x2ff820,smacker_2FF820,func,custom,GAME,orig,Smacker: stdcall 6
+0x2ffd70,smacker_2FFD70,func,custom,GAME,orig,Smacker: stdcall 1 (next frame)
+0x300040,smacker_300040,func,custom,GAME,orig,Smacker: stdcall 1 (do frame)
+0x300420,smacker_300420,func,custom,GAME,orig,Smacker: stdcall 1 (close)
+0x300560,smacker_300560,func,custom,GAME,orig,Smacker: stdcall 2
+0x3007a0,smacker_3007A0,func,custom,GAME,orig,Smacker: stdcall 3 (open)
+0x2cd870,mis108_2CD870,func,2,GAME,decomp,mstathlp.c M108: training history entry roll
+0x2cdaec,mis108_2CDAEC,func,1,GAME,decomp,mstathlp.c: entries for soldiers not in the mission
+0x2cdb98,mis108_2CDB98,func,2,GAME,decomp,mstathlp.c: roll until failure (unreferenced)
+0x35daa8,mstathlp_35DAA8,data,,GAME,orig,mstathlp.c
+0x442860,game_442860,data,,GAME,orig,mstathlp.c
+0x2c93c0,misobj_2C93C0,func,0,GAME,decomp,misobj.c M104: returns 0
+0x2c93c4,misobj_2C93C4,func,1,GAME,decomp,misobj.c: set object set mask
+0x2c93cc,misobj_2C93CC,func,0,GAME,decomp,misobj.c: open mission map
+0x2c940c,misobj_2C940C,func,0,GAME,decomp,misobj.c: load mission objects
+0x2c95bc,MissionReserveMedAIs,func,1,GAME,decomp,misobj.c: AI squads
+0x2c97e4,misobj_2C97E4,func,1,GAME,decomp,misobj.c: squad of an object (al)
+0x2c9898,misobj_2C9898,func,2,GAME,decomp,misobj.c: create one object
+0x2c9bbc,misobj_2C9BBC,func,0,GAME,decomp,misobj.c: regions
+0x2c9c6c,misobj_2C9C6C,func,0,GAME,decomp,misobj.c: sky parameters
+0x2c9d10,misobj_2C9D10,func,0,GAME,decomp,misobj.c: free spawn table/timers (missing from map)
+0x2c9fd4,misobj_2C9FD4,func,0,GAME,decomp,misobj.c: ambient sounds
+0x35d0fc,misobj_35D0FC,data,,GAME,orig,misobj.c
+0x4413b0,misobj_squad_kind,data,,GAME,orig,misobj.c res 0xAE
+0x441cd0,misobj_timers,data,,GAME,orig,misobj.c
+0x441dd4,misobj_spawns,data,,GAME,orig,misobj.c res 0xB5
+0x2c9d50,misobj_2C9D50,func,3,GAME,decomp,misobjrg.c M104: point in region (al)
+0x2c9df8,misobj_2C9DF8,func,3,GAME,decomp,misobjrg.c: region mask of a point (al)
+0x2c9e60,misobj_2C9E60,func,2,GAME,decomp,"misobjrg.c: new circle region, long (-1 full)"
+0x2c9ee8,misobj_2C9EE8,func,1,GAME,decomp,misobjrg.c: free a region
+0x2c9efc,misobj_2C9EFC,func,0,GAME,decomp,misobjrg.c: mission time limits
+0x278cc0,equip_278CC0,func,0,GAME,decomp,equip.c M031: reseed
+0x278ce4,equip_278CE4,func,0,GAME,decomp,equip.c: voice -> soldier
+0x278d18,equip_278D18,func,0,GAME,decomp,equip.c: new campaign soldiers
+0x278ef0,equip_278EF0,func,1,GAME,decomp,equip.c: replace a soldier
+0x27915c,equip_27915C,func,4,GAME,decomp,equip.c: stand-in soldier (al)
+0x279254,equip_279254,func,2,GAME,decomp,equip.c: soldier record
+0x2792d4,equip_2792D4,func,0,GAME,decomp,equip.c: choose the squad
+0x279900,equip_279900,func,1,GAME,decomp,equip.c: wounded flags
+0x27998c,equip_27998C,func,0,GAME,decomp,"equip.c: squad size, kits"
+0x279b50,equip_279B50,func,2,GAME,decomp,equip.c: string 0x6AA
+0x279ba4,equip_279BA4,func,2,GAME,decomp,equip.c: MFD entry
+0x279c00,equip_279C00,func,0,GAME,decomp,equip.c: squad + MFD
+0x279c50,equip_279C50,func,0,GAME,decomp,equip.c: MFD from options
+0x279d4c,equip_279D4C,func,0,GAME,decomp,equip.c: options from squad
+0x391f4a,squad_soldier,data,,GAME,orig,equip.c schar[3]
+0x390320,squad_390320,data,,GAME,orig,equip.c
+0x390324,squad_kit,data,,GAME,orig,equip.c [6][6]
+0x43e61a,camp_43E61A,data,,GAME,orig,equip.c
+0x43e61b,camp_43E61B,data,,GAME,orig,equip.c
+0x43e61d,camp_status,data,,GAME,orig,equip.c [0xD]
+0x43e62a,camp_43E62A,data,,GAME,orig,equip.c [0xD]
+0x43e637,camp_43E637,data,,GAME,orig,equip.c
+0x43e660,camp_43E660,data,,GAME,orig,equip.c
+0x43e668,camp_43E668,data,,GAME,orig,equip.c
+0x391c6e,camp_391C6E,data,,GAME,orig,equip.c
+0x442f32,game_442F32,data,,GAME,orig,equip.c cheat squad size
+0x2c3530,saveload_2C3530,func,0,GAME,decomp,saveload.c M098: save dir "."
+0x2c3548,saveload_2C3548,func,2,GAME,decomp,saveload.c: description (al)
+0x2c35bc,saveload_2C35BC,func,0,GAME,decomp,saveload.c: save
+0x2c37f8,saveload_2C37F8,func,0,GAME,decomp,saveload.c: rewrite description
+0x2c38a8,saveload_2C38A8,func,2,GAME,decomp,saveload.c: load
+0x2c3a48,saveload_2C3A48,func,5,GAME,decomp,saveload.c: write a resource (ret 4)
+0x2c3a8c,saveload_2C3A8C,func,3,GAME,decomp,saveload.c: read a resource (al)
+0x2c3adc,saveload_2C3ADC,func,1,GAME,decomp,saveload.c: slot exists
+0x2c3b90,saveload_2C3B90,func,1,GAME,decomp,saveload.c: slot list
+0x2c40c0,saveload_2C40C0,func,1,GAME,decomp,saveload.c: mouse handler (al)
+0x2c4188,saveload_2C4188,func,2,GAME,decomp,saveload.c: cursor position
+0x2c4200,saveload_2C4200,func,2,GAME,decomp,saveload.c: insert marks
+0x2c42c8,saveload_2C42C8,func,0,GAME,decomp,saveload.c: edit line
+0x2c4520,saveload_2C4520,func,1,GAME,decomp,saveload.c: key handler (al)
+0x2c4c1c,saveload_2C4C1C,func,2,GAME,decomp,saveload.c: open dialog
+0x2c4ea4,saveload_2C4EA4,func,1,GAME,decomp,saveload.c: close dialog (unreferenced)
+0x35cff0,save_loading,data,,GAME,orig,saveload.c
+0x35cff4,save_slot,data,,GAME,orig,saveload.c
+0x35cff8,save_cursor,data,,GAME,orig,saveload.c
+0x35d000,save_vars,data,,GAME,orig,saveload.c long *[6]
+0x43d490,save_name,data,,GAME,orig,saveload.c char[0x40]
+0x43d4d0,save_region,data,,GAME,orig,saveload.c
+0x43d4d4,save_dir,data,,GAME,orig,saveload.c
+0x43d510,save_43D510,data,,GAME,orig,saveload.c res 0x6F4
+0x43d57e,save_insert,data,,GAME,orig,saveload.c
+0x43cc48,save_boxes,data,,GAME,orig,saveload.c short[2][4]

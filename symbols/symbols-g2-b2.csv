@@ -1,0 +1,50 @@
+address,name,kind,nargs,library,status,notes
+0x2863b0,objdmg_msg_tmpl,data,,GAME,decomp,objdamage.c ulong[2] {0x80; 0x80} in the code segment (map: static_2863B0/B4)
+0x2863b8,static_2863B8,func,0,GAME,decomp,objdamage.c (M053) init: RESSIM.RES tables; death list (map name kept)
+0x286488,static_286488,func,0,GAME,decomp,objdamage.c (M053) empty (map name kept)
+0x28648c,objdmg_rand_amount,func,1,GAME,decomp,objdamage.c (M053)
+0x2864d8,objdmg_systems,func,4,GAME,decomp,objdamage.c (M053)
+0x286794,static_286794,func,8,GAME,decomp,objdamage.c (M053) damage records of an entity (map name kept)
+0x286994,objdmg_status_str,func,2,GAME,decomp,objdamage.c (M053)
+0x286b10,objdmg_apply,func,5,GAME,decomp,objdamage.c (M053) unreferenced
+0x286b94,objdmg_get_hp,func,1,GAME,decomp,objdamage.c (M053)
+0x286be0,objdmg_drain,func,3,GAME,decomp,objdamage.c (M053)
+0x286c7c,objdmg_mark,func,2,GAME,decomp,objdamage.c (M053)
+0x286d38,obj_owner,func,1,GAME,decomp,objdamage.c (M053)
+0x286d9c,objdmg_snd_done,func,0,GAME,decomp,objdamage.c (M053) sound channel callback
+0x286dc8,objdmg_credit,func,5,GAME,decomp,objdamage.c (M053)
+0x287110,objdmg_hit_sound,func,3,GAME,decomp,objdamage.c (M053)
+0x287168,static_287168,func,5,GAME,decomp,objdamage.c (M053) damage an entity (map name kept)
+0x287218,obj_damage,func,12,GAME,decomp,objdamage.c (M053)
+0x287e5c,obj_destroy,func,3,GAME,decomp,objdamage.c (M053)
+0x287f3c,objdmg_death_time,func,2,GAME,decomp,objdamage.c (M053)
+0x287f9c,objdmg_death_add,func,2,GAME,decomp,objdamage.c (M053)
+0x288040,static_288040,func,1,GAME,decomp,objdamage.c (M053) remove from the death list (map name kept)
+0x28808c,static_28808C,func,1,GAME,decomp,objdamage.c (M053) run the death list (map name kept)
+0x2880ec,objdmg_alert,func,1,GAME,decomp,objdamage.c (M053)
+0x288130,objdmg_repair_all,func,0,GAME,decomp,objdamage.c (M053) cheat table entry
+0x3559f4,objdmg_ressim_name,data,,GAME,orig,objdamage.c "ressim.res"
+0x35b714,objdmg_msg_from,data,,GAME,orig,objdamage.c AI message address
+0x35b718,objdmg_msg_to,data,,GAME,orig,objdamage.c AI message address (hi word = brain)
+0x35b71c,objdmg_res_ids,data,,GAME,orig,objdamage.c ushort[9]
+0x35b72e,game_35B72E,data,,GAME,orig,objdamage.c uchar
+0x35b72f,objdmg_cls_parts,data,,GAME,orig,objdamage.c uchar[9]
+0x35b738,objdmg_snd_chan,data,,GAME,orig,objdamage.c long
+0x35b73c,objdmg_snd_count,data,,GAME,orig,objdamage.c long
+0x35b7ec,game_35B7EC,data,,GAME,orig,objdamage.c long entity
+0x35bf4a,strike_35BF4A,data,,GAME,orig,objdamage.c short (g2c name)
+0x35bf4c,strike_35BF4C,data,,GAME,orig,objdamage.c short (g2c name)
+0x39640c,game_39640C,data,,GAME,orig,objdamage.c uchar[][9] class 8 types
+0x3968d0,objdmg_res_3A4,data,,GAME,orig,objdamage.c resource 0x3A4
+0x3968f0,objdmg_cls_tab,data,,GAME,orig,objdamage.c uchar[9][0x20] part hit tables
+0x396a10,objdmg_deaths,data,,GAME,orig,objdamage.c ObjDeath[128]
+0x396e10,game_396E10,data,,GAME,orig,objdamage.c long
+0x396e14,game_396E14,data,,GAME,orig,objdamage.c ulong team bits
+0x396e18,game_396E18,data,,GAME,orig,objdamage.c long damage mode
+0x396e1c,objdmg_death_count,data,,GAME,orig,objdamage.c short
+0x396e1e,objdmg_radio_level,data,,GAME,orig,objdamage.c signed char
+0x396e1f,objdmg_hit_flag,data,,GAME,orig,objdamage.c uchar
+0x397a8a,strike_entity,data,,GAME,orig,objdamage.c short (g2c name)
+0x441366,game_441366,data,,GAME,orig,objdamage.c uchar
+0x441367,game_441367,data,,GAME,orig,objdamage.c ushort
+0x441391,game_441391,data,,GAME,orig,objdamage.c ulong[8]

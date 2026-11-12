@@ -1,0 +1,133 @@
+address,name,kind,nargs,library,status,notes
+0x249170,sndlock_249170,func,0,GAME,decomp,sndlock.c (M003)
+0x24919c,sndlock_24919C,func,1,GAME,decomp,sndlock.c (M003) AIL-layer callback
+0x2491c0,sndlock_2491C0,func,2,GAME,decomp,sndlock.c (M003) snd_set_finish callback
+0x2491e0,sndlock_2491E0,func,3,GAME,decomp,sndlock.c (M003) music_set_prefix_cb callback
+0x2491fc,sndlock_2491FC,func,2,GAME,decomp,sndlock.c (M003) music_set_play_cb callback
+0x249230,sndlock_249230,func,0,GAME,decomp,sndlock.c (M003)
+0x249260,noisy_kill_cb,func,1,GAME,decomp,noisy.c (M004)
+0x2492c4,noisy_2492C4,func,0,GAME,decomp,noisy.c (M004)
+0x249320,noisy_249320,func,0,GAME,decomp,noisy.c (M004)
+0x249340,noisy_remove,func,1,GAME,decomp,noisy.c (M004)
+0x249388,noisy_add,func,2,GAME,decomp,noisy.c (M004)
+0x249474,noisy_snd_done_cb,func,2,GAME,decomp,noisy.c (M004)
+0x249488,noisy_249488,func,0,GAME,decomp,noisy.c (M004)
+0x2495a0,noisy_2495A0,func,1,GAME,decomp,noisy.c (M004)
+0x2495f8,noisy_loudest,func,0,GAME,decomp,noisy.c (M004)
+0x249680,noisy_sort,func,0,GAME,decomp,noisy.c (M004)
+0x2496fc,noisy_sort_vol,func,0,GAME,decomp,noisy.c (M004)
+0x249784,noisy_calc_vol,func,0,GAME,decomp,noisy.c (M004)
+0x249874,noisy_select,func,0,GAME,decomp,noisy.c (M004)
+0x249928,noisy_oneshot,func,1,GAME,decomp,noisy.c (M004)
+0x2ac7a0,CameraInitZoom,func,3,GAME,decomp,ffconfig.c (M087)
+0x2ac960,ffcfg_switch_cb,func,1,GAME,decomp,ffconfig.c (M087)
+0x2ac964,ffcfg_read_cb,func,1,GAME,decomp,ffconfig.c (M087)
+0x2ac96c,FfConfigInit,func,3,GAME,decomp,ffconfig.c (M087)
+0x2ac9c0,config_2AC9C0,func,0,GAME,decomp,ffconfig.c (M087)
+0x2acabc,config_2ACABC,func,2,GAME,decomp,ffconfig.c (M087)
+0x2acb78,config_2ACB78,func,2,GAME,decomp,ffconfig.c (M087)
+0x2acc68,config_2ACC68,func,2,GAME,decomp,ffconfig.c (M087)
+0x2acd70,FfConfigApply,func,0,GAME,decomp,ffconfig.c (M087)
+0x2acf5c,FfConfigLookupName,func,2,GAME,decomp,ffconfig.c (M087)
+0x2acf94,ffcfg_weapon_slot,func,3,GAME,decomp,ffconfig.c (M087)
+0x2acff0,ffcfg_suit_slot,func,2,GAME,decomp,ffconfig.c (M087)
+0x2ad070,ffcfg_read_loadout,func,2,GAME,decomp,ffconfig.c (M087)
+0x2c4ee0,ffmem_stack_init,func,0,GAME,decomp,ffmem.c (M099)
+0x2c4f14,ffmem_stack_peak_update,func,0,GAME,decomp,ffmem.c (M099)
+0x2c4f40,ffmem_2C4F40,func,1,GAME,decomp,ffmem.c (M099)
+0x2c4f90,ffmem_stack_realloc,func,2,GAME,decomp,ffmem.c (M099)
+0x2c4fe4,ffmem_2C4FE4,func,1,GAME,decomp,ffmem.c (M099)
+0x2c5038,ffmem_pages_init,func,0,GAME,decomp,ffmem.c (M099)
+0x2c5084,ffmem_page_alloc,func,1,GAME,decomp,ffmem.c (M099)
+0x2c5130,ffmem_page_alloc_res,func,1,GAME,decomp,ffmem.c (M099)
+0x2c5150,ffmem_page_free,func,1,GAME,decomp,ffmem.c (M099)
+0x2c5188,ffmem_out_of_memory,func,1,GAME,decomp,ffmem.c (M099)
+0x2c51a4,ffMalloc,func,1,GAME,decomp,ffmem.c (M099)
+0x2c5300,ffFree,func,1,GAME,decomp,ffmem.c (M099)
+0x2c5414,ffRealloc,func,2,GAME,decomp,ffmem.c (M099)
+0x2c5468,ffmem_init,func,0,GAME,decomp,ffmem.c (M099)
+0x2c559c,ffmem_page_purge,func,1,GAME,decomp,ffmem.c (M099)
+0x2cdc10,radio_chance,func,1,GAME,decomp,radio.c (M110)
+0x2cdc34,radio_voice_class,func,1,GAME,decomp,radio.c (M110)
+0x2cdc4c,radio_line_id,func,3,GAME,decomp,radio.c (M110)
+0x2cdc78,radio_line_span,func,2,GAME,decomp,radio.c (M110)
+0x2cdcbc,radio_files_reset,func,0,GAME,decomp,radio.c (M110)
+0x2cdcd8,radio_stop_voice,func,1,GAME,decomp,radio.c (M110)
+0x2cdd20,radio_init,func,0,GAME,decomp,radio.c (M110)
+0x2cde9c,radio_close,func,0,GAME,decomp,radio.c (M110)
+0x2cdecc,radio_pick_line,func,4,GAME,decomp,radio.c (M110)
+0x2cdfd8,radio_snd_done_cb,func,2,GAME,decomp,radio.c (M110)
+0x2ce040,radio_busy_prio,func,0,GAME,decomp,radio.c (M110)
+0x2ce098,radio_duck_below,func,1,GAME,decomp,radio.c (M110)
+0x2ce0fc,radio_stop_below,func,1,GAME,decomp,radio.c (M110)
+0x2ce144,radio_last_start,func,1,GAME,decomp,radio.c (M110)
+0x2ce188,radio_play,func,4,GAME,decomp,radio.c (M110)
+0x2ce32c,radio_update,func,0,GAME,decomp,radio.c (M110)
+0x2ce450,radio_say,func,7,GAME,decomp,radio.c (M110)
+0x2ce620,RadioSpeak,func,2,GAME,decomp,radio.c (M110)
+0x2ce7b8,radio_flush,func,0,GAME,decomp,radio.c (M110)
+0x2ce7f8,radio_msg_group,func,2,GAME,decomp,radio.c (M110)
+0x2ce860,radio_msg_done_cb,func,0,GAME,decomp,radio.c (M110)
+0x2ce87c,radio_msg_play,func,1,GAME,decomp,radio.c (M110)
+0x2ce974,radio_msg_update,func,0,GAME,decomp,radio.c (M110)
+0x2cea24,RadioMessage,func,1,GAME,decomp,radio.c (M110)
+0x2ceb0c,radio_ack_done_cb,func,0,GAME,decomp,radio.c (M110)
+0x2ceb20,radio_ack_play,func,1,GAME,decomp,radio.c (M110)
+0x2ceba4,radio_ack_update,func,0,GAME,decomp,radio.c (M110)
+0x2cec20,RadioAck,func,1,GAME,decomp,radio.c (M110)
+0x2cece4,RadioMessageHi,func,1,GAME,decomp,radio.c (M110)
+0x2ced40,radio_stop_all,func,0,GAME,decomp,radio.c (M110)
+0x3598d0,noisy_count,data,,GAME,decomp,noisy.c
+0x370d30,noisy_order,data,,GAME,decomp,noisy.c
+0x370e30,noisy_tab,data,,GAME,decomp,noisy.c
+0x35d018,ffmem_stack_on,data,,GAME,decomp,ffmem.c
+0x35d01c,ffmem_stack_peak,data,,GAME,decomp,ffmem.c
+0x35d020,ffmem_spec,data,,GAME,decomp,ffmem.c
+0x43d580,ffmem_blocks,data,,GAME,decomp,ffmem.c
+0x43e280,ffmem_big_used,data,,GAME,decomp,ffmem.c
+0x43e28c,ffmem_pool_start,data,,GAME,decomp,ffmem.c
+0x43e290,ffmem_pool_end,data,,GAME,decomp,ffmem.c
+0x43e294,ffmem_nblocks,data,,GAME,decomp,ffmem.c
+0x43e298,ffmem_npages,data,,GAME,decomp,ffmem.c
+0x43e29c,ffmem_pages_end,data,,GAME,decomp,ffmem.c
+0x43e2a0,ffmem_pages,data,,GAME,decomp,ffmem.c
+0x43e2a4,ffmem_stack,data,,GAME,decomp,ffmem.c
+0x43e2b0,ffmem_stack_buf,data,,GAME,decomp,ffmem.c
+0x43e2b4,ffmem_page_map,data,,GAME,decomp,ffmem.c
+0x442910,radio_files,data,,GAME,decomp,radio.c
+0x442920,radio_chans,data,,GAME,decomp,radio.c
+0x4429c0,radio_line_used,data,,GAME,decomp,radio.c
+0x43e698,radio_voice_used,data,,GAME,decomp,radio.c
+0x442de4,radio_talking,data,,GAME,decomp,radio.c
+0x442de8,radio_ackq,data,,GAME,decomp,radio.c
+0x442e24,radio_msgq,data,,GAME,decomp,radio.c
+0x442e60,radio_nchans,data,,GAME,decomp,radio.c
+0x35dab0,radio_class_vol,data,,GAME,decomp,radio.c
+0x35dac3,radio_file_names,data,,GAME,decomp,radio.c
+0x35da84,radio_text_flags,data,,GAME,decomp,radio.c
+0x35da85,radio_msg_flags,data,,GAME,decomp,radio.c
+0x35dbd0,radio_msg_handle,data,,GAME,decomp,radio.c
+0x35dbd4,radio_msg_cur,data,,GAME,decomp,radio.c
+0x35dbd8,radio_msg_last,data,,GAME,decomp,radio.c
+0x35dbdc,radio_msg_47_said,data,,GAME,decomp,radio.c
+0x35dbe0,radio_ack_handle,data,,GAME,decomp,radio.c
+0x35dbe4,radio_ack_cur,data,,GAME,decomp,radio.c
+0x428b30,ff_options,data,,GAME,decomp,ffconfig.c
+0x35c960,ffcfg_detail_names,data,,GAME,decomp,ffconfig.c
+0x35c9b0,ffcfg_sound_names,data,,GAME,decomp,ffconfig.c
+0x35c99c,ffcfg_helmet_names,data,,GAME,decomp,ffconfig.c
+0x35c9f8,ffcfg_asf_names,data,,GAME,decomp,ffconfig.c
+0x35c94c,cam_view_tab,data,,GAME,decomp,ffconfig.c
+0x35c95c,cam_zoom_mask,data,,GAME,decomp,ffconfig.c
+0x35b48c,rnd_stream_35B48C,data,,GAME,orig,RndRange stream (g1b name)
+0x35b77c,game_35B77C,data,,GAME,orig,g1b name
+0x35bf48,game_35BF48,data,,GAME,orig,g1b name
+0x389df8,game_389DF8,data,,GAME,orig,pointer (g1b name)
+0x35971e,game_low_mem,data,,GAME,orig,low-memory mode (g1b name)
+0x35f3b8,game_35F3B8,data,,GAME,orig,g1b name
+0x39a3e0,game_big_buf,data,,GAME,orig,0xEF420-byte buffer pointer (g1b name)
+0x35972f,game_big_free,data,,GAME,orig,g1b name
+0x438c20,game_438C20,data,,GAME,orig,pointer (g1b name)
+0x442432,game_442432,data,,GAME,orig,g1b name
+0x391e4c,game_391E4C,data,,GAME,orig,speaker record count (g1b name)
+0x391e50,game_391E50,data,,GAME,orig,speaker records 0x32 (g1b name)

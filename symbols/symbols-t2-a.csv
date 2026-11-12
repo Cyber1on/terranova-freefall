@@ -1,0 +1,219 @@
+address,name,kind,nargs,library,status,notes
+0x2fd8e0,hmd_null_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x2fd8e8,hmd_null_func,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x2fdc60,te6_2FDC60,func,1,HMD,orig,TE6 driver (third party), called with 1 after hmd_detect
+0x3050e0,spaceball_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305234,spaceball_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305240,spaceball_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x30527c,spaceball_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3055f0,spaceball_set,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305600,vfx1_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3056c8,vfx1_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305948,vfx1_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3059d4,vfx1_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305b9c,vfx1_set,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305e10,swift_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305e48,swift_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305f3c,swift_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x305f7c,swift_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3060b0,sense7_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3060c4,sense7_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3060c8,sense7_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306118,sense7_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3065ac,sense7_set,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306700,vio_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306970,vio_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306984,vio_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3069e8,vio_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306b00,vio_set,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306cb0,oldcmx_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306db4,oldcmx_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306dc8,oldcmx_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x306e88,oldcmx_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x307104,oldcmx_set,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x307344,cmx_detect,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x307474,cmx_shutdown,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x3074c4,cmx_init,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x307620,cmx_poll,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x307760,cmx_set,func,0,HMD,orig,third-party tracker driver; role from the hmd_*_fn slot it is stored in (names ours)
+0x30d4b4,AIL_init_sequence,func,3v,MILES,orig,Miles API wrapper (cdecl)
+0x30d5cc,AIL_start_sequence,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30d648,AIL_stop_sequence,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30d6c4,AIL_resume_sequence,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30d740,AIL_end_sequence,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30d7bc,AIL_set_sequence_tempo,func,3v,MILES,orig,Miles API wrapper (cdecl)
+0x30d850,AIL_set_sequence_volume,func,3v,MILES,orig,Miles API wrapper (cdecl)
+0x30d96c,AIL_sequence_status,func,1v,MILES,orig,Miles API wrapper (cdecl)
+0x30e918,AIL_branch_index,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30e9a0,AIL_register_prefix_callback,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30eab0,AIL_register_trigger_callback,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30ebc0,AIL_register_sequence_callback,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30ecd0,AIL_register_beat_callback,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x30f000,AIL_set_sequence_user_data,func,3v,MILES,orig,Miles API wrapper (cdecl)
+0x30f094,AIL_sequence_user_data,func,2v,MILES,orig,Miles API wrapper (cdecl)
+0x317df0,water_left_edge,func,3,2D,orig,asm pushad edge scanner (map: crt_317DF0; SMC), called by water_scan_edges
+0x317ea0,water_right_edge,func,3,2D,orig,asm pushad edge scanner (map: 2d_int_317EA0; SMC)
+0x2e3660,GfxInit2,func,1,TNLIB,decomp,tngfx.c copy of GfxInit without cursor_lock_a (map gfx_2E3660)
+0x2e3df0,gfx_check_config,func,0,TNLIB,decomp,tngfx.c
+0x2e3e78,gfx_init_once,func,0,TNLIB,decomp,tngfx.c
+0x2e3eb0,GfxInit,func,1,TNLIB,decomp,tngfx.c (name from error string)
+0x2e3ee0,GfxSetModeAndStuff,func,1,TNLIB,decomp,tngfx.c (name from error string)
+0x2e3f90,GfxSetMode,func,1,TNLIB,decomp,tngfx.c
+0x2e40c0,GfxSaveAndSetMode,func,2,TNLIB,decomp,tngfx.c (name from error string)
+0x2e4144,GfxRestoreMode,func,1,TNLIB,decomp,tngfx.c (name from error string)
+0x2e41ec,GfxShutdown,func,0,TNLIB,decomp,tngfx.c AtExit
+0x2e421c,gfx_2E421C,func,0,TNLIB,decomp,tngfx.c wait for vertical retrace (T1 name kept)
+0x2e4238,gfx_2E4238,func,3,TNLIB,decomp,tngfx.c tile a RES bitmap over the clip rect (T1 name kept)
+0x2e4304,GfxDrawText,func,4,TNLIB,decomp,tngfx.c
+0x2e4324,GfxRectVerts,func,6,TNLIB,decomp,tngfx.c
+0x2e4370,GfxTlucRect,func,5,TNLIB,decomp,tngfx.c
+0x2e43d0,GfxBlit,func,1,TNLIB,decomp,tngfx.c
+0x2e444c,GfxBlitHFlip,func,1,TNLIB,decomp,tngfx.c (unreferenced)
+0x2e44c8,GfxBlitMask,func,2,TNLIB,decomp,tngfx.c (unreferenced; 2nd arg = caller edx passed through)
+0x2e39d8,hmd_detect,func,0,TNLIB,decomp,tnhmd.c
+0x2e3be4,hmd_select,func,1,TNLIB,decomp,tnhmd.c (unreferenced)
+0x2e3d0c,hmd_null_poll,func,0,TNLIB,decomp,tnhmd.c
+0x2e3d20,hmd_init,func,0,TNLIB,decomp,tnhmd.c
+0x2e3d64,hmd_shutdown,func,0,TNLIB,decomp,tnhmd.c AtExit
+0x2e3d74,hmd_poll,func,0,TNLIB,decomp,tnhmd.c
+0x2ee510,music_lock,func,0,TNLIB,decomp,tnmusic.c
+0x2ee53c,music_get_handle,func,1,TNLIB,decomp,tnmusic.c (inside map row music_2EE510)
+0x2ee548,music_get_seq,func,1,TNLIB,decomp,tnmusic.c (inside map row music_2EE510)
+0x2ee564,music_end,func,1,TNLIB,decomp,tnmusic.c (inside map row music_2EE510)
+0x2ee580,music_check_all,func,0,TNLIB,decomp,tnmusic.c
+0x2ee60c,music_count_playing,func,0,TNLIB,decomp,tnmusic.c
+0x2ee65c,music_find_free,func,0,TNLIB,decomp,tnmusic.c
+0x2ee6b0,music_play,func,4,TNLIB,decomp,tnmusic.c
+0x2ee784,music_start,func,1,TNLIB,decomp,tnmusic.c
+0x2ee82c,music_start_exclusive,func,1,TNLIB,decomp,tnmusic.c
+0x2ee8b4,music_pause,func,1,TNLIB,decomp,tnmusic.c
+0x2ee8e8,music_resume,func,1,TNLIB,decomp,tnmusic.c
+0x2ee91c,music_set_volume,func,3,TNLIB,decomp,tnmusic.c
+0x2ee978,music_get_volume,func,1,TNLIB,decomp,tnmusic.c
+0x2ee994,music_set_user,func,2,TNLIB,decomp,tnmusic.c
+0x2ee9ac,music_get_user,func,1,TNLIB,decomp,tnmusic.c
+0x2ee9c4,music_set_tempo,func,3,TNLIB,decomp,tnmusic.c (3rd arg ms = caller ebx)
+0x2eea14,music_get_tempo,func,1,TNLIB,decomp,tnmusic.c
+0x2eea2c,music_branch,func,2,TNLIB,decomp,tnmusic.c
+0x2eea48,music_set_trigger_cb,func,1,TNLIB,decomp,tnmusic.c
+0x2eea58,music_trigger_hook,func,3v,TNLIB,decomp,tnmusic.c AIL trigger callback (cdecl)
+0x2eea80,music_set_beat_cb,func,1,TNLIB,decomp,tnmusic.c
+0x2eea90,music_beat_hook,func,4v,TNLIB,decomp,tnmusic.c AIL beat callback (cdecl)
+0x2eeacc,music_set_prefix_cb,func,1,TNLIB,decomp,tnmusic.c
+0x2eeadc,music_prefix_hook,func,3v,TNLIB,decomp,tnmusic.c AIL prefix callback (cdecl)
+0x2eeb00,music_set_1c,func,2,TNLIB,decomp,tnmusic.c
+0x2eeb18,music_set_mark,func,3,TNLIB,decomp,tnmusic.c
+0x2eeb40,music_seq_hook,func,1v,TNLIB,decomp,tnmusic.c AIL sequence callback (cdecl)
+0x2eebe0,music_register_hooks,func,1,TNLIB,decomp,tnmusic.c
+0x2eec48,music_play_ex,func,4,TNLIB,decomp,tnmusic.c
+0x2eed58,music_default_settings,func,1,TNLIB,decomp,tnmusic.c
+0x2eed6c,music_set_start_cb,func,1,TNLIB,decomp,tnmusic.c
+0x2eed74,music_current_playing,func,0,TNLIB,decomp,tnmusic.c
+0x2eeda4,music_set_play_cb,func,1,TNLIB,decomp,tnmusic.c
+0x2eedac,music_set_next,func,2,TNLIB,decomp,tnmusic.c
+0x2eee20,music_end_beat_hook,func,4v,TNLIB,decomp,tnmusic.c AIL beat callback (cdecl)
+0x2eee34,music_end_trigger_hook,func,3v,TNLIB,decomp,tnmusic.c AIL trigger callback (cdecl)
+0x2eee4c,music_end_at_beat,func,1,TNLIB,decomp,tnmusic.c
+0x2eee6c,music_end_at_trigger,func,1,TNLIB,decomp,tnmusic.c
+0x2eee8c,music_unlock,func,0,TNLIB,decomp,tnmusic.c
+0x2eeec0,periodic_clear,func,0,TNLIB,decomp,tnmusic.c (inside map row music_2EEE8C)
+0x2eeed0,periodic_add,func,3,TNLIB,decomp,tnmusic.c
+0x2eef20,periodic_remove,func,1,TNLIB,decomp,tnmusic.c
+0x2eef84,periodic_run,func,1,TNLIB,decomp,tnmusic.c
+0x2eeff4,periodic_update,func,0,TNLIB,decomp,tnmusic.c
+0x2f1130,ipal_alloc,func,0,TNLIB,decomp,invcmap.c
+0x2f1198,ipal_free,func,0,TNLIB,decomp,invcmap.c (unreferenced)
+0x2f11c4,ipal_update,func,0,TNLIB,decomp,invcmap.c
+0x2f11e4,ipal_build,func,2,TNLIB,decomp,invcmap.c
+0x2f12c4,inv_cmap,func,5,TNLIB,decomp,invcmap.c Graphics Gems II inv_cmap
+0x2f14e0,inv_cmap_redloop,func,0,TNLIB,decomp,invcmap.c redloop
+0x2f1664,inv_cmap_greenloop,func,1,TNLIB,decomp,invcmap.c greenloop
+0x2f1954,inv_cmap_blueloop,func,1,TNLIB,decomp,invcmap.c blueloop
+0x2f1b3c,inv_cmap_maxfill,func,1,TNLIB,decomp,invcmap.c maxfill (unreferenced; side = global colormax)
+0x2fb220,water_scan_edges,func,3,TNLIB,decomp,tnwater.c
+0x35f548,gfx_blit_bm,data,,TNLIB,decomp,tngfx.c grs_bitmap
+0x35f558,gfx_screen,data,,TNLIB,decomp,tngfx.c grs_screen*
+0x35f55c,gfx_alt_lowres,data,,TNLIB,decomp,tngfx.c uchar
+0x35f55d,gfx_alt_medres,data,,TNLIB,decomp,tngfx.c uchar
+0x35f55e,gfx_linear_ok,data,,TNLIB,decomp,tngfx.c uchar
+0x35f55f,gfx_inited,data,,TNLIB,decomp,tngfx.c uchar
+0x446f20,gfx_saved_canvas,data,,TNLIB,decomp,tngfx.c grs_canvas
+0x446f60,gfx_saved_blit_bm,data,,TNLIB,decomp,tngfx.c grs_bitmap
+0x446f70,gfx_saved_rect,data,,TNLIB,decomp,tngfx.c LGRect
+0x446fc0,gfx_canvas_buf,data,,TNLIB,decomp,tngfx.c void*
+0x446fc4,gfx_saved,data,,TNLIB,decomp,tngfx.c int
+0x446fc8,gfx_saved_mode,data,,TNLIB,decomp,tngfx.c short
+0x446fca,gfx_mode,data,,TNLIB,decomp,tngfx.c short
+0x446fcc,gfx_mode_set,data,,TNLIB,decomp,tngfx.c uchar
+0x35f534,hmd_data,data,,TNLIB,decomp,tnhmd.c HmdData (0x12 bytes)
+0x35f546,hmd_data_46,data,,TNLIB,decomp,tnhmd.c uchar
+0x36453c,hmd_busy,data,,TNLIB,decomp,tnhmd.c uchar
+0x364544,hmd_init_fn,data,,TNLIB,decomp,tnhmd.c fn ptr
+0x364548,hmd_shutdown_fn,data,,TNLIB,decomp,tnhmd.c fn ptr
+0x36454c,hmd_set_fn,data,,TNLIB,decomp,tnhmd.c fn ptr
+0x364550,hmd_poll_fn,data,,TNLIB,decomp,tnhmd.c fn ptr
+0x3645a0,hmd_name,data,,TNLIB,decomp,tnhmd.c char*
+0x44d0f0,hmd_type,data,,TNLIB,decomp,tnhmd.c int
+0x44d0f4,hmd_null_data,data,,TNLIB,decomp,tnhmd.c uchar[]
+0x364554,hmd_str_none,data,,TNLIB,decomp,tnhmd.c char[]
+0x364bf0,hmd_str_vfx1,data,,TNLIB,decomp,tnhmd.c char[]
+0x364c44,hmd_str_swift,data,,TNLIB,decomp,tnhmd.c char[]
+0x364c94,hmd_str_7th,data,,TNLIB,decomp,tnhmd.c char[]
+0x364ce4,hmd_str_vio,data,,TNLIB,decomp,tnhmd.c char[]
+0x364d30,hmd_str_oldcmx,data,,TNLIB,decomp,tnhmd.c char[]
+0x364d80,hmd_str_cmx,data,,TNLIB,decomp,tnhmd.c char[]
+0x44b800,music_seq,data,,TNLIB,decomp,"tnmusic.c MusicSeq[8] (t2c snd_music_slots, uchar[8][0x1D]); unified at T2 merge"
+0x44b8e8,music_handle,data,,TNLIB,decomp,tnmusic.c HSEQUENCE[8] (t2c snd_seq_handles); unified at T2 merge
+0x44b908,music_mark,data,,TNLIB,decomp,tnmusic.c MusicMark[8]
+0x44b950,music_seq_count,data,,TNLIB,decomp,tnmusic.c int (t2c snd_seq_count); unified at T2 merge
+0x44b954,music_beat,data,,TNLIB,decomp,tnmusic.c MusicBeat
+0x44b960,periodic_tab,data,,TNLIB,decomp,tnmusic.c Periodic[8]
+0x44b9c8,periodic_next_due,data,,TNLIB,decomp,tnmusic.c ulong
+0x35fa10,music_beat_cb,data,,TNLIB,decomp,tnmusic.c fn ptr
+0x35fa14,music_trigger_cb,data,,TNLIB,decomp,tnmusic.c fn ptr
+0x35fa18,music_prefix_cb,data,,TNLIB,decomp,tnmusic.c fn ptr
+0x35fa1c,music_1c,data,,TNLIB,decomp,tnmusic.c void*
+0x35fa20,music_20,data,,TNLIB,decomp,tnmusic.c long
+0x35fa24,music_play_cb,data,,TNLIB,decomp,tnmusic.c fn ptr
+0x35fa28,music_end_cb,data,,TNLIB,decomp,tnmusic.c fn ptr
+0x35fa2c,music_start_cb,data,,TNLIB,decomp,tnmusic.c fn ptr
+0x35fa30,music_current,data,,TNLIB,decomp,tnmusic.c signed char
+0x35fa34,periodic_count,data,,TNLIB,decomp,tnmusic.c int
+0x44bce8,icm_rcenter,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bcec,icm_gcenter,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bcf0,icm_cindex,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bcf4,icm_colormax,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bcf8,icm_crinc,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bcfc,icm_cginc,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd00,icm_cbinc,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd04,icm_crgbp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd08,icm_rrgbp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd0c,icm_grgbp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd10,icm_rdp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd14,icm_x,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd18,icm_gdp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd1c,icm_xsqr,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd20,icm_cdp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd24,icm_cdist,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd28,icm_rdist,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd2c,icm_gdist,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd30,icm_rstride,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd34,icm_gstride,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd38,icm_bcenter,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd3c,icm_rxx,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd40,icm_gcrgbp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd44,icm_gcdp,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd48,icm_gcdist,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd4c,icm_gxx,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd50,icm_ginc,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd54,icm_g_prevmin,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd58,icm_g_prevmax,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd5c,icm_g_max,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd60,icm_g_min,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd64,icm_g_here,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd68,icm_binc,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd6c,icm_b_prevmax,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd70,icm_b_prevmin,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd74,icm_b_max,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd78,icm_b_min,data,,TNLIB,decomp,invcmap.c inv_cmap static
+0x44bd7c,icm_b_here,data,,TNLIB,decomp,invcmap.c inv_cmap static

@@ -1,0 +1,48 @@
+# Build output
+/build/
+/build-*/
+/out/
+*.o
+*.obj
+*.exe
+*.dll
+*.elf
+*.bin
+freefall.log
+__pycache__/
+*.pyc
+
+# Program image extracted from your own __FF.EXE (verify harness)
+/build-img/
+
+# Emulator snapshots: they hold the game's memory, never commit them
+/verify/snapshots/
+*.snap
+
+# Game data: this repository must never contain any
+*.RES
+*.res
+*.SMK
+*.smk
+*.ISO
+*.iso
+*.BIN
+*.CUE
+*.cue
+*.EXE
+*.DRV
+*.drv
+*.PCX
+*.pcx
+*.OPL
+*.AD
+*.CFG
+*.REC
+*.rec
+*.sav
+*.SAV
+/TNOVA/
+/Terra Nova/
+
+# Work in progress folders of the decompilation workers
+/wip/

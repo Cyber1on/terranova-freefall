@@ -1,0 +1,71 @@
+address,name,kind,nargs,library,status,notes
+0x2e7b60,TNJoyInit,func,1,TNLIB,decomp,tnjoy.c (name ours)
+0x2e7ba0,TNJoyPoll,func,0,TNLIB,decomp,tnjoy.c (name ours)
+0x2e7bf4,kbhit,func,0,CLIB,decomp,tnjoy.c Watcom kbhit (int 21h ah=0Bh)
+0x2ec5b0,MsgPoolInit,func,1,TNLIB,decomp,msgpool.c (names ours)
+0x2ec610,MsgPoolShutdown,func,0,TNLIB,decomp,msgpool.c AtExit
+0x2ec630,MsgAlloc,func,0,TNLIB,decomp,msgpool.c
+0x2ec65c,MsgFree,func,1,TNLIB,decomp,msgpool.c
+0x2ec678,MsgSend,func,1,TNLIB,decomp,msgpool.c
+0x2ec708,MsgReceive,func,1,TNLIB,decomp,msgpool.c
+0x2ec820,MsgFlush,func,1,TNLIB,decomp,msgpool.c
+0x2ec850,MsgDump,func,1,TNLIB,decomp,msgpool.c (unreferenced)
+0x2ec86c,MsgFormat,func,2,TNLIB,decomp,msgpool.c msg_dump_func default
+0x2eccf0,tbox_draw_back,func,3,TNLIB,decomp,textbox.c (names ours)
+0x2ece84,tmenu_create,func,3,TNLIB,decomp,textbox.c
+0x2ecf5c,tmenu_run,func,3,TNLIB,decomp,textbox.c
+0x2ecfd0,tmenu_key_handler,func,1,TNLIB,decomp,textbox.c
+0x2ed040,tmenu_set_items,func,2,TNLIB,decomp,textbox.c
+0x2ed098,tmenu_event,func,2,TNLIB,decomp,textbox.c tmenu_class event method
+0x2ed16c,tmenu_draw,func,1,TNLIB,decomp,textbox.c tmenu_class draw method
+0x2ed220,tmenu_item_at,func,2,TNLIB,decomp,textbox.c pt by value in edx
+0x2ed270,tmenu_draw_item,func,2,TNLIB,decomp,textbox.c
+0x2ed360,tbox_create,func,4,TNLIB,decomp,textbox.c
+0x2ed3a0,tbox_set_text,func,2,TNLIB,decomp,textbox.c
+0x2ed490,tbox_event,func,2,TNLIB,decomp,textbox.c tbox_class event method
+0x2ed4b0,tbox_draw,func,1,TNLIB,decomp,textbox.c tbox_class draw method
+0x2f0e80,lg_memset,func,4,TNLIB,decomp,lgmem.c asm eax=dst edx=pattern ecx=n (ebx unused; name ours)
+0x2f0eb7,lg_memset32,func,4,TNLIB,decomp,lgmem.c asm eax=dst edx=val ecx=dwords (ebx unused)
+0x2f0f23,lg_memswap,func,custom,TNLIB,decomp,lgmem.c asm esi edi ecx; C is cdecl (a b n)
+0x2f0f49,lg_qsort,func,4,TNLIB,decomp,lgmem.c asm qsort(base num width cmp)
+0x2f2aa0,gr_font_string_width,func,2,2D,decomp,strwid.c (STRWID.C)
+0x2f2b00,gr_font_string_height,func,2,2D,decomp,strwid.c (name ours)
+0x2f2f20,strpool_dup,func,1,TNLIB,decomp,strpool.c (names ours)
+0x2f2ff0,strpool_free,func,1,TNLIB,decomp,strpool.c
+0x2f315e,utoa_alphabet,data,,CLIB,decomp,crtconv.c char[37] in code segment
+0x2f3183,utoa,func,3,CLIB,decomp,crtconv.c Watcom
+0x2f31cb,itoa,func,3,CLIB,decomp,crtconv.c Watcom
+0x2f327e,ultoa_alphabet,data,,CLIB,decomp,crtconv.c char[37] in code segment
+0x2f32a3,ultoa,func,3,CLIB,decomp,crtconv.c Watcom
+0x2f32e9,ltoa,func,3,CLIB,decomp,crtconv.c Watcom
+0x2f3304,mem_putc,func,2,CLIB,decomp,crtconv.c sprintf output callback
+0x2f3312,sprintf,func,2v,CLIB,decomp,crtconv.c Watcom cdecl
+0x313f6b,__prtf,func,4,CLIB,orig,Watcom printf engine (dest fmt &args putc)
+0x2f35b4,joy_init,func,1,TNLIB,orig,joystick driver (map: crt range; name ours)
+0x2f34f4,joy_center,func,0,TNLIB,orig,joystick driver (name ours)
+0x2f3544,joy_read_axes,func,1,TNLIB,orig,joystick driver (name ours)
+0x2f3580,joy_read_buttons,func,0,TNLIB,orig,joystick driver (name ours)
+0x35f590,tn_joy_present,data,,TNLIB,decomp,uchar
+0x448d80,tn_joy_axes,data,,TNLIB,decomp,char[4]
+0x448d84,tn_joy_buttons,data,,TNLIB,decomp,uchar
+0x364a0c,_cbyte,data,,CLIB,orig,int Watcom ungetch char (read by getch 0x2E7C0B)
+0x44b780,msg_hash,data,,TNLIB,decomp,MsgHash (16 buckets + receive iterator; 0x4C bytes)
+0x44b7cc,msg_pool_count,data,,TNLIB,decomp,long
+0x44b7d0,msg_pool,data,,TNLIB,decomp,Msg*
+0x35f98c,msg_time_ptr,data,,TNLIB,decomp,ulong* (default -> 0x35F988)
+0x35f990,msg_dump_func,data,,TNLIB,decomp,= MsgFormat
+0x35f994,tbox_styles,data,,TNLIB,decomp,TBoxStyle[2]
+0x35f9b8,tbox_style,data,,TNLIB,decomp,TBoxStyle* current
+0x35f9c8,tbox_margin_x,data,,TNLIB,decomp,short
+0x35f9ca,tbox_margin_y,data,,TNLIB,decomp,short
+0x35f9d4,tmenu_class,data,,TNLIB,decomp,TBoxClass
+0x35f9e4,tbox_class,data,,TNLIB,decomp,TBoxClass
+0x44b7f0,tmenu_modal,data,,TNLIB,decomp,TMenu*
+0x44b7f4,tmenu_key,data,,TNLIB,decomp,uchar
+0x44b7f5,tmenu_running,data,,TNLIB,decomp,uchar
+0x447240,viewport_key_focus,data,,TNLIB,orig,void* tnui region state (T2c owns; name ours)
+0x3604f8,strpool_sizes,data,,TNLIB,decomp,short[5]
+0x360502,strpool_counts,data,,TNLIB,decomp,short[5]
+0x36050c,strpool_need_init,data,,TNLIB,decomp,uchar
+0x44c5e0,strpool_ptrs,data,,TNLIB,decomp,Pool*[5]
+0x44c5f4,strpool_pools,data,,TNLIB,decomp,Pool[5]

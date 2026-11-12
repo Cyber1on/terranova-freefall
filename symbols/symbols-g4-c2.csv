@@ -1,0 +1,130 @@
+address,name,kind,nargs,library,status,notes
+0x25af34,aiacc_25AF34,func,6,GAME,decomp,aimsgput.c (M011)
+0x25af58,aiacc_25AF58,func,4,GAME,decomp,aimsgput.c (M011)
+0x25af70,aiacc_25AF70,func,6,GAME,decomp,aimsgput.c (M011)
+0x25af90,aiacc_25AF90,func,4,GAME,decomp,aimsgput.c (M011)
+0x25afa4,aiacc_25AFA4,func,6,GAME,decomp,aimsgput.c (M011)
+0x25afc4,aiacc_25AFC4,func,4,GAME,decomp,aimsgput.c (M011)
+0x25afd4,aiacc_25AFD4,func,5,GAME,decomp,aimsgput.c (M011)
+0x25afec,aiacc_25AFEC,func,4,GAME,decomp,aimsgput.c (M011)
+0x25affc,aiacc_25AFFC,func,5,GAME,decomp,aimsgput.c (M011)
+0x25b014,aiacc_25B014,func,5,GAME,decomp,aimsgput.c (M011)
+0x25b034,aiacc_25B034,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b044,aiacc_25B044,func,5,GAME,decomp,aimsgput.c (M011)
+0x25b060,aiacc_25B060,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b074,aiacc_25B074,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b084,aiacc_25B084,func,6,GAME,decomp,aimsgput.c (M011)
+0x25b0a8,aiacc_25B0A8,func,7,GAME,decomp,aimsgput.c (M011)
+0x25b0d0,aiacc_25B0D0,func,5,GAME,decomp,aimsgput.c (M011)
+0x25b0f0,aiacc_25B0F0,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b11c,aiacc_25B11C,func,2,GAME,decomp,aimsgput.c (M011)
+0x25b140,aiacc_25B140,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b150,aiacc_25B150,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b160,aiacc_25B160,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b170,aiacc_25B170,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b180,aiacc_25B180,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b190,aiacc_25B190,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b19c,aiacc_25B19C,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b1ac,aiacc_25B1AC,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b1bc,aiacc_25B1BC,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b1cc,aiacc_25B1CC,func,2,GAME,decomp,aimsgput.c (M011)
+0x25b1d4,aiacc_25B1D4,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b1e0,aiacc_25B1E0,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b1ec,aiacc_25B1EC,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b208,aiacc_25B208,func,5,GAME,decomp,aimsgput.c (M011)
+0x25b244,aiacc_25B244,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b26c,aiacc_25B26C,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b27c,aiacc_25B27C,func,2,GAME,decomp,aimsgput.c (M011)
+0x25b284,aiacc_25B284,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b294,aiacc_25B294,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b2a4,aiacc_25B2A4,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b2b0,aiacc_25B2B0,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b2bc,aiacc_25B2BC,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b2c8,aiacc_25B2C8,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b2e0,aiacc_25B2E0,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b2f8,aiacc_25B2F8,func,6,GAME,decomp,aimsgput.c (M011)
+0x25b324,aiacc_25B324,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b330,aiacc_25B330,func,5,GAME,decomp,aimsgput.c (M011)
+0x25b348,aiacc_25B348,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b358,aiacc_25B358,func,3,GAME,decomp,aimsgput.c (M011)
+0x25b364,aiacc_25B364,func,4,GAME,decomp,aimsgput.c (M011)
+0x25b380,PathPlan,func,10,GAME,decomp,pathplan.c (M012)
+0x25bd30,path_25BD30,func,2,GAME,decomp,pathfind.c (M013)
+0x25bdbc,path_25BDBC,func,5,GAME,decomp,pathfind.c (M013)
+0x25be1c,path_25BE1C,func,7,GAME,decomp,pathfind.c (M013)
+0x25bed0,path_25BED0,func,0,GAME,decomp,pathfind.c (M013)
+0x25bf04,path_25BF04,func,6,GAME,decomp,pathfind.c (M013)
+0x25c52c,path_25C52C,func,6,GAME,decomp,pathfind.c (M013)
+0x25c6a8,path_25C6A8,func,3,GAME,decomp,pathfind.c (M013)
+0x25c704,path_25C704,func,9,GAME,decomp,pathfind.c (M013)
+0x25ca34,path_25CA34,func,4,GAME,decomp,pathfind.c (M013)
+0x25ca70,path_25CA70,func,4,GAME,decomp,pathfind.c (M013)
+0x25cc1c,path_25CC1C,func,3,GAME,decomp,pathfind.c (M013)
+0x25cedc,path_25CEDC,func,1,GAME,decomp,pathfind.c (M013)
+0x25cfb4,path_25CFB4,func,1,GAME,decomp,pathfind.c (M013)
+0x25d114,path_25D114,func,2,GAME,decomp,pathfind.c (M013)
+0x25d13c,path_25D13C,func,2,GAME,decomp,pathfind.c (M013)
+0x25d35c,path_25D35C,func,4,GAME,decomp,pathfind.c (M013)
+0x25d9a0,path_25D9A0,func,6,GAME,decomp,pathfind.c (M013)
+0x25ddec,path_25DDEC,func,6,GAME,decomp,pathfind.c (M013)
+0x25e36c,path_25E36C,func,10,GAME,decomp,pathfind.c (M013)
+0x25eb60,pathheap_25EB60,func,1,GAME,decomp,pathheap.c (M014)
+0x25eba0,pathheap_25EBA0,func,1,GAME,decomp,pathheap.c (M014)
+0x25ebb8,pathheap_25EBB8,func,1,GAME,decomp,pathheap.c (M014)
+0x25ebc0,pathheap_25EBC0,func,4,GAME,decomp,pathheap.c (M014)
+0x25eccc,pathheap_25ECCC,func,3,GAME,decomp,pathheap.c (M014)
+0x25edac,pathheap_25EDAC,func,1,GAME,decomp,pathheap.c (M014)
+0x2d2be0,aihelp_2D2BE0,func,1,GAME,decomp,aispawn.c (M112)
+0x2d2e9c,aihelp_2D2E9C,func,1,GAME,decomp,aispawn.c (M112)
+0x2d2f5c,aihelp_2D2F5C,func,1,GAME,decomp,aispawn.c (M112)
+0x2d3010,aihelp_2D3010,func,0,GAME,decomp,aimapobj.c (M113)
+0x2d301c,aihelp_2D301C,func,0,GAME,decomp,aimapobj.c (M113)
+0x2d30d8,aihelp_2D30D8,func,0,GAME,decomp,aimapobj.c (M113)
+0x2d30e0,aihelp_2D30E0,func,3,GAME,decomp,aiiter.c (M114)
+0x2d313c,aihelp_2D313C,func,1,GAME,decomp,aiiter.c (M114)
+0x2d31d8,aihelp_2D31D8,func,1,GAME,decomp,aiiter.c (M114)
+0x2d3298,aihelp_2D3298,func,1,GAME,decomp,aiiter.c (M114)
+0x2d3388,aihelp_2D3388,func,1,GAME,decomp,aiiter.c (M114)
+0x2d3410,aihelp_2D3410,func,1,GAME,decomp,aiiter.c (M114)
+0x2d34b8,aihelp_2D34B8,func,1,GAME,decomp,aiiter.c (M114)
+0x2d3540,aihelp_2D3540,func,1,GAME,decomp,aiiter.c (M114)
+0x2d35a0,aihelp_2D35A0,func,1,GAME,decomp,aiiter.c (M114)
+0x2d35fc,aihelp_2D35FC,func,1,GAME,decomp,aiiter.c (M114)
+0x3598f8,path_trace_lines,data,,GAME,orig,g4_c2.h
+0x3598fc,path_none,data,,GAME,orig,g4_c2.h
+0x359900,path_map_h,data,,GAME,orig,g4_c2.h
+0x359904,path_map_w,data,,GAME,orig,g4_c2.h
+0x359908,path_ox,data,,GAME,orig,g4_c2.h
+0x35990c,path_oy,data,,GAME,orig,g4_c2.h
+0x359910,path_obj_a,data,,GAME,orig,g4_c2.h
+0x359912,path_obj_b,data,,GAME,orig,g4_c2.h
+0x359918,path_heap,data,,GAME,orig,g4_c2.h
+0x35991c,path_heap_local,data,,GAME,orig,g4_c2.h
+0x359920,path_trace,data,,GAME,orig,g4_c2.h
+0x359924,path_cost_tab,data,,GAME,orig,g4_c2.h
+0x359984,path_slope_cost,data,,GAME,orig,g4_c2.h
+0x3885d1,game_3885D1,data,,GAME,orig,g4_c2.h
+0x389370,path_los_seen,data,,GAME,orig,g4_c2.h
+0x389380,path_seen,data,,GAME,orig,g4_c2.h
+0x389b88,path_w,data,,GAME,orig,g4_c2.h
+0x389b8c,path_pool,data,,GAME,orig,g4_c2.h
+0x389b90,path_x1,data,,GAME,orig,g4_c2.h
+0x389b94,path_y1,data,,GAME,orig,g4_c2.h
+0x389b98,path_h,data,,GAME,orig,g4_c2.h
+0x389b9c,path_sel,data,,GAME,orig,g4_c2.h
+0x38fac4,game_38FAC4,data,,GAME,orig,g4_c2.h
+0x39a3f4,game_39A3F4,data,,GAME,orig,g4_c2.h
+0x41dd80,path_41DD80,data,,GAME,orig,g4_c2.h
+0x44127a,game_44127A,data,,GAME,orig,g4_c2.h
+0x442420,game_442420,data,,GAME,orig,g4_c2.h
+0x442f44,game_442F44,data,,GAME,orig,g4_c2.h
+0x442f90,game_442F90,data,,GAME,orig,g4_c2.h
+0x442fd0,aihelp_cur_2D313C,data,,GAME,orig,g4_c2.h
+0x442fd2,aihelp_cur_2D31D8,data,,GAME,orig,g4_c2.h
+0x442fd4,aihelp_cur_2D3298,data,,GAME,orig,g4_c2.h
+0x442fd6,aihelp_cur_2D3388,data,,GAME,orig,g4_c2.h
+0x442fd8,aihelp_cur_2D3410,data,,GAME,orig,g4_c2.h
+0x442fda,aihelp_cur_2D34B8,data,,GAME,orig,g4_c2.h
+0x442fdc,aihelp_cur_2D3540,data,,GAME,orig,g4_c2.h
+0x442fdd,aihelp_cur_2D35A0,data,,GAME,orig,g4_c2.h
+0x442fde,aihelp_cur_2D35FC,data,,GAME,orig,g4_c2.h

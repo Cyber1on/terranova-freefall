@@ -1,0 +1,126 @@
+address,name,kind,nargs,library,status,notes
+0x2953f0,grid_2953F0,func,0,GAME,decomp,objgrid.c (M071)
+0x295588,grid_295588,func,3,GAME,decomp,objgrid.c (M071)
+0x295638,grid_set_pos,func,2,GAME,decomp,objgrid.c (M071)
+0x29565c,grid_free_square,func,1,GAME,decomp,objgrid.c (M071)
+0x295690,grid_free_cellrec,func,2,GAME,decomp,objgrid.c (M071)
+0x2956b0,grid_add_square,func,6,GAME,decomp,objgrid.c (M071)
+0x2956ec,grid_add_cellrec,func,3,GAME,decomp,objgrid.c (M071)
+0x295730,grid_295730,func,1,GAME,decomp,objgrid.c (M071)
+0x295788,grid_change_class,func,2,GAME,decomp,objgrid.c (M071)
+0x29582c,grid_29582C,func,1,GAME,decomp,objgrid.c (M071)
+0x295cb4,grid_hash_pop_free,func,0,GAME,decomp,objgrid.c (M071)
+0x295cd4,grid_hash_free,func,1,GAME,decomp,objgrid.c (M071)
+0x295cfc,grid_295CFC,func,3,GAME,decomp,objgrid.c (M071)
+0x295df0,grid_hash_remove,func,1,GAME,decomp,objgrid.c (M071)
+0x295f50,grid_iter_reset,func,0,GAME,decomp,objgrid.c (M071)
+0x295f5c,grid_iter_next,func,1,GAME,decomp,objgrid.c (M071)
+0x295fb0,grid_hash_stats,func,0,GAME,decomp,objgrid.c (M071)
+0x296020,grid_debug_key,func,1,GAME,decomp,objgrid.c (M071)
+0x296120,grid_check,func,0,GAME,decomp,objgrid.c (M071)
+0x2967b4,grid_debug_ent,func,1,GAME,decomp,objgrid.c (M071)
+0x296828,ent_alloc,func,0,GAME,decomp,objgrid.c (M071)
+0x2968c0,ent_free,func,1,GAME,decomp,objgrid.c (M071)
+0x29696c,sq_alloc,func,0,GAME,decomp,objgrid.c (M071)
+0x2969b0,cellrec_alloc,func,1,GAME,decomp,objgrid.c (M071)
+0x296a0c,sq_free,func,2,GAME,decomp,objgrid.c (M071)
+0x296a3c,cellrec_free,func,3,GAME,decomp,objgrid.c (M071)
+0x296a84,pool_alloc,func,1,GAME,decomp,objgrid.c (M071)
+0x296aec,pool_free,func,2,GAME,decomp,objgrid.c (M071)
+0x296b64,pool_copy,func,3,GAME,decomp,objgrid.c (M071)
+0x296bb8,sq_hash_unlink,func,1,GAME,decomp,objgrid.c (M071)
+0x296d38,cellrec_cell_unlink,func,2,GAME,decomp,objgrid.c (M071)
+0x296dc0,sq_ent_link,func,2,GAME,decomp,objgrid.c (M071)
+0x296e2c,cellrec_ent_link,func,3,GAME,decomp,objgrid.c (M071)
+0x296ed0,sq_ent_unlink,func,1,GAME,decomp,objgrid.c (M071)
+0x296f58,cellrec_ent_unlink,func,2,GAME,decomp,objgrid.c (M071)
+0x297018,sq_hash_insert,func,6,GAME,decomp,objgrid.c (M071)
+0x297114,cellrec_cell_link,func,3,GAME,decomp,objgrid.c (M071)
+0x297164,ent_free_squares,func,1,GAME,decomp,objgrid.c (M071)
+0x2971e4,ent_free_cellrecs,func,2,GAME,decomp,objgrid.c (M071)
+0x29727c,ent_free_record,func,1,GAME,decomp,objgrid.c (M071)
+0x279e80,timers_279E80,func,3,GAME,decomp,objring.c (M032)
+0x279f94,timers_279F94,func,0,GAME,decomp,objring.c (M032)
+0x279fac,timers_279FAC,func,0,GAME,decomp,objring.c (M032)
+0x27a014,timers_27A014,func,1,GAME,decomp,objring.c (M032)
+0x27a048,timers_27A048,func,3,GAME,decomp,objring.c (M032)
+0x27a0c0,timers_27A0C0,func,0,GAME,decomp,objring.c (M032)
+0x2895c4,simdisp_2895C4,func,0,GAME,decomp,simdisp.c (M057)
+0x289660,simdisp_289660,func,0,GAME,decomp,simdisp.c (M057)
+0x28968c,sim_nop,func,1,GAME,decomp,simdisp.c (M057)
+0x289690,SimUpdateAll,func,0,GAME,decomp,simdisp.c (M057)
+0x289730,simdisp_289730,func,6,GAME,decomp,simdisp.c (M057)
+0x292e10,targ_cmp,func,2,GAME,decomp,targview.c (M066)
+0x292e20,targ_ok,func,2,GAME,decomp,targview.c (M066)
+0x292fc4,targview_292FC4,func,1,GAME,decomp,targview.c (M066)
+0x298c30,tile_reset_groups,func,0,GAME,decomp,tileobj.c (M073)
+0x298c74,tileobj_298C74,func,0,GAME,decomp,tileobj.c (M073)
+0x298d2c,tileobj_298D2C,func,0,GAME,decomp,tileobj.c (M073)
+0x298d68,tile_id_alloc,func,0,GAME,decomp,tileobj.c (M073)
+0x298d84,tile_obj_place,func,6,GAME,decomp,tileobj.c (M073)
+0x298dec,tile_obj_link,func,2,GAME,decomp,tileobj.c (M073)
+0x298e64,tileobj_298E64,func,6,GAME,decomp,tileobj.c (M073)
+0x298ebc,tileobj_298EBC,func,3,GAME,decomp,tileobj.c (M073)
+0x299004,tileobj_299004,func,0,GAME,decomp,tileobj.c (M073)
+0x299048,tileobj_299048,func,0,GAME,decomp,tileobj.c (M073)
+0x299080,tileobj_299080,func,2,GAME,decomp,tileobj.c (M073)
+0x2991b4,tileobj_2991B4,func,2,GAME,decomp,tileobj.c (M073)
+0x299200,tile_number,func,2,GAME,decomp,tileobj.c (M073)
+0x299288,tileobj_299288,func,3,GAME,decomp,tileobj.c (M073)
+0x2d8650,vec_set_length,func,2,GAME,decomp,weapphys.c (M117)
+0x2d8848,aim_lob,func,6,GAME,decomp,weapphys.c (M117)
+0x2d8aa8,death_init,func,1,GAME,decomp,weapphys.c (M117)
+0x2d8ac8,aim_lead,func,6,GAME,decomp,weapphys.c (M117)
+0x2d8d04,aim_solve,func,7,GAME,decomp,weapphys.c (M117)
+0x2d8d60,aim_scatter,func,5,GAME,decomp,weapphys.c (M117)
+0x2d8f84,aim_skill,func,2,GAME,decomp,weapphys.c (M117)
+0x2d9210,fire_lob,func,11,GAME,decomp,weapphys.c (M117)
+0x2d9540,weapphys_2D9540,func,3,GAME,decomp,weapphys.c (M117)
+0x2d9a70,dir_close,func,4,GAME,decomp,weapphys.c (M117)
+0x2d9af4,fire_ray,func,12,GAME,decomp,weapphys.c (M117)
+0x2d9dc4,weapphys_2D9DC4,func,13,GAME,decomp,weapphys.c (M117)
+0x2d9f84,weapphys_2D9F84,func,10,GAME,decomp,weapphys.c (M117)
+0x295320,game_pools,data,,GAME,orig,game.h GamePool[9] in the code segment (M070; classdesc.c defines it for unlinked builds; g2b called it obj_class_desc - unified at G2 merge)
+0x3bb990,grid_cellrecs,data,,GAME,orig,g2_a.h GridCellRec[2][0x258]
+0x3c2a10,grid_cells,data,,GAME,orig,g2_a.h short[2][0x200]
+0x391f70,objring,data,,GAME,orig,g2_a.h ObjRingEntry[5] (M032)
+0x35b498,objring_tail,data,,GAME,orig,g2_a.h long
+0x35b49c,objring_head,data,,GAME,orig,g2_a.h long
+0x35b754,sim_handlers,data,,GAME,orig,g2_a.h SimMsgHandler[9] (M057)
+0x35b778,sim_msg_key,data,,GAME,orig,g2_a.h MsgAddr
+0x2895c0,sim_flush_key,data,,GAME,orig,simdisp.c MsgAddr {0x83,0} in the code segment (map: simdisp_2895C0)
+0x397ca0,targ_list,data,,GAME,orig,g2_a.h TargRec[] (M066)
+0x35bf80,targ_count,data,,GAME,orig,g2_a.h long
+0x35a93c,targ_current,data,,GAME,orig,g2_a.h short
+0x38fb40,targ_view,data,,GAME,orig,g2_a.h uchar *
+0x3cae8c,tile_groups,data,,GAME,orig,g2_a.h TileGroup[32] (M073)
+0x3c9e9c,tile_objs,data,,GAME,orig,g2_a.h TileObj[255]
+0x3c9e1c,tile_3C9E1C,data,,GAME,orig,g2_a.h uchar[0x80]
+0x3cc8f4,tile_tmpls,data,,GAME,orig,g2_a.h TileTmpl[255]
+0x3cb8ec,tile_places,data,,GAME,orig,g2_a.h TilePlace[512]
+0x3cb0ec,tile_placed,data,,GAME,orig,g2_a.h uchar[128][16]
+0x3cc8ec,tile_group_bits,data,,GAME,orig,g2_a.h uchar[4]
+0x3cc8f0,tile_place_next,data,,GAME,orig,g2_a.h ushort
+0x3cc8f2,tile_tmpl_next,data,,GAME,orig,g2_a.h ushort
+0x3ce5d7,tile_grp_idx,data,,GAME,orig,g2_a.h uchar
+0x3ce5d8,tile_id_next,data,,GAME,orig,g2_a.h uchar
+0x3ce5d9,tile_group,data,,GAME,orig,g2_a.h signed char
+0x395110,ord_table,data,,GAME,orig,g2_a.h OrdType[] (M117)
+0x4463f8,phys_ent,data,,GAME,orig,g2_a.h short[]
+0x4463d8,weapphys_4463D8,data,,GAME,orig,g2_a.h fix
+0x446710,aim_wobble,data,,GAME,orig,g2_a.h fix[3]
+0x44658c,hit_pos,data,,GAME,orig,g2_a.h fix[3]
+0x446598,hit_who,data,,GAME,orig,g2_a.h short
+0x44659b,hit_tile,data,,GAME,orig,g2_a.h uchar
+0x4464b8,last_shooter,data,,GAME,orig,g2_a.h short
+0x3962a0,skill_cls1,data,,GAME,orig,g2_a.h uchar[]
+0x395b14,skill_cls2,data,,GAME,orig,g2_a.h uchar[]
+0x3963bc,skill_cls3,data,,GAME,orig,g2_a.h uchar[]
+0x396256,skill_cls4,data,,GAME,orig,g2_a.h uchar[]
+0x391f4d,voice_soldier,data,,GAME,orig,g2_a.h signed char[]
+0x390358,soldier_skill,data,,GAME,orig,g2_a.h uchar[] stride 0x1EE
+0x39634c,aim_mult_a,data,,GAME,orig,g2_a.h short[]
+0x396392,aim_mult_b,data,,GAME,orig,g2_a.h short[]
+0x3ba990,grid_hash,data,,GAME,orig,g2_a.h GridHash[0x400] (row moved from symbols-g2-b.csv at G2 merge)
+0x3bdf10,grid_squares,data,,GAME,orig,g2_a.h GridSquare[0x4B0] (row moved from symbols-g2-b.csv at G2 merge)
+0x3c5dc2,grid_hash_cur,data,,GAME,orig,g2_a.h short (row moved from symbols-g2-b.csv at G2 merge)

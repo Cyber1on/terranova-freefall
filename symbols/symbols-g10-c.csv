@@ -1,0 +1,187 @@
+address,name,kind,nargs,library,status,notes
+0x2c3440,shell_2C3440,func,0,GAME,decomp,M097 shtail.c play sound 0x7BA once per campaign step
+0x2c349c,shell_2C349C,func,0,GAME,decomp,M097 shtail.c stop it
+0x2c34c0,shell_2C34C0,func,0,GAME,decomp,M097 shtail.c restore the squad records (shell_squad_save)
+0x2ca034,opt_page_val,data,0,GAME,decomp,option shown by each page (code segment)
+0x2ca044,opt_page_title,data,0,GAME,decomp,detail page titles (code segment)
+0x2ca054,opt_page_bm,data,0,GAME,decomp,detail page backgrounds (code segment)
+0x2ca064,options_2CA064,func,1,GAME,decomp,M105 options.c option 14: ffpipe_35C100
+0x2ca06c,options_2CA06C,func,1,GAME,decomp,M105 options.c option 16: ffpipe_29E180
+0x2ca074,options_2CA074,func,1,GAME,decomp,M105 options.c option 15: rndsky_2A6BD0
+0x2ca07c,options_2CA07C,func,1,GAME,decomp,M105 options.c option 18: ptc_desc_shift = 3 - v
+0x2ca09c,options_2CA09C,func,1,GAME,decomp,M105 options.c option 6 changed: detail preset 1..4
+0x2ca180,options_2CA180,func,1,GAME,decomp,M105 options.c options 13..16 changed: preset "custom"
+0x2ca18c,options_2CA18C,func,1,GAME,decomp,M105 options.c option 4: mouse buttons
+0x2ca1ac,options_2CA1AC,func,1,GAME,decomp,M105 options.c option 7
+0x2ca1b8,options_2CA1B8,func,2,GAME,decomp,M105 options.c tell an option's fn2
+0x2ca1e4,options_2CA1E4,func,0,GAME,decomp,M105 options.c declared in g9_*.h
+0x2ca23c,options_2CA23C,func,0,GAME,decomp,M105 options.c redraw what the screen covered
+0x2ca2c0,options_2CA2C0,func,1,GAME,decomp,M105 options.c declared in g9_*.h
+0x2ca360,options_2CA360,func,0,GAME,decomp,M105 options.c declared in g9_*.h
+0x2ca44c,options_2CA44C,func,1,GAME,decomp,M105 options.c declared in g9_*.h
+0x2ca450,options_2CA450,func,1,GAME,decomp,M105 options.c key / mouse handler
+0x2ca834,options_2CA834,func,3,GAME,decomp,M105 options.c hit test
+0x2ca890,options_2CA890,func,0,GAME,decomp,M105 options.c (no callers) set the cursor
+0x2ca8fc,options_2CA8FC,func,0,GAME,decomp,M105 options.c declared in g9_*.h
+0x2caac0,options_2CAAC0,func,4,GAME,decomp,M105 options.c declared in g9_*.h
+0x2cab58,options_2CAB58,func,4,GAME,decomp,M105 options.c 
+0x2cab84,options_2CAB84,func,0,GAME,decomp,M105 options.c (no callers) redraw
+0x2cabac,options_2CABAC,func,1,GAME,decomp,M105 options.c button labels
+0x2cac54,options_2CAC54,func,1,GAME,decomp,M105 options.c every option
+0x2cad30,options_2CAD30,func,1,GAME,decomp,M105 options.c background
+0x2cad68,options_2CAD68,func,2,GAME,decomp,M105 options.c (no callers) a slider
+0x2cad9c,options_2CAD9C,func,3,GAME,decomp,M105 options.c a slider tick
+0x2cade4,options_2CADE4,func,1,GAME,decomp,M105 options.c declared in g9_*.h
+0x2caf94,options_2CAF94,func,1,GAME,decomp,M105 options.c slider 0
+0x2cb044,options_2CB044,func,1,GAME,decomp,M105 options.c slider 1
+0x2cb0f4,options_2CB0F4,func,1,GAME,decomp,M105 options.c slider 2
+0x2cb1a4,options_2CB1A4,func,1,GAME,decomp,M105 options.c slider 3
+0x2cb254,options_2CB254,func,1,GAME,decomp,M105 options.c option 4
+0x2cb584,options_2CB584,func,1,GAME,decomp,M105 options.c option 8
+0x2cb7b4,options_2CB7B4,func,1,GAME,decomp,M105 options.c option 9
+0x2cb918,options_2CB918,func,1,GAME,decomp,M105 options.c option 11
+0x2cba70,options_2CBA70,func,1,GAME,decomp,M105 options.c option 12
+0x2cbbc8,options_2CBBC8,func,0,GAME,decomp,M105 options.c accept and close
+0x2cbbec,options_2CBBEC,func,0,GAME,decomp,M105 options.c close
+0x2cbbf8,options_2CBBF8,func,0,GAME,decomp,M105 options.c quit the game (main_245334)
+0x2cbc08,options_2CBC08,func,1,GAME,decomp,M105 options.c close the screen
+0x2cbcf4,options_2CBCF4,func,1,GAME,decomp,M105 options.c next / previous detail page
+0x2cbd04,options_2CBD04,func,1,GAME,decomp,M105 options.c change the detail page
+0x2cbda8,options_2CBDA8,func,0,GAME,decomp,M105 options.c toggle option 14
+0x2cbddc,options_2CBDDC,func,0,GAME,decomp,M105 options.c toggle option 15
+0x2cbe10,options_2CBE10,func,0,GAME,decomp,M105 options.c toggle option 16
+0x2cbe44,options_2CBE44,func,0,GAME,decomp,M105 options.c toggle option 17
+0x2cbe78,options_2CBE78,func,1,GAME,decomp,M105 options.c option 13
+0x2cbe8c,options_2CBE8C,func,1,GAME,decomp,M105 options.c option 18
+0x2cbea0,options_2CBEA0,func,1,GAME,decomp,M105 options.c detail page (v: option 6)
+0x2cc01c,options_2CC01C,func,0,GAME,decomp,M105 options.c detail preview picture
+0x2cc234,options_2CC234,func,1,GAME,decomp,M105 options.c option 19
+0x2cc3d0,options_2CC3D0,func,1,GAME,decomp,M105 options.c option 21 (two check boxes)
+0x2cc5dc,options_2CC5DC,func,1,GAME,decomp,M105 options.c option 22 (two check boxes)
+0x2cc7d8,options_2CC7D8,func,1,GAME,decomp,M105 options.c option 23
+0x2cc948,options_2CC948,func,1,GAME,decomp,M105 options.c option 24
+0x2ccab8,options_2CCAB8,func,1,GAME,decomp,M105 options.c option 21 applied: radio_text_flags
+0x2ccad4,options_2CCAD4,func,1,GAME,decomp,M105 options.c option 22 applied: radio_msg_flags
+0x2ccaf0,options_2CCAF0,func,1,GAME,decomp,M105 options.c option 23 applied
+0x2ccaf8,options_2CCAF8,func,0,GAME,decomp,M105 options.c abort the mission
+0x2ccb38,options_2CCB38,func,1,GAME,decomp,M105 options.c help screen handler
+0x2ccb58,options_2CCB58,func,0,GAME,decomp,M105 options.c close the help screen
+0x2ccbe0,options_2CCBE0,func,0,GAME,decomp,M105 options.c draw the help screen
+0x2ccc28,options_2CCC28,func,0,GAME,decomp,M105 options.c declared in g9_*.h
+0x2cee20,rsb_2CEE20,data,0,GAME,decomp,vehicle template (code segment)
+0x2cee27,rsb_2CEE27,data,0,GAME,decomp,squad template (code segment)
+0x2cee35,rsb_2CEE35,data,0,GAME,decomp,aircraft template (code segment)
+0x2cee3c,rsb_2CEE3C,func,0,GAME,decomp,M111 rescustm.c open the screen
+0x2ceea4,rsb_2CEEA4,func,0,GAME,decomp,M111 rescustm.c close it
+0x2cef28,rsb_2CEF28,func,0,GAME,decomp,M111 rescustm.c per frame
+0x2cef9c,rsb_2CEF9C,func,0,GAME,decomp,M111 rescustm.c defaults (res 0x967)
+0x2cf048,rsb_2CF048,func,2,GAME,decomp,M111 rescustm.c type -> index in its class list
+0x2cf0c8,rsb_2CF0C8,func,0,GAME,decomp,M111 rescustm.c draw the main page
+0x2cf11c,rsb_2CF11C,func,0,GAME,decomp,M111 rescustm.c the hint
+0x2cf1a0,rsb_2CF1A0,func,0,GAME,decomp,M111 rescustm.c every control
+0x2cf25c,rsb_2CF25C,func,1,GAME,decomp,M111 rescustm.c key / mouse handler
+0x2cf6fc,rsb_2CF6FC,func,3,GAME,decomp,M111 rescustm.c hit test
+0x2cf754,rsb_2CF754,func,0,GAME,decomp,M111 rescustm.c labels
+0x2cf8f0,rsb_2CF8F0,func,1,GAME,decomp,M111 rescustm.c mission (0 previous  1 next  0x40 draw)
+0x2cf9ec,rsb_2CF9EC,func,1,GAME,decomp,M111 rescustm.c rsb_side
+0x2cfac0,rsb_2CFAC0,func,1,GAME,decomp,M111 rescustm.c hud_442F1A (weather)
+0x2cfb94,rsb_2CFB94,func,1,GAME,decomp,M111 rescustm.c slot type (bit = slot  0x80 next  0x40 draw)
+0x2cfe2c,rsb_2CFE2C,func,1,GAME,decomp,M111 rescustm.c slot count
+0x2cff10,rsb_2CFF10,func,1,GAME,decomp,M111 rescustm.c difficulty
+0x2cffec,rsb_2CFFEC,func,1,GAME,decomp,M111 rescustm.c toggle a cheat bit of game_442F1B
+0x2d00d8,rsb_2D00D8,func,1,GAME,decomp,M111 rescustm.c rsb_size
+0x2d01c4,rsb_2D01C4,func,1,GAME,decomp,M111 rescustm.c game_442F32
+0x2d02a8,rsb_2D02A8,func,0,GAME,decomp,M111 rescustm.c start
+0x2d0324,rsb_2D0324,func,0,GAME,decomp,M111 rescustm.c cancel
+0x2d0330,rsb_2D0330,func,0,GAME,decomp,M111 rescustm.c quit
+0x2d0340,rsb_2D0340,func,0,GAME,decomp,M111 rescustm.c load the type lists
+0x2d04a4,rsb_2D04A4,func,0,GAME,decomp,M111 rescustm.c (no callers) first empty region
+0x2d04d4,rsb_2D04D4,func,0,GAME,decomp,M111 rescustm.c open the weapon grid (size 8)
+0x2d05c8,rsb_2D05C8,func,1,GAME,decomp,M111 rescustm.c weapon preset a into rsb_grid
+0x2d085c,rsb_2D085C,func,0,GAME,decomp,M111 rescustm.c grid: cancel
+0x2d093c,rsb_2D093C,func,0,GAME,decomp,M111 rescustm.c grid: accept
+0x2d0954,rsb_2D0954,func,0,GAME,decomp,M111 rescustm.c grid per frame
+0x2d0984,rsb_2D0984,func,0,GAME,decomp,M111 rescustm.c draw the grid page
+0x2d0a20,rsb_2D0A20,func,0,GAME,decomp,M111 rescustm.c grid labels
+0x2d0ba8,rsb_2D0BA8,func,0,GAME,decomp,M111 rescustm.c (no callers)
+0x2d0c00,rsb_2D0C00,func,1,GAME,decomp,M111 rescustm.c grid cell
+0x2d0e00,rsb_2D0E00,func,1,GAME,decomp,M111 rescustm.c copy a row to every row
+0x2d0e68,rsb_2D0E68,func,1,GAME,decomp,M111 rescustm.c weapon of the cell
+0x2d0f90,rsb_2D0F90,func,0,GAME,decomp,M111 rescustm.c declared in g9_*.h
+0x2d1788,rsb_2D1788,func,2,GAME,decomp,M111 rescustm.c count list
+0x2d1bec,rsb_2D1BEC,func,2,GAME,decomp,M111 rescustm.c type list
+0x2d21b4,rsb_2D21B4,func,2,GAME,decomp,M111 rescustm.c mission list
+0x2d2600,rsb_2D2600,func,2,GAME,decomp,M111 rescustm.c difficulty list
+0x2d2a1c,rsb_2D2A1C,func,0,GAME,decomp,M111 rescustm.c (no callers) shade the screen
+0x2d2a4c,rsb_2D2A4C,func,0,GAME,decomp,M111 rescustm.c declared in g9_*.h
+0x2d2b04,rsb_2D2B04,func,0,GAME,decomp,M111 rescustm.c clear the screen
+0x2d2b44,rsb_2D2B44,func,0,GAME,decomp,M111 rescustm.c game_35ECF2 & 1
+0x2d2b54,rsb_2D2B54,func,0,GAME,decomp,M111 rescustm.c reset
+0x2d2b94,rsb_2D2B94,func,1,GAME,decomp,M111 rescustm.c 1 when t has passed since the first call
+0x35ade1,game_35ADE1,data,0,GAME,decomp,option 7: 1 when on
+0x35d100,opt_35D100,data,0,GAME,decomp,(1)
+0x35d104,opt_mouse_down,data,0,GAME,decomp,
+0x35d114,opt_sliders,data,0,GAME,decomp,(4 + an empty one)
+0x35d19c,opt_buttons,data,0,GAME,decomp,
+0x35d8e4,opt_apply,data,0,GAME,decomp,
+0x35da29,opt_in_click,data,0,GAME,decomp,a button's function runs
+0x35da2a,opt_dragging,data,0,GAME,decomp,a slider is dragged
+0x35da2b,opt_hook_off,data,0,GAME,decomp,hooks the options screen turns off
+0x35da32,opt_35DA32,data,0,GAME,decomp,
+0x35da33,opt_35DA33,data,0,GAME,decomp,
+0x35da44,opt_page_count,data,0,GAME,decomp,buttons of each detail page
+0x35da54,opt_page_btn,data,0,GAME,decomp,their numbers (-1 none)
+0x35da88,opt_35DA88,data,0,GAME,decomp,option 23
+0x35da8c,opt_help_hook_off,data,0,GAME,decomp,hooks the help screen turns off
+0x35da93,opt_35DA93,data,0,GAME,decomp,
+0x35da94,opt_35DA94,data,0,GAME,decomp,
+0x35e4fc,rsb_gravity,data,0,GAME,decomp,weapphys_4463D8 for each difficulty
+0x35e520,rsb_buttons,data,0,GAME,decomp,main page
+0x35e930,rsb_grid_buttons,data,0,GAME,decomp,weapon grid page
+0x35ecd8,rsb_resfile,data,0,GAME,decomp,rescustm.res
+0x35ecdc,rsb_show_extra,data,0,GAME,decomp,size 8 (custom) chosen
+0x35ece0,rsb_mode,data,0,GAME,decomp,0 main page  1 weapon grid
+0x35ece4,rsb_result,data,0,GAME,decomp,1 start  2 cancel
+0x35ece8,rsb_dirty,data,0,GAME,decomp,redraw
+0x35ecec,rsb_sel,data,0,GAME,decomp,slot of the open list (0xFF)
+0x35eced,rsb_n1,data,0,GAME,decomp,squad types
+0x35ecee,rsb_n2,data,0,GAME,decomp,vehicle types
+0x35ecef,rsb_n3,data,0,GAME,decomp,aircraft types
+0x35ecf0,rsb_nnames,data,0,GAME,decomp,weapon names
+0x35ecf1,rsb_pop,data,0,GAME,decomp,open list
+0x35ecf4,rsb_hint_time,data,0,GAME,decomp,tn_ticks until the hint goes
+0x35ecf8,rsb_hint,data,0,GAME,decomp,hint shown (0xFF none)
+0x35ecf9,rsb_nregions,data,0,GAME,decomp,regions of the mission (res 0x960)
+0x35ecfa,rsb_grid_cur,data,0,GAME,decomp,weapon grid cell row * 4 + column
+0x35ecfc,rsb_ent,data,0,GAME,decomp,entity made by rsb_2D0F90
+0x35ed00,rsb_units,data,0,GAME,decomp,units placed
+0x35ed04,rsb_min_squad,data,0,GAME,decomp,(100)
+0x35ed08,rsb_last_squad,data,0,GAME,decomp,
+0x35ed0c,rsb_timer,data,0,GAME,decomp,game_time of rsb_2D2B94
+0x35ed10,rsb_timer_on,data,0,GAME,decomp,
+0x43d2c8,shell_snd_chan,data,0,GAME,decomp,channel of the shell's ambient sound (-1)
+0x43e670,shell_snd_played,data,0,GAME,decomp,per campaign position: ambient sound played
+0x442460,opt_saved_rect,data,0,GAME,decomp,tnui_full_rect
+0x442468,opt_saved_pal,data,0,GAME,decomp,
+0x442768,opt_save_buf,data,0,GAME,decomp,screen save (0x4B000 bytes)
+0x44276c,opt_cursor,data,0,GAME,decomp,cursor to restore
+0x442770,opt_blocking,data,0,GAME,decomp,options_2CA2C0 added the blocking handlers
+0x442774,opt_page,data,0,GAME,decomp,detail page 0..3
+0x442778,opt_no_show,data,0,GAME,decomp,a closing button: no MouseShow
+0x44277c,opt_allowed,data,0,GAME,decomp,option may be changed
+0x4427e0,opt_hook_saved,data,0,GAME,decomp,hooks turned off
+0x4427e4,opt_val,data,0,GAME,decomp,values being edited ([8] = game_442804)
+0x442848,opt_cursor_drawn,data,0,GAME,decomp,cursor shown when the screen opened
+0x442849,opt_442849,data,0,GAME,decomp,
+0x442e70,rsb_used,data,0,GAME,decomp,region used
+0x442e90,rsb_clip,data,0,GAME,decomp,mouse constraint of the open list
+0x442e98,rsb_grid_save,data,0,GAME,decomp,rsb_grid when the grid page opened
+0x442eb1,rsb_list3,data,0,GAME,decomp,aircraft types (res 0x966)
+0x442ec0,rsb_list1,data,0,GAME,decomp,squad types (res 0x962)
+0x442ecf,rsb_list2,data,0,GAME,decomp,vehicle types (res 0x964)
+0x442ede,rsb_grid,data,0,GAME,decomp,5 rows of 4 weapon numbers + kind (4 / 2)
+0x442ef7,rsb_names,data,0,GAME,decomp,weapons offered (res 0x968)
+0x442f19,rsb_side,data,0,GAME,decomp,1 / 2 / 4: mission kind 0x2A / 0x2C / 0x2B
+0x442f1c,rsb_difficulty,data,0,GAME,decomp,0..8 (rsb_gravity)
+0x442f1d,rsb_size,data,0,GAME,decomp,1 / 2 / 4 weapon preset  8 custom
+0x442f1e,rsb_slots,data,0,GAME,decomp,

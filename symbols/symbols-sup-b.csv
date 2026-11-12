@@ -1,0 +1,86 @@
+address,name,kind,nargs,library,status,notes
+0x448a72,c_off_stack,data,,PALETTE,decomp,uchar[3]
+0x448a75,local_smap,data,,PALETTE,decomp,uchar[768]
+0x2e7220,palette_advance_all_fx,func,1,PALETTE,decomp,palette.c
+0x2e72c4,palette_advance_effect,func,2,PALETTE,decomp,id is a signed char
+0x2e7720,palette_install_effect,func,8,PALETTE,decomp,ret 0x10
+0x2e78bc,palette_remove_effect,func,1,PALETTE,decomp,
+0x2e7900,palette_freeze_effect,func,1,PALETTE,decomp,unreferenced
+0x2e794c,palette_unfreeze_effect,func,1,PALETTE,decomp,unreferenced
+0x2e7998,palette_query_effect,func,1,PALETTE,decomp,
+0x2e79b8,palette_change_delay,func,2,PALETTE,decomp,unreferenced
+0x2e79e0,palette_set_rate,func,1,PALETTE,decomp,unreferenced
+0x2e79e8,palette_initialize,func,1,PALETTE,decomp,
+0x2e7a50,palette_shutdown,func,0,PALETTE,decomp,unreferenced
+0x2e7a5c,palette_init_smap,func,5,PALETTE,decomp,ret 4
+0x3644cc,mouseQueueSize,data,,INPUT,decomp,short
+0x3644ce,mouseXshift,data,,INPUT,decomp,uchar
+0x3644cf,mouseYshift,data,,INPUT,decomp,uchar
+0x3644d0,mouseMask,data,,INPUT,decomp,uchar
+0x3644d1,mouseLefty,data,,INPUT,decomp,uchar
+0x3644d2,mouseCalls,data,,INPUT,decomp,short
+0x3644d8,default_mouse_ticks,data,,INPUT,decomp,ulong
+0x3654f4,mouseHandlerSize,data,,INPUT,decomp,ulong
+0x44ce80,mouseCall,data,,INPUT,decomp,mouse_callfunc[16]
+0x44ce40,mouseCallData,data,,INPUT,decomp,void*[16]
+0x44d0c2,mouseInstantButts,data,,INPUT,decomp,short
+0x44d0d0,mouse_vel_yfrac,data,,INPUT,decomp,long (name ours)
+0x44d0d4,mouse_vel_xfrac,data,,INPUT,decomp,long (name ours)
+0x319530,mouse_handler_isr,data,,INPUT,orig,address of the original MouseHandler (installed by mouse_init in the verification build)
+0x31950d,int386x,func,4,CLIB,orig,int386x(intno; in; out; sregs)
+0x2fb750,mouse_shutdown,func,0,INPUT,decomp,mouse.c
+0x2fb7c8,mouse_init,func,2,INPUT,decomp,errtype in ax
+0x2fb8ec,mouse_set_screensize,func,2,INPUT,decomp,
+0x2fb96c,_mouse_update_vel,func,0,INPUT,decomp,
+0x2fbab0,mouse_get_xy,func,2,INPUT,decomp,
+0x2fbae0,mouse_put_xy,func,2,INPUT,decomp,
+0x2fbbd4,mouse_check_btn,func,2,INPUT,decomp,
+0x2fbc00,mouse_look_next,func,1,INPUT,decomp,
+0x2fbc48,mouse_next,func,1,INPUT,decomp,
+0x2fbcb8,mouse_flush,func,0,INPUT,decomp,
+0x2fbcd4,mouse_generate,func,custom,INPUT,decomp,mouse_event by value on the stack; ret 0x10; Watcom entry mouse_generate_watcom (mouse.c)
+0x2fbdb8,mouse_set_callback,func,3,INPUT,decomp,
+0x2fbe1c,mouse_unset_callback,func,1,INPUT,decomp,
+0x2fbe64,mouse_constrain_xy,func,4,INPUT,decomp,
+0x2fbf44,mouse_set_rate,func,3,INPUT,decomp,
+0x2fbfd0,mouse_get_rate,func,3,INPUT,decomp,
+0x2fc010,mouse_set_timestamp_register,func,1,INPUT,decomp,
+0x2fc018,mouse_get_time,func,0,INPUT,decomp,
+0x2fc020,ReadMouseState,func,1,INPUT,decomp,static; unreferenced
+0x2fc05c,mouse_extremes,func,4,INPUT,decomp,
+0x2fc0d8,shifted_button_state,func,1,INPUT,decomp,static; unreferenced
+0x2fc0ec,mouse_set_lefty,func,1,INPUT,decomp,
+0x2fc128,mouse_set_velocity_range,func,4,INPUT,decomp,
+0x2fc144,mouse_set_velocity,func,2,INPUT,decomp,
+0x2fc1d0,mouse_add_velocity,func,2,INPUT,decomp,
+0x2fc1ec,mouse_get_velocity,func,2,INPUT,decomp,
+0x319530,MouseHandler,func,custom,INPUT,decomp,asm entry: far call ax=mask bx=buttons cx=x dx=y; ds=es=0x188; retf
+0x3652c8,kb_conv_selector,data,,INPUT,decomp,ulong
+0x3652cc,kb_conv_linear,data,,INPUT,decomp,ulong
+0x36c99c,kb_isr_size,data,,INPUT,decomp,ulong
+0x45daf0,kb_ring_start,data,,INPUT,decomp,ulong
+0x45db90,kb_old_rm_vector,data,,INPUT,decomp,ulong seg:off
+0x45db94,kb_stub_rm_ptr,data,,INPUT,decomp,ulong seg:off
+0x45db9c,kb_old_pm_offset,data,,INPUT,decomp,ulong
+0x45dba0,kb_old_pm_selector,data,,INPUT,decomp,ushort
+0x45dba4,kb_buf_base,data,,INPUT,decomp,ulong
+0x45dba8,kb_state_ptr,data,,INPUT,decomp,ulong
+0x44d290,kbd_modifier_state,data,,INPUT,decomp,ulong
+0x44d774,kb_signal_ctx,data,,INPUT,decomp,uchar[0x40]
+0x365708,kb_cnv_table,data,,INPUT,decomp,ushort[][3]
+0x36cd5c,kb_layout_tables,data,,INPUT,decomp,short*[8]
+0x31aae0,kb_pm_isr_addr,data,,INPUT,orig,address of the original kb_pm_isr (installed by kb_startup in the verification build)
+0x304c80,kb_startup,func,1,INPUT,decomp,kb.c
+0x304ec0,kb_set_state,func,2,INPUT,decomp,
+0x304ed0,kb_shutdown,func,0,INPUT,decomp,
+0x305000,kb_flush_bios,func,0,INPUT,decomp,
+0x305020,kb_look_next,func,0,INPUT,decomp,kbs_event in ax
+0x30504c,kb_next,func,0,INPUT,decomp,kbs_event in ax
+0x31aae0,kb_pm_isr,func,custom,INPUT,decomp,asm IRQ1 handler entry (kb.c); iretd or chain via retf
+0x31ac40,kb_set_layout,func,1,INPUT,decomp,kblayout.c (name ours)
+0x31ad68,kb_get_layout,func,0,INPUT,decomp,(name ours)
+0x31ad70,kb_layout_init,func,0,INPUT,decomp,(name ours)
+0x301ce0,kb_cook,func,4,INPUT,decomp,kbcook.c
+0x301f80,kb_get_cooked,func,1,INPUT,decomp,
+0x31a210,kb_set_leds,func,1,INPUT,decomp,asm; 8042 0xED + mask (name ours)
+0x30415c,joy_read_raw,func,1,INPUT,decomp,asm; joystick.c (name ours)

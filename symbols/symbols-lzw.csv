@@ -1,0 +1,43 @@
+address,name,kind,nargs,library,status,notes
+0x2e0250,LzwInit,func,0,RES,decomp,lzw.c; AtExit(LzwTerm)
+0x2e025c,LzwTerm,func,0,RES,decomp,LzwFreeBuffer inlined
+0x2e0284,LzwSetBuffer,func,2,RES,decomp,
+0x2e02f0,LzwMallocBuffer,func,0,RES,decomp,
+0x2e0330,LzwFreeBuffer,func,0,RES,decomp,
+0x2e0358,LzwCompress,func,8,RES,decomp,
+0x2e0938,LzwInputCode,func,1,RES,decomp,static; uncalled copy (inlined in LzwExpand)
+0x2e09b0,LzwExpand,func,8,RES,decomp,
+0x2e0d5c,LzwBuffSrcCtrl,func,2,RES,decomp,callback
+0x2e0d68,LzwBuffSrcGet,func,0,RES,decomp,callback
+0x2e0d7c,LzwFdSrcCtrl,func,2,RES,decomp,callback
+0x2e0d94,LzwFdSrcGet,func,0,RES,decomp,callback
+0x2e0ddc,LzwFpSrcCtrl,func,2,RES,decomp,callback
+0x2e0de8,LzwFpSrcGet,func,0,RES,decomp,callback; tail-jumps to fgetc
+0x2e0df4,LzwBuffDestCtrl,func,2,RES,decomp,callback
+0x2e0e00,LzwBuffDestPut,func,1,RES,decomp,callback
+0x2e0e14,LzwFdDestCtrl,func,2,RES,decomp,callback
+0x2e0e4c,LzwFdDestPut,func,1,RES,decomp,callback
+0x2e0e88,LzwFpDestCtrl,func,2,RES,decomp,callback
+0x2e0e94,LzwFpDestPut,func,1,RES,decomp,callback
+0x2e0eac,LzwFindMatch,func,2,RES,decomp,
+0x2e0f1c,LzwDecodeString,func,2,RES,decomp,uncalled copy (inlined in LzwExpand)
+0x446b50,lzwe,data,,RES,decomp,LzwE expand state (40 bytes)
+0x446b78,lzwc,data,,RES,decomp,LzwC compress state (32 bytes)
+0x446b98,lzwWriteBuffIndex,data,,RES,decomp,
+0x446b9c,lzwFpDest,data,,RES,decomp,
+0x446ba0,lzwFdDest,data,,RES,decomp,
+0x446ba4,lzwReadBuffIndex,data,,RES,decomp,
+0x446ba8,lzwBuffDestPtr,data,,RES,decomp,
+0x446bac,lzwBuffSrcPtr,data,,RES,decomp,
+0x446bb0,lzwFpSrc,data,,RES,decomp,
+0x446bb4,lzwFdSrc,data,,RES,decomp,
+0x446bb8,lzwDecodeStack,data,,RES,decomp,
+0x446bbc,lzwFdWriteBuff,data,,RES,decomp,
+0x446bc0,lzwFdReadBuff,data,,RES,decomp,
+0x446bc4,lzwAppendChar,data,,RES,decomp,
+0x446bc8,lzwBuffer,data,,RES,decomp,
+0x446bcc,lzwCodeValue,data,,RES,decomp,
+0x446bd0,lzwPrefixCode,data,,RES,decomp,
+0x446bd4,lzwBufferMalloced,data,,RES,decomp,bool (byte)
+0x3042c0,fgetc,func,1,CLIB,orig,Watcom stdio
+0x3036b7,fputc,func,2,CLIB,orig,Watcom stdio

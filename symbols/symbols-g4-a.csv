@@ -1,0 +1,108 @@
+address,name,kind,nargs,library,status,notes
+0x249a80,aimain_249A80,func,0,GAME,decomp,aimain.c (M005)
+0x249b1c,aimain_249B1C,func,0,GAME,decomp,aimain.c (M005)
+0x249b2c,aimain_249B2C,func,0,GAME,decomp,aimain.c (M005)
+0x249d18,aimain_249D18,func,2,GAME,decomp,aimain.c (M005); kill callback (ent, reason)
+0x249dcc,aimain_249DCC,func,0,GAME,decomp,aimain.c (M005)
+0x249e24,AISquadLoop,func,0,GAME,decomp,aimain.c (M005); game_hooks[3]
+0x249f48,aimain_249F48,func,1,GAME,decomp,aimain.c (M005)
+0x249f6c,aimain_249F6C,func,2,GAME,decomp,aimain.c (M005)
+0x249fd0,aimain_249FD0,func,1,GAME,decomp,aimain.c (M005)
+0x24a050,aimain_24A050,func,2,GAME,decomp,aimain.c (M005)
+0x24a088,aimain_24A088,func,2,GAME,decomp,aimain.c (M005)
+0x24a0b8,aimain_24A0B8,func,1,GAME,decomp,aimain.c (M005)
+0x24a0f4,aimain_24A0F4,func,1,GAME,decomp,aimain.c (M005)
+0x24a120,aimain_24A120,func,0,GAME,decomp,aimain.c (M005)
+0x24a158,aimain_24A158,func,1,GAME,decomp,aimain.c (M005)
+0x24a184,aimain_24A184,func,0,GAME,decomp,aimain.c (M005)
+0x24a26c,aimain_24A26C,func,2,GAME,decomp,aimain.c (M005)
+0x24a3e0,aimain_24A3E0,func,8,GAME,decomp,aimain.c (M005); line of sight
+0x24a65c,aimain_24A65C,func,1,GAME,decomp,aimain.c (M005); no callers
+0x24a6a0,aimain_24A6A0,func,2,GAME,decomp,aimain.c (M005)
+0x24a73c,aimain_24A73C,func,0,GAME,decomp,aimain.c (M005)
+0x24a760,aimain_24A760,func,0,GAME,decomp,aimain.c (M005)
+0x24a768,aimain_24A768,func,1,GAME,decomp,aimain.c (M005); callback
+0x24a7b8,aimain_24A7B8,func,3,GAME,decomp,aimain.c (M005)
+0x24a820,aisquad_24A820,func,1,GAME,decomp,aisquad.c (M006)
+0x24a88c,aisquad_24A88C,func,1,GAME,decomp,aisquad.c (M006)
+0x24a9b8,aisquad_24A9B8,func,2,GAME,decomp,aisquad.c (M006)
+0x24ade0,ailow_24ADE0,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24ae4c,ailow_24AE4C,func,3,GAME,decomp,ailowa.c (M007 part 1)
+0x24af24,ailow_24AF24,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x24afb4,ailow_24AFB4,func,4,GAME,decomp,ailowa.c (M007 part 1)
+0x24b24c,ailow_24B24C,func,0,GAME,decomp,ailowa.c (M007 part 1)
+0x24b2e0,ailow_24B2E0,func,0,GAME,decomp,ailowa.c (M007 part 1)
+0x24b34c,ailow_24B34C,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24b39c,AILowInit,func,6,GAME,decomp,ailowa.c (M007 part 1)
+0x24b8a0,ailow_24B8A0,func,5,GAME,decomp,ailowa.c (M007 part 1)
+0x24b8dc,ailow_24B8DC,func,5,GAME,decomp,ailowa.c (M007 part 1)
+0x24b900,ailow_24B900,func,5,GAME,decomp,ailowa.c (M007 part 1)
+0x24b924,ailow_24B924,func,5,GAME,decomp,ailowa.c (M007 part 1)
+0x24b948,ailow_24B948,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24b9b8,ailow_24B9B8,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24ba28,ailow_24BA28,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x24bb1c,ailow_24BB1C,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x24bb30,ailow_24BB30,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24bba0,ailow_24BBA0,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24bd00,ailow_24BD00,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24bf3c,ailow_24BF3C,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x24c618,ailow_24C618,func,1,GAME,decomp,ailowa.c (M007 part 1); brain mailbox
+0x24d5b8,ailow_24D5B8,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24d750,ailow_24D750,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24d98c,ailow_24D98C,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24dac4,ailow_24DAC4,func,3,GAME,decomp,ailowa.c (M007 part 1); map: 2 args; bl = rnd
+0x24dbc4,ailow_24DBC4,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24dcbc,ailow_24DCBC,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24dd18,ailow_24DD18,func,1,GAME,decomp,ailowa.c (M007 part 1); no callers
+0x24dd34,ailow_24DD34,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24ddd8,ailow_24DDD8,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24dea0,ailow_24DEA0,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24df10,AISoldierThink,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24e040,ailow_24E040,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24e100,ailow_24E100,func,3,GAME,decomp,ailowa.c (M007 part 1)
+0x24e19c,ailow_24E19C,func,custom,GAME,decomp,ailowa.c (M007 part 1); eax = brain; esi = fix[2] out (Watcom struct return; esi not preserved) -> eax = esi; C is (brain, out); Watcom entry W_ailow_24E19C in ailowa.c
+0x24e5b4,ailow_24E5B4,func,5,GAME,decomp,ailowa.c (M007 part 1)
+0x24e750,ailow_24E750,func,2,GAME,decomp,ailowa.c (M007 part 1); no callers
+0x24e774,ailow_24E774,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24e9b8,ailow_24E9B8,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x24ea04,ailow_24EA04,func,1,GAME,decomp,ailowa.c (M007 part 1); no callers
+0x24ea7c,ailow_24EA7C,func,3,GAME,decomp,ailowa.c (M007 part 1); map: 2 args; ebx = dy; clobbers ebx
+0x24f704,ailow_24F704,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24f778,ailow_24F778,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x24fc04,ailow_24FC04,func,7,GAME,decomp,ailowa.c (M007 part 1); only eax + 3 stack args used
+0x24fcfc,ailow_24FCFC,func,3,GAME,decomp,ailowa.c (M007 part 1); no callers
+0x24fd3c,ailow_24FD3C,func,5,GAME,decomp,ailowa.c (M007 part 1)
+0x24ff24,ailow_24FF24,func,2,GAME,decomp,ailowa.c (M007 part 1); clobbers edx
+0x2500ec,ailow_2500EC,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x250668,ailow_250668,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x250674,ailow_250674,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x2508d0,ailow_2508D0,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x250a1c,ailow_250A1C,func,1,GAME,decomp,ailowa.c (M007 part 1)
+0x250ce0,ailow_250CE0,func,3,GAME,decomp,ailowa.c (M007 part 1); clobbers ebx/edx
+0x250e58,ailow_250E58,func,2,GAME,decomp,ailowa.c (M007 part 1)
+0x3711c0,ai_path_used,data,,GAME,orig,game.h uchar[0x50]
+0x371210,ai_paths,data,,GAME,orig,game.h uchar[0x50][0x309]
+0x371170,ai_371170,data,,GAME,orig,g4_a.h ulong
+0x371174,ai_player_dead,data,,GAME,orig,g4_a.h uchar
+0x371180,ai_371180,data,,GAME,orig,g4_a.h ulong
+0x371184,ai_371184,data,,GAME,orig,g4_a.h long
+0x371188,ai_371188,data,,GAME,orig,game.h ushort
+0x37118a,ai_turn_step,data,,GAME,orig,game.h ushort
+0x37118c,ai_37118C,data,,GAME,orig,game.h uchar
+0x388138,ai_cur_addr_b,data,,GAME,orig,game.h ulong
+0x38813c,ai_cur_addr_a,data,,GAME,orig,game.h ulong
+0x389364,ai_debug_on,data,,GAME,orig,game.h uchar
+0x3c5d9c,ai_seen_bits,data,,GAME,orig,game.h uchar[0x26]
+0x3598d4,ai_reinforce_time,data,,GAME,orig,g4_a.h ulong
+0x3598dc,ai_3598DC,data,,GAME,orig,g4_a.h long
+0x3598e0,ai_3598E0,data,,GAME,orig,g4_a.h long
+0x3598e4,ai_3598E4,data,,GAME,orig,g4_a.h long
+0x3598ec,ai_debug_mask80,data,,GAME,orig,g4_a.h ulong
+0x3598f0,ai_debug_mask81,data,,GAME,orig,g4_a.h ulong
+0x3598f4,ai_debug_mask82,data,,GAME,orig,g4_a.h ushort
+0x441276,ai_reinforce_max,data,,GAME,orig,g4_a.h short
+0x44127b,ai_cheat_flags,data,,GAME,orig,g4_a.h uchar
+0x35bf60,ai_fire_mask,data,,GAME,orig,g4_a.h ulong
+0x25ab88,ai_25AB88,data,,GAME,orig,g4_a.h fix[25][2] formation table in the code segment (map rows aimsg_25AB88 / aiacc_25AB8C are data)
+0x441354,game_441354,data,,GAME,orig,g4_a.h uchar
+0x441365,game_441365,data,,GAME,orig,g4_a.h uchar

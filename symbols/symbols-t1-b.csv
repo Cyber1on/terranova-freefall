@@ -1,0 +1,55 @@
+address,name,kind,nargs,library,status,notes
+0x2e1df0,config_switch_tmpl,data,,TNLIB,orig,"2-byte literal ""X"" in the code segment (game-functions row 0x2E1DF0 is not a function)"
+0x446cd0,config_table,data,,TNLIB,orig,Hashtable of ConfigVar (0x8B)
+0x35f504,config_init_count,data,,TNLIB,orig,long
+0x35f50c,config_cmdline_seps,data,,TNLIB,orig,"char* -> ""=:"" (0x35F508)"
+0x35f510,config_write_ok,data,,TNLIB,orig,uchar
+0x35f514,config_default_pri,data,,TNLIB,orig,ulong (3)
+0x35f518,config_switch_table,data,,TNLIB,orig,ConfigSwitch*
+0x35f51c,config_switch_default,data,,TNLIB,orig,uchar
+0x35f520,config_key_table,data,,TNLIB,orig,ConfigKey*
+0x35f528,config_last_var,data,,TNLIB,orig,char*
+0x2e1df4,config_str_create,func,1,TNLIB,decomp,config.c
+0x2e1e44,config_str_addref,func,1,TNLIB,decomp,config.c
+0x2e1e48,config_str_release,func,1,TNLIB,decomp,config.c
+0x2e1e58,config_read_line,func,3,TNLIB,decomp,config.c
+0x2e1e9c,config_hash,func,1,TNLIB,decomp,config.c (hash callback)
+0x2e1ed4,config_equ,func,2,TNLIB,decomp,config.c (hash callback)
+0x2e1ee4,config_set_string_pri,func,3,TNLIB,decomp,config.c
+0x2e1ff8,config_parse_line,func,4,TNLIB,decomp,config.c
+0x2e2084,config_init,func,0,TNLIB,decomp,config.c
+0x2e20c8,config_set_priority,func,2,TNLIB,decomp,config.c
+0x2e2118,config_get_priority,func,1,TNLIB,decomp,config.c
+0x2e2168,config_get_origin,func,3,TNLIB,decomp,config.c
+0x2e21e0,config_set_from_file,func,4,TNLIB,decomp,config.c
+0x2e22fc,config_read_file,func,2,TNLIB,decomp,config.c
+0x2e2428,config_write_line,func,4,TNLIB,decomp,config.c
+0x2e254c,config_write_iter,func,2,TNLIB,decomp,config.c (hash_iter callback)
+0x2e258c,config_split_path,func,3,TNLIB,decomp,config.c
+0x2e2604,config_origin_is,func,2,TNLIB,decomp,config.c
+0x2e2634,config_write_file,func,2,TNLIB,decomp,config.c
+0x2e297c,config_set_value,func,4,TNLIB,decomp,config.c
+0x2e2a80,config_set_single_value,func,3,TNLIB,decomp,config.c
+0x2e2ae4,config_get_value,func,4,TNLIB,decomp,config.c
+0x2e2c88,config_get_single_value,func,3,TNLIB,decomp,config.c
+0x2e2cb4,CfgLookup,func,3,TNLIB,decomp,config.c (config_get_raw)
+0x2e2d0c,config_set_cmdline_seps,func,1,TNLIB,decomp,config.c
+0x2e2d14,config_parse_cmdline,func,3,TNLIB,decomp,config.c
+0x2e2e40,config_unset,func,1,TNLIB,decomp,config.c
+0x2e2eac,config_iter_nop,func,2,TNLIB,decomp,config.c (hash_iter callback)
+0x2e2eb0,config_shutdown,func,0,TNLIB,decomp,config.c
+0x2e2ef4,config_set_switch_table,func,1,TNLIB,decomp,config.c
+0x2e2efc,config_check_switch,func,2,TNLIB,decomp,config.c
+0x2e2fb0,config_set_key_table,func,1,TNLIB,decomp,config.c
+0x2e2fb8,config_check_key,func,1,TNLIB,decomp,config.c
+0x2e30bc,config_is_defined_last,func,1,TNLIB,decomp,config.c
+0x2e30d0,config_spew,func,1v,TNLIB,decomp,config.c cdecl varargs
+0x2fcf0c,kb_flush,func,0,TNLIB,decomp,kbflush.c
+0x2df590,strcmp,func,2,CLIB,orig,
+0x2df751,toupper,func,1,CLIB,orig,
+0x2df75f,atoi,func,1,CLIB,orig,
+0x2fcf1a,strpbrk,func,2,CLIB,orig,
+0x30455e,eof,func,1,CLIB,orig,
+0x30458a,strnicmp,func,3,CLIB,orig,
+0x2f672e,remove,func,1,CLIB,orig,jmp 0x315E36
+0x304bba,rename,func,2,CLIB,orig,int 21h 56h

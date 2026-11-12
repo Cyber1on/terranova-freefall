@@ -1,0 +1,284 @@
+address,name,module,kind,nargs,owner,shock_name,notes
+0x2ec290,g3_init,alloc,asm,custom,A,g3_init,"eax=max_points, ebx/ecx/edx=axis codes; ax=points allocated; installs div-0 trap (0x2DF868(1), 0x303F70 ranges 0x2F435B/0x2F4344..0x2F437D); malloc via f_malloc; game callers: 1"
+0x2ec40e,g3_shutdown,alloc,asm,0,A,g3_shutdown,frees point_list via f_free; game callers: 1
+0x2ec42d,g3_count_free_points,alloc,asm,0,A,g3_count_free_points,returns eax; no static refs
+0x2ec442,g3_alloc_list,alloc,asm,custom,A,g3_alloc_list,"ecx=n, esi=dest list -> eax=n, or eax=0 (ebx=count so far) when the free list runs out; clobbers ebx"
+0x2ec45f,g3_alloc_point,alloc,asm,custom,A,g3_alloc_point,-> eax=point or 0; clobbers ebx (unreferenced); no static refs
+0x2ec471,g3_free_point,alloc,asm,custom,A,g3_free_point,eax=point; clobbers ebx; game and skel callers; game callers: 5
+0x2ec47f,g3_free_list,alloc,asm,custom,A,g3_free_list,"ecx=n, esi=list; called by game and skel; game callers: 3"
+0x2ec495,g3_dup_point,alloc,asm,custom,A,g3_dup_point,"esi=src point -> edi=new point (copies 32 bytes even if the free list is empty: original bug); clobbers ebx, ecx, esi; no static refs"
+0x2ec4b2,g3_start_frame_wh,alloc,asm,custom,A,,"TN: eax=ww, ebx=wh, ecx=pixel_ratio then jmp into g3_start_frame at 0x2EC4EA (unreferenced; name ours); no static refs"
+0x2ec4c5,g3_start_frame,alloc,asm,0,A,g3_start_frame,"reads grd_canvas/grd_cap; window sizes, biases, frees all points; game callers: 1"
+0x2ec56f,g3_end_frame,alloc,asm,0,A,g3_end_frame,"TN body: _wtoo_matrix = identity, _wtoo_position = 0, eax = 0; clobbers ecx, edi (Shock end_frame counts used points; name uncertain); game callers: 1"
+0x2f3fc4,g3_vec_add,vector,asm,custom,A,g3_vec_add,"edi=dest, esi=a, ebx=b; game callers: 17"
+0x2f3fdd,g3_vec_sub,vector,asm,custom,A,g3_vec_sub,"edi=dest, esi=a, ebx=b; game callers: 13"
+0x2f3ff6,g3_vec_scale,vector,asm,custom,A,g3_vec_scale,"edi=dest, esi=src, ebx=scale; game callers: 11"
+0x2f4019,g3_vec_mag,vector,asm,custom,A,g3_vec_mag,esi=v -> eax; calls quad_sqrt; game callers: 3
+0x2f403b,g3_vec_dotprod,vector,asm,custom,A,g3_vec_dotprod,"esi, edi -> eax; game callers: 2"
+0x2f405b,g3_compute_normal,vector,asm,custom,A,g3_compute_normal,"edi=dest, eax/edx/ebx=points; normal then normalize; game callers: 1"
+0x2f406a,g3_vec_normalize,vector,asm,custom,A,g3_vec_normalize,esi=v in place; game callers: 3
+0x2f40bb,g3_compute_normal_quick,vector,asm,custom,A,g3_compute_normal_quick,"edi=dest, eax/edx/ebx=vectors"
+0x2f41d8,g3_rotate_norm,points,asm,custom,A,g3_rotate_norm,preceded by misaligned padding (0x2F41D7 is not an entry); no static refs
+0x2f4240,g3_world_to_object,points,asm,custom,A,,"TN: esi=world vec -> edi via _wtoo_matrix/_wtoo_position; called by game 0x28DCBD, interp op 0x2C, 0x317BB4 (name ours); game callers: 1"
+0x2f42f5,g3_rotate_point,points,asm,custom,A,g3_rotate_point,esi=vec -> edi=new point (no projection)
+0x2f431e,g3_transform_point,points,asm,custom,A,g3_transform_point,esi=vec -> edi=point; rotate + project; many game callers; game callers: 6
+0x2f4323,g3_project_point,points,asm,custom,A,g3_project_point,edi=point; div-0 trap ranges 0x2F4344/0x2F435B..0x2F437D; swaps [0x35F460] with 0x2DF9E9; returns CF/flags
+0x2f4389,g3_transform_list,points,asm,custom,A,g3_transform_list,"ecx=n, edi=dest list, esi=src vectors; game callers: 2"
+0x2f43c0,g3_rotate_list,points,asm,custom,A,g3_rotate_list,
+0x2f43f4,g3_project_list,points,asm,custom,A,g3_project_list,game callers: 1
+0x2f4422,g3_rotate_light_norm,points,asm,custom,A,g3_rotate_light_norm,no static refs
+0x2f444c,rotate_norm,points,asm,custom,A,rotate_norm,internal; uses unscaled_matrix
+0x2f445c,do_norm_rotate,points,asm,custom,A,do_norm_rotate,internal
+0x2f44eb,xlate_rotate_point,points,asm,custom,A,xlate_rotate_point,internal
+0x2f450d,do_rotate,points,asm,custom,A,do_rotate,internal; view_matrix
+0x2f459c,g3_rotate_delta_x,points,asm,custom,A,g3_rotate_delta_x,no static refs
+0x2f45c9,g3_rotate_delta_y,points,asm,custom,A,g3_rotate_delta_y,no static refs
+0x2f45f6,g3_rotate_delta_z,points,asm,custom,A,g3_rotate_delta_z,no static refs
+0x2f4623,g3_rotate_delta_xz,points,asm,custom,A,g3_rotate_delta_xz,no static refs
+0x2f4692,g3_rotate_delta_xy,points,asm,custom,A,g3_rotate_delta_xy,no static refs
+0x2f4701,g3_rotate_delta_yz,points,asm,custom,A,g3_rotate_delta_yz,no static refs
+0x2f4770,g3_rotate_delta_xyz,points,asm,custom,A,g3_rotate_delta_xyz,no static refs
+0x2f4788,g3_rotate_delta_v,points,asm,custom,A,g3_rotate_delta_v,no static refs
+0x2f47a2,g3_copy_add_delta_v,points,asm,custom,A,g3_copy_add_delta_v,no static refs
+0x2f47d4,g3_add_delta_v,points,asm,custom,A,g3_add_delta_v,no static refs
+0x2f47ed,g3_add_delta_x,points,asm,custom,A,g3_add_delta_x,no static refs
+0x2f4822,g3_add_delta_y,points,asm,custom,A,g3_add_delta_y,no static refs
+0x2f4857,g3_add_delta_z,points,asm,custom,A,g3_add_delta_z,no static refs
+0x2f488c,g3_add_delta_xy,points,asm,custom,A,g3_add_delta_xy,no static refs
+0x2f4903,g3_add_delta_xz,points,asm,custom,A,g3_add_delta_xz,no static refs
+0x2f497a,g3_add_delta_yz,points,asm,custom,A,g3_add_delta_yz,no static refs
+0x2f49f1,g3_add_delta_xyz,points,asm,custom,A,g3_add_delta_xyz,no static refs
+0x2f4a11,g3_copy_add_delta_x,points,asm,custom,A,g3_copy_add_delta_x,game callers: 2
+0x2f4a60,g3_copy_add_delta_y,points,asm,custom,A,g3_copy_add_delta_y,game callers: 4
+0x2f4aaf,g3_copy_add_delta_z,points,asm,custom,A,g3_copy_add_delta_z,game callers: 1
+0x2f4afe,g3_replace_add_delta_x,points,asm,custom,A,g3_replace_add_delta_x,no static refs
+0x2f4b3b,g3_replace_add_delta_y,points,asm,custom,A,g3_replace_add_delta_y,no static refs
+0x2f4b78,g3_replace_add_delta_z,points,asm,custom,A,g3_replace_add_delta_z,no static refs
+0x2f4bb5,g3_copy_add_delta_xy,points,asm,custom,A,g3_copy_add_delta_xy,
+0x2f4c4e,g3_copy_add_delta_xz,points,asm,custom,A,g3_copy_add_delta_xz,
+0x2f4ce8,g3_copy_add_delta_yz,points,asm,custom,A,g3_copy_add_delta_yz,
+0x2f4d82,g3_copy_add_delta_xyz,points,asm,custom,A,g3_copy_add_delta_xyz,no static refs
+0x2f4dc0,g3_screen_size,g3util,watcom,2,A,,"TN C: (r,z) -> projected size; unreferenced (name ours); no static refs"
+0x2f4e34,g3_screen_size_x,g3util,watcom,2,A,,"TN C: (r,z) x size; game 0x2821EC (name ours); game callers: 1"
+0x2f4e7c,g3_screen_size_y,g3util,watcom,2,A,,"TN C: (r,z) y size; game 0x282111 (name ours); game callers: 1"
+0x2f4ec4,g3_set_light_shift,g3util,watcom,1,A,,TN C: [0x36243A] = 8 - log2(n); unreferenced (name ours); no static refs
+0x2f4ef0,g3_set_light_max,g3util,watcom,1,A,,TN C: x87 pow(2.0 @0x357204) + __CHP -> [0x36243B]; unreferenced (name ours); no static refs
+0x2f4f3c,g3_cross_product,g3util,watcom,3,A,,"TN C: eax=dest, edx=a, ebx=b; called by skel and game (name ours); game callers: 3"
+0x2f4fa0,g3_interpret_sub_object,interp,asm,2,C,,"TN: eax=object, ebx=parms; nested interpret without frame/canvas setup (name ours); game callers: 1"
+0x2f4fcc,g3_interpret_object,interp,asm,2,C,g3_interpret_object,"eax=object, ebx=parms (Watcom regs on entry); game 0x29B5FD/0x29B669; saves canvas gc +0x20/+0x24, grd_function_fill_table..; push/pop_fill_mode; game callers: 2"
+0x2f517c,interpreter_loop,interp,asm,custom,C,interpreter_loop,ebp=bytecode; jmp [opcode_table + op*4]; every handler jmps back here
+0x2f5187,do_debug,interp,interp-op,custom,C,do_debug,"opcode 0x07 handler, ebp=bytecode; shock name by table position"
+0x2f518c,do_eof,interp,interp-op,custom,C,do_eof,"opcode 0x00 handler, ebp=bytecode; shock name by table position"
+0x2f518d,do_jnorm,interp,interp-op,custom,C,do_jnorm,"opcode 0x01 handler, ebp=bytecode; shock name by table position"
+0x2f51a7,do_lnres,interp,interp-op,custom,C,do_lnres,"opcode 0x02 handler, ebp=bytecode; shock name by table position"
+0x2f51c7,do_multires,interp,interp-op,custom,C,do_multires,"opcode 0x03 handler, ebp=bytecode; shock name by table position"
+0x2f51e7,do_scaleres,interp,interp-op,custom,C,do_scaleres,"opcode 0x21 handler, ebp=bytecode; shock name by table position"
+0x2f5245,do_vpnt_p,interp,interp-op,custom,C,do_vpnt_p,"opcode 0x22 handler, ebp=bytecode; shock name by table position"
+0x2f5251,do_vpnt_v,interp,interp-op,custom,C,do_vpnt_v,"opcode 0x23 handler, ebp=bytecode; shock name by table position"
+0x2f526e,do_defres,interp,interp-op,custom,C,do_defres,"opcode 0x15 handler, ebp=bytecode; shock name by table position"
+0x2f5289,do_defres_i,interp,interp-op,custom,C,do_defres_i,"opcode 0x16 handler, ebp=bytecode; shock name by table position"
+0x2f52ac,do_polyres,interp,interp-op,custom,C,do_polyres,"opcode 0x04 handler, ebp=bytecode; shock name by table position"
+0x2f52e8,do_tnop_33,interp,interp-op,custom,C,,"opcode 0x33 handler, ebp=bytecode; TN: poly via variant table 0x3605E8 (patched by fill) (TN op, name ours)"
+0x2f5334,do_poly_var_2F5334,interp,interp-op,custom,C,,TN: poly variant 0 reached via 0x3605E8..F0 (set by fill pushes) from op 0x33
+0x2f5359,do_poly_var_2F5359,interp,interp-op,custom,C,,TN: poly variant 1 reached via 0x3605E8..F0 (set by fill pushes) from op 0x33
+0x2f538c,do_poly_var_2F538C,interp,interp-op,custom,C,,TN: poly variant 2 reached via 0x3605E8..F0 (set by fill pushes) from op 0x33
+0x2f5401,do_poly_var_2F5401,interp,interp-op,custom,C,,TN: poly variant 3 reached via 0x3605E8..F0 (set by fill pushes) from op 0x33
+0x2f5426,do_poly_var_2F5426,interp,interp-op,custom,C,,TN: poly variant 4 reached via 0x3605E8..F0 (set by fill pushes) from op 0x33
+0x2f5464,do_tnop_34,interp,interp-op,custom,C,,"opcode 0x34 handler, ebp=bytecode (TN op, name ours)"
+0x2f549e,do_sortnorm,interp,interp-op,custom,C,do_sortnorm,"opcode 0x06 handler, ebp=bytecode; shock name by table position"
+0x2f54ec,do_goursurf,interp,interp-op,custom,C,do_goursurf,"opcode 0x09 handler, ebp=bytecode; shock name by table position"
+0x2f54f2,do_gour_p,interp,interp-op,custom,C,do_gour_p,"opcode 0x19 handler, ebp=bytecode; shock name by table position"
+0x2f54ff,do_gour_vc,interp,interp-op,custom,C,do_gour_vc,"opcode 0x1A handler, ebp=bytecode; shock name by table position"
+0x2f551a,do_draw_mode,interp,interp-op,custom,C,do_draw_mode,"opcode 0x1E handler, ebp=bytecode; shock name by table position"
+0x2f5533,do_setshade,interp,interp-op,custom,C,do_setshade,"opcode 0x08 handler, ebp=bytecode; shock name by table position"
+0x2f555b,do_rgbshades,interp,interp-op,custom,C,do_rgbshades,"opcode 0x1D handler, ebp=bytecode; shock name by table position"
+0x2f5580,do_setuv,interp,interp-op,custom,C,do_setuv,"opcode 0x24 handler, ebp=bytecode; shock name by table position"
+0x2f55a7,do_uvlist,interp,interp-op,custom,C,do_uvlist,"opcode 0x25 handler, ebp=bytecode; shock name by table position"
+0x2f55da,do_setcolor,interp,interp-op,custom,C,do_setcolor,"opcode 0x05 handler, ebp=bytecode; shock name by table position"
+0x2f55e0,do_getvcolor,interp,interp-op,custom,C,do_getvcolor,"opcode 0x1B handler, ebp=bytecode; shock name by table position"
+0x2f55ed,do_getpcolor,interp,interp-op,custom,C,do_getpcolor,"opcode 0x1F handler, ebp=bytecode; shock name by table position"
+0x2f560b,do_getvscolor,interp,interp-op,custom,C,do_getvscolor,"opcode 0x1C handler, ebp=bytecode; shock name by table position"
+0x2f561c,do_getpscolor,interp,interp-op,custom,C,do_getpscolor,"opcode 0x20 handler, ebp=bytecode; shock name by table position"
+0x2f564a,do_x_rel,interp,interp-op,custom,C,do_x_rel,"opcode 0x0A handler, ebp=bytecode; shock name by table position"
+0x2f5670,do_y_rel,interp,interp-op,custom,C,do_y_rel,"opcode 0x0B handler, ebp=bytecode; shock name by table position"
+0x2f5696,do_z_rel,interp,interp-op,custom,C,do_z_rel,"opcode 0x0C handler, ebp=bytecode; shock name by table position"
+0x2f56bc,do_xy_rel,interp,interp-op,custom,C,do_xy_rel,"opcode 0x0D handler, ebp=bytecode; shock name by table position"
+0x2f56e5,do_xz_rel,interp,interp-op,custom,C,do_xz_rel,"opcode 0x0E handler, ebp=bytecode; shock name by table position"
+0x2f570e,do_yz_rel,interp,interp-op,custom,C,do_yz_rel,"opcode 0x0F handler, ebp=bytecode; shock name by table position"
+0x2f5737,do_icall_p,interp,interp-op,custom,C,do_icall_p,"opcode 0x10 handler, ebp=bytecode; shock name by table position"
+0x2f5761,do_icall_h,interp,interp-op,custom,C,do_icall_h,"opcode 0x12 handler, ebp=bytecode; shock name by table position"
+0x2f578b,do_icall_b,interp,interp-op,custom,C,do_icall_b,"opcode 0x11 handler, ebp=bytecode; shock name by table position"
+0x2f57b5,do_tnop_28,interp,interp-op,custom,C,,"opcode 0x28 handler, ebp=bytecode; TN: object centre -> 0x362428 (light_obj_cen) (TN op, name ours)"
+0x2f57ef,do_tnop_29,interp,interp-op,custom,C,,"opcode 0x29 handler, ebp=bytecode (TN op, name ours)"
+0x2f5828,do_tnop_2b,interp,interp-op,custom,C,,"opcode 0x2B handler, ebp=bytecode (TN op, name ours)"
+0x2f585b,do_tnop_2a,interp,interp-op,custom,C,,"opcode 0x2A handler, ebp=bytecode; TN: game callback table 0x361998 (16) (TN op, name ours)"
+0x2f587c,do_tnop_2c,interp,interp-op,custom,C,,"opcode 0x2C handler, ebp=bytecode; TN: world-to-object vector into slots 0x3619D8 (TN op, name ours)"
+0x2f589a,do_tnop_2e,interp,interp-op,custom,C,,"opcode 0x2E handler, ebp=bytecode (TN op, name ours)"
+0x2f58a2,do_tnop_2f,interp,interp-op,custom,C,,"opcode 0x2F handler, ebp=bytecode (TN op, name ours)"
+0x2f58aa,do_tnop_30,interp,interp-op,custom,C,,"opcode 0x30 handler, ebp=bytecode; shared by ops 0x30 and 0x31 (TN op, name ours)"
+0x2f5956,do_sfcal,interp,interp-op,custom,C,do_sfcal,"opcode 0x14 handler, ebp=bytecode; shock name by table position"
+0x2f596b,do_dbg,interp,interp-op,custom,C,do_dbg,"opcode 0x27 handler, ebp=bytecode; shock name by table position"
+0x2f5973,do_tmap_op,interp,interp-op,custom,C,do_tmap,"opcode 0x26 handler, ebp=bytecode; shock name by table position"
+0x2f59c6,do_tnop_32,interp,interp-op,custom,C,,"opcode 0x32 handler, ebp=bytecode (TN op, name ours)"
+0x2f5a06,do_tnop_2d,interp,interp-op,custom,C,,"opcode 0x2D handler, ebp=bytecode (TN op, name ours)"
+0x2f7d4c,g3_start_object,instance,asm,custom,C,g3_start_object,esi=pos; unreferenced; no static refs
+0x2f7da2,g3_start_object_angles_xyz,instance,asm,custom,C,g3_start_object_angles_xyz,"esi=pos, ax/bx/dx=angles, ecx=order; game callers: 1"
+0x2f7dc0,g3_start_object_angles_v,instance,asm,custom,C,g3_start_object_angles_v,"esi=pos, edi=angvec, ecx=order; no static refs"
+0x2f7e79,g3_start_object_angles_x,instance,asm,custom,C,g3_start_object_angles_x,falls into instance_x 0x2F7E9A
+0x2f7e9a,instance_x,instance,asm,custom,C,instance_x,internal; fallthrough target
+0x2f8022,g3_start_object_angles_y,instance,asm,custom,C,g3_start_object_angles_y,TN also updates wtoo; falls into instance_y
+0x2f8074,instance_y,instance,asm,custom,C,instance_y,internal
+0x2f836e,g3_start_object_angles_z,instance,asm,custom,C,g3_start_object_angles_z,
+0x2f8393,instance_z,instance,asm,custom,C,instance_z,internal
+0x2f851b,g3_start_object_angles_xy,instance,asm,custom,C,g3_start_object_angles_xy,no static refs
+0x2f8562,g3_start_object_angles_yz,instance,asm,custom,C,g3_start_object_angles_yz,no static refs
+0x2f85a9,g3_start_object_angles_xz,instance,asm,custom,C,g3_start_object_angles_xz,no static refs
+0x2f85f0,g3_start_object_angles_zx,instance,asm,custom,C,,TN? two-angle variant; name uncertain; no static refs
+0x2f8621,g3_start_object_matrix,instance,asm,custom,C,g3_start_object_matrix,"esi=pos, edi=matrix"
+0x2f86ba,save_context,instance,asm,custom,C,save_context,internal; CF set on stack overflow (depth 8); copies 27 dwords from 0x36244F
+0x2f8705,g3_scale_object,instance,asm,custom,C,g3_scale_object,eax=scale
+0x2f8864,g3_end_object,instance,asm,custom,C,g3_end_object,pops matrix/context stacks; game callers: 5
+0x2f88af,instance_matrix,instance,asm,custom,C,instance_matrix,internal
+0x2f88cc,g3_set_light_src,light,asm,custom,B,g3_set_light_src,eax=vector; game callers: 3
+0x2f88d8,g3_rotate_light_src,light,asm,custom,B,,rotates light_src in place by matrix edi (name uncertain); no static refs
+0x2f88ea,g3_eval_vec_light,light,asm,custom,B,g3_eval_vec_light,light_vec = src * diff (name uncertain)
+0x2f8927,g3_trans_loc_light,light,asm,custom,B,g3_trans_loc_light,no static refs
+0x2f893e,g3_eval_loc_light,light,asm,custom,B,g3_eval_loc_light,eax=pos
+0x2f89a2,g3_eval_view,light,asm,custom,B,g3_eval_view,eax=pos
+0x2f8a11,g3_eval_ldotv,light,asm,custom,B,g3_eval_ldotv,
+0x2f8a28,g3_eval_light_obj_cen,light,asm,custom,B,g3_eval_light_obj_cen,uses 0x362428; game callers: 2
+0x2f8a66,g3_eval_view_ahead,light,asm,custom,B,g3_eval_view_ahead,no static refs
+0x2f8a91,check_for_near,light,asm,custom,B,check_for_near,internal
+0x2f8ac8,g3_light_diff,light,asm,custom,B,g3_light_diff,"eax=norm, edx=pos -> eax; no static refs"
+0x2f8b04,g3_light_spec,light,asm,custom,B,g3_light_spec,"eax=norm, edx=pos -> eax; no static refs"
+0x2f8b7d,g3_light_dands,light,asm,custom,B,g3_light_dands,"eax=norm, edx=pos -> eax; no static refs"
+0x2f8c09,g3_light,light,asm,custom,B,g3_light,dispatch on _g3d_light_type; game callers: 2
+0x2f8c4c,g3_draw_tmap_tile,tmap,asm,custom,B,g3_draw_tmap_tile,"pushad; 2D func index,type = 0x3A,0 then do_tmap_tile (names after first two uncertain); no static refs"
+0x2f8c69,g3_light_tmap_tile,tmap,asm,custom,B,g3_light_tmap_tile,"pushad; 2D func index,type = 0x46,1 then do_tmap_tile (names after first two uncertain); no static refs"
+0x2f8c86,g3_tmap_tile_t3,tmap,asm,custom,B,,"pushad; 2D func index,type = 0x6C,3 then do_tmap_tile (names after first two uncertain); no static refs"
+0x2f8ca3,g3_tmap_tile_t2,tmap,asm,custom,B,,"pushad; 2D func index,type = 0x60,2 then do_tmap_tile (names after first two uncertain); no static refs"
+0x2f8cbe,do_tmap_tile,tmap,asm,custom,B,do_tmap_tile,internal; no static refs
+0x2f8e46,g3_check_and_quad_tile_0,tmap,asm,custom,B,,pushad; facing check 0x2F9550 then quad_tile (variant 0; names ours); no static refs
+0x2f8e5d,g3_check_and_quad_tile_1,tmap,asm,custom,B,,pushad; facing check 0x2F9550 then quad_tile (variant 1; names ours); no static refs
+0x2f8e74,g3_check_and_quad_tile_2,tmap,asm,custom,B,,pushad; facing check 0x2F9550 then quad_tile (variant 2; names ours); no static refs
+0x2f8e8b,g3_check_and_quad_tile_3,tmap,asm,custom,B,,pushad; facing check 0x2F9550 then quad_tile (variant 3; names ours); no static refs
+0x2f8ecd,g3_draw_floor_map,tmap,asm,custom,B,g3_draw_floor_map,"pushad; 2D func index,type = 0x30,2; no static refs"
+0x2f8ee7,g3_light_floor_map,tmap,asm,custom,B,g3_light_floor_map,"pushad; 2D func index,type = 0x32,3; no static refs"
+0x2f8f01,g3_draw_wall_map,tmap,asm,custom,B,g3_draw_wall_map,"pushad; 2D func index,type = 0x2A,2; no static refs"
+0x2f8f18,g3_light_wall_map,tmap,asm,custom,B,g3_light_wall_map,"pushad; 2D func index,type = 0x2C,3; no static refs"
+0x2f8f2f,g3_draw_lmap,tmap,asm,custom,B,g3_draw_lmap,pushad; then do_tmap; detail swaps 0x365310/0x365314 between these
+0x2f8f46,g3_light_lmap,tmap,asm,custom,B,g3_light_lmap,pushad; then do_tmap; detail swaps 0x365310/0x365314 between these
+0x2f8f5d,g3_light_tmap,tmap,asm,custom,B,g3_light_tmap,pushad; then do_tmap; detail swaps 0x365310/0x365314 between these
+0x2f8f74,g3_draw_tmap,tmap,asm,custom,B,g3_draw_tmap,pushad; then do_tmap; detail swaps 0x365310/0x365314 between these; game callers: 2
+0x2f8f89,do_tmap,tmap,asm,custom,B,do_tmap,"internal; clip via 0x316554/0x316A74/0x316510, grd_canvas_table[idx]; SMC at 0x2F9289/0x2F929D/0x2F92AB; no static refs"
+0x2f8ffb,g3_quad_tile_0,tmap,asm,custom,B,,pushad; then quad_tile 0x2F9060 (variant 0; names ours); no static refs
+0x2f9012,g3_quad_tile_1,tmap,asm,custom,B,,pushad; then quad_tile 0x2F9060 (variant 1; names ours); no static refs
+0x2f9029,g3_quad_tile_2,tmap,asm,custom,B,,pushad; then quad_tile 0x2F9060 (variant 2; names ours); no static refs
+0x2f9040,g3_quad_tile_3,tmap,asm,custom,B,,pushad; then quad_tile 0x2F9060 (variant 3; names ours); no static refs
+0x2f9060,quad_tile,tmap,asm,custom,B,,internal; no static refs
+0x2f9313,g3_compute_warp,tmap,asm,custom,B,,3 points + tile counts -> falls into calc_warp_matrix (name ours); no static refs
+0x2f93b7,calc_warp_matrix,tmap,asm,custom,B,calc_warp_matrix,internal; fallthrough target
+0x2f953c,g3_check_codes,polygon,asm,custom,B,g3_check_codes,"esi=list, ecx=n -> bx (or,and); no static refs"
+0x2f9550,g3_check_poly_facing,polygon,asm,custom,B,g3_check_poly_facing,"eax, edx, ebx points -> flags"
+0x2f9587,g3_check_and_draw_cpoly,polygon,asm,custom,B,g3_check_and_draw_cpoly,"type 4; ecx=n, esi=list (+eax color); no static refs"
+0x2f9590,g3_check_and_draw_tluc_spoly,polygon,asm,custom,B,g3_check_and_draw_tluc_spoly,"type 3; ecx=n, esi=list (+eax color); no static refs"
+0x2f9599,g3_check_and_draw_spoly,polygon,asm,custom,B,g3_check_and_draw_spoly,"type 2; ecx=n, esi=list (+eax color); no static refs"
+0x2f95a2,g3_check_and_draw_tluc_poly,polygon,asm,custom,B,g3_check_and_draw_tluc_poly,"type 1; ecx=n, esi=list (+eax color); no static refs"
+0x2f95ab,g3_check_and_draw_poly,polygon,asm,custom,B,g3_check_and_draw_poly,"type 0; ecx=n, esi=list (+eax color); no static refs"
+0x2f95ca,g3_draw_cpoly,polygon,asm,custom,B,g3_draw_cpoly,type 4 -> draw_poly_common; no static refs
+0x2f95d3,g3_draw_tluc_spoly,polygon,asm,custom,B,g3_draw_tluc_spoly,type 3 -> draw_poly_common; no static refs
+0x2f95dc,g3_draw_spoly,polygon,asm,custom,B,g3_draw_spoly,type 2 -> draw_poly_common; no static refs
+0x2f95e5,g3_draw_tluc_poly,polygon,asm,custom,B,g3_draw_tluc_poly,type 1 -> draw_poly_common; no static refs
+0x2f95ee,g3_draw_poly,polygon,asm,custom,B,g3_draw_poly,type 0 -> draw_poly_common; game callers: 2
+0x2f95f5,draw_poly_common,polygon,asm,custom,B,draw_poly_common,"eax=color, ecx=n, esi=list; clip_polygon; 2D func index table 0x364428 by type"
+0x2f974d,g3_draw_point,polygon,asm,custom,B,g3_draw_point,esi=point; no static refs
+0x2f9781,g3_draw_cline,polygon,asm,custom,B,g3_draw_cline,no static refs
+0x2f97c8,g3_draw_sline,polygon,asm,custom,B,g3_draw_sline,sets type 0xFF then draw_line; no static refs
+0x2f97d8,g3_draw_line,polygon,asm,custom,B,g3_draw_line,"esi, edi points; clip_line 0x31659C; gr_fix_sline 0x317C50; 0x3651E4; game callers: 6"
+0x2f99ad,g3_check_normal_facing,polygon,asm,custom,B,g3_check_normal_facing,"esi=point, edi=normal"
+0x2f99e0,g3_star_set,star,watcom,3,A,g3_star_set,"[0x44CE28]=eax,[0x44CE18]=edx,[0x44CE20]=ebx; unreferenced; no static refs"
+0x2f99f4,g3_star_alloc,star,watcom,1,A,g3_star_alloc,malloc(7n) via 0x2DF631; game callers: 1
+0x2f9a3c,g3_star_free,star,watcom,0,A,g3_star_free,unreferenced; tail jmp free; no static refs
+0x2f9a48,star_dist,star,watcom,1,A,,vector distance/scale with _matrix_scale (name ours)
+0x2f9aac,g3_star_poly,star,watcom,2,A,,"(n, list) draws via g3_draw_poly; unreferenced (name ours); no static refs"
+0x2f9b10,g3_star_clip_poly,star,watcom,2,A,,clip_polygon to stack buffer; unreferenced (name ours); no static refs
+0x2f9b6c,star_reset_bounds,star,watcom,0,A,,"0x3654E8=0, 0x3654EC=1.0 (name ours); game callers: 1"
+0x2f9b84,star_pixel,star,watcom,5,A,,4 regs + 1 stack (ret 4); grd_pixel_table+0xC (name ours)
+0x2f9bc8,star_color,star,watcom,2,A,,(name ours)
+0x2f9c90,star_build_table,star,watcom,0,A,,table 0x44CD18 via fix_pow (name ours)
+0x2f9d38,g3_star_render,star,watcom,0,A,g3_star_render,"calls star_transform 0x317CEC, g3_scale_object, gen_fill_pixel; game callers: 1"
+0x2f9f10,g3_star_random,star,watcom,2,A,g3_star_random,"al, dl; uses rand 0x317DB5; game callers: 1"
+0x2fa080,g3_set_detail_params,detail,asm,2,B,,"al,dl & 7 -> 0x36444C/D; unreferenced (name ours); no static refs"
+0x2fa094,g3_set_detail_dist,detail,asm,1,B,,eax -> 0x364450; unreferenced (name ours); no static refs
+0x2fa09c,g3_set_detail_level,detail,asm,1,B,,"eax=level, 6-byte entries 0x364454 (name ours); game callers: 1"
+0x2fa0cc,g3_set_detail_entry,detail,asm,custom,B,,"al,dl,ecx=index...; unreferenced (name ours); no static refs"
+0x2fa0f4,g3_set_view_angles,matrix,asm,custom,A,g3_set_view_angles,"esi=pos, ebx=angvec, ecx=order, eax=zoom; game callers: 1"
+0x2fa12b,g3_set_view_matrix,matrix,asm,custom,A,g3_set_view_matrix,"esi=pos, ebx=matrix, eax=zoom; no static refs"
+0x2fa148,process_view_matrix,matrix,asm,custom,A,process_view_matrix,"internal; horizon, axis negate, unscaled_matrix copy, scale_view_matrix, 0x362164=0; no static refs"
+0x2fa285,scale_view_matrix,matrix,asm,custom,A,scale_view_matrix,internal
+0x2fa42e,compute_invalid,matrix,asm,custom,A,compute_invalid,just ret; jump table 0x2FA40E slots 2 and 5
+0x2fa42f,angles_2_matrix,matrix,asm,custom,A,angles_2_matrix,"esi=angvec, edi=matrix, ecx=order; jmp cs:[eax*4+0x2FA40E]"
+0x2fa478,compute_ZXY,matrix,asm,custom,A,compute_ZXY,
+0x2fa496,compute_XZY,matrix,asm,custom,A,compute_XZY,
+0x2fa4b4,compute_ZYX,matrix,asm,custom,A,compute_ZYX,UNUSED: table slot 7 points to compute_XYZ (TN quirk); no static refs
+0x2fa4d2,compute_YXZ,matrix,asm,custom,A,compute_YXZ,
+0x2fa5aa,compute_YZX,matrix,asm,custom,A,compute_YZX,
+0x2fa686,compute_XYZ,matrix,asm,custom,A,compute_XYZ,slots 0 and 7
+0x2fa762,code_point,matrix,asm,custom,A,code_point,edi=point -> bl codes; also called by star3d
+0x2fa793,g3_vec_rotate,matrix,asm,custom,A,g3_vec_rotate,"ebx=dest, esi=src, edi=matrix"
+0x2fa820,g3_transpose,matrix,asm,custom,A,g3_transpose,esi=matrix in place
+0x2fa83c,g3_copy_transpose,matrix,asm,custom,A,g3_copy_transpose,"edi=dest, esi=src"
+0x2fa871,g3_matrix_x_matrix,matrix,asm,custom,A,g3_matrix_x_matrix,"ebx=dest, esi=src1, edi=src2"
+0x2fa9e1,get_pyr_vector,matrix,asm,custom,A,get_pyr_vector,internal
+0x2fabb7,g3_get_view_pyramid,matrix,asm,custom,A,g3_get_view_pyramid,edi=4 vectors; no static refs
+0x3150a0,g3_set_tmaps_linear,detail2,watcom,0,B,g3_set_tmaps_linear,0x365310/14 = draw_lmap/light_lmap; unreferenced; no static refs
+0x3150bc,g3_reset_tmaps,detail2,watcom,0,B,g3_reset_tmaps,0x365310/14 = draw_tmap/light_tmap; unreferenced; no static refs
+0x3150d8,g3_push_fill_mode,fill,asm,1,C,,"TN: eax=mode -> pushes 13-byte record (stack 0x365392, ptr 0x3653D2), calls mode push from table 0x3653D6 (name ours)"
+0x3150eb,g3_pop_fill_mode,fill,asm,0,C,,TN: pops and calls the pop routine (name ours)
+0x315102,fill_mode0_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 0)
+0x315167,fill_mode0_pop,fill,asm,custom,C,,restores slots saved by fill_mode0_push
+0x3151b9,fill_mode1_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 1)
+0x315246,fill_mode1_pop,fill,asm,custom,C,,restores slots saved by fill_mode1_push
+0x3152aa,fill_mode3_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 3)
+0x315391,fill_mode3_pop,fill,asm,custom,C,,restores slots saved by fill_mode3_push
+0x315406,fill_mode4_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 4)
+0x31547a,fill_mode4_pop,fill,asm,custom,C,,restores slots saved by fill_mode4_push
+0x3154b3,fill_mode2_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 2)
+0x3154fd,fill_mode2_pop,fill,asm,custom,C,,restores slots saved by fill_mode2_push
+0x315523,fill_mode5_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 5)
+0x3155ac,fill_mode5_pop,fill,asm,custom,C,,restores slots saved by fill_mode5_push
+0x315607,fill_mode6_push,fill,asm,custom,C,,patches opcode_table slots (table 0x3653D6 entry 6)
+0x31567b,fill_mode6_pop,fill,asm,custom,C,,restores slots saved by fill_mode6_push
+0x3156cc,fill_op_3156CC,fill,interp-op,custom,C,,replacement opcode handler for op 0x2D; ebp=bytecode
+0x3156d4,fill_op_3156D4,fill,interp-op,custom,C,,replacement opcode handler for op 0x31; ebp=bytecode
+0x3156dc,fill_op_3156DC,fill,interp-op,custom,C,,replacement opcode handler; unreferenced; ebp=bytecode; no static refs
+0x315717,fill_op_315717,fill,interp-op,custom,C,,replacement opcode handler; ebp=bytecode
+0x31571f,fill_op_31571F,fill,interp-op,custom,C,,replacement opcode handler for op 0x26; ebp=bytecode
+0x315727,fill_op_315727,fill,interp-op,custom,C,,replacement opcode handler for op 3; ebp=bytecode
+0x31574a,fill_op_31574A,fill,interp-op,custom,C,,replacement opcode handler for op 0x2D; ebp=bytecode
+0x315752,fill_op_315752,fill,interp-op,custom,C,,replacement opcode handler for op 0x31; ebp=bytecode
+0x31575a,fill_op_31575A,fill,interp-op,custom,C,,replacement opcode handler for ops 5/0x1B; ebp=bytecode
+0x315762,fill_op_315762,fill,interp-op,custom,C,,replacement opcode handler for ops 1/0x32; ebp=bytecode
+0x31577f,fill_facing_light,fill,asm,custom,C,,helper: facing test against light src (name ours)
+0x3157ac,fill_op_3157AC,fill,interp-op,custom,C,,replacement opcode handler for op 4; ebp=bytecode
+0x315811,fill_op_315811,fill,interp-op,custom,C,,replacement opcode handler for op 0x26; ebp=bytecode
+0x315876,fill_op_315876,fill,interp-op,custom,C,,replacement opcode handler for op 6; ebp=bytecode
+0x3158c4,fill_op_3158C4,fill,interp-op,custom,C,,replacement opcode handler for op 0x2D; ebp=bytecode
+0x315921,fill_op_315921,fill,interp-op,custom,C,,replacement opcode handler for op 0x32; ebp=bytecode
+0x315953,fill_op_315953,fill,interp-op,custom,C,,replacement opcode handler for op 0x31; ebp=bytecode
+0x3159c4,fill_op_3159C4,fill,interp-op,custom,C,,replacement opcode handler for op 4; ebp=bytecode
+0x315a84,fill_op_315A84,fill,interp-op,custom,C,,replacement opcode handler for op 0x26; ebp=bytecode
+0x316510,clip_restore_uv,clip,watcom,2,B,,"TN: (n, list) restore uv pointers saved in point+0x16 when p3_flags&0x80 (name ours)"
+0x316554,clip_save_uv,clip,watcom,3,B,,"TN: (n, list, uvs) (name ours)"
+0x31659c,g3_clip_line,clip,pragma,custom,B,g3_clip_line,"esi=src 2-point list, edi=dest -> eax codes"
+0x316a74,g3_clip_polygon,clip,pragma,custom,B,g3_clip_polygon,"ecx=n, esi=src list, edi=dest list -> eax n"
+0x317120,intersect,clip,watcom,0,B,intersect,globals 0x45DAC0..; interpolation flags 0x362434; 0x317092 is an interior label
+0x317360,clip_behind,clip,watcom,0,B,,per-plane clipper (name by order)
+0x3174c4,clip_left,clip,watcom,0,B,,
+0x31760c,clip_top,clip,watcom,0,B,,
+0x317754,clip_right,clip,watcom,0,B,,
+0x3178a4,clip_bottom,clip,watcom,0,B,,
+0x3179d4,clip_project_list,clip,watcom,2,B,,"(list, n) project unprojected points; unreferenced (name ours); no static refs"
+0x317a9c,g3_draw_box,cliputil,watcom,1,A,,"TN C: box from 2 corners, transform + copy_add_delta + draw_line; unreferenced (0x317ABB is mid-instruction, not an entry) (name ours); no static refs"
+0x317bb4,g3_get_object_axes,cliputil,watcom,2,A,,TN C: world_to_object on 3 axes; unreferenced (name ours); no static refs
+0x317cec,star_transform,star3d,asm,custom,A,,"esi=vec -> edi=point, updates 0x3654E8 min z; code_point then tail-jmp g3_project_point"

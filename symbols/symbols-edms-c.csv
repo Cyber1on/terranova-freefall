@@ -1,0 +1,12 @@
+address,name,kind,nargs,library,status,notes
+0x312cb8,marble_static_init,func,0,EDMS,decomp,XI 0x36EFB4
+0x312cc3,marble_safe_mag,func,4,EDMS,decomp,"(Q*x,Q*y,Q*z, hidden Q*ret in ecx) name ours"
+0x312d9b,marble_idof,func,1,EDMS,decomp,
+0x313a6e,marble_set_control,func,4,EDMS,decomp,
+0x313afc,marble_set_I11,func,4,EDMS,decomp,name ours
+0x313b30,marble_add_I14,func,4,EDMS,decomp,name ours
+0x313b59,make_marble,func,2,EDMS,decomp,
+0x3198a4,deadly_idof,func,1,EDMS,decomp,
+0x319c87,make_death,func,2,EDMS,decomp,
+0x319de4,death_stub_neg1_a,func,0,EDMS,decomp,name ours
+0x319dec,death_stub_neg1_b,func,0,EDMS,decomp,name ours

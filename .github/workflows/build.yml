@@ -1,0 +1,97 @@
+# Builds tnfree.exe (32-bit Windows) for every pull request and every push to main.
+# The .exe is attached to the run as an artifact ("tnfree-windows-x86") for download, and the
+# folder for testers (exe, player guide, licences, the GeneralUser GS SoundFont, the Freefall
+# Music pack) as "tnfree-<version>-windows-x86".
+name: build
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+# a newer push to the same branch cancels the older run (no mails about runs nobody needs)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  windows-x86:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MinGW-w64
+        # Azure's Ubuntu mirror is sometimes very slow: each try gets a few minutes, and later tries
+        # use the main Ubuntu archive instead
+        timeout-minutes: 20
+        run: |
+          for i in 1 2 3; do
+            if [ $i -eq 2 ]; then
+              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' \
+                /etc/apt/sources.list.d/*.sources /etc/apt/sources.list /etc/apt/apt-mirrors.txt 2>/dev/null || true
+            fi
+            if [ $i -eq 3 ]; then   # Ubuntu's own servers out of reach: another mirror of the same archive
+              sudo sed -i -E 's#https?://(azure\.archive|archive|security)\.ubuntu\.com#https://mirrors.edge.kernel.org#g' \
+                /etc/apt/sources.list.d/*.sources /etc/apt/sources.list /etc/apt/apt-mirrors.txt 2>/dev/null || true
+            fi
+            sudo timeout -k 10 120 apt-get update && \
+              sudo timeout -k 10 240 apt-get install -y -o Acquire::http::Timeout=30 gcc-mingw-w64-i686 g++-mingw-w64-i686 ninja-build && exit 0
+            sleep 10
+          done
+          exit 1
+      - name: Configure
+        run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=cmake/mingw-w64-i686.cmake
+      - name: Build
+        run: cmake --build build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tnfree-windows-x86
+          path: build/tnfree.exe
+      - name: Fetch GeneralUser GS
+        # the SoundFont for the Music folder (not kept in git): one pinned copy, its SHA-256 checked
+        timeout-minutes: 5
+        run: sh tools/fetch-generaluser.sh downloads
+      - name: Fetch the Freefall Music pack and Mod Pack
+        # Freefall-MP3.zip for Music and Freefall.zip for Mods (not kept in git): this repository's
+        # releases music-mp3-1 and mod-pack-1.2, their SHA-256 checked; the build's token lets gh
+        # read them while the repo is private
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: sh tools/fetch-freefall-files.sh downloads
+      - name: Package for testers
+        # the folder testers unzip: tnfree.exe, the player guide, licences, bug list, the SoundFont,
+        # the Freefall Music pack and the Freefall Mod Pack (tools/package.sh)
+        run: |
+          sh tools/package.sh build/tnfree.exe package downloads
+          v=$(sed -n 's/^#define FREEFALL_VERSION_FULL "\(.*\)"/\1/p' build/gen/version.h | tr ' ' '-')
+          echo "PACKAGE_NAME=tnfree-$v-windows-x86" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACKAGE_NAME }}
+          path: package/
+  verification-build:
+    # the emulator build of the same C must still compile (the tests need the game, so they don't run here)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install gcc-multilib
+        # Azure's Ubuntu mirror is sometimes very slow: each try gets a few minutes, and later tries
+        # use the main Ubuntu archive instead
+        timeout-minutes: 20
+        run: |
+          for i in 1 2 3; do
+            if [ $i -eq 2 ]; then
+              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' \
+                /etc/apt/sources.list.d/*.sources /etc/apt/sources.list /etc/apt/apt-mirrors.txt 2>/dev/null || true
+            fi
+            if [ $i -eq 3 ]; then   # Ubuntu's own servers out of reach: another mirror of the same archive
+              sudo sed -i -E 's#https?://(azure\.archive|archive|security)\.ubuntu\.com#https://mirrors.edge.kernel.org#g' \
+                /etc/apt/sources.list.d/*.sources /etc/apt/sources.list /etc/apt/apt-mirrors.txt 2>/dev/null || true
+            fi
+            sudo timeout -k 10 120 apt-get update && \
+              sudo timeout -k 10 240 apt-get install -y -o Acquire::http::Timeout=30 gcc-multilib && exit 0
+            sleep 10
+          done
+          exit 1
+      - name: Build
+        run: sh verify/build.sh

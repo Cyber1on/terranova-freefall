@@ -1,0 +1,159 @@
+address,name,kind,nargs,library,status,notes
+0x27d140,damage_27D140,func,5,GAME,decomp,unitnear.c (M042)
+0x27d158,damage_27D158,func,1,GAME,decomp,unitnear.c (M042)
+0x27d1e4,damage_27D1E4,func,2,GAME,decomp,unitnear.c (M042)
+0x27d368,damage_27D368,func,3,GAME,decomp,unitnear.c (M042)
+0x27d458,damage_27D458,func,2,GAME,decomp,unitnear.c (M042)
+0x27d540,damage_27D540,func,1,GAME,decomp,unitnear.c (M042)
+0x27dc90,damage_27DC90,func,5,GAME,decomp,vehinit.c (M045)
+0x27dd64,damage_27DD64,func,3,GAME,decomp,vehinit.c (M045)
+0x27de84,damage_27DE84,func,1,GAME,decomp,vehinit.c (M045)
+0x27df14,damage_27DF14,func,2,GAME,decomp,vehinit.c (M045)
+0x27e064,damage_27E064,func,1,GAME,decomp,vehinit.c (M045)
+0x27e0b4,damage_27E0B4,func,0,GAME,decomp,vehinit.c (M045)
+0x27e0e0,damage_27E0E0,func,3,GAME,decomp,projinit.c (M046)
+0x27e134,damage_27E134,func,3,GAME,decomp,projinit.c (M046)
+0x27e14c,damage_27E14C,func,4,GAME,decomp,projinit.c (M046)
+0x27e200,damage_27E200,func,2,GAME,decomp,unittab.c (M048)
+0x27e234,damage_27E234,func,1,GAME,decomp,unittab.c (M048)
+0x2836e0,aircraft_2836E0,func,0,GAME,decomp,aircraft.c (M052)
+0x28375c,aircraft_28375C,func,0,GAME,decomp,aircraft.c (M052)
+0x283770,aircraft_283770,func,1,GAME,decomp,aircraft.c (M052)
+0x2837b4,aircraft_2837B4,func,2,GAME,decomp,aircraft.c (M052)
+0x283a64,aircraft_283A64,func,2,GAME,decomp,aircraft.c (M052)
+0x283a94,aircraft_283A94,func,0,GAME,decomp,aircraft.c (M052)
+0x283afc,aircraft_283AFC,func,0,GAME,decomp,aircraft.c (M052)
+0x283b88,aircraft_283B88,func,1,GAME,decomp,aircraft.c (M052)
+0x283f00,aircraft_283F00,func,1,GAME,decomp,aircraft.c (M052)
+0x283f2c,aircraft_283F2C,func,2,GAME,decomp,aircraft.c (M052)
+0x284444,aircraft_284444,func,1,GAME,decomp,aircraft.c (M052)
+0x2844f4,aircraft_2844F4,func,1,GAME,decomp,aircraft.c (M052)
+0x284670,aircraft_284670,func,4,GAME,decomp,aircraft.c (M052)
+0x284888,aircraft_284888,func,4,GAME,decomp,aircraft.c (M052)
+0x284a6c,aircraft_284A6C,func,3,GAME,decomp,aircraft.c (M052)
+0x284ab0,aircraft_284AB0,func,2,GAME,decomp,aircraft.c (M052)
+0x284cec,aircraft_284CEC,func,1,GAME,decomp,aircraft.c (M052)
+0x284d00,aircraft_284D00,func,3,GAME,decomp,aircraft.c (M052)
+0x284e78,aircraft_284E78,func,6,GAME,decomp,aircraft.c (M052)
+0x284f2c,aircraft_284F2C,func,1,GAME,decomp,aircraft.c (M052)
+0x285024,aircraft_285024,func,1,GAME,decomp,aircraft.c (M052)
+0x285348,aircraft_285348,func,1,GAME,decomp,aircraft.c (M052)
+0x285460,aircraft_285460,func,1,GAME,decomp,aircraft.c (M052)
+0x28559c,aircraft_28559C,func,1,GAME,decomp,aircraft.c (M052)
+0x285608,aircraft_285608,func,0,GAME,decomp,aircraft.c (M052)
+0x28565c,aircraft_28565C,func,1,GAME,decomp,aircraft.c (M052)
+0x2857e8,aircraft_2857E8,func,3,GAME,decomp,aircraft.c (M052)
+0x2859dc,aircraft_2859DC,func,4,GAME,decomp,aircraft.c (M052)
+0x285afc,aircraft_285AFC,func,1,GAME,decomp,aircraft.c (M052)
+0x285dc4,aircraft_285DC4,func,0,GAME,decomp,aircraft.c (M052)
+0x286010,aircraft_286010,func,1,GAME,decomp,aircraft.c (M052)
+0x28605c,aircraft_28605C,func,1,GAME,decomp,aircraft.c (M052)
+0x28618c,aircraft_28618C,func,0,GAME,decomp,aircraft.c (M052)
+0x2862b0,aircraft_2862B0,func,0,GAME,decomp,aircraft.c (M052)
+0x286324,aircraft_286324,func,0,GAME,decomp,aircraft.c (M052)
+0x28635c,aircraft_28635C,func,1,GAME,decomp,aircraft.c (M052)
+0x288260,instsim_288260,func,1,GAME,decomp,instsim.c (M054)
+0x288278,instsim_288278,func,1,GAME,decomp,instsim.c (M054)
+0x2883bc,instsim_2883BC,func,2,GAME,decomp,instsim.c (M054)
+0x28846c,instsim_28846C,func,1,GAME,decomp,instsim.c (M054)
+0x288554,instsim_288554,func,2,GAME,decomp,instsim.c (M054; 2nd arg unused: edx not saved, corrected at G2 merge)
+0x2888a4,instsim_2888A4,func,1,GAME,decomp,instsim.c (M054)
+0x288904,instsim_288904,func,6,GAME,decomp,instsim.c (M054)
+0x288a4c,instsim_288A4C,func,1,GAME,decomp,instsim.c (M054)
+0x288a98,instsim_288A98,func,1,GAME,decomp,instsim.c (M054)
+0x288aac,instsim_288AAC,func,1,GAME,decomp,instsim.c (M054)
+0x288c64,instsim_288C64,func,5,GAME,decomp,instsim.c (M054)
+0x288d10,instsim_288D10,func,6,GAME,decomp,instsim.c (M054)
+0x288e04,instsim_288E04,func,1,GAME,decomp,instsim.c (M054)
+0x288e40,instsim_288E40,func,1,GAME,decomp,instsim.c (M054)
+0x289910,pbasim_289910,func,2,GAME,decomp,pbasim.c (M058)
+0x289930,pbasim_289930,func,0,GAME,decomp,pbasim.c (M058)
+0x289948,pbasim_289948,func,0,GAME,decomp,pbasim.c (M058)
+0x289a64,pbasim_289A64,func,3,GAME,decomp,pbasim.c (M058)
+0x289b3c,pbasim_289B3C,func,0,GAME,decomp,pbasim.c (M058)
+0x289b7c,pbasim_289B7C,func,0,GAME,decomp,pbasim.c (M058)
+0x289b94,pbasim_289B94,func,1,GAME,decomp,pbasim.c (M058)
+0x289d20,pbasim_289D20,func,2,GAME,decomp,pbasim.c (M058)
+0x28a05c,pbasim_28A05C,func,1,GAME,decomp,pbasim.c (M058)
+0x28a140,pbasim_28A140,func,2,GAME,decomp,pbasim.c (M058)
+0x28a344,pbasim_28A344,func,2,GAME,decomp,pbasim.c (M058)
+0x28a500,pbasim_28A500,func,2,GAME,decomp,pbasim.c (M058)
+0x28a534,pbasim_28A534,func,1,GAME,decomp,pbasim.c (M058)
+0x28a5a0,pbasim_28A5A0,func,5,GAME,decomp,pbasim.c (M058)
+0x28a66c,pbasim_28A66C,func,1,GAME,decomp,pbasim.c (M058)
+0x28a698,pbasim_28A698,func,1,GAME,decomp,pbasim.c (M058)
+0x28a69c,pbasim_28A69C,func,1,GAME,decomp,pbasim.c (M058)
+0x28a6f0,pbasim_28A6F0,func,5,GAME,decomp,pbasim.c (M058)
+0x28a79c,pbasim_28A79C,func,6,GAME,decomp,pbasim.c (M058)
+0x28a878,pbasim_28A878,func,7,GAME,decomp,pbasim.c (M058)
+0x28a9b8,pbasim_28A9B8,func,1,GAME,decomp,pbasim.c (M058)
+0x28a9c8,pbasim_28A9C8,func,2,GAME,decomp,pbasim.c (M058)
+0x28aa50,pbasim_28AA50,func,0,GAME,decomp,pbasim.c (M058)
+0x28ab1c,pbasim_28AB1C,func,2,GAME,decomp,pbasim.c (M058)
+0x28ab74,pbasim_28AB74,func,2,GAME,decomp,pbasim.c (M058)
+0x28abe0,PbaPlayerMove,func,3,GAME,decomp,pbasim.c (M058)
+0x28ac5c,pbasim_28AC5C,func,4,GAME,decomp,pbasim.c (M058)
+0x28acd4,pbasim_28ACD4,func,1,GAME,decomp,pbasim.c (M058)
+0x28ad10,pbasim_28AD10,func,4,GAME,decomp,pbasim.c (M058)
+0x28adbc,pbasim_28ADBC,func,3,GAME,decomp,pbasim.c (M058)
+0x28b498,pbasim_28B498,func,0,GAME,decomp,pbasim.c (M058)
+0x28b5b0,pbasim_28B5B0,func,2,GAME,decomp,pbasim.c (M058)
+0x28b654,pbasim_28B654,func,1,GAME,decomp,pbasim.c (M058)
+0x28b778,pbasim_28B778,func,1,GAME,decomp,pbasim.c (M058)
+0x355a00,instsim_file,data,,GAME,orig,g3_c.h
+0x355a7c,pbasim_file,data,,GAME,orig,g3_c.h
+0x35a940,pba_targ_lost_time,data,,GAME,orig,g3_c.h
+0x35a95c,game_35A95C,data,,GAME,orig,g3_c.h
+0x35b6aa,air_35B6AA,data,,GAME,orig,g3_c.h
+0x35b6b0,air_35B6B0,data,,GAME,orig,g3_c.h
+0x35b6c2,air_35B6C2,data,,GAME,orig,g3_c.h
+0x35b6c3,air_parm_35B6C3,data,,GAME,orig,g3_c.h
+0x35b6cc,air_35B6CC,data,,GAME,orig,g3_c.h
+0x35b6d0,air_35B6D0,data,,GAME,orig,g3_c.h
+0x35b6dc,air_35B6DC,data,,GAME,orig,g3_c.h
+0x35b6e1,air_mission_flags,data,,GAME,orig,g3_c.h
+0x35b6e6,air_parm_35B6E6,data,,GAME,orig,g3_c.h
+0x35b6ed,air_35B6ED,data,,GAME,orig,g3_c.h
+0x35b6f0,air_35B6F0,data,,GAME,orig,g3_c.h
+0x35b6f4,air_35B6F4,data,,GAME,orig,g3_c.h
+0x35b6f8,air_35B6F8,data,,GAME,orig,g3_c.h
+0x35b6fc,air_35B6FC,data,,GAME,orig,g3_c.h
+0x35b700,air_35B700,data,,GAME,orig,g3_c.h
+0x35b740,inst_siren_level,data,,GAME,orig,g3_c.h
+0x35b744,inst_siren_flags,data,,GAME,orig,g3_c.h
+0x35b745,inst_siren_count,data,,GAME,orig,g3_c.h
+0x35b748,inst_siren_time,data,,GAME,orig,g3_c.h
+0x35b74c,inst_siren_35B74C,data,,GAME,orig,g3_c.h
+0x35b784,pba_snd_count,data,,GAME,orig,g3_c.h
+0x35b788,pba_snd_chan,data,,GAME,orig,g3_c.h
+0x35b78c,pba_snd_chan2,data,,GAME,orig,g3_c.h
+0x35b790,pba_enemy_count,data,,GAME,orig,g3_c.h
+0x35b794,pba_edge_flags,data,,GAME,orig,g3_c.h
+0x35b798,pba_saved_mask,data,,GAME,orig,g3_c.h
+0x35b79c,pba_speed_tab,data,,GAME,orig,g3_c.h
+0x35cada,game_35CADA,data,,GAME,orig,g3_c.h
+0x35ecf2,game_35ECF2,data,,GAME,orig,g3_c.h
+0x38fc12,game_38FC12,data,,GAME,orig,g3_c.h
+0x39034d,game_39034D,data,,GAME,orig,g3_c.h
+0x392490,game_392490,data,,GAME,orig,g3_c.h
+0x3924a0,player_sys_pct,data,,GAME,orig,g3_c.h
+0x396860,air_ret,data,,GAME,orig,g3_c.h
+0x396870,air_dead,data,,GAME,orig,g3_c.h
+0x396874,air_alt,data,,GAME,orig,g3_c.h
+0x396878,air_drop_pos,data,,GAME,orig,g3_c.h
+0x396884,air_drop_ang,data,,GAME,orig,g3_c.h
+0x3968b2,air_3968B2,data,,GAME,orig,g3_c.h
+0x3968b3,air_3968B3,data,,GAME,orig,g3_c.h
+0x3968b4,air_3968B4,data,,GAME,orig,g3_c.h
+0x3968b8,air_strike_vel,data,,GAME,orig,g3_c.h
+0x3968c4,air_strike_prev,data,,GAME,orig,g3_c.h
+0x396e20,inst_aim_out,data,,GAME,orig,g3_c.h
+0x396e2c,inst_siren_ent,data,,GAME,orig,g3_c.h
+0x3970f0,pba_dying,data,,GAME,orig,g3_c.h
+0x3970f8,pba_end_timer,data,,GAME,orig,g3_c.h
+0x397c90,air_target,data,,GAME,orig,g3_c.h
+0x41e218,game_41E218,data,,GAME,orig,g3_c.h
+0x42015a,game_42015A,data,,GAME,orig,g3_c.h
+0x440930,game_440930,data,,GAME,orig,g3_c.h
+0x442435,game_442435,data,,GAME,orig,g3_c.h
+0x442870,unit_tab,data,,GAME,orig,g3_c.h

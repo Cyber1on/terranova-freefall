@@ -1,0 +1,28 @@
+address,name,kind,nargs,library,status,notes
+0x30f860,sintab,data,,FIX,decomp,ushort[321] (src/fix/trigtab.c)
+0x30fae2,asintab,data,,FIX,decomp,fixang[129]
+0x30fbe4,expinttab,data,,FIX,decomp,ulong[23]
+0x30fc40,expfractab,data,,FIX,decomp,ulong[17]
+0x360370,byteguess,data,,FIX,decomp,uchar[256] (fix_asm.asm)
+0x44b7e0,gOVResult,data,,FIX,decomp,uchar overflow flag
+0x2f059c,fix_sincos_asm,func,custom,FIX,decomp,asm: bx=theta -> eax=sin ebx=cos
+0x2f05f5,long_sqrt,func,1,FIX,decomp,asm; value [eax]; trashes ebx ecx edx esi edi
+0x2f0676,fix_sqrt,func,1,FIX,decomp,asm
+0x2f0682,fix_sloppy_sqrt,func,1,FIX,decomp,asm
+0x2f06c2,fix24_sqrt,func,1,FIX,decomp,asm
+0x2f06ce,quad_sqrt,func,2,FIX,decomp,asm; edx:eax = x
+0x2ec8e0,fix_mul_asm_safe,func,2,FIX,decomp,unreferenced
+0x2ec908,fix_pyth_dist,func,2,FIX,decomp,
+0x2ec930,fix_fast_pyth_dist,func,2,FIX,decomp,
+0x2ec968,fix_safe_pyth_dist,func,4,FIX,decomp,"extra file,line args (unused)"
+0x2ec9ec,long_safe_pyth_dist,func,2,FIX,decomp,
+0x2eca00,fix_sincos,func,3,FIX,decomp,
+0x2eca98,fix_sin,func,1,FIX,decomp,
+0x2ecae0,fix_cos,func,1,FIX,decomp,
+0x2ecb28,fix_fastsincos,func,3,FIX,decomp,
+0x2ecb54,fix_fastsin,func,1,FIX,decomp,unreferenced
+0x2ecb6c,fix_fastcos,func,1,FIX,decomp,unreferenced
+0x2ecb84,fix_asin,func,1,FIX,decomp,returns fixang
+0x2ecbd0,fix_acos,func,1,FIX,decomp,returns fixang
+0x2ecc24,fix_atan2,func,2,FIX,decomp,returns fixang
+0x2facb0,fix_exp,func,1,FIX,decomp,

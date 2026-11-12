@@ -1,0 +1,150 @@
+address,name,kind,nargs,library,status,notes
+0x299590,planet_299590,func,1,GAME,decomp,planet.c start a planet heap allocation (M074)
+0x2995dc,planet_2995DC,func,0,GAME,decomp,planet.c (M074)
+0x2995e8,planet_2995E8,func,1,GAME,decomp,planet.c take bytes (M074)
+0x299624,PlanetUse,func,1,GAME,decomp,planet.c (M074)
+0x299c34,planet_299C34,func,0,GAME,decomp,planet.c (M074)
+0x299cc4,planet_299CC4,func,0,GAME,decomp,planet.c unused (M074)
+0x299e04,planet_299E04,func,0,GAME,decomp,planet.c palette callback (M074)
+0x299e4c,planet_299E4C,func,0,GAME,decomp,planet.c (M074)
+0x41dd40,planet_mem_left,data,,GAME,orig,planet.c g5_c.h ulong
+0x41dd44,planet_mem_ptr,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd48,planet_mem_base,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd4c,planet_shade,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd50,planet_tex_rows,data,,GAME,orig,planet.c g5_c.h uchar **
+0x41dd54,planet_res2c,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd5c,planet_res47,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd64,planet_res46,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd68,planet_res31,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd6c,planet_res30,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd70,planet_res2f,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd74,planet_res2e,data,,GAME,orig,planet.c g5_c.h uchar *
+0x41dd8c,planet_pal_count,data,,GAME,orig,planet.c g5_c.h short
+0x41dd8e,planet_pal_part,data,,GAME,orig,planet.c g5_c.h uchar[0xA5]
+0x41de35,planet_tex_count,data,,GAME,orig,planet.c g5_c.h uchar
+0x41de36,planet_res2a,data,,GAME,orig,planet.c g5_c.h uchar
+0x41dc40,planet_tex,data,,GAME,orig,planet.c g5_c.h uchar *[0x40]
+0x417028,planet_pal,data,,GAME,orig,planet.c g5_c.h uchar[0x300]
+0x417328,planet_tab3b,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417428,planet_tab3c,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417528,planet_tab3d,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417628,planet_tab3e,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417728,planet_tab40,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417828,planet_tab3f,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417928,planet_tab41,data,,GAME,orig,planet.c g5_c.h uchar[0x100]
+0x417a28,planet_shaded,data,,GAME,orig,planet.c g5_c.h uchar[3][0x1800]
+0x41c228,planet_light,data,,GAME,orig,planet.c g5_c.h uchar[0x1800]
+0x3ce5e0,planet_tab38,data,,GAME,orig,planet.c g5_c.h uchar[0x800]
+0x3cede0,planet_tab3a,data,,GAME,orig,planet.c g5_c.h uchar[0x1100]
+0x3cfee0,planet_tab37,data,,GAME,orig,planet.c g5_c.h uchar[0x1000]
+0x3d0ee0,planet_tab36,data,,GAME,orig,planet.c g5_c.h uchar[0x800]
+0x3d16e0,planet_heap,data,,GAME,orig,planet.c g5_c.h uchar[0x45948]
+0x35c028,planet_res_file,data,,GAME,orig,planet.c g5_c.h int
+0x2a0d70,viewdist_2A0D70,func,0,GAME,decomp,viewdist.c load distance tables (M079)
+0x2a0e14,viewdist_2A0E14,func,2,GAME,decomp,viewdist.c unused (M079)
+0x2a0e54,viewdist_2A0E54,func,1,GAME,decomp,viewdist.c (M079)
+0x2a0ec8,viewdist_2A0EC8,func,0,GAME,decomp,viewdist.c frame start (M079)
+0x2a0f48,viewdist_2A0F48,func,0,GAME,decomp,viewdist.c frame end (M079)
+0x2a0f68,viewdist_2A0F68,func,2,GAME,decomp,viewdist.c occlusion span (M079)
+0x2a10e8,viewdist_2A10E8,func,2,GAME,decomp,viewdist.c (M079)
+0x2a1160,viewdist_2A1160,func,4,GAME,decomp,viewdist.c (M079)
+0x2a11b0,viewdist_2A11B0,func,5,GAME,decomp,viewdist.c (M079)
+0x2a13b8,viewdist_2A13B8,func,2,GAME,decomp,viewdist.c collect a strip (M079)
+0x2a1840,viewdist_2A1840,func,1,GAME,decomp,viewdist.c (M079)
+0x2a18f8,viewdist_2A18F8,func,2,GAME,decomp,viewdist.c qsort compare (M079)
+0x2a197c,viewdist_2A197C,func,1,GAME,decomp,viewdist.c sort (M079)
+0x2a1cc8,viewdist_2A1CC8,func,0,GAME,decomp,viewdist.c (M079)
+0x2a1d80,viewdist_2A1D80,func,2,GAME,decomp,viewdist.c (M079)
+0x2a1e84,viewdist_2A1E84,func,2,GAME,decomp,viewdist.c (M079)
+0x2a2088,viewdist_2A2088,func,1,GAME,decomp,viewdist.c (M079)
+0x2a20c4,viewdist_2A20C4,func,1,GAME,decomp,viewdist.c (M079)
+0x2a213c,viewdist_2A213C,func,3,GAME,decomp,viewdist.c (M079)
+0x2a2204,viewdist_2A2204,func,4,GAME,decomp,viewdist.c (M079)
+0x2a2284,viewdist_2A2284,func,5,GAME,decomp,viewdist.c draw one object (M079)
+0x2a250c,viewdist_2A250C,func,2,GAME,decomp,viewdist.c draw a strip (M079)
+0x2a2864,viewdist_2A2864,func,1,GAME,decomp,viewdist.c unused (M079)
+0x2a28d0,viewdist_2A28D0,func,6,GAME,decomp,viewdist.c screen to world (M079)
+0x2a2ca8,viewdist_2A2CA8,func,4,GAME,decomp,viewdist.c (M079)
+0x2a2d88,viewdist_2A2D88,func,2,GAME,decomp,viewdist.c (M079)
+0x2a3158,viewdist_2A3158,func,1,GAME,decomp,viewdist.c (M079)
+0x2a3190,viewdist_2A3190,func,3,GAME,decomp,viewdist.c (M079)
+0x41ecc0,vd_dist_tab,data,,GAME,orig,viewdist.c g5_c.h uchar[9][0x80]
+0x41ec80,vd_canvas,data,,GAME,orig,viewdist.c g5_c.h grs_canvas
+0x41f140,vd_spans,data,,GAME,orig,viewdist.c g5_c.h ushort[0x800]
+0x420140,vd_nodes,data,,GAME,orig,viewdist.c g5_c.h VdNode *
+0x420144,vd_420144,data,,GAME,orig,viewdist.c g5_c.h long
+0x420148,vd_420148,data,,GAME,orig,viewdist.c g5_c.h long
+0x42014c,vd_tile_info,data,,GAME,orig,viewdist.c g5_c.h VdInfo *
+0x420150,vd_ent_info,data,,GAME,orig,viewdist.c g5_c.h VdInfo *
+0x420154,vd_draw_arg,data,,GAME,orig,viewdist.c g5_c.h short
+0x420156,vd_node_count,data,,GAME,orig,viewdist.c g5_c.h ushort
+0x420158,vd_spans_used,data,,GAME,orig,viewdist.c g5_c.h ushort
+0x35c110,vd_pick_cls,data,,GAME,orig,viewdist.c g5_c.h uchar[]
+0x41eb68,ff_view,data,,GAME,orig,g5_b.h FfView
+0x41ebc4,ff_cam,data,,GAME,orig,g5_b.h FfCamera
+0x41eb50,ffpipe_mesh,data,,GAME,orig,g5_b.h long
+0x427e08,hview_cols,data,,GAME,orig,g5_b.h long *
+0x427de0,strip_427DE0,data,,GAME,orig,g5_b.h uchar *
+0x2ac530,blast_2AC530,func,0,GAME,decomp,blasttm.c (M086)
+0x2ac5b0,blast_2AC5B0,func,0,GAME,decomp,blasttm.c (M086)
+0x2ac5bc,BlastFindTmap,func,1,GAME,decomp,blasttm.c (M086)
+0x2ac6d0,blast_2AC6D0,func,0,GAME,decomp,blasttm.c (M086)
+0x428810,blast_map,data,,GAME,orig,blasttm.c g5_c.h uchar[0x40]
+0x428850,blast_cache,data,,GAME,orig,blasttm.c g5_c.h BlastTex[5]
+0x4288a0,blast_noise,data,,GAME,orig,blasttm.c g5_c.h uchar[0x100]
+0x4289a0,blast_noise_tmp,data,,GAME,orig,blasttm.c g5_c.h uchar[0x100]
+0x428aa0,blast_clock,data,,GAME,orig,blasttm.c g5_c.h ulong
+0x2ab800,strip_2AB800,func,6,GAME,decomp,strip.c height step tables (M085)
+0x2ab8bc,strip_2AB8BC,func,3,GAME,decomp,strip.c project (M085)
+0x2aba1c,strip_2ABA1C,func,2,GAME,decomp,strip.c rescale (M085)
+0x2abb10,strip_2ABB10,func,3,GAME,decomp,strip.c messages; switch (M085)
+0x2ac098,strip_2AC098,func,1,GAME,decomp,strip.c no callers (M085)
+0x2ac0c0,strip_2AC0C0,func,0,GAME,decomp,strip.c reciprocal tables (M085)
+0x2ac124,strip_2AC124,func,0,GAME,decomp,strip.c empty (M085)
+0x2ac128,strip_2AC128,func,1,GAME,decomp,strip.c (M085)
+0x2ac15c,strip_2AC15C,func,4,GAME,decomp,strip.c (M085)
+0x2ac19c,strip_2AC19C,func,4,GAME,decomp,strip.c column run (M085)
+0x2ac33c,strip_2AC33C,func,0,GAME,decomp,strip.c (M085)
+0x2ac378,strip_2AC378,func,1,GAME,decomp,strip.c (M085)
+0x2ac4b8,strip_2AC4B8,func,0,GAME,decomp,strip.c no callers (M085)
+0x2ac4e4,strip_2AC4E4,func,1,GAME,decomp,strip.c camera (M085)
+0x427e10,strip_ras,data,,GAME,orig,strip.c g5_c.h StripRas
+0x427e40,strip_row,data,,GAME,orig,strip.c g5_c.h uchar[0x100]
+0x427f44,strip_rows,data,,GAME,orig,strip.c g5_c.h long *
+0x427f4c,strip_row_len,data,,GAME,orig,strip.c g5_c.h long
+0x427f50,strip_bits,data,,GAME,orig,strip.c g5_c.h uchar *
+0x427f54,strip_recip,data,,GAME,orig,strip.c g5_c.h long[0x101]
+0x428358,strip_recip2,data,,GAME,orig,strip.c g5_c.h long[0x101]
+0x428760,strip_cur_x,data,,GAME,orig,strip.c g5_c.h fix
+0x428764,strip_cur_z,data,,GAME,orig,strip.c g5_c.h fix
+0x428768,strip_stepz,data,,GAME,orig,strip.c g5_c.h fix[9]
+0x42878c,strip_stepy,data,,GAME,orig,strip.c g5_c.h fix[9]
+0x4287b0,strip_stepx,data,,GAME,orig,strip.c g5_c.h fix[9]
+0x4287d4,strip_cur_y,data,,GAME,orig,strip.c g5_c.h fix
+0x4287d8,strip_tz,data,,GAME,orig,strip.c g5_c.h fix *
+0x4287dc,strip_ty,data,,GAME,orig,strip.c g5_c.h fix *
+0x4287e0,strip_tx,data,,GAME,orig,strip.c g5_c.h fix *
+0x42880c,strip_mark,data,,GAME,orig,strip.c g5_c.h uchar
+0x42880d,strip_shift,data,,GAME,orig,strip.c g5_c.h uchar
+0x35c944,strip_recip_sum,data,,GAME,orig,strip.c g5_c.h long
+0x35c948,strip_recip_ok,data,,GAME,orig,strip.c g5_c.h long
+0x427df0,hview_strip,data,,GAME,orig,g5_b.h long *
+0x2a8880,terrstrip_2A8880,func,2,GAME,decomp,terrstrp.c lowest height around a cell
+0x2a88fc,terrstrip_2A88FC,func,2,GAME,decomp,terrstrp.c highest height around a cell
+0x2a8978,terrstrip_2A8978,func,3,GAME,decomp,terrstrp.c set up the strip record
+0x2a8dcc,terrstrip_2A8DCC,func,1,GAME,decomp,terrstrp.c path iterator (no callers)
+0x2a8fa0,terrstrip_2A8FA0,func,5,GAME,decomp,terrstrp.c one edge of the view cone
+0x2a98ac,terrstrip_2A98AC,func,4,GAME,decomp,terrstrp.c span tables
+0x2aa2b4,terrstrip_2AA2B4,func,1,GAME,decomp,terrstrp.c add a bin
+0x2aa398,TerrainStripBuild,func,3,GAME,decomp,terrstrp.c
+0x2ab0c0,terrstrip_2AB0C0,func,1,GAME,decomp,terrstrp.c (no callers)
+0x2ab0d4,terrstrip_2AB0D4,func,0,GAME,decomp,terrstrp.c allocate the strip pool
+0x2ab0e8,terrstrip_2AB0E8,func,0,GAME,decomp,terrstrp.c free the strip pool
+0x35c85c,ts_nbr,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x35c87c,ts_dirx,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x35c89c,ts_diry,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x35c8bc,ts_ring_dx,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x35c8dc,ts_ring_dy,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x35c8fc,ts_step_dx,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x35c91c,ts_step_dy,data,,GAME,orig,terrstrp.c g5_c.h long[8]
+0x427de4,strip_count,data,,GAME,orig,terrstrp.c g5_c.h short

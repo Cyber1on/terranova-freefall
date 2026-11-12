@@ -1,0 +1,198 @@
+address,name,kind,nargs,library,status,notes
+0x295180,mapann_295180,func,0,GAME,decomp,mapann.c (M069) init annotation list
+0x29519c,mapann_29519C,func,0,GAME,decomp,mapann.c (M069) reset annotation list
+0x2951c0,MapAnnIconName,func,2,GAME,decomp,mapann.c (M069)
+0x295224,mapann_295224,func,1,GAME,decomp,mapann.c (M069) add annotation (sorted by -y)
+0x295268,mapann_295268,func,3,GAME,decomp,mapann.c (M069) nearest annotation
+0x39a510,mapann_list,data,,GAME,orig,g5_b.h LlistHead (M069)
+0x39a410,mapann_icon_names,data,,GAME,orig,g5_b.h char *[0x20] (M069)
+0x39a490,mapann_icon_count,data,,GAME,orig,g5_b.h long (M069)
+0x39a494,mapann_icon_vals,data,,GAME,orig,g5_b.h long[0x20] (M069)
+0x29e120,ffpipe_29E120,func,3,GAME,decomp,ffpipe.c (M077) probe pixel
+0x29e160,ffpipe_29E160,func,1,GAME,decomp,ffpipe.c (M077) probe off
+0x29e180,ffpipe_29E180,func,1,GAME,decomp,ffpipe.c (M077) weather routine choice; no callers (added: not in the map)
+0x29e19c,ffpipe_29E19C,func,0,GAME,decomp,ffpipe.c (M077) no callers
+0x29e1bc,ffpipe_29E1BC,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e1f4,ffpipe_29E1F4,func,0,GAME,decomp,ffpipe.c (M077) no callers
+0x29e234,ffpipe_29E234,func,1,GAME,decomp,ffpipe.c (M077)
+0x29e26c,ffpipe_29E26C,func,0,GAME,decomp,ffpipe.c (M077) renderer init
+0x29e2b8,ffpipe_29E2B8,func,0,GAME,decomp,ffpipe.c (M077) renderer shutdown
+0x29e2d8,ffpipe_29E2D8,func,2,GAME,decomp,ffpipe.c (M077) draw the scene
+0x29e4f4,ffpipe_29E4F4,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e500,ffpipe_29E500,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e528,ffpipe_29E528,func,0,GAME,decomp,ffpipe.c (M077) no callers
+0x29e544,ffpipe_29E544,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e564,ffpipe_29E564,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e598,ffpipe_29E598,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e5b8,ffpipe_29E5B8,func,0,GAME,decomp,ffpipe.c (M077)
+0x29e5c8,ffpipe_29E5C8,func,6,GAME,decomp,ffpipe.c (M077) no callers
+0x29e5fc,ffpipe_29E5FC,func,0,GAME,decomp,ffpipe.c (M077) sun light
+0x29e6f8,ffpipe_29E6F8,func,1,GAME,decomp,ffpipe.c (M077)
+0x29e700,ffpipe_29E700,func,2,GAME,decomp,ffpipe.c (M077) draw a frame
+0x29e830,FfCameraSetup,func,4,GAME,decomp,ffpipe.c (M077)
+0x29eb04,ffpipe_29EB04,func,2,GAME,decomp,ffpipe.c (M077) no callers
+0x29eb54,ffpipe_29EB54,func,1,GAME,decomp,ffpipe.c (M077) no callers
+0x29eb64,ffpipe_29EB64,func,2,GAME,decomp,ffpipe.c (M077) view matrix
+0x29edb4,ffpipe_29EDB4,func,2,GAME,decomp,ffpipe.c (M077) render a view
+0x29ee80,ffpipe_29EE80,func,0,GAME,decomp,ffpipe.c (M077)
+0x2ab100,hviewdiv_2AB100,func,0,GAME,decomp,hviewdiv.c (M084)
+0x2ab104,hviewdiv_2AB104,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab174,hviewdiv_2AB174,func,2,GAME,decomp,hviewdiv.c (M084)
+0x2ab1cc,hviewdiv_2AB1CC,func,1,GAME,decomp,hviewdiv.c (M084) no callers
+0x2ab200,hviewdiv_2AB200,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab244,hviewdiv_2AB244,func,1,GAME,decomp,hviewdiv.c (M084) no callers
+0x2ab274,hviewdiv_2AB274,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab2b0,hviewdiv_2AB2B0,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab3cc,hviewdiv_2AB3CC,func,2,GAME,decomp,hviewdiv.c (M084)
+0x2ab3f4,hviewdiv_2AB3F4,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab448,hviewdiv_2AB448,func,0,GAME,decomp,hviewdiv.c (M084)
+0x2ab44c,hviewdiv_2AB44C,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab480,hviewdiv_2AB480,func,0,GAME,decomp,hviewdiv.c (M084)
+0x2ab4e8,hviewdiv_2AB4E8,func,1,GAME,decomp,hviewdiv.c (M084)
+0x2ab508,hviewdiv_2AB508,func,5,GAME,decomp,hviewdiv.c (M084) no callers
+0x2ab5ac,hviewdiv_2AB5AC,func,5,GAME,decomp,hviewdiv.c (M084) no callers
+0x2ab650,hviewdiv_2AB650,func,0,GAME,decomp,hviewdiv.c (M084)
+0x2ab6b8,hviewdiv_2AB6B8,func,0,GAME,decomp,hviewdiv.c (M084)
+0x2ab6c4,hviewdiv_2AB6C4,func,3,GAME,decomp,hviewdiv.c (M084)
+0x2ab750,hviewdiv_2AB750,func,0,GAME,decomp,hviewdiv.c (M084)
+0x2ab768,StripCheckForMemoryTrash,func,1,GAME,decomp,hviewdiv.c (M084)
+0x41eb54,ff_light,data,,GAME,orig,g5_b.h g3s_vector sun direction
+0x41eb60,ffpipe_41EB60,data,,GAME,orig,g5_b.h long
+0x41ec7e,ff_bolt_vis,data,,GAME,orig,g5_b.h uchar
+0x41e240,ff_res_tab,data,,GAME,orig,g5_b.h long[0x100]
+0x41e640,ff_col_ybuf,data,,GAME,orig,g5_b.h long[] per canvas column
+0x35c104,ff_amb,data,,GAME,orig,g5_b.h fix
+0x35c108,ff_diff,data,,GAME,orig,g5_b.h fix
+0x35c10c,ff_spec,data,,GAME,orig,g5_b.h fix
+0x35c100,ffpipe_35C100,data,,GAME,orig,g5_b.h long sky enabled
+0x35c0e4,ffpipe_35C0E4,data,,GAME,orig,g5_b.h ulong weather routine
+0x438c60,ff_bolt_pos,data,,GAME,orig,g5_b.h fix[3] lightning position
+0x438c6c,ff_bolt,data,,GAME,orig,g5_b.h long
+0x438c70,ff_bolt_time,data,,GAME,orig,g5_b.h ulong
+0x38fff0,ffpipe_38FFF0,data,,GAME,orig,g5_b.h long
+0x427e04,hview_rows_sum,data,,GAME,orig,g5_b.h long
+0x427e00,hview_div_sum,data,,GAME,orig,g5_b.h long
+0x427dfc,hview_first,data,,GAME,orig,g5_b.h FfCamera *
+0x427df8,hview_first_div_sum,data,,GAME,orig,g5_b.h long
+0x427df4,hview_first_rows_sum,data,,GAME,orig,g5_b.h long
+0x2a63c0,rndsky_2A63C0,func,0,GAME,decomp,rndsky.c (M082) grey table
+0x2a6478,rndsky_2A6478,func,3,GAME,decomp,rndsky.c (M082) translucent pixel
+0x2a6564,rndsky_2A6564,func,4,GAME,decomp,rndsky.c (M082) run-length disc
+0x2a677c,rndsky_2A677C,func,4,GAME,decomp,rndsky.c (M082) shimmer disc
+0x2a695c,rndsky_2A695C,func,0,GAME,decomp,rndsky.c (M082) build the discs
+0x2a6af8,rndsky_2A6AF8,func,4,GAME,decomp,rndsky.c (M082) disc of a size
+0x2a6b44,rndsky_2A6B44,func,4,GAME,decomp,rndsky.c (M082) shimmer disc of a size
+0x2a6b80,rndsky_2A6B80,func,4,GAME,decomp,rndsky.c (M082) colour translucency table
+0x2a6bc4,rndsky_2A6BC4,func,2,GAME,decomp,rndsky.c (M082) set a colour table
+0x2a6bd0,rndsky_2A6BD0,func,1,GAME,decomp,rndsky.c (M082) force sky colour (not in the map; no callers)
+0x2a6be0,rndsky_2A6BE0,func,0,GAME,decomp,rndsky.c (M082) sky colour / stars / sun / objects
+0x2a6dec,rndsky_2A6DEC,func,0,GAME,decomp,rndsky.c (M082) cloud scroll
+0x2a6eb8,rndsky_2A6EB8,func,6,GAME,decomp,rndsky.c (M082) warped span (no callers)
+0x2a6f38,rndsky_2A6F38,func,0,GAME,decomp,rndsky.c (M082) warp tables
+0x2a7078,rndsky_2A7078,func,1,GAME,decomp,rndsky.c (M082) cloud rows
+0x2a7654,rndsky_2A7654,func,3,GAME,decomp,rndsky.c (M082) cloud span
+0x2a79a8,rndsky_2A79A8,func,0,GAME,decomp,rndsky.c (M082) cloud spans
+0x2a7a6c,rndsky_2A7A6C,func,0,GAME,decomp,rndsky.c (M082) draw the sky
+0x2a7aec,rndsky_2A7AEC,func,1,GAME,decomp,rndsky.c (M082) lock a sky record
+0x2a7ba4,rndsky_2A7BA4,func,1,GAME,decomp,rndsky.c (M082) unlock a sky record
+0x2a7c38,rndsky_2A7C38,func,2,GAME,decomp,rndsky.c (M082) lock a bitmap (no callers)
+0x2a7c4c,rndsky_2A7C4C,func,5,GAME,decomp,rndsky.c (M082) scaled column
+0x2a7ca0,rndsky_2A7CA0,func,3,GAME,decomp,rndsky.c (M082) bitmap
+0x2a7e28,rndsky_2A7E28,func,5,GAME,decomp,rndsky.c (M082) scaled bitmap
+0x2a80fc,rndsky_2A80FC,func,6,GAME,decomp,rndsky.c (M082) sky object
+0x2a82d0,rndsky_2A82D0,func,1,GAME,decomp,rndsky.c (M082) sky colour fill
+0x2a8344,rndsky_2A8344,func,0,GAME,decomp,rndsky.c (M082) init
+0x2a83bc,rndsky_2A83BC,func,0,GAME,decomp,rndsky.c (M082) reflection tables
+0x2a844c,rndsky_2A844C,func,0,GAME,decomp,rndsky.c (M082) shutdown
+0x2a84a4,rndsky_2A84A4,func,0,GAME,decomp,rndsky.c (M082) reflection set-up
+0x2a8658,rndsky_2A8658,func,0,GAME,decomp,rndsky.c (M082) reflection
+0x2b26e0,rasm_2B26E0,func,custom,GAME,decomp,skyasm.c (M093) cloud span (register args; via rndsky callers)
+0x2b2740,rasm_2B2740,func,custom,GAME,decomp,skyasm.c (M093) cloud span through a table (register args; via rndsky callers)
+0x2b2785,rasm_2B2785,func,custom,GAME,decomp,skyasm.c (M093) reflection column (register args; via rndsky callers)
+0x2b27da,rasm_2B27DA,func,custom,GAME,decomp,skyasm.c (M093) patch the texture (register args; via rndsky callers)
+0x2b27fb,rasm_2B27FB,func,custom,GAME,decomp,skyasm.c (M093) patch the table (register args; via rndsky callers)
+0x2b2810,rasm_2B2810,func,custom,GAME,decomp,skyasm.c (M093) warped span (register args; via rndsky callers)
+0x2b28a0,rasm_2B28A0,func,custom,GAME,decomp,skyasm.c (M093) warped span through a table (register args; via rndsky callers)
+0x423230,sky_trans,data,,GAME,orig,rndsky.c / skyasm.c
+0x423630,sky_grey,data,,GAME,orig,rndsky.c / skyasm.c
+0x423730,sky_disc,data,,GAME,orig,rndsky.c / skyasm.c
+0x421a30,sky_disc_data,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c774,sky_disc_ok,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c74c,sky_dx5,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c760,sky_dy5,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c778,sky_ref_w,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c77c,sky_none,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c79c,sky_flat,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c7bc,sky_dist,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c7ec,sky_wind_dx,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c7f0,sky_wind_dy,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c7f4,sky_phase1,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c7f8,sky_warp,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c820,sky_rgb_r,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c834,sky_rgb_g,data,,GAME,orig,rndsky.c / skyasm.c
+0x35c848,sky_rgb_b,data,,GAME,orig,rndsky.c / skyasm.c
+0x423840,sky_cols_save,data,,GAME,orig,rndsky.c / skyasm.c
+0x423d40,sky_refl_off,data,,GAME,orig,rndsky.c / skyasm.c
+0x424140,sky_refl_row,data,,GAME,orig,rndsky.c / skyasm.c
+0x424940,sky_refl_tab,data,,GAME,orig,rndsky.c / skyasm.c
+0x424980,sky_water,data,,GAME,orig,rndsky.c / skyasm.c
+0x424a80,sky_start,data,,GAME,orig,rndsky.c / skyasm.c
+0x425200,sky_warp_a,data,,GAME,orig,rndsky.c / skyasm.c
+0x425300,sky_warp_b,data,,GAME,orig,rndsky.c / skyasm.c
+0x425400,sky_shade,data,,GAME,orig,rndsky.c / skyasm.c
+0x425b80,sky_sin8,data,,GAME,orig,rndsky.c / skyasm.c
+0x425f80,sky_dv,data,,GAME,orig,rndsky.c / skyasm.c
+0x426700,sky_u,data,,GAME,orig,rndsky.c / skyasm.c
+0x426e80,sky_v,data,,GAME,orig,rndsky.c / skyasm.c
+0x427600,sky_du,data,,GAME,orig,rndsky.c / skyasm.c
+0x427d80,sky_refl_bot,data,,GAME,orig,rndsky.c / skyasm.c
+0x427d84,sky_refl_top,data,,GAME,orig,rndsky.c / skyasm.c
+0x427d88,sky_tex,data,,GAME,orig,rndsky.c / skyasm.c
+0x427d8c,sky_parm,data,,GAME,orig,rndsky.c / skyasm.c
+0x427da8,sky_frame,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dac,sky_427DAC,data,,GAME,orig,rndsky.c / skyasm.c
+0x427db0,sky_phase2,data,,GAME,orig,rndsky.c / skyasm.c
+0x427db4,sky_tex2,data,,GAME,orig,rndsky.c / skyasm.c
+0x427db8,sky_427DB8,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dbc,sky_cloud_x,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dc0,sky_cloud_y,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dc4,sky_force,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dc8,sky_cur,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dcc,sky_row,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dd0,sky_count,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dd4,sky_time,data,,GAME,orig,rndsky.c / skyasm.c
+0x427dd8,sky_sin8_ok,data,,GAME,orig,rndsky.c / skyasm.c
+0x427ddc,sky_last_tab,data,,GAME,orig,rndsky.c / skyasm.c
+0x44243f,game_44243F,data,,GAME,orig,rndsky.c / skyasm.c
+0x442441,game_442441,data,,GAME,orig,rndsky.c / skyasm.c
+0x442443,game_442443,data,,GAME,orig,rndsky.c / skyasm.c
+0x442445,game_442445,data,,GAME,orig,rndsky.c / skyasm.c
+0x442448,game_442448,data,,GAME,orig,rndsky.c / skyasm.c
+0x35a540,game_35A540,data,,GAME,orig,rndsky.c / skyasm.c
+0x2b2722,rasm_tex_2B2722,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b276c,rasm_tex_2B276C,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2862,rasm_tex_2B2862,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b28f2,rasm_tex_2B28F2,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2778,rasm_tab_2B2778,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b290a,rasm_tab_2B290A,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2735,rasm_end_2B2735,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b287a,rasm_end_2B287A,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2910,rasm_end_2B2910,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b27bb,rasm_off_2B27BB,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2868,rasm_du_2B2868,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2871,rasm_dv_2B2871,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b28f8,rasm_du_2B28F8,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2901,rasm_dv_2B2901,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b286e,rasm_dui_2B286E,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2877,rasm_dvi_2B2877,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b28fe,rasm_dui_2B28FE,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x2b2907,rasm_dvi_2B2907,data,,GAME,orig,rndsky.c / skyasm.c (patched immediate in code)
+0x29eef0,terrmesh_29EEF0,func,2,GAME,decomp,terrmesh.c (M078) first map building in view
+0x29f2b4,terrmesh_29F2B4,func,0,GAME,decomp,terrmesh.c (M078) depth sort of the mesh objects
+0x29f56c,terrmesh_29F56C,func,2,GAME,decomp,terrmesh.c (M078) object position
+0x29f6ec,terrmesh_29F6EC,func,2,GAME,decomp,terrmesh.c (M078) silhouette by shape kind
+0x29f770,terrmesh_29F770,func,2,GAME,decomp,terrmesh.c (M078) polygon silhouette
+0x2a00f8,terrmesh_2A00F8,func,2,GAME,decomp,terrmesh.c (M078) circle silhouette
+0x2a01f8,terrmesh_2A01F8,func,2,GAME,decomp,terrmesh.c (M078) order of two objects
+0x2a0a2c,terrmesh_2A0A2C,func,4,GAME,decomp,terrmesh.c (M078) segment crosses box
+0x438e90,mesh_groups,data,,GAME,orig,g5_b.h MeshGroup * (set by weather G6b)

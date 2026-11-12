@@ -1,0 +1,157 @@
+address,name,kind,nargs,library,status,notes
+0x35f470,mem_alloc_stack,data,,LG,decomp,MemAllocSet[4] allocator stack
+0x35f4a0,mem_alloc_index,data,,LG,decomp,int current allocator slot
+0x35f4b0,mem_check_saved,data,,LG,decomp,MemAllocSet saved by MemCheckOn
+0x446b10,mem_check_hard,data,,LG,decomp,bool MemCheckOn(hard)
+0x36518c,temp_mem_stack,data,,LG,decomp,MemStack*
+0x365190,temp_mem_own,data,,LG,decomp,bool stack allocated by temp_mem_init
+0x4469dc,atexit_count,data,,LG,decomp,int (name ours)
+0x4469e0,atexit_funcs,data,,LG,decomp,void*[32] (name ours)
+0x35f4c8,dbg_report_routine,data,,LG,decomp,DbgReportFunc
+0x35f4cc,dbg_getch,data,,LG,decomp,int(*)(void) = getch 0x2E7C0B
+0x35f4d0,dbg_exit_on_error,data,,LG,decomp,bool
+0x35f4d4,dbg_prefix,data,,LG,decomp,char*[4]
+0x446b40,dbg_last_error,data,,LG,decomp,int code passed to DbgReportError
+0x35f420,lgs_string_func,data,,LG,decomp,LgsStringFunc
+0x446af2,lg_ctrlbreak_count,data,,LG,decomp,ushort (int 0x23 stub counter)
+0x446b2c,lg_old_int23_off,data,,LG,decomp,ulong
+0x446b32,lg_old_int23_sel,data,,LG,decomp,ushort
+0x446b20,lg_idt_save,data,,LG,decomp,uchar[8] saved IDT gate 0
+0x364a28,lg_idtr,data,,LG,decomp,uchar[6] sidt result
+0x35fa7c,datapath_empty,data,,DSTRUCT,decomp,char* -> "" (DatapathLastPath default)
+0x45d62c,kbd_lowmem_start,data,,INPUT,decomp,kb_lowmem*
+0x45daf4,kb_read_index,data,,INPUT,decomp,ulong
+0x36c998,kb_stub_size,data,,INPUT,decomp,ulong real-mode stub size
+0x36c9a0,kb_layout,data,,INPUT,decomp,int (name ours)
+0x44d0ca,mouse_x,data,,INPUT,decomp,short
+0x44d0cc,mouse_y,data,,INPUT,decomp,short
+0x3644d6,mouse_inited,data,,INPUT,decomp,bool (check width)
+0x3644dc,mouse_ticks_ptr,data,,INPUT,decomp,ulong*
+0x3644e0,mouse_xvel,data,,INPUT,decomp,long
+0x3644e4,mouse_yvel,data,,INPUT,decomp,long
+0x3644f0,mouse_vel_xl,data,,INPUT,decomp,long (order from set_velocity_range: check)
+0x3644f4,mouse_vel_yl,data,,INPUT,decomp,long (check)
+0x3644e8,mouse_vel_xh,data,,INPUT,decomp,long (check)
+0x3644ec,mouse_vel_yh,data,,INPUT,decomp,long (check)
+0x3644f8,mouse_last_vel_time,data,,INPUT,decomp,ulong
+0x44cec0,mouse_queue,data,,INPUT,decomp,mouse_event[]
+0x44d0c0,mouse_qhead,data,,INPUT,decomp,short (check width)
+0x44d0c4,mouse_qtail,data,,INPUT,decomp,short (check width)
+0x35f57c,pal_fx_table,data,,PALETTE,decomp,PAL_TABLE_ENTRY*
+0x35f580,pal_table_size,data,,PALETTE,decomp,short
+0x35f584,pal_timestamp,data,,PALETTE,decomp,long
+0x35f588,pal_shift_count,data,,PALETTE,decomp,short
+0x35f58a,pal_shift_count2,data,,PALETTE,decomp,short
+0x35f58c,pal_remainder,data,,PALETTE,decomp,long
+0x448a70,pal_rate,data,,PALETTE,decomp,short
+0x447270,pal_smap_delta,data,,PALETTE,decomp,short[]
+0x447e70,pal_smap_curr,data,,PALETTE,decomp,uchar[]
+0x35f8dc,tn_ticks,data,,TIMER,decomp,ulong 250 Hz tick
+0x35f8e0,tn_ticks2,data,,TIMER,decomp,ulong
+0x35f8e4,tn_ticks2_step,data,,TIMER,decomp,ulong
+0x35f8e8,tn_timer_user_cb,data,,TIMER,decomp,void(*)(void)
+0x35f8ec,tn_timer_hz,data,,TIMER,decomp,long
+0x35f8f0,tn_tick_frac,data,,TIMER,decomp,ushort
+0x35f8f4,tn_timer_handle,data,,TIMER,decomp,long
+0x44b284,tn_tick_step,data,,TIMER,decomp,long
+0x44dfd0,tn_timer_driver,data,,TIMER,decomp,TnTimerDriver*
+0x364a3c,tn_timer_ail_driver,data,,TIMER,decomp,TnTimerDriver
+0x36d164,ail_timer_callback,data,,TIMER,orig,void*[16] (Miles)
+0x36d1a4,ail_timer_status,data,,TIMER,orig,long[16] (Miles)
+0x36d1e4,ail_timer_accum,data,,TIMER,orig,long[16] (Miles)
+0x36d224,ail_timer_period,data,,TIMER,orig,long[16] (Miles)
+0x36d264,ail_timer_pending,data,,TIMER,orig,long[16] (Miles)
+0x36d2a4,ail_timer_user,data,,TIMER,orig,long[16] (Miles)
+0x36d2e4,ail_old_int8_off,data,,TIMER,orig,ulong (Miles)
+0x36d2e8,ail_old_int8_sel,data,,TIMER,orig,ushort (Miles)
+0x36d2ee,ail_pit_divisor,data,,TIMER,orig,ushort (Miles)
+0x36d2f6,ail_in_isr,data,,TIMER,orig,long (Miles)
+0x36d2fa,ail_lock_count,data,,TIMER,orig,long (Miles)
+0x446ef0,tnkey_handlers,data,,TNUI,decomp,LlistHead
+0x447080,tnmouse_handlers,data,,TNUI,decomp,LlistHead
+0x4470d2,tnmouse_hide_count,data,,TNUI,decomp,short (check width)
+0x35f454,crt_exit_hook,data,,CLIB,decomp,void* CRT exit hook (LG AtExitRun installed here)
+0x35f4c0,lg_divtrap_gate,data,,LG,decomp,uchar[8] IDT gate template
+0x3594c0,_IsTable,data,,CLIB,orig,Watcom ctype table (index c+1)
+0x304026,int386,func,3,CLIB,orig,int386(intno; in; out) via segread + int386x
+0x304044,lg_sidt,func,0,LG,orig,sidt [0x364A28] (asm helper; name ours)
+0x3041cc,segread,func,1,CLIB,orig,
+0x2df6d0,lg_exit_msg,func,2,LG,orig,exit(code) after printing msg at exit (name ours)
+0x2e7c0b,getch,func,0,CLIB,orig,
+0x30404c,lg_int23_stub,func,custom,LG,orig,int 0x23 handler: inc [0x446AF2]; iretd (asm)
+0x30405d,lg_divtrap_stub,func,custom,LG,orig,divide trap handler (asm)
+0x2fb619,fopen,func,2,CLIB,orig,
+0x2fd10c,_dos_findfirst,func,3,CLIB,orig,int 0x21 ah=0x1A/0x4E
+0x2de815,AtExitRun,func,0,LG,decomp,exit.c (name ours; installed in crt_exit_hook)
+0x2debe0,lg_sprintf,func,2v,LG,decomp,lgsprntf.c cdecl varargs
+0x2dec08,lg_vsprintf,func,4,LG,decomp,lgsprntf.c
+0x2df418,lg_sprintf_install_stringfunc,func,1,LG,decomp,lgsprntf.c
+0x2df420,lgs_int_to_str,func,2,LG,decomp,lgsprntf.c (static; name ours)
+0x2df468,lgs_uint_to_str,func,4,LG,decomp,lgsprntf.c (static; name ours; ecx=alph)
+0x2dfc30,MemSetAllocator,func,3,LG,decomp,memall.c
+0x2dfd34,MemCheckOn,func,1,LG,decomp,memall.c
+0x2dfd8c,MemCheckOff,func,0,LG,decomp,memall.c
+0x2dfdcc,MallocConvMemBlock,func,2,LG,decomp,memall.c (unreferenced; far ptr return: edx=ds not reproduced)
+0x2dfe2c,ReallocConvMemBlock,func,2,LG,decomp,memall.c (unreferenced; far ptr return)
+0x2dfec0,FreeConvMemBlock,func,1,LG,decomp,memall.c (unreferenced)
+0x2dfef8,MallocChecked,func,1,LG,decomp,memall.c
+0x2dff28,ReallocChecked,func,2,LG,decomp,memall.c
+0x2dff60,lg_ctrlbreak_install,func,0,LG,decomp,dos.c (name ours)
+0x2dffe4,lg_ctrlbreak_restore,func,0,LG,decomp,dos.c (name ours)
+0x2e0024,lg_divtrap_install,func,0,LG,decomp,dos.c (name ours; unreferenced)
+0x2e0084,lg_divtrap_restore,func,0,LG,decomp,dos.c (name ours)
+0x2e00d0,DbgReportError,func,2v,LG,decomp,dbg.c cdecl varargs
+0x2e0108,DbgReportWarning,func,1v,LG,decomp,dbg.c cdecl varargs (unreferenced)
+0x2e015c,dbg_getkey,func,0,LG,decomp,dbg.c (name ours; unreferenced)
+0x2e0188,DbgSetReportRoutine,func,1,LG,decomp,dbg.c (unreferenced)
+0x2e0190,DbgHandle,func,3,LG,decomp,dbg.c (edx unused)
+0x2e01c8,DbgHandleC,func,4,LG,decomp,dbg.c
+0x2fb1c0,MemStackInit,func,1,LG,decomp,stack.c
+0x2fb1c8,MemStackAlloc,func,2,LG,decomp,stack.c
+0x2fb1ec,MemStackRealloc,func,3,LG,decomp,stack.c
+0x2fb208,MemStackFree,func,2,LG,decomp,stack.c
+0x309164,temp_mem_uninit,func,0,LG,decomp,tmpalloc.c (unreferenced; frees with CRT free)
+0x3091b4,temp_realloc,func,2,LG,decomp,tmpalloc.c (unreferenced)
+0x2ef200,DatapathFree,func,1,DSTRUCT,decomp,datapath.c
+0x2ef23c,DatapathFOpen,func,3,DSTRUCT,decomp,datapath.c (fopen along the path)
+0x2ef478,DatapathFind,func,3,DSTRUCT,decomp,datapath.c (_dos_findfirst along the path)
+0x2ef664,datapath_add_one,func,2,DSTRUCT,decomp,datapath.c (static; name ours)
+0x2ef735,strrchr,func,2,CLIB,decomp,datapath.c (Watcom CRT; was DatapathClearLast in the map)
+0x2f2850,RectTestSect,func,2,DSTRUCT,decomp,rect.c (unreferenced)
+0x2f2884,RectSect,func,3,DSTRUCT,decomp,rect.c
+0x2f290c,RectUnion,func,3,DSTRUCT,decomp,rect.c
+0x2f2960,RectEncloses,func,2,DSTRUCT,decomp,rect.c (unreferenced)
+0x2f2994,RectTestPt,func,2,DSTRUCT,decomp,rect.c (pt by value in edx)
+0x2f29c8,RectMove,func,2,DSTRUCT,decomp,rect.c
+0x2f2a10,RectOffsettedRect,func,3,DSTRUCT,decomp,rect.c (unreferenced)
+0x2f2a4c,RectClipCode,func,2,DSTRUCT,decomp,rect.c (unreferenced)
+0x2f2c60,LlistInit,func,3,DSTRUCT,decomp,llist.c
+0x2f2cac,LlistAddHead,func,1,DSTRUCT,decomp,llist.c
+0x2f2d00,LlistAddTail,func,1,DSTRUCT,decomp,llist.c
+0x2f2d58,LlistAddQueue,func,2,DSTRUCT,decomp,llist.c
+0x2f2db0,LlistMoveQueue,func,3,DSTRUCT,decomp,llist.c
+0x2f2dbc,LlistFree,func,2,DSTRUCT,decomp,llist.c
+0x2f2dd8,LlistFreeAll,func,1,DSTRUCT,decomp,llist.c (unreferenced)
+0x2f2e50,LlistDestroy,func,1,DSTRUCT,decomp,llist.c
+0x2f2e7c,LlistGrowList,func,1,DSTRUCT,decomp,llist.c (unreferenced)
+0x2f2edc,LlistInitNodeBlock,func,3,DSTRUCT,decomp,llist.c
+0x313ea0,llist_insert_queue,func,2,DSTRUCT,decomp,lllist.c
+0x313ed0,llist_move_queue,func,2,DSTRUCT,decomp,lllist.c
+0x313f50,llist_num_nodes,func,1,DSTRUCT,decomp,lllist.c (unreferenced)
+0x2f5fa0,PoolInit,func,4,DSTRUCT,decomp,pool.c (name ours)
+0x2f5fec,PoolFreeAll,func,1,DSTRUCT,decomp,pool.c (name ours)
+0x2f6020,PoolAlloc,func,1,DSTRUCT,decomp,pool.c (name ours)
+0x2f605c,PoolCalloc,func,1,DSTRUCT,decomp,pool.c (name ours; unreferenced)
+0x2f60b0,PoolFree,func,2,DSTRUCT,decomp,pool.c (name ours)
+0x2f6154,PoolGrow,func,1,DSTRUCT,decomp,pool.c (static; name ours)
+0x2dfd14,Calloc,func,1,LG,decomp,memall.c (Shock CallocNorm) malloc + memset 0
+0x2dfc70,MemPushAllocator,func,3,LG,decomp,memall.c
+0x2dfcc8,MemPopAllocator,func,0,LG,decomp,memall.c
+0x2de841,AtExit,func,1,LG,decomp,exit.c
+0x2ef580,DatapathAdd,func,2,DSTRUCT,decomp,datapath.c returns bool
+0x2ef320,DatapathOpen,func,3v,DSTRUCT,decomp,datapath.c cdecl varargs
+0x2ef71c,DatapathLastPath,func,1,DSTRUCT,decomp,datapath.c
+0x309110,temp_mem_get_stack,func,0,LG,decomp,tmpalloc.c
+0x309118,temp_mem_init,func,1,LG,decomp,tmpalloc.c
+0x30918c,temp_malloc,func,1,LG,decomp,tmpalloc.c
+0x3091cc,temp_free,func,1,LG,decomp,tmpalloc.c returns int (1 = freed out of order)

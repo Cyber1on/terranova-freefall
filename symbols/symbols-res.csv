@@ -1,0 +1,96 @@
+address,name,kind,nargs,library,status,notes
+0x446be8,gResDesc,data,,RES,decomp,ResDesc*
+0x446bec,gResDesc2,data,,RES,decomp,ResDesc2*
+0x446bf0,resDescMax,data,,RES,decomp,Id
+0x446bf2,resPushedAllocators,data,,RES,decomp,bool
+0x446c00,resCDPath,data,,RES,decomp,char*
+0x446c04,resCDSpoofFunc,data,,RES,decomp,callback(size id)
+0x446c08,resFile,data,,RES,decomp,ResFile[16]
+0x446c88,gDatapath,data,,RES,decomp,Datapath
+0x35f4e8,resFileSignature,data,,RES,decomp,char[16]
+0x364510,resLoadingId,data,,RES,decomp,Id
+0x44d0e0,f_pager,data,,RES,decomp,pager callback
+0x36450c,resPagedBytes,data,,RES,decomp,long: bytes paged out
+0x35f4a4,f_malloc,data,,LG,orig,allocator pointer
+0x35f4a8,f_realloc,data,,LG,orig,allocator pointer
+0x35f4ac,f_free,data,,LG,orig,allocator pointer
+0x2e1320,ResInit,func,0,RES,decomp,res.c
+0x2e13f0,ResTerm,func,0,RES,decomp,res.c
+0x2e1458,ResGrowResDescTable,func,1,RES,decomp,res.c
+0x2e1514,ResShrinkResDescTable,func,0,RES,decomp,res.c (unreferenced)
+0x2e15c0,ResAddPath,func,1,RES,decomp,resfile.c
+0x2e15d0,ResOpenResFile,func,3,RES,decomp,resfile.c
+0x2e1848,ResCloseFile,func,1,RES,decomp,resfile.c
+0x2e1938,ResFindFreeFilenum,func,0,RES,decomp,resfile.c (also inlined)
+0x2e196c,ResReadDirEntries,func,3,RES,decomp,resfile.c
+0x2e1a10,ResProcDirEntry,func,4,RES,decomp,resfile.c
+0x2e1b48,ResReadEditInfo,func,1,RES,decomp,resfile.c (also inlined)
+0x2e1b94,ResReadDir,func,2,RES,decomp,resfile.c
+0x2e1ca8,ResCreateEditInfo,func,2,RES,decomp,resfile.c
+0x2e1cf4,ResCreateDir,func,1,RES,decomp,resfile.c
+0x2e1d5c,ResWriteDir,func,1,RES,decomp,resfile.c
+0x2e1da4,ResWriteHeader,func,1,RES,decomp,resfile.c (also inlined)
+0x2e1de0,ResSetCDSpoof,func,2,RES,decomp,resfile.c (unreferenced)
+0x2eb380,ResLock,func,1,RES,decomp,resacc.c
+0x2eb3f4,ResUnlock,func,1,RES,decomp,resacc.c
+0x2eb460,ResGet,func,1,RES,decomp,resacc.c
+0x2eb4ec,ResExtract,func,2,RES,decomp,resacc.c
+0x2eb504,ResDrop,func,1,RES,decomp,resacc.c
+0x2eb55c,ResDelete,func,1,RES,decomp,resacc.c
+0x2eb5c8,ResCheckId,func,1,RES,decomp,resacc.c
+0x2e3110,RefLock,func,1,RES,decomp,refacc.c
+0x2e3194,RefGet,func,1,RES,decomp,refacc.c
+0x2e3230,ResReadRefTable,func,1,RES,decomp,refacc.c
+0x2e32c0,ResExtractRefTable,func,3,RES,decomp,refacc.c
+0x2e3348,ResNumRefs,func,1,RES,decomp,refacc.c
+0x2e33c4,RefExtract,func,3,RES,decomp,refacc.c
+0x2e3510,RefInject,func,3,RES,decomp,refacc.c
+0x2e3628,RefCheckRef,func,1,RES,decomp,refacc.c
+0x304400,ResLoadResource,func,1,RES,decomp,resload.c
+0x304460,ResRetrieve,func,2,RES,decomp,resload.c
+0x2fcd80,ResMalloc,func,1,RES,decomp,resmem.c
+0x2fcd9c,ResRealloc,func,2,RES,decomp,resmem.c
+0x2fce4c,ResFree,func,1,RES,decomp,resmem.c
+0x2fce6c,ResPage,func,1,RES,decomp,resmem.c
+0x2fce54,ResInstallPager,func,1,RES,decomp,resmem.c
+0x2fce7c,ResDefaultPager,func,1,RES,decomp,resmem.c
+0x3644fc,resPad,data,,RES,decomp,uchar[4]
+0x364504,resTempBuff,data,,RES,decomp,void*
+0x364508,resTempBuffSize,data,,RES,decomp,long
+0x2fc200,ResMake,func,6,RES,decomp,resmake.c (2 stack args)
+0x2fc2c4,ResMakeCompound,func,4,RES,decomp,resmake.c
+0x2fc30c,ResAddRef,func,3,RES,decomp,resmake.c
+0x2fc5f0,ResUnmake,func,1,RES,decomp,resmake.c
+0x2fc620,ResSetComment,func,2,RES,decomp,resbuild.c
+0x2fc664,ResWrite,func,1,RES,decomp,resbuild.c
+0x2fc9fc,ResKill,func,1,RES,decomp,resbuild.c
+0x2fca14,ResPack,func,1,RES,decomp,resbuild.c
+0x2fcba4,ResCopyBytes,func,4,RES,decomp,resbuild.c
+0x2fcc58,ResEraseIfInFile,func,1,RES,decomp,resbuild.c
+0x2fb18b,strncpy,func,3,CLIB,orig,
+0x319677,chsize,func,2,CLIB,orig,
+0x44c6d0,lzwBlockBuff,data,,RES,decomp,resexblk.c
+0x44c6d4,lzwBlockSize,data,,RES,decomp,
+0x44c6d8,lzwBlockNumPassed,data,,RES,decomp,
+0x44c6dc,lzwBlockTotal,data,,RES,decomp,
+0x44c6e0,lzwBlockFunc,data,,RES,decomp,callback(buff numBytes iBlock)
+0x44c6e4,lzwBlockIndex,data,,RES,decomp,
+0x44c6e8,lzwBlockBuffIndex,data,,RES,decomp,
+0x2f5c40,ResExtractInBlocks,func,4,RES,decomp,resexblk.c
+0x2f5d24,RefExtractInBlocks,func,5,RES,decomp,resexblk.c (1 stack arg)
+0x2f5e38,LzwBlockDestCtrl,func,2,RES,decomp,resexblk.c LZW callback
+0x2f5e6c,LzwBlockDestPut,func,1,RES,decomp,resexblk.c LZW callback
+0x2f5ef4,ResReadBlocks,func,5,RES,decomp,resexblk.c (1 stack arg)
+0x2f62f8,open,func,2v,CLIB,orig,cdecl varargs
+0x2f6733,read,func,3,CLIB,orig,
+0x2f6527,write,func,3,CLIB,orig,
+0x2f686c,lseek,func,3,CLIB,orig,
+0x3043ef,tell,func,1,CLIB,orig,
+0x2f66fb,close,func,1,CLIB,orig,
+0x2e7df0,memset,func,3,CLIB,orig,LG fast memset
+0x2f3a46,memmove,func,3,CLIB,orig,
+0x303432,strncmp,func,3,CLIB,orig,
+0x2f5f61,strcmpi,func,2,CLIB,orig,
+0x2fd0ba,getenv,func,1,CLIB,orig,
+0x2df631,malloc,func,1,CLIB,orig,
+0x2fcee6,free,func,1,CLIB,orig,

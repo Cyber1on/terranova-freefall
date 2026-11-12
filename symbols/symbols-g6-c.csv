@@ -1,0 +1,156 @@
+address,name,kind,nargs,library,status,notes
+0x28b9e0,sfx_28B9E0,func,1,GAME,decomp,sfx.c (M060)
+0x28ba34,sfx_28BA34,func,4,GAME,decomp,sfx.c (M060)
+0x28baf8,sfx_28BAF8,func,3,GAME,decomp,sfx.c (M060)
+0x28bb80,sfx_28BB80,func,3,GAME,decomp,sfx.c (M060)
+0x28bd84,sfx_28BD84,func,6,GAME,decomp,sfx.c (M060)
+0x28bdf0,sfx_28BDF0,func,4,GAME,decomp,sfx.c (M060)
+0x28bedc,sfx_28BEDC,func,0,GAME,decomp,sfx.c (M060)
+0x28befc,sfx_28BEFC,func,3,GAME,decomp,sfx.c (M060)
+0x28bff0,sfx_28BFF0,func,3,GAME,decomp,sfx.c (M060)
+0x28c228,sfx_28C228,func,5,GAME,decomp,sfx.c (M060)
+0x28c2f4,sfx_28C2F4,func,1,GAME,decomp,sfx.c (M060)
+0x28c300,sfx_28C300,func,1,GAME,decomp,sfx.c (M060)
+0x28c5d8,sfx_28C5D8,func,1,GAME,decomp,sfx.c (M060)
+0x28c714,sfx_28C714,func,3,GAME,decomp,sfx.c (M060)
+0x28cb24,sfx_28CB24,func,2,GAME,decomp,sfx.c (M060)
+0x28cb58,sfx_28CB58,func,2,GAME,decomp,sfx.c (M060)
+0x28cbd0,sfx_28CBD0,func,3,GAME,decomp,sfx.c (M060)
+0x28cc0c,sfx_28CC0C,func,7,GAME,decomp,sfx.c (M060)
+0x28cc68,sfx_28CC68,func,1,GAME,decomp,sfx.c (M060)
+0x28d0f4,sfx_28D0F4,func,5,GAME,decomp,sfx.c (M060)
+0x28d2dc,sfx_28D2DC,func,5,GAME,decomp,sfx.c (M060)
+0x28d318,sfx_28D318,func,2,GAME,decomp,sfx.c (M060)
+0x28d368,sfx_28D368,func,4,GAME,decomp,sfx.c (M060)
+0x28d448,sfx_28D448,func,2,GAME,decomp,sfx.c (M060)
+0x28d4e8,sfx_28D4E8,func,0,GAME,decomp,sfx.c (M060)
+0x28d5b8,sfx_28D5B8,func,1,GAME,decomp,sfx.c (M060)
+0x28d5c8,sfx_28D5C8,func,1,GAME,decomp,sfx.c (M060)
+0x28d6d0,sfx_28D6D0,func,1,GAME,decomp,sfx.c (M060)
+0x28d730,sfx_28D730,func,8,GAME,decomp,sfx.c (M060)
+0x28dc50,sfx_28DC50,func,2,GAME,decomp,sfx.c (M060)
+0x28dc9c,sfx_28DC9C,func,1,GAME,decomp,sfx.c (M060)
+0x28dd7c,sfx_28DD7C,func,0,GAME,decomp,sfx.c (M060)
+0x28dd90,sfx_28DD90,func,3,GAME,decomp,sfx.c (M060)
+0x28dda4,sfx_28DDA4,func,3,GAME,decomp,sfx.c (M060)
+0x28ddd8,sfx_28DDD8,func,2,GAME,decomp,sfx.c (M060)
+0x2a3c30,particle_2A3C30,func,1,GAME,decomp,particle.c (M081)
+0x2a3c70,particle_2A3C70,func,0,GAME,decomp,particle.c (M081)
+0x2a3d10,particle_2A3D10,func,2,GAME,decomp,particle.c (M081)
+0x2a3e5c,particle_2A3E5C,func,0,GAME,decomp,particle.c (M081)
+0x2a3eac,particle_2A3EAC,func,0,GAME,decomp,particle.c (M081)
+0x2a3ef0,particle_2A3EF0,func,1,GAME,decomp,particle.c (M081)
+0x2a3f08,particle_2A3F08,func,1,GAME,decomp,particle.c (M081)
+0x2a3f4c,particle_2A3F4C,func,0,GAME,decomp,particle.c (M081)
+0x2a3f94,particle_2A3F94,func,4,GAME,decomp,particle.c (M081)
+0x2a3fac,particle_2A3FAC,func,4,GAME,decomp,particle.c (M081)
+0x2a3fc4,particle_2A3FC4,func,4,GAME,decomp,particle.c (M081)
+0x2a3ff0,particle_2A3FF0,func,3,GAME,decomp,particle.c (M081)
+0x2a4008,particle_2A4008,func,2,GAME,decomp,particle.c (M081)
+0x2a401c,particle_2A401C,func,2,GAME,decomp,particle.c (M081)
+0x2a402c,particle_2A402C,func,2,GAME,decomp,particle.c (M081)
+0x2a403c,particle_2A403C,func,1,GAME,decomp,particle.c (M081)
+0x2a4114,particle_2A4114,func,1,GAME,decomp,particle.c (M081)
+0x2a414c,particle_2A414C,func,2,GAME,decomp,particle.c (M081)
+0x2a41c0,particle_2A41C0,func,1,GAME,decomp,particle.c (M081)
+0x2a420c,particle_2A420C,func,1,GAME,decomp,particle.c (M081)
+0x2a42c8,particle_2A42C8,func,1,GAME,decomp,particle.c (M081)
+0x2a43b0,particle_2A43B0,func,11,GAME,decomp,particle.c (M081)
+0x2a44fc,particle_2A44FC,func,4,GAME,decomp,particle.c (M081)
+0x2a45a0,particle_2A45A0,func,2,GAME,decomp,particle.c (M081)
+0x2a45d8,particle_2A45D8,func,5,GAME,decomp,particle.c (M081)
+0x2a4800,particle_2A4800,func,4,GAME,decomp,particle.c (M081)
+0x2a4978,particle_2A4978,func,1,GAME,decomp,particle.c (M081)
+0x2a4a38,particle_2A4A38,func,4,GAME,decomp,particle.c (M081)
+0x2a4b74,particle_2A4B74,func,2,GAME,decomp,particle.c (M081)
+0x2a4ba8,particle_2A4BA8,func,3,GAME,decomp,particle.c (M081)
+0x2a4c98,particle_2A4C98,func,2,GAME,decomp,particle.c (M081)
+0x2a4ce8,particle_2A4CE8,func,4,GAME,decomp,particle.c (M081)
+0x2a4d80,particle_2A4D80,func,1,GAME,decomp,particle.c (M081)
+0x2a4e70,particle_2A4E70,func,1,GAME,decomp,particle.c (M081)
+0x2a4fc8,particle_2A4FC8,func,3,GAME,decomp,particle.c (M081)
+0x2a504c,particle_2A504C,func,4,GAME,decomp,particle.c (M081)
+0x2a5158,particle_2A5158,func,4,GAME,decomp,particle.c (M081)
+0x2a5254,particle_2A5254,func,3,GAME,decomp,particle.c (M081)
+0x2a52ec,particle_2A52EC,func,4,GAME,decomp,particle.c (M081)
+0x2a538c,particle_2A538C,func,4,GAME,decomp,particle.c (M081)
+0x2a56a8,particle_2A56A8,func,8,GAME,decomp,particle.c (M081)
+0x2a5798,particle_2A5798,func,2,GAME,decomp,particle.c (M081)
+0x2a5848,particle_2A5848,func,3,GAME,decomp,particle.c (M081)
+0x2a5914,particle_2A5914,func,1,GAME,decomp,particle.c (M081)
+0x2a59dc,particle_2A59DC,func,5,GAME,decomp,particle.c (M081)
+0x2a5bb4,particle_2A5BB4,func,3,GAME,decomp,particle.c (M081)
+0x2a5bf4,particle_2A5BF4,func,8,GAME,decomp,particle.c (M081)
+0x2a5c8c,particle_2A5C8C,func,2,GAME,decomp,particle.c (M081)
+0x2a5cf8,particle_2A5CF8,func,3,GAME,decomp,particle.c (M081)
+0x2a6000,particle_2A6000,func,5,GAME,decomp,particle.c (M081)
+0x2a6134,particle_2A6134,func,4,GAME,decomp,particle.c (M081)
+0x2a62dc,particle_2A62DC,func,2,GAME,decomp,particle.c (M081)
+0x28b9d0,sfx_28B9D0,data,,GAME,orig,sfx.c SfxDesc template copied by sfx_28DC50 (code-segment data; map called it a function)
+0x35b808,sfx_kind_fx,data,,GAME,orig,sfx.c
+0x35b840,sfx_drop_fx,data,,GAME,orig,sfx.c
+0x35b850,sfx_burn_fx,data,,GAME,orig,sfx.c
+0x35b860,sfx_burn2_fx,data,,GAME,orig,sfx.c
+0x35b870,sfx_heat_fx,data,,GAME,orig,sfx.c
+0x35b880,sfx_shot_fx_a,data,,GAME,orig,sfx.c
+0x35b890,sfx_shot_fx_b,data,,GAME,orig,sfx.c
+0x35b8a0,sfx_shot_fx_c,data,,GAME,orig,sfx.c
+0x35b8b0,sfx_hit_soft,data,,GAME,orig,sfx.c
+0x35ba8c,sfx_hit_hard,data,,GAME,orig,sfx.c
+0x35bc68,sfx_hit_obj,data,,GAME,orig,sfx.c
+0x35be44,sfx_vol_type,data,,GAME,orig,sfx.c
+0x35be54,sfx_rnd,data,,GAME,orig,sfx.c
+0x35be60,sfx_snd_by_cls,data,,GAME,orig,sfx.c
+0x35be6c,sfx_dyn,data,,GAME,orig,sfx.c
+0x35be7a,sfx_snd_base,data,,GAME,orig,sfx.c
+0x35be84,sfx_snd_range,data,,GAME,orig,sfx.c
+0x35be89,sfx_vol_by_cls,data,,GAME,orig,sfx.c
+0x35be8e,sfx_flick_by_cls,data,,GAME,orig,sfx.c
+0x35be93,sfx_kind_by_cls,data,,GAME,orig,sfx.c
+0x35be98,sfx_smoke_by_cls,data,,GAME,orig,sfx.c
+0x35be9e,sfx_ptc_chance,data,,GAME,orig,sfx.c
+0x35bea8,sfx_ptype_by_cls,data,,GAME,orig,sfx.c
+0x35beb0,sfx_scorch_nb1,data,,GAME,orig,sfx.c
+0x35bec0,sfx_scorch_nb2,data,,GAME,orig,sfx.c
+0x35bed0,sfx_scorch_chance,data,,GAME,orig,sfx.c
+0x35bf04,sfx_flick,data,,GAME,orig,sfx.c
+0x355aa0,sfx_file_name,data,,GAME,orig,sfx.c
+0x397100,sfx_dir_y,data,,GAME,orig,sfx.c
+0x397104,sfx_dir_z,data,,GAME,orig,sfx.c
+0x397108,sfx_ptc_scale,data,,GAME,orig,sfx.c
+0x39710c,sfx_dir_x,data,,GAME,orig,sfx.c
+0x397110,sfx_ground,data,,GAME,orig,sfx.c
+0x397114,sfx_cur_desc,data,,GAME,orig,sfx.c
+0x397118,sfx_ndebris,data,,GAME,orig,sfx.c
+0x39711c,sfx_dir_flag,data,,GAME,orig,sfx.c
+0x397120,sfx_tmp,data,,GAME,orig,sfx.c
+0x41e190,sfx_debris_img,data,,GAME,orig,sfx.c
+0x421930,ptc_mat,data,,GAME,orig,particle.c
+0x421960,ptc_color7,data,,GAME,orig,particle.c
+0x421964,ptc_pow,data,,GAME,orig,particle.c
+0x4219e8,ptc_gravity,data,,GAME,orig,particle.c
+0x4219ec,ptc_cy,data,,GAME,orig,particle.c
+0x4219f0,ptc_cx,data,,GAME,orig,particle.c
+0x4219f4,ptc_inv_z,data,,GAME,orig,particle.c
+0x4219f8,ptc_sy,data,,GAME,orig,particle.c
+0x4219fc,ptc_sx,data,,GAME,orig,particle.c
+0x421a00,ptc_angles,data,,GAME,orig,particle.c
+0x421a04,ptc_motion,data,,GAME,orig,particle.c
+0x421a08,ptc_max_groups,data,,GAME,orig,particle.c
+0x421a0c,ptc_ngroups,data,,GAME,orig,particle.c
+0x421a10,ptc_cur_group,data,,GAME,orig,particle.c
+0x421a14,ptc_start,data,,GAME,orig,particle.c
+0x421a18,ptc_handles,data,,GAME,orig,particle.c
+0x421a1c,ptc_groups,data,,GAME,orig,particle.c
+0x421a20,ptc_parts,data,,GAME,orig,particle.c
+0x421a24,ptc_max_parts,data,,GAME,orig,particle.c
+0x421a28,ptc_nparts,data,,GAME,orig,particle.c
+0x35c270,ptc_gc_shift,data,,GAME,orig,particle.c
+0x35c274,ptc_rnd1,data,,GAME,orig,particle.c
+0x35c280,ptc_rnd2,data,,GAME,orig,particle.c
+0x35c28c,ptc_near,data,,GAME,orig,particle.c
+0x35c290,ptc_types,data,,GAME,orig,particle.c
+0x35c390,ptc_descs,data,,GAME,orig,particle.c
+0x35c748,ptc_desc_shift,data,,GAME,orig,particle.c
+0x355f00,ptc_msg_bad_handle2,data,,GAME,orig,particle.c
+0x355f3c,ptc_msg_bad_handle1,data,,GAME,orig,particle.c

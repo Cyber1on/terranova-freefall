@@ -1,0 +1,39 @@
+/* tnfree.rc -- Windows file properties of tnfree.exe (Explorer, Properties, Details), and its
+ * manifest (UTF-8 file names: tnfree.manifest) */
+#include <winver.h>
+#include "version.h"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION FREEFALL_VERSION_RC
+PRODUCTVERSION FREEFALL_VERSION_RC
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEFLAGS FREEFALL_RC_FLAGS
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "ProductName", "Terra Nova: Freefall"
+            VALUE "FileDescription", "Terra Nova: Freefall"
+            VALUE "ProductVersion", FREEFALL_VERSION_FULL
+            VALUE "FileVersion", FREEFALL_VERSION_FULL
+            VALUE "InternalName", "tnfree"
+            VALUE "OriginalFilename", "tnfree.exe"
+            VALUE "LegalCopyright", "Free software under the GNU GPL version 3. Needs the original game."
+            VALUE "Comments", "Port of Terra Nova: Strike Force Centauri (Looking Glass Technologies, 1996). Commit " FREEFALL_COMMIT
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
+
+/* The manifest (1 = CREATEPROCESS_MANIFEST_RESOURCE_ID, 24 = RT_MANIFEST).  P68: the system's
+ * "ANSI" code page for tnfree is UTF-8 (Windows 10 version 1903 and later): the C library's file
+ * functions then take the UTF-8 names SDL gives (the folder of tnfree.exe, the folder chosen in
+ * the dialog), so folders whose names have letters outside English work */
+1 24 "tnfree.manifest"

@@ -1,0 +1,134 @@
+address,name,kind,nargs,library,status,notes
+0x28de20,flash_28DE20,func,2,GAME,decomp,flashfx.c qsort cmp (M061)
+0x28de40,flash_28DE40,func,1,GAME,decomp,flashfx.c cull far class 0 objects; arg unused (M061)
+0x28e040,flash_28E040,func,4,GAME,decomp,flashfx.c damage a class 0 object (M061)
+0x28e2fc,flash_28E2FC,func,1,GAME,decomp,flashfx.c message handler (M061)
+0x28e350,flash_28E350,func,2,GAME,decomp,flashfx.c designator strike flash (M061)
+0x28e5f0,flash_28E5F0,func,3,GAME,decomp,flashfx.c unused (M061)
+0x28e630,flash_28E630,func,0,GAME,decomp,flashfx.c (M061)
+0x28e6c0,flash_28E6C0,func,7,GAME,decomp,flashfx.c damage rules (M061)
+0x359718,stat_kills_359718,data,,GAME,orig,flashfx.c long
+0x35bf34,flash_end_time,data,,GAME,orig,flashfx.c ulong
+0x397130,flash_saved_pal,data,,GAME,orig,flashfx.c uchar[0x300]
+0x397430,flash_from_pal,data,,GAME,orig,flashfx.c uchar[0x300]
+0x397730,flash_white_pal,data,,GAME,orig,flashfx.c uchar[0x300]
+0x397a30,flash_team_type,data,,GAME,orig,flashfx.c uchar
+0x397a31,flash_pal_effect,data,,GAME,orig,flashfx.c uchar
+0x41e224,drawobj_cls0_models,data,,GAME,orig,flashfx.c uchar * (G6a drawobj: RefLock 0x55B0000)
+0x2af4e0,weather_2AF4E0,func,2,GAME,decomp,weather.c move the drops (M092)
+0x2af958,weather_2AF958,func,0,GAME,decomp,weather.c sound done callback (M092)
+0x2af964,weather_2AF964,func,1,GAME,decomp,weather.c (M092)
+0x2af9b8,weather_2AF9B8,func,3,GAME,decomp,weather.c drop to screen (M092)
+0x2afa5c,weather_2AFA5C,func,2,GAME,decomp,weather.c draw drops of a band (M092)
+0x2afbd8,weather_2AFBD8,func,2,GAME,decomp,weather.c make drops (M092)
+0x2afd4c,weather_2AFD4C,func,2,GAME,decomp,weather.c set weather kind (M092)
+0x2afe38,weather_2AFE38,func,2,GAME,decomp,weather.c resize view (M092)
+0x2aff54,weather_2AFF54,func,2,GAME,decomp,weather.c new view (M092)
+0x2afffc,weather_2AFFFC,func,1,GAME,decomp,weather.c free view (M092)
+0x2b003c,weather_2B003C,func,0,GAME,decomp,weather.c start storm (M092)
+0x2b0090,weather_2B0090,func,2,GAME,decomp,weather.c thunder sound (M092)
+0x2b0158,weather_2B0158,func,1,GAME,decomp,weather.c (M092)
+0x2b0178,weather_2B0178,func,0,GAME,decomp,weather.c lightning strike (M092)
+0x2b0238,weather_2B0238,func,0,GAME,decomp,weather.c (M092)
+0x2b0244,weather_2B0244,func,0,GAME,decomp,weather.c storm step (M092)
+0x2b033c,weather_2B033C,func,0,GAME,decomp,weather.c (M092)
+0x2b0358,weather_2B0358,func,1,GAME,decomp,weather.c water texture animation (M092)
+0x2b0434,weather_2B0434,func,0,GAME,decomp,weather.c per frame (M092)
+0x2b0520,weather_2B0520,func,0,GAME,decomp,weather.c clip pool (M092)
+0x2b053c,weather_2B053C,func,0,GAME,decomp,weather.c (M092)
+0x2b0548,weather_2B0548,func,4,GAME,decomp,weather.c clip polygon (M092)
+0x2b0b18,weather_2B0B18,func,0,GAME,decomp,weather.c (M092)
+0x2b0c60,back_intersect,func,0,GAME,decomp,weather.c near plane (M092)
+0x2b0da4,weather_2B0DA4,func,0,GAME,decomp,weather.c (M092)
+0x2b0ec8,weather_2B0EC8,func,0,GAME,decomp,weather.c (M092)
+0x2b0ff4,weather_2B0FF4,func,0,GAME,decomp,weather.c (M092)
+0x2b1118,weather_2B1118,func,0,GAME,decomp,weather.c (M092)
+0x2b1218,weather_2B1218,func,1,GAME,decomp,weather.c project vertex (M092)
+0x2b12d0,weather_2B12D0,func,1,GAME,decomp,weather.c texture corners (M092)
+0x2b1694,weather_2B1694,func,0,GAME,decomp,weather.c (M092)
+0x2b16ac,weather_2B16AC,func,0,GAME,decomp,weather.c (M092)
+0x2b16b0,weather_2B16B0,func,3,GAME,decomp,weather.c group bins (M092)
+0x2b1814,weather_2B1814,func,0,GAME,decomp,weather.c build bin triangles (M092)
+0x2b1bc0,weather_2B1BC0,func,2,GAME,decomp,weather.c draw bin (M092)
+0x2b1dcc,weather_2B1DCC,func,0,GAME,decomp,weather.c draw bins with drops (M092)
+0x2b1f24,weather_2B1F24,func,0,GAME,decomp,weather.c draw bin groups (M092)
+0x2b219c,weather_2B219C,func,4,GAME,decomp,weather.c sky reflection (M092)
+0x2b2340,weather_2B2340,func,4,GAME,decomp,weather.c (M092)
+0x2b2418,weather_2B2418,func,4,GAME,decomp,weather.c (M092)
+0x2b24c0,weather_2B24C0,func,4,GAME,decomp,weather.c (M092)
+0x2b250c,weather_2B250C,func,2,GAME,decomp,weather.c (M092)
+0x2b2584,weather_2B2584,func,2,GAME,decomp,weather.c (M092)
+0x2b2598,weather_2B2598,func,4,GAME,decomp,weather.c (M092)
+0x2b2610,weather_2B2610,func,2,GAME,decomp,weather.c (M092)
+0x2b2690,weather_2B2690,func,4,GAME,decomp,weather.c (M092)
+0x2fb3a0,crt_2FB3A0,func,4,GAME,orig,water texture mapper (bm n pts refl) called by weather_2B219C
+0x35ca88,wx_snd_chan,data,,GAME,orig,weather.c long
+0x35ca8c,wx_thunder_wait,data,,GAME,orig,weather.c ulong
+0x35caa4,wx_types,data,,GAME,orig,weather.c WxType[2]
+0x35cae0,wx_rnd,data,,GAME,orig,weather.c RndStream
+0x35caec,wx_snd_speed,data,,GAME,orig,weather.c fix
+0x35caf0,wx_tex_acc,data,,GAME,orig,weather.c long
+0x35caf4,wx_last_time,data,,GAME,orig,weather.c ulong
+0x35caf8,wx_near_z,data,,GAME,orig,weather.c fix
+0x35cafc,wx_band_dist,data,,GAME,orig,weather.c long[3]
+0x35cb08,wx_draw_order,data,,GAME,orig,weather.c long[9][9]
+0x35cc4c,wx_rows,data,,GAME,orig,weather.c long[17]
+0x35c0e0,terr_poly_fns,data,,GAME,orig,weather.c void*[8] (entry 1 = ffpipe_35C0E4)
+0x41eb40,terr_tex_bm,data,,GAME,orig,weather.c grs_bitmap
+0x438c40,wx_bm,data,,GAME,orig,weather.c grs_bitmap[2]
+0x438c74,wx_bolt_tick,data,,GAME,orig,weather.c ulong
+0x438c7c,wx_cos,data,,GAME,orig,weather.c fix[32]
+0x438cfc,wx_h16,data,,GAME,orig,weather.c long
+0x438d04,wx_sin,data,,GAME,orig,weather.c fix[32]
+0x438d84,wx_cx16,data,,GAME,orig,weather.c long
+0x438d88,wx_cy3,data,,GAME,orig,weather.c long
+0x438d8c,wx_views,data,,GAME,orig,weather.c WxView[4]
+0x438e58,wx_heading,data,,GAME,orig,weather.c ushort
+0x438e5a,wx_bolt_done,data,,GAME,orig,weather.c uchar
+0x438e5b,wx_thunder_vol,data,,GAME,orig,weather.c uchar
+0x438e60,wx_clip_next,data,,GAME,orig,weather.c TrVert *
+0x438e64,wx_clip_prev,data,,GAME,orig,weather.c TrVert *
+0x438e68,wx_clip_pool,data,,GAME,orig,weather.c TrVert *
+0x438e6c,wx_clip_new,data,,GAME,orig,weather.c TrVert *
+0x438e70,wx_clip_d,data,,GAME,orig,weather.c fix[3]
+0x438e7c,wx_clip_t,data,,GAME,orig,weather.c fix
+0x438e80,wx_clip_count,data,,GAME,orig,weather.c long
+0x438e94,wx_region,data,,GAME,orig,weather.c uchar
+0x438e95,wx_bins,data,,GAME,orig,weather.c TerrBin *[9]
+0x438eb9,wx_grid_mode,data,,GAME,orig,weather.c uchar
+0x438eba,wx_in_center,data,,GAME,orig,weather.c uchar
+0x39a404,game_39A404,data,,GAME,orig,weather.c uchar
+0x2f68b0,skel_2F68B0,func,3,GAME,decomp,skelrend.c allocate skeleton (skel/render.c)
+0x2f6918,skel_2F6918,func,1,GAME,decomp,skelrend.c free
+0x2f6920,skel_2F6920,func,3,GAME,decomp,skelrend.c size
+0x2f695c,skel_2F695C,func,4,GAME,decomp,skelrend.c init in place
+0x2f69ac,skel_2F69AC,func,2,GAME,decomp,skelrend.c set segment parms
+0x2f69dc,skel_2F69DC,func,2,GAME,decomp,skelrend.c set sort callback
+0x2f69e0,skel_2F69E0,func,2,GAME,decomp,skelrend.c lock models (hi word)
+0x2f6a64,skel_2F6A64,func,1,GAME,decomp,skelrend.c lock models
+0x2f6ad0,skel_2F6AD0,func,1,GAME,decomp,skelrend.c unlock models
+0x2f6b08,skel_2F6B08,func,2,GAME,decomp,skelrend.c unlock models (hi word)
+0x2f6b50,skel_2F6B50,func,3,GAME,decomp,skelrend.c set hook a
+0x2f6b64,skel_2F6B64,func,5,GAME,decomp,skelrend.c set hook b
+0x2f6b94,skel_2F6B94,func,3,GAME,decomp,skelrend.c set position index a
+0x2f6ba8,skel_2F6BA8,func,5,GAME,decomp,skelrend.c set position index b
+0x2f6bd8,skel_2F6BD8,func,0,GAME,decomp,skelrend.c clear hooks
+0x2f6c50,skel_2F6C50,func,6,GAME,decomp,skelrend.c draw sprite segment
+0x2f737c,skel_2F737C,func,3,GAME,decomp,skelrend.c start segment object frame
+0x2f7480,skel_2F7480,func,4,GAME,decomp,skelrend.c draw one object segment
+0x2f74a4,skel_2F74A4,func,4,GAME,decomp,skelrend.c draw one sub-object segment
+0x2f74f0,skel_2F74F0,func,2,GAME,decomp,skelrend.c render skeleton
+0x2f7aac,skel_2F7AAC,func,2,GAME,decomp,skelrend.c combined clut (cached)
+0x2f7b1c,skel_2F7B1C,func,1,GAME,decomp,skelrend.c sub-objects and attachment positions
+0x315f88,crt_315F88,func,2,GAME,orig,skel identity order (sk order)
+0x315e60,crt_315E60,func,3,GAME,orig,skel depth sort (sk order pts)
+0x315fb0,crt_315FB0,func,8,GAME,orig,skel type 1 segment draw
+0x44cb90,skel_cb_a,data,,GAME,orig,skelrend.c long[32]
+0x44cb10,skel_cb_b,data,,GAME,orig,skelrend.c long[32]
+0x44c970,skel_cb_flag,data,,GAME,orig,skelrend.c uchar[32]
+0x44c7f0,skel_cb_parm,data,,GAME,orig,skelrend.c fix[32][3]
+0x44c990,skel_pos,data,,GAME,orig,skelrend.c g3s_vector[32]
+0x44c6f0,skel_tab_6F0,data,,GAME,orig,skelrend.c uchar[256]
+0x44cc14,skel_clut_a,data,,GAME,orig,skelrend.c uchar*
+0x44cc10,skel_clut_b,data,,GAME,orig,skelrend.c uchar*
+0x44cc18,skel_clut,data,,GAME,orig,skelrend.c uchar[256]

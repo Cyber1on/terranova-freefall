@@ -1,0 +1,11 @@
+address,name,kind,nargs,library,status,notes
+0x311244,ff_ftl_static_init,func,0,EDMS,decomp,"ff_ftl.cc file-scope init (XI 0x36EF8A)"
+0x311283,EDMS_FF_cast_projectile,func,11,EDMS,decomp,"ff_ftl.cc projectile raycast, ret 0x1c"
+0x311848,FF_object_check,func,8,EDMS,decomp,"ff_ftl.cc (data_word,hx,hy,Q*size,Q*range,exclude,max_step,hit_terrain) ret 0x10"
+0x311b10,soliton_static_init,func,0,EDMS,decomp,"soliton.cc file-scope init (XI 0x36EF90)"
+0x311b9f,soliton_lite,func,1,EDMS,decomp,"soliton.cc TN 1-stage integrator (Q *timestep)"
+0x311ef8,soliton_vector,func,1,EDMS,decomp,"soliton.cc fixed .03 step clock (Q *timestep)"
+0x311f90,EDMS_initialize,func,1,EDMS,decomp,soliton.cc (EDMS_data*)
+0x3120a0,EDMS_kill,func,1,EDMS,decomp,soliton.cc kill + pack; 0 or -1
+0x3123ec,collision_wakeup,func,1,EDMS,decomp,soliton.cc dead code
+0x3126ac,soliton_set_alarm,func,1,EDMS,decomp,"soliton.cc dead code (name ours)"

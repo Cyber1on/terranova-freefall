@@ -1,0 +1,162 @@
+address,name,kind,nargs,library,status,notes
+0x2b5c90,uiwidget_2B5C90,func,0,GAME,decomp,M096 native 15 shell colours
+0x2b5cc0,uiwidget_2B5CC0,func,0,GAME,decomp,M096 native 9 caption box
+0x2b5d94,uiwidget_2B5D94,func,3,GAME,decomp,M096 native 14 text box on a button
+0x2b5e48,uiwidget_2B5E48,func,2,GAME,decomp,M096 native 19
+0x2b5e58,uiwidget_2B5E58,func,2,GAME,decomp,M096 native 11
+0x2b5e70,uiwidget_2B5E70,func,0,GAME,decomp,M096 native 13
+0x2b5e80,uiwidget_2B5E80,func,0,GAME,decomp,M096 (no callers)
+0x2b5ebc,uiwidget_2B5EBC,func,2,GAME,decomp,M096 (no callers; measures edx)
+0x2b5edc,uiwidget_2B5EDC,func,0,GAME,decomp,M096 native 12
+0x2b5f04,uiwidget_2B5F04,func,1,GAME,decomp,M096 (no callers)
+0x2b5f24,uiwidget_2B5F24,func,0,GAME,decomp,M096 native 10
+0x2b5f44,uiwidget_2B5F44,func,0,GAME,decomp,M096 native 16
+0x2b5f68,uiwidget_2B5F68,func,5,GAME,decomp,M096 native 17 (1 stack arg)
+0x2b5fa8,uiwidget_2B5FA8,func,1,GAME,decomp,M096 native 18
+0x2b6014,uiwidget_2B6014,func,0,GAME,decomp,M096 native 20
+0x2b601c,uiwidget_2B601C,func,1,GAME,decomp,M096 button at a point
+0x2b607c,uiwidget_2B607C,func,0,GAME,decomp,M096 native 29
+0x2b6098,uiwidget_2B6098,func,0,GAME,decomp,M096
+0x2b60a8,uiwidget_2B60A8,func,0,GAME,decomp,M096
+0x2b60b4,uiwidget_2B60B4,func,1,GAME,decomp,M096 wake shell thread
+0x2b60cc,uiwidget_2B60CC,func,0,GAME,decomp,M096
+0x2b60dc,uiwidget_2B60DC,func,6,GAME,decomp,M096 bitmap button (2 stack args)
+0x2b61d8,uiwidget_2B61D8,func,7,GAME,decomp,M096 drawn button (3 stack args)
+0x2b63d8,uiwidget_2B63D8,func,2,GAME,decomp,M096
+0x2b6428,ShellUiHook,func,1,GAME,decomp,M096 frame hook 12
+0x2b6480,uiwidget_2B6480,func,2,GAME,decomp,M096 script text callback
+0x2b648c,uiwidget_2B648C,func,0,GAME,decomp,M096 (no callers)
+0x2b64f8,uiwidget_2B64F8,func,0,GAME,decomp,M096
+0x2b6560,uiwidget_2B6560,func,0,GAME,decomp,M096 (no callers)
+0x2b6580,uiwidget_2B6580,func,1,GAME,decomp,M096 key handler
+0x2b6620,uiwidget_2B6620,func,2,GAME,decomp,M096 native 23
+0x2b6670,uiwidget_2B6670,func,3,GAME,decomp,M096 native 25
+0x2b66f0,uiwidget_2B66F0,func,2,GAME,decomp,M096 native 24
+0x2b6700,uiwidget_2B6700,func,2,GAME,decomp,M096 native 27
+0x2b6714,uiwidget_2B6714,func,1,GAME,decomp,M096 native 26 graphics mode
+0x2b67b4,uiwidget_2B67B4,func,4,GAME,decomp,M096 rotated text (no callers)
+0x2b6a48,uiwidget_2B6A48,func,1,GAME,decomp,M096 native 30
+0x35ccf8,uiw_hook_on,data,,GAME,decomp,g10_a.h long
+0x35ccfc,uiw_tbox,data,,GAME,decomp,g10_a.h TBox *
+0x35cd00,uiw_pal_a,data,,GAME,decomp,g10_a.h uchar[18]
+0x35cd12,uiw_pal_b,data,,GAME,decomp,g10_a.h uchar[18]
+0x35cd24,uiw_style,data,,GAME,decomp,g10_a.h TBoxStyle
+0x35cd44,uiw_cover_params,data,,GAME,decomp,g10_a.h TnRegionParams
+0x35cd55,uiw_cover_on,data,,GAME,decomp,g10_a.h uchar
+0x35cd58,uiw_cover,data,,GAME,decomp,g10_a.h TnRegion *
+0x35cd5c,uiw_tbox_params,data,,GAME,decomp,g10_a.h TnRegionParams
+0x35cd6e,uiw_tbox_margins,data,,GAME,decomp,g10_a.h long
+0x35cd74,uiw_tbox_params2,data,,GAME,decomp,g10_a.h TnRegionParams
+0x35cd86,uiw_tbox_margins2,data,,GAME,decomp,g10_a.h long
+0x35cd88,uiw_modes,data,,GAME,decomp,g10_a.h short[]
+0x43cc40,uiw_rects,data,,GAME,decomp,g10_a.h LGRect[50]
+0x43cdd0,uiw_hover,data,,GAME,decomp,g10_a.h long
+0x43cdd4,uiw_rect_count,data,,GAME,decomp,g10_a.h long
+0x43cdd8,uiw_mouse_x,data,,GAME,decomp,g10_a.h long
+0x43cddc,uiw_mouse_y,data,,GAME,decomp,g10_a.h long
+0x43cde0,uiw_font,data,,GAME,decomp,g10_a.h grs_font *
+0x35cd90,shell_resfile,data,,GAME,decomp,g10_a.h long
+0x35cd94,shell_35CD94,data,,GAME,decomp,g10_a.h long
+0x35cda0,shell_scr_init,data,,GAME,decomp,g10_a.h void*[29]
+0x35ce14,shell_scr_mouse,data,,GAME,decomp,g10_a.h void*[29]
+0x35ce88,shell_rects,data,,GAME,decomp,g10_a.h LGRect[5]
+0x35ceb0,shell_pos,data,,GAME,decomp,g10_a.h long[13]
+0x35cee4,shell_pt,data,,GAME,decomp,g10_a.h LGPoint[12]
+0x35cf4c,shell_list_rect,data,,GAME,decomp,g10_a.h short[6]
+0x35cf58,shell_35CF58,data,,GAME,decomp,g10_a.h long
+0x35cf5c,shell_35CF5C,data,,GAME,decomp,g10_a.h long
+0x35cf60,shell_35CF60,data,,GAME,decomp,g10_a.h long
+0x35cf6c,shell_35CF6C,data,,GAME,decomp,g10_a.h long
+0x43d2f8,shell_43D2F8,data,,GAME,decomp,g10_a.h uchar[16]
+0x43d308,shell_handler,data,,GAME,decomp,g10_a.h void*
+0x43d310,shell_text,data,,GAME,decomp,g10_a.h char*
+0x43d314,shell_font,data,,GAME,decomp,g10_a.h grs_font*
+0x43d31c,shell_rep_btn,data,,GAME,decomp,g10_a.h short
+0x43d31e,shell_rep_tick,data,,GAME,decomp,g10_a.h ulong
+0x43d322,shell_list_ms,data,,GAME,decomp,g10_a.h ShList
+0x43d370,shell_list_5b4,data,,GAME,decomp,g10_a.h ShList
+0x43d3be,shell_list_5b3,data,,GAME,decomp,g10_a.h ShList
+0x43d40c,shell_list_5b2,data,,GAME,decomp,g10_a.h ShList
+0x43d45a,shell_43D45A,data,,GAME,decomp,g10_a.h short
+0x43d45c,shell_43D45C,data,,GAME,decomp,g10_a.h short
+0x43d45e,shell_43D45E,data,,GAME,decomp,g10_a.h short
+0x43d460,shell_43D460,data,,GAME,decomp,g10_a.h short
+0x43d464,shell_43D464,data,,GAME,decomp,g10_a.h short
+0x43d466,shell_43D466,data,,GAME,decomp,g10_a.h short
+0x43d468,shell_count,data,,GAME,decomp,g10_a.h short
+0x43d46a,shell_43D46A,data,,GAME,decomp,g10_a.h short
+0x43d46c,shell_sel,data,,GAME,decomp,g10_a.h short
+0x43d46e,shell_screen,data,,GAME,decomp,g10_a.h short
+0x43d470,shell_43D470,data,,GAME,decomp,g10_a.h short
+0x43d472,shell_font_id,data,,GAME,decomp,g10_a.h short
+0x43d474,shell_43D474,data,,GAME,decomp,g10_a.h short
+0x43d476,shell_43D476,data,,GAME,decomp,g10_a.h uchar[13]
+0x43d483,shell_43D483,data,,GAME,decomp,g10_a.h uchar
+0x43d484,shell_43D484,data,,GAME,decomp,g10_a.h uchar
+0x2b6a90,shell_2B6A90,func,0,GAME,decomp,M097 termscr.c
+0x2b6b00,shell_2B6B00,func,1,GAME,decomp,M097 termscr.c
+0x2b6b24,shell_2B6B24,func,1,GAME,decomp,M097 termscr.c
+0x2b6b94,shell_2B6B94,func,1,GAME,decomp,M097 termscr.c
+0x2b6bc0,shell_2B6BC0,func,1,GAME,decomp,M097 termscr.c
+0x2b6bcc,shell_2B6BCC,func,1,GAME,decomp,M097 termscr.c
+0x2b6bd8,shell_2B6BD8,func,0,GAME,decomp,M097 termscr.c
+0x2b6c28,shell_2B6C28,func,0,GAME,decomp,M097 termscr.c
+0x2b6c74,shell_2B6C74,func,0,GAME,decomp,M097 termscr.c
+0x2b6cdc,shell_2B6CDC,func,1,GAME,decomp,M097 termscr.c
+0x2b6eb4,shell_2B6EB4,func,1,GAME,decomp,M097 termscr.c
+0x2b6f34,shell_2B6F34,func,0,GAME,decomp,M097 termscr.c
+0x2b6f64,shell_2B6F64,func,1,GAME,decomp,M097 termscr.c
+0x2b6fcc,shell_2B6FCC,func,0,GAME,decomp,M097 termscr.c
+0x2b7178,shell_2B7178,func,1,GAME,decomp,M097 termscr.c
+0x2b7208,shell_2B7208,func,0,GAME,decomp,M097 termscr.c
+0x2b7370,shell_2B7370,func,0,GAME,decomp,M097 termscr.c
+0x2b749c,shell_2B749C,func,0,GAME,decomp,M097 termscr.c
+0x2b7598,shell_2B7598,func,0,GAME,decomp,M097 termscr.c
+0x2b7694,shell_2B7694,func,1,GAME,decomp,M097 termscr.c
+0x2b76bc,shell_2B76BC,func,0,GAME,decomp,M097 termscr.c
+0x2b7820,shell_2B7820,func,1,GAME,decomp,M097 termscr.c
+0x2b7978,shell_2B7978,func,0,GAME,decomp,M097 termscr.c
+0x2b7ec8,shell_2B7EC8,func,1,GAME,decomp,M097 termscr.c
+0x2b80f0,shell_2B80F0,func,0,GAME,decomp,M097 termscr.c
+0x35cf14,shell_size,data,,GAME,decomp,g10_a.h long[3]
+0x35cf20,shell_35CF20,data,,GAME,decomp,g10_a.h uchar
+0x35cf21,shell_35CF21,data,,GAME,decomp,g10_a.h uchar
+0x35cf22,shell_35CF22,data,,GAME,decomp,g10_a.h uchar
+0x43ce00,shell_squad_save,data,,GAME,decomp,g10_a.h GameSpeaker[4]
+0x2b84f8,shell_2B84F8,func,0,GAME,decomp,M097 termscr.c
+0x2b87bc,shell_2B87BC,func,0,GAME,decomp,M097 termscr.c
+0x2b8b94,shell_2B8B94,func,0,GAME,decomp,M097 termscr.c
+0x2b8e80,shell_2B8E80,func,1,GAME,decomp,M097 termscr.c
+0x2b8f60,shell_2B8F60,func,0,GAME,decomp,M097 termscr.c
+0x2b9538,shell_2B9538,func,0,GAME,decomp,M097 termscr.c
+0x2b960c,shell_2B960C,func,2,GAME,decomp,M097 termscr.c
+0x2b9694,shell_2B9694,func,2,GAME,decomp,M097 termscr.c
+0x390328,camp_390328,data,,GAME,orig,campaign member table
+0x2b97c0,shell_2B97C0,func,1,GAME,decomp,M097 termscr.c
+0x2ba5b8,shell_2BA5B8,func,1,GAME,decomp,M097 termscr.c
+0x2bb45c,shell_2BB45C,func,0,GAME,decomp,M097 termscr.c
+0x2bbca4,shell_2BBCA4,func,1,GAME,decomp,M097 termscr.c
+0x2bbfbc,shell_2BBFBC,func,1,GAME,decomp,M097 termscr.c
+0x2bbffc,shell_2BBFFC,func,0,GAME,decomp,M097 termscr.c
+0x2bc018,shell_2BC018,func,1,GAME,decomp,M097 termscr.c
+0x2bc094,shell_2BC094,func,2,GAME,decomp,M097 termscr.c
+0x2bc13c,shell_2BC13C,func,0,GAME,decomp,M097 termscr.c
+0x2bc158,shell_2BC158,func,0,GAME,decomp,M097 termscr.c
+0x2bc21c,shell_2BC21C,func,1,GAME,decomp,M097 termscr.c
+0x2bc230,shell_2BC230,func,0,GAME,decomp,M097 termscr.c
+0x2bc42c,shell_2BC42C,func,1,GAME,decomp,M097 termscr.c
+0x2bc50c,shell_2BC50C,func,0,GAME,decomp,M097 termscr.c
+0x2bc5e8,shell_2BC5E8,func,1,GAME,decomp,M097 termscr.c
+0x2bc65c,shell_2BC65C,func,2,GAME,decomp,M097 termscr.c
+0x2bc704,shell_2BC704,func,0,GAME,decomp,M097 termscr.c
+0x2bc720,shell_2BC720,func,0,GAME,decomp,M097 termscr.c
+0x2bc7e4,shell_2BC7E4,func,1,GAME,decomp,M097 termscr.c
+0x2bc7f8,shell_2BC7F8,func,0,GAME,decomp,M097 termscr.c
+0x35cf24,shell_35CF24,data,,GAME,decomp,M097 termscr.c
+0x35cf2c,shell_35CF2C,data,,GAME,decomp,M097 termscr.c
+0x35cf30,shell_35CF30,data,,GAME,decomp,M097 termscr.c
+0x35cf40,shell_35CF40,data,,GAME,decomp,M097 termscr.c
+0x35cf44,shell_35CF44,data,,GAME,decomp,M097 termscr.c
+0x35cf48,shell_35CF48,data,,GAME,decomp,M097 termscr.c
+0x35cf64,shell_35CF64,data,,GAME,decomp,M097 termscr.c
+0x35cf68,shell_35CF68,data,,GAME,decomp,M097 termscr.c

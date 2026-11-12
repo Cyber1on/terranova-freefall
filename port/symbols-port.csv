@@ -1,0 +1,12 @@
+address,name,kind,nargs,library,status,notes
+0x30bfec,AIL_sample_volume,func,1v,MILES,orig,Miles AIL (cdecl); in the parameter getter table 0x35F900
+0x30c0ec,AIL_sample_pan,func,1v,MILES,orig,Miles AIL (cdecl); in the parameter getter table 0x35F900
+0x30c1ec,AIL_sample_loop_count,func,1v,MILES,orig,Miles AIL (cdecl); in the parameter getter table 0x35F900
+0x30c840,AIL_set_sample_position,func,2v,MILES,orig,Miles AIL (cdecl); in the parameter setter table 0x35F91C
+0x30c8c8,AIL_sample_position,func,1v,MILES,orig,Miles AIL (cdecl); in the parameter getter table 0x35F900
+0x44db20,gr_vec_pts,data,,2D,decomp,fix[32][2] vector picture polygon vertices (port/original/orig_vec.c; name ours)
+0x44dc20,gr_vec_plist,data,,2D,decomp,fix*[32] pointers to them (name ours)
+0x44dca0,gr_vec_oy,data,,2D,decomp,fix vector picture origin y (name ours)
+0x44dca4,gr_vec_ox,data,,2D,decomp,fix origin x (name ours)
+0x44dca8,gr_vec_sy,data,,2D,decomp,fix scale y (name ours)
+0x44dcac,gr_vec_sx,data,,2D,decomp,fix scale x (name ours)

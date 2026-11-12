@@ -1,0 +1,86 @@
+address,name,kind,nargs,library,status,notes
+0x288ec0,obj55_288EC0,func,2,GAME,decomp,objheat.c (M055)
+0x288ef0,obj55_288EF0,func,3,GAME,decomp,objheat.c (M055)
+0x288f78,obj55_288F78,func,4,GAME,decomp,objheat.c (M055) ecx = 4th arg
+0x28927c,obj55_28927C,func,1,GAME,decomp,objheat.c (M055)
+0x28f020,weapons_28F020,func,0,GAME,decomp,weapons.c (M063) map: weapons_28F020
+0x28f024,weapon_ready,func,2,GAME,decomp,weapons.c (M063) map: weapons_28F024
+0x28f0a0,weapon_nop,func,0,GAME,decomp,weapons.c (M063) map: weapons_28F0A0
+0x28f0a4,weapon_radio,func,2,GAME,decomp,weapons.c (M063) map: weapons_28F0A4
+0x28f0b4,weapon_fire,func,11,GAME,decomp,weapons.c (M063) map: weapons_28F0B4
+0x28f7fc,weapon_aim_error,func,10,GAME,decomp,weapons.c (M063) map: weapons_28F7FC
+0x28f950,weapon_use_ammo,func,3,GAME,decomp,weapons.c (M063) map: weapons_28F950
+0x28faac,weapon_find_target,func,4,GAME,decomp,weapons.c (M063) map: weapons_28FAAC
+0x28fd54,turret_fire,func,1,GAME,decomp,weapons.c (M063) map: weapons_28FD54
+0x28fe20,turret_alert,func,1,GAME,decomp,weapons.c (M063) map: weapons_28FE20
+0x28fe68,debris_reset,func,0,GAME,decomp,weapons.c (M063) map: weapons_28FE68
+0x28fe74,debris_burst,func,3,GAME,decomp,weapons.c (M063) map: weapons_28FE74
+0x28ffc4,debris_one,func,3,GAME,decomp,weapons.c (M063) map: weapons_28FFC4
+0x28fff8,weapon_facing,func,3,GAME,decomp,weapons.c (M063) map: weapons_28FFF8
+0x290044,weapon_blast,func,5,GAME,decomp,weapons.c (M063) map: weapons_290044
+0x2903a0,weapon_damage5,func,1,GAME,decomp,weapons.c (M063) map: weapons_2903A0
+0x290448,weapon_damage8,func,2,GAME,decomp,weapons.c (M063) map: weapons_290448
+0x2904f8,wsnd_kill_cb,func,1,GAME,decomp,weapons.c (M063) map: weapons_2904F8
+0x290524,wsnd_fire,func,3,GAME,decomp,weapons.c (M063) map: weapons_290524
+0x29079c,weapons_29079C,func,0,GAME,decomp,weapons.c (M063) map: weapons_29079C
+0x290858,weapons_290858,func,0,GAME,decomp,weapons.c (M063) map: weapons_290858
+0x295368,objid_reset,func,0,GAME,decomp,classdesc.c (M070) unreferenced; map missed it
+0x29537c,objid_next,func,1,GAME,decomp,classdesc.c (M070) unreferenced; map missed it
+0x2953dc,pool_2953DC,func,1,GAME,decomp,classdesc.c (M070) map: pool_2953DC
+0x2a3230,objmap_add,func,2,GAME,decomp,objmap.c (M080) map: objlist_2A3230
+0x2a32e4,objmap_find,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A32E4
+0x2a3320,objmap_kill_cb,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A3320
+0x2a3324,objmap_remove,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A3324
+0x2a3390,objmap_update,func,0,GAME,decomp,objmap.c (M080) map: objlist_2A3390
+0x2a33b8,objmap_clear,func,0,GAME,decomp,objmap.c (M080) map: objlist_2A33B8
+0x2a33e8,objmap_update_one,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A33E8
+0x2a347c,objmap_hash_init,func,0,GAME,decomp,objmap.c (M080) map: objlist_2A347C
+0x2a34e0,objmap_node_pop,func,0,GAME,decomp,objmap.c (M080) map: objlist_2A34E0
+0x2a34fc,objmap_node_push,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A34FC
+0x2a3514,objmap_node_free,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A3514
+0x2a359c,objmap_node_get,func,2,GAME,decomp,objmap.c (M080) map: objlist_2A359C
+0x2a364c,objmap_node_find,func,2,GAME,decomp,objmap.c (M080) map: objlist_2A364C
+0x2a36ac,objmap_node_move,func,4,GAME,decomp,objmap.c (M080) map: objlist_2A36AC
+0x2a36c8,objmap_node_sub,func,3,GAME,decomp,objmap.c (M080) map: objlist_2A36C8
+0x2a3704,objmap_cell_add,func,4,GAME,decomp,objmap.c (M080) map: objlist_2A3704
+0x2a37a8,objmap_cell_sub,func,3,GAME,decomp,objmap.c (M080) map: objlist_2A37A8
+0x2a381c,objmap_stamp,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A381C
+0x2a39bc,objmap_unstamp,func,1,GAME,decomp,objmap.c (M080) map: objlist_2A39BC
+0x2a3b1c,objmap_query,func,2,GAME,decomp,objmap.c (M080) map: objlist_2A3B1C
+0x2ccd30,reticle_reset,func,0,GAME,decomp,reticle.c (M106) map: reticle_2CCD30
+0x2ccd44,reticle_edge_check,func,0,GAME,decomp,reticle.c (M106) map: reticle_2CCD44
+0x2ccdec,reticle_edge_dist,func,0,GAME,decomp,reticle.c (M106) map: reticle_2CCDEC
+0x2cce70,reticle_target,func,4,GAME,decomp,reticle.c (M106) map: reticle_2CCE70
+0x2cd388,reticle_edge_msg,func,1,GAME,decomp,reticle.c (M106) map: reticle_2CD388
+0x35b704,game_rnd_35B704,data,,GAME,orig,RndStream used by the object damage code
+0x35b750,game_35B750,data,,GAME,orig,objheat.c
+0x35bf38,game_35BF38,data,,GAME,orig,weapons.c
+0x35bfb4,game_map_35BFB4,data,,GAME,orig,map record pointer (+0x84E cell rows)
+0x35c11c,objmap_stamps,data,,GAME,orig,objmap.c ObjMapStamp[]
+0x36f49c,game_36F49C,data,,GAME,orig,reticle.c
+0x389e34,game_389E34,data,,GAME,orig,objheat.c pointer
+0x389ec4,game_389EC4,data,,GAME,orig,objheat.c pointer
+0x395114,game_weapon_types,data,,GAME,orig,weapons.c weapon type records 0x24
+0x396356,game_skill_tab,data,,GAME,orig,short[][5] per skill level
+0x3970e0,game_3970E0,data,,GAME,orig,reticle.c
+0x397a50,wsnd_slots,data,,GAME,orig,weapons.c WpnSnd[2]
+0x397a68,debris_count,data,,GAME,orig,weapons.c
+0x397b70,game_397B70,data,,GAME,orig,reticle.c
+0x39bb30,game_cls8,data,,GAME,orig,class 8 records 0xC
+0x39bdf0,game_cls5,data,,GAME,orig,class 5 records 0x1E
+0x39c750,game_cls4,data,,GAME,orig,class 4 records 0x79
+0x39e590,game_cls3,data,,GAME,orig,class 3 records 0x14F
+0x3ba980,objid_index,data,,GAME,orig,classdesc.c
+0x3ba984,objid_page,data,,GAME,orig,classdesc.c
+0x3c5e1c,game_3C5E1C,data,,GAME,orig,tile objects [128][128]
+0x420160,objmap_hash,data,,GAME,orig,objmap.c short[256]
+0x420360,objmap_nodes,data,,GAME,orig,objmap.c ObjMapNode[512]
+0x421360,objmap_tab,data,,GAME,orig,objmap.c ObjMapEnt[20]
+0x421928,objmap_free,data,,GAME,orig,objmap.c
+0x42192c,objmap_count,data,,GAME,orig,objmap.c
+0x428bc4,game_428BC4,data,,GAME,orig,weapons.c
+0x442439,game_442439,data,,GAME,orig,objheat.c
+0x442850,reticle_edge_time,data,,GAME,orig,reticle.c
+0x442854,reticle_edge_count,data,,GAME,orig,reticle.c
+0x442900,game_442900,data,,GAME,orig,skill level
+0x442f1b,game_442F1B,data,,GAME,orig,cheat bits

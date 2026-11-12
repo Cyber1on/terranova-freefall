@@ -1,0 +1,158 @@
+address,name,kind,nargs,library,status,notes
+0x267b70,HudInit,func,0,GAME,decomp,hudmain.c (M020)
+0x267d68,hud_267D68,func,0,GAME,decomp,hudmain.c shutdown (M020)
+0x267dd4,hud_267DD4,func,1,GAME,decomp,"hudmain.c think: probe pixel, message tick, weather, reticle (M020)"
+0x267ef8,hud_msg_add,func,1,GAME,decomp,hudmain.c message from a template (M020)
+0x267f5c,hud_msg_kill,func,1,GAME,decomp,hudmain.c (M020)
+0x267fa8,hud_msg_tick,func,1,GAME,decomp,hudmain.c (M020)
+0x268058,hud_layout_pos,func,2,GAME,decomp,hudmain.c (no callers) layout table entry (M020)
+0x268098,hud_268098,func,5,GAME,decomp,hudmain.c outlined text (M020)
+0x26817c,hud_msg_draw,func,0,GAME,decomp,hudmain.c messages + mission banner (M020)
+0x2683f8,hud_2683F8,func,1,GAME,decomp,hudmain.c banner on/off (M020)
+0x268414,hud_268414,func,0,GAME,decomp,hudmain.c banner toggle (M020)
+0x26843c,hud_26843C,func,2,GAME,decomp,hudmain.c mission objective line present (M020)
+0x268484,hud_banner_line,func,9,GAME,decomp,hudmain.c (M020)
+0x2686ec,hud_2686EC,func,7,GAME,decomp,hudmain.c banner: 3 objective lines (M020)
+0x2687c0,hud_radio_log_show,func,1,GAME,decomp,hudmain.c (M020)
+0x2688a4,hud_2688A4,func,1,GAME,decomp,hudmain.c radio text (M020)
+0x2689a0,hud_2689A0,func,0,GAME,decomp,hudmain.c radio wait count (M020)
+0x2689e0,hud_radio_wake,func,0,GAME,decomp,hudmain.c (no callers) (M020)
+0x268a08,hud_268A08,func,2,GAME,decomp,hudmain.c radio text or text log (M020)
+0x268a44,hud_268A44,func,2,GAME,decomp,hudmain.c radio message callback (M020)
+0x268b30,hud_268B30,func,0,GAME,decomp,hudmain.c replay the last radio message (M020)
+0x268bd4,hud_268BD4,func,2,GAME,decomp,hudmain.c acknowledgement text (M020)
+0x268c74,hud_268C74,func,2,GAME,decomp,hudmain.c acknowledgement callback (M020)
+0x268cfc,hud_mouse_buttons,func,3,GAME,decomp,hudmain.c (no callers) (M020)
+0x268d80,hud_268D80,func,2,GAME,decomp,hudmain.c main pane mouse handler (M020)
+0x268e98,hud_268E98,func,0,GAME,decomp,hudmain.c fire / weapon select (M020)
+0x268f08,hud_damage_shake,func,0,GAME,decomp,hudmain.c (no callers) (M020)
+0x268f6c,hud_shake_add,func,1,GAME,decomp,hudmain.c (M020)
+0x268fd0,hud_268FD0,func,2,GAME,decomp,hudmain.c shake by distance (M020)
+0x269000,hud_269000,func,0,GAME,decomp,hudmain.c calm the shake (M020)
+0x269028,hud_269028,func,0,GAME,decomp,hudmain.c draw the main view (M020)
+0x26934c,hud_noise_draw,func,0,GAME,decomp,hudmain.c (M020)
+0x269410,hud_text_box,func,5,GAME,decomp,hudmain.c (no callers) (M020)
+0x269480,hud_cam_reset,func,0,GAME,decomp,hudmain.c (M020)
+0x2694f4,hud_eye_update,func,0,GAME,decomp,hudmain.c (M020)
+0x2695a0,hud_eye_player,func,0,GAME,decomp,hudmain.c (M020)
+0x269838,hud_eye_from_rec,func,1,GAME,decomp,hudmain.c (no callers) (M020)
+0x2698a4,hud_draw_fps,func,0,GAME,decomp,hudmain.c (no callers) (M020)
+0x269994,hud_draw_speed,func,0,GAME,decomp,hudmain.c (no callers) (M020)
+0x269a38,hud_draw_palette,func,0,GAME,decomp,hudmain.c (M020)
+0x269ba0,hud_drive,func,0,GAME,decomp,hudmain.c (no callers) (M020)
+0x269d2c,hud_aim_centered,func,0,GAME,decomp,hudmain.c (no callers) (M020)
+0x269d34,hud_aim_point,func,1,GAME,decomp,hudmain.c (M020)
+0x269dbc,hud_aim_on_target,func,0,GAME,decomp,hudmain.c (M020)
+0x269e7c,hud_reticle,func,0,GAME,decomp,hudmain.c (M020)
+0x269f28,hud_269F28,func,1,GAME,decomp,hudmain.c pick the target under a point (M020)
+0x26a11c,hud_26A11C,func,2,GAME,decomp,hudmain.c add a target rectangle (M020)
+0x26a188,hud_26A188,func,2,GAME,decomp,hudmain.c target message callback (M020)
+0x26a380,hud_bracket,func,2,GAME,decomp,hudmain.c (M020)
+0x26a4f4,hud_status_ticks,func,3,GAME,decomp,hudmain.c (M020)
+0x26a6d4,hud_26A6D4,func,2,GAME,decomp,hudmain.c entity display name (M020)
+0x26a7c8,hud_target_label,func,custom,GAME,decomp,"hudmain.c eax ent, LGRect by value on the stack, ret 8; Watcom entry W_hud_target_label in hudmain.c (M020)"
+0x26ac98,hud_26AC98,func,1,GAME,decomp,hudmain.c helmet on/off (M020)
+0x26ad2c,hud_helmet_set,func,1,GAME,decomp,hudmain.c (M020)
+0x26ae98,hud_26AE98,func,0,GAME,decomp,hudmain.c open the map (M020)
+0x26af24,hud_26AF24,func,0,GAME,decomp,hudmain.c close the map (M020)
+0x26afb0,hud_26AFB0,func,1,GAME,decomp,hudmain.c map zoom step (M020)
+0x26b064,hud_map_mouse,func,2,GAME,decomp,hudmain.c (M020)
+0x26b474,hud_map_draw,func,0,GAME,decomp,hudmain.c (M020)
+0x26b4b0,hud_map_legend,func,0,GAME,decomp,hudmain.c (M020)
+0x26b734,hud_cam_setup,func,0,GAME,decomp,hudmain.c (M020)
+0x26b780,hud_26B780,func,1,GAME,decomp,hudmain.c set zoom (M020)
+0x26b800,hud_26B800,func,1,GAME,decomp,hudmain.c zoom step (M020)
+0x26b8f8,hud_26B8F8,func,1,GAME,decomp,hudmain.c palette mode (M020)
+0x26b970,hud_26B970,func,1,GAME,decomp,hudmain.c palette toggle (M020)
+0x26b9d8,HudGetCompatibleView,func,0,GAME,decomp,hudmain.c (M020)
+0x26ba18,hud_26BA18,func,0,GAME,decomp,hudmain.c back to the player view (M020)
+0x26ba6c,hud_26BA6C,func,1,GAME,decomp,hudmain.c set the view (M020)
+0x26bafc,hud_dbg_line,func,6,GAME,decomp,hudmain.c (no callers) (M020)
+0x26bb5c,hud_26BB5C,func,0,GAME,decomp,hudmain.c out-of-area flag (M020)
+0x26bb70,HudViewReset,func,0,GAME,decomp,hudmain.c (M020)
+0x26bb98,hud_26BB98,func,1,GAME,decomp,hudmain.c zoom reset value (M020)
+0x267b50,hud_name_init,data,,GAME,orig,"hudmain.c 32 zero bytes in the code segment (map's hud_267B50, not a function)"
+0x35a548,hud_35A548,data,,GAME,orig,hudmain.c HudWidget *
+0x35a544,hud_35A544,data,,GAME,orig,hudmain.c uchar map y shift
+0x35a944,hud_35A944,data,,GAME,orig,hudmain.c uchar target lock enabled
+0x35a9a4,hud_35A9A4,data,,GAME,orig,hudmain.c ulong
+0x35ade2,hud_banner_on,data,,GAME,orig,hudmain.c uchar
+0x35ade4,hud_banner_until,data,,GAME,orig,hudmain.c ulong game_time
+0x35ade8,hud_map_bm,data,,GAME,orig,hudmain.c grs_bitmap[2]
+0x35ae08,hud_fonts,data,,GAME,orig,hudmain.c ushort[8]
+0x35ae18,hud_tmpl_target,data,,GAME,orig,hudmain.c HudMsgTmpl
+0x35ae34,hud_dbg_count,data,,GAME,orig,hudmain.c long
+0x35ae3c,hud_tmpl_radio_log,data,,GAME,orig,hudmain.c HudMsgTmpl
+0x35ae58,hud_tmpl_radio,data,,GAME,orig,hudmain.c HudMsgTmpl
+0x35ae74,hud_tmpl_ack,data,,GAME,orig,hudmain.c HudMsgTmpl
+0x35ae90,hud_cmd_35AE90,data,,GAME,orig,hudmain.c command record
+0x35aea8,hud_noise_rnd,data,,GAME,orig,hudmain.c RndStream
+0x35aeb4,hud_pitch_smooth,data,,GAME,orig,hudmain.c ushort
+0x35aeb8,hud_last_eye,data,,GAME,orig,hudmain.c HudEyePos
+0x35aec8,hud_aim_center,data,,GAME,orig,hudmain.c uchar
+0x35aeca,hud_last_target,data,,GAME,orig,hudmain.c short
+0x35aecc,hud_pal_tab,data,,GAME,orig,hudmain.c uchar *[]
+0x38b9ae,hud_38B9AE,data,,GAME,orig,hudmain.c uchar
+0x43cec8,hud_text_log,data,,GAME,orig,hudmain.c char[0x400]
+0x38f860,hud_dbg_lines,data,,GAME,orig,hudmain.c long[10][6]
+0x38f950,hud_text,data,,GAME,orig,hudmain.c char[0x100]
+0x38fa50,hud_move_a,data,,GAME,orig,hudmain.c fix
+0x38fa54,hud_turn_a,data,,GAME,orig,hudmain.c short
+0x38fa56,hud_dir_a,data,,GAME,orig,hudmain.c ushort
+0x38fa58,hud_fill_tab,data,,GAME,orig,hudmain.c uchar *[4]
+0x38fa68,hud_move_b,data,,GAME,orig,hudmain.c fix
+0x38fa6c,hud_turn_b,data,,GAME,orig,hudmain.c short
+0x38fa6e,hud_dir_b,data,,GAME,orig,hudmain.c ushort
+0x38fa70,hud_zoom_reset,data,,GAME,orig,hudmain.c long
+0x38fa78,hud_shake_max,data,,GAME,orig,hudmain.c long
+0x38fa7c,hud_pal_debug,data,,GAME,orig,hudmain.c long
+0x38fa80,hud_aim_pt,data,,GAME,orig,hudmain.c LGPoint
+0x38fa84,hud_weather,data,,GAME,orig,hudmain.c long
+0x38fa88,hud_map_x,data,,GAME,orig,hudmain.c fix
+0x38fa8c,hud_map_y,data,,GAME,orig,hudmain.c fix
+0x38fa90,hud_map_pos,data,,GAME,orig,hudmain.c LGPoint
+0x38fa94,hud_last_time,data,,GAME,orig,hudmain.c ulong
+0x38fa98,hud_msg_target,data,,GAME,orig,hudmain.c HudMsg *
+0x38fa9c,hud_msgs,data,,GAME,orig,hudmain.c LlistHead
+0x38fab8,hud_ffview,data,,GAME,orig,hudmain.c FfView
+0x38fb14,hud_sky,data,,GAME,orig,hudmain.c SkyRec *
+0x38fb18,hud_sky_file,data,,GAME,orig,hudmain.c long
+0x38fb1c,hud_eye_dz,data,,GAME,orig,hudmain.c fix
+0x38fbe0,hud_eye,data,,GAME,orig,hudmain.c HudEye
+0x38fbea,hud_msg_dead,data,,GAME,orig,hudmain.c short
+0x38fbec,hud_ack_count,data,,GAME,orig,hudmain.c short
+0x38fbee,hud_radio_count,data,,GAME,orig,hudmain.c short
+0x38fbf0,hud_zoom_player,data,,GAME,orig,hudmain.c short
+0x38fbf2,hud_zoom_other,data,,GAME,orig,hudmain.c short
+0x38fbf4,hud_scr_w,data,,GAME,orig,hudmain.c short
+0x38fbf6,hud_scr_h,data,,GAME,orig,hudmain.c short
+0x38fbf9,hud_map_drag,data,,GAME,orig,hudmain.c uchar
+0x38fbfa,hud_out_of_area,data,,GAME,orig,hudmain.c uchar
+0x38fbfb,hud_map_scale,data,,GAME,orig,hudmain.c uchar
+0x38fbfc,hud_map_layers,data,,GAME,orig,hudmain.c uchar
+0x38fbfd,hud_map_grab,data,,GAME,orig,hudmain.c uchar
+0x38fbfe,hud_helmet,data,,GAME,orig,hudmain.c uchar
+0x38fc00,hud_radio_wait,data,,GAME,orig,hudmain.c short
+0x38fc02,hud_buttons,data,,GAME,orig,hudmain.c short
+0x38fc04,hud_drag_off,data,,GAME,orig,hudmain.c LGPoint
+0x38fc08,hud_grab_pt,data,,GAME,orig,hudmain.c LGPoint
+0x389df4,hud_w_389DF4,data,,GAME,orig,hudmain.c HudWidget * main pane
+0x397f20,hud_targ_sel,data,,GAME,orig,hudmain.c short[5]
+0x441355,hud_441355,data,,GAME,orig,hudmain.c short view heading offset
+0x441357,hud_441357,data,,GAME,orig,hudmain.c short view pitch
+0x442424,hud_sky_name,data,,GAME,orig,hudmain.c char[]
+0x442f1a,hud_442F1A,data,,GAME,orig,hudmain.c uchar
+0x44244b,hud_44244B,data,,GAME,orig,hudmain.c uchar
+0x44244c,hud_44244C,data,,GAME,orig,hudmain.c long
+0x38dcd0,hud_map_bits,data,,GAME,orig,hudmain.c uchar[]
+0x355814,hud_str_check,data,,GAME,orig,hudmain.c string
+0x355808,hud_str_bad_offset,data,,GAME,orig,"hudmain.c ""BAD OFFSET"""
+0x355818,hud_str_unknown_view,data,,GAME,orig,hudmain.c string
+0x3557d8,hud_str_sky0s,data,,GAME,orig,"hudmain.c ""SKY0S.RES"""
+0x3557e4,hud_str_no_sky,data,,GAME,orig,hudmain.c string
+0x38fa74,hud_shake,data,,GAME,orig,G7a callee (g7c) long
+0x389de4,hud_drag_widget,data,,GAME,orig,G7a callee (g7c) HudWidget *
+0x389e20,hud_widgets,data,,GAME,orig,G7a callee (g7c) HudWidget *[]
+0x389bc2,hud_389BC2,data,,GAME,orig,G7a callee (g7c) ushort
+0x38fc80,hud_38FC80,data,,GAME,orig,G7a callee (g7c) uchar
+0x38fc10,hud_views,data,,GAME,orig,G7a callee (g7c) HudView[3]
