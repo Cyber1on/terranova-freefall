@@ -36,6 +36,13 @@ fix port_map_cone_wide = 0x10000;       /* main view width / the game's (sharp3d
 extern int port_map_kx;                 /* port/video/mapsharp.c */
 
 static uchar pal_seen[768], tab_fill[256], tab_edge[256];
+/* ... and without the planet's colours 0xB0..0xE6, which the game's infrared swaps for its ramp:
+ * for the one picture drawn before each swap (the infrared going on or off, port_ir_switching),
+ * which is still on the screen after it.  The map under the cone is in the other colours
+ * then (the game's, through the planet's table), but the tint's nearest colours were the
+ * planet's greens, and the cone flashed in the ramp's colours for a frame (P150) */
+static uchar tab_fill_sw[256], tab_edge_sw[256];
+#define TAB(k) (port_ir_switching() ? ((k) == 2 ? tab_edge_sw : tab_fill_sw) : ((k) == 2 ? tab_edge : tab_fill))
 static int pal_ok;
 static float pal8[256][3];              /* the palette in 0..255 (the radar's mixes) */
 static int pal8i[256][3];
@@ -54,9 +61,9 @@ static void build_tables(const uchar *pal)
         if (pal[i] > max)
             max = pal[i];
     sc = max <= 63 ? 63.0f / 255 : 1.0f;                /* VGA palettes are 6-bit */
-    for (k = 0; k < 2; k++) {
-        float a = k ? 0.35f : 0.15f;   /* owner's choice: 15% inside, 35% edges */
-        uchar *t = k ? tab_edge : tab_fill;
+    for (k = 0; k < 4; k++) {
+        float a = k & 1 ? 0.35f : 0.15f;   /* owner's choice: 15% inside, 35% edges */
+        uchar *t = k == 0 ? tab_fill : k == 1 ? tab_edge : k == 2 ? tab_fill_sw : tab_edge_sw;
         for (c = 0; c < 256; c++) {
             float r = pal[c * 3] * (1 - a) + tint[0] * sc * a;
             float g = pal[c * 3 + 1] * (1 - a) + tint[1] * sc * a;
@@ -66,6 +73,8 @@ static void build_tables(const uchar *pal)
             for (i = 1; i < 0xF0; i++) {                /* no 0 (clear) or the cycling colours */
                 float dr = pal[i * 3] - r, dg = pal[i * 3 + 1] - g, db = pal[i * 3 + 2] - b;
                 float d = dr * dr * 3 + dg * dg * 4 + db * db * 2;
+                if (k >= 2 && i >= 0xB0 && i <= 0xE6)
+                    continue;
                 if (d < bd) {
                     bd = d;
                     best = i;
@@ -189,7 +198,7 @@ void port_map_cone_draw(grs_canvas *cv, long sx, long sy, int sh, ushort view, u
         for (x = x0; x <= x1; x++) {
             int k = cone_at(&c, (float)(x - sx), dy);
             if (k)
-                row[x] = (k == 2 ? tab_edge : tab_fill)[row[x]];
+                row[x] = TAB(k)[row[x]];
         }
     }
 }
@@ -286,7 +295,7 @@ void port_map_cone_view(double x, double y, double r, double aspect, ushort view
                 int b8 = (int)((v & 0xFF) * (1 - a) + tint[2] * a + 0.5f);
                 tr[X] = (v & 0xFF000000u) | (uint32_t)r8 << 16 | (uint32_t)g8 << 8 | (uint32_t)b8;
             } else
-                d[X] = (k == 2 ? tab_edge : tab_fill)[d[X]];
+                d[X] = TAB(k)[d[X]];
         }
     }
 }

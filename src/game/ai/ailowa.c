@@ -52,6 +52,15 @@ ulong ai_fire_mask;
 #define BRPATH(br) ((uchar *)TN_LOWMEM(*(uchar **)((uchar *)(br) + 0xAD)))
 
 /* ------------------------------------------------------------------ 0x24ADE0 */
+#ifndef TN_WATCOM_ABI
+extern int port_ai_fix;                 /* port/mods/ai.c: "AI: Fixed", a bit for each of G49 to G60 */
+#define AI_FIX(g) (port_ai_fix >> ((g) - 49) & 1)
+extern int port_ai_g55_var, port_ai_g55_mode[2];
+extern int port_ai_share;
+extern int port_ai_imp, port_ai_spread;  /* "AI: Improved", a bit for each new behaviour */
+void port_ai_note(int what, long a, long b);
+#endif
+
 uchar ailow_24ADE0(uchar *br)
 {
     short e = G4_BENT(br);
@@ -86,6 +95,9 @@ void ailow_24AE4C(long brain, long weapon, long sel)
         return;
     if (G4_S32(pba, 9) <= 0)
         return;
+#ifndef TN_WATCOM_ABI
+    port_ai_note(2, brain, w);          /* (the test log: an ASF used) */
+#endif
     if (w == 10) {
         if (br[0xC3] && br[0xCA])
             aircraft_283A64(e, br[0xCA]);
@@ -111,6 +123,35 @@ void ailow_24AF24(uchar *br, short *out)
     }
     *out = (short)(cur * 100 / max);    /* max 0: #DE in the original too */
 }
+
+#ifndef TN_WATCOM_ABI
+/* a unit's first system in percent: its health, the bar the HUD shows for a target and for a
+ * squad member (damage_27DF14(ent, 0)); 100 with no maximum, as ailow_24AFB4 */
+long ai_health_pct(uchar *br)
+{
+    short e = G4_BENT(br), slot = G4_ENT(e).slot;
+    uchar *meter;
+
+    switch (G4_ENT(e).cls) {
+    case 1: meter = *(uchar **)((uchar *)&game_pba[slot] + 0x9C); break;
+    case 2: meter = (uchar *)&game_vehicles[slot] + 0xD; break;
+    case 3: meter = game_cls3[slot] + 0x1B; break;
+    case 4: meter = game_cls4[slot] + 0x51; break;
+    default: return 100;
+    }
+    if (!meter || G4_U16(meter, 1) == 0)
+        return 100;
+    return (long)G4_U16(meter, 3) * 100 / (long)G4_U16(meter, 1);
+}
+
+/* ... as ailow_24AFB4's grade, 1 (none left) to 6 (70 % or more) */
+static long ai_health_grade(uchar *br)
+{
+    long v = ai_health_pct(br);
+
+    return v == 0 ? 1 : v < 10 ? 2 : v < 20 ? 3 : v < 35 ? 4 : v < 70 ? 5 : 6;
+}
+#endif
 
 /* ------------------------------------------------------------------ 0x24AFB4 */
 static short level5(short v)
@@ -508,6 +549,9 @@ uchar ailow_24BD00(uchar *br)
     if (game_time > G4_U32(br, 0x144)) {
         long r = RndRange(game_rnd_text, 0, 0x7FFF) % 1000;
         G4_U32(br, 0x144) = game_time + 5000 + r;
+#ifndef TN_WATCOM_ABI
+        fix nearest = 0x190000;
+#endif
         for (i = 0; i < GAME_MAX_BRAINS; i++) {
             uchar *ob = G4_BRAIN(i);
             short e = G4_BENT(br), oe = G4_BENT(ob);
@@ -518,6 +562,20 @@ uchar ailow_24BD00(uchar *br)
                 continue;
             if (ailow_24ADE0(ob))
                 continue;
+#ifndef TN_WATCOM_ABI
+            /* G56 ("AI: Fixed"): the game takes every enemy soldier within 25 squares in turn, so
+             * the aircraft attacks the last one of the table.  Fixed: the nearest */
+            if (AI_FIX(56)) {
+                fix d = fix_fast_pyth_dist(ENTX(e) - ENTX(oe), ENTY(e) - ENTY(oe));
+                if (d >= nearest)
+                    continue;
+                nearest = d;
+                br[0xCA] = ob[0xB];
+                res = 1;
+                br[0xC9] = i;
+                continue;
+            }
+#endif
             if (fix_fast_pyth_dist(ENTX(e) - ENTX(oe), ENTY(e) - ENTY(oe)) < 0x190000) {
                 br[0xCA] = ob[0xB];
                 res = 1;
@@ -890,6 +948,9 @@ void ailow_24C618(uchar *br)
             uchar *sq = SQ(br), bb, res;
 
             aiacc_25AF58(m, &w68, &w64, &w60);
+#ifndef TN_WATCOM_ABI
+            { extern ulong ai_imp_hit_at[]; ai_imp_hit_at[br[3]] = game_time; }     /* ("AI: Improved": the step out of fire, ailowb.c) */
+#endif
             G4_U32(sq, 0xF3) += (ulong)(ushort)w64 - (ushort)w68;
             if (G4_U32(sq, 0xF3) < G4_U32(sq, 0xF7) && G4_U32(sq, 0xF3) > G4_U32(sq, 0xFC) &&
                 (sq[0xFB] == 0 || sq[0xFB] == 1)) {
@@ -924,12 +985,21 @@ void ailow_24C618(uchar *br)
                 note_heading(3, (ushort)(G4_ENT(G4_BENT(br)).heading + 0x8000));
             if (br[0xD] == 1 && br[5] == 1 && !br[0xA] && G4_U32(br, 0x1F) > 1) {
                 ailow_24AFB4(br, &avg, &worst, &armour);
-                if (armour < 0x32)
+#ifndef TN_WATCOM_ABI
+                /* G50 ("AI: Fixed"): `armour` is ailow_24AFB4's grade of the soldier's health, 1 to
+                 * 6, and the game compares it with 50 and 75 as if it were the percentage: always
+                 * true, so a squad mate uses its Autodoc at the first scratch and sends its
+                 * explosive drone as soon as it is damaged with a target.  Fixed: the percentage */
+#define ARMOUR_PCT (AI_FIX(50) ? ai_health_pct(br) : armour)
+#else
+#define ARMOUR_PCT armour
+#endif
+                if (ARMOUR_PCT < 0x32)
                     ailow_24AE4C(br[3], 2, 1);
                 ailow_24AF24(br, &ammo);
                 if (ammo < 0x32)
                     ailow_24AE4C(br[3], 5, 1);
-                if (armour < 0x4B && br[0xC3] && game_time > G4_U32(br, 0x2B)) {
+                if (ARMOUR_PCT < 0x4B && br[0xC3] && game_time > G4_U32(br, 0x2B)) {
                     ailow_24AE4C(br[3], 0xA, 1);
                     G4_U32(br, 0x2B) = game_time + 20000;
                 }
@@ -1193,11 +1263,24 @@ void ailow_24DD34(uchar *br)
     switch (RndRange(game_rnd_text, 0, 0x7FFF) % 3) {
     case 0:     /* the original falls through every case: always game_time + 500 */
         G4_U32(br, 0xE5) = game_time;
+#ifndef TN_WATCOM_ABI
+        /* G53 ("AI: Fixed"): the cases have no break, so a soldier shot at always looks for a new
+         * place half a second later.  Fixed: at once, after 0.2 s or after 0.5 s, as written */
+        if (AI_FIX(53))
+            break;
+#endif
     case 1:
         G4_U32(br, 0xE5) = game_time + 200;
+#ifndef TN_WATCOM_ABI
+        if (AI_FIX(53))
+            break;
+#endif
     case 2:
         G4_U32(br, 0xE5) = game_time + 500;
     }
+#ifndef TN_WATCOM_ABI
+    port_ai_note(7, G4_U32(br, 0xE5) - game_time, br[5]);   /* (the test log: the delay) */
+#endif
 }
 
 /* ------------------------------------------------------------------ 0x24DDD8 */
@@ -1309,7 +1392,7 @@ void ailow_24E19C(uchar *br, fix *out)
     uchar *p;
     ushort xy[2];
     short d;
-    long h1, h2;
+    long h1, h2, spread = 1;
 
     if (br[8] == 1 && sq[0x157] == 2 && G4_S16(sq, 0xA9) != 0 &&
         iabs32(G4_S16(sq, 0x91) - G4_S16(sq, 0x12)) + iabs32(G4_S16(sq, 0x93) - G4_S16(sq, 0x14)) < 2) {
@@ -1330,6 +1413,16 @@ void ailow_24E19C(uchar *br, fix *out)
     if (br[0xD] == 2)
         path_25BE1C(G4_FIXMUL(0xC0000, FORM(sq[0x1E] * 6 + br[8])[0]), FORM(sq[0x1E] * 6 + br[8])[1],
                     ang, x0, y0, &x, &y);
+#ifndef TN_WATCOM_ABI
+    /* "AI: Improved", squads spread out: the table's places for soldiers are half a square
+     * from the squad's middle (a quarter on bad ground), so a squad stands in one heap, and
+     * one blast takes all of it; vehicles get the table's first number times 12.  Soldiers'
+     * places are now port_ai_spread = 4 times as far apart: 2 squares (1 on bad ground). */
+    else if (port_ai_imp & 64) {
+        spread = port_ai_spread;
+        path_25BE1C(FORM(sq[0x1E] * 6 + br[8])[0] * spread, FORM(sq[0x1E] * 6 + br[8])[1] * spread, ang, x0, y0, &x, &y);
+    }
+#endif
     else
         path_25BE1C(FORM(sq[0x1E] * 6 + br[8])[0], FORM(sq[0x1E] * 6 + br[8])[1], ang, x0, y0, &x, &y);
     xy[0] = (ushort)(x >> 16);
@@ -1338,7 +1431,7 @@ void ailow_24E19C(uchar *br, fix *out)
     h1 = map_h(G4_S16(sq, 0x12), G4_S16(sq, 0x14));
     h2 = map_h((short)xy[0], (short)xy[1]);
     if (d > 100 || iabs32(h1 - h2) > 0x14)
-        path_25BE1C(FORM(18 + br[8])[0], FORM(18 + br[8])[1], ang, x0, y0, &x, &y);
+        path_25BE1C(FORM(18 + br[8])[0] * spread, FORM(18 + br[8])[1] * spread, ang, x0, y0, &x, &y);
     out[0] = x;
     out[1] = y;
 }
@@ -1986,6 +2079,15 @@ follow:
 /* ------------------------------------------------------------------ 0x250668 */
 uchar ailow_250668(uchar *p)
 {
+#ifndef TN_WATCOM_ABI
+    /* G57 ("AI: Fixed"): a unit's strength in its squad's sum is its health grade as last stored
+     * (+0x23), and only a damaged soldier of the player's side stores it (ailow_24C618): every
+     * other unit counts as undamaged, 6, until it dies.  Fixed: the grade of its health now */
+    if (AI_FIX(57) && (p[0] || p[0xA]) && G4_S16(p, 0xB) != 0) {
+        G4_U32(p, 0x1B) = ai_health_grade(p);
+        return 1;
+    }
+#endif
     G4_U32(p, 0x1B) = G4_U32(p, 0x23);
     return 1;
 }
@@ -2070,6 +2172,7 @@ uchar ailow_250A1C(uchar *br)
     uchar found = 0, i = 0;
     ushort bestd = 0xFFFF;
     short bestp = 5, p = 0, bestid = 0, id;
+    long dunit = 6;                     /* (the sighting list's distance: about 6.4 to the square) */
 
     memset(ai_seen_bits, 0, 0x26);
     list = (uchar *)damage_27D158(G4_BENT(br));
@@ -2093,7 +2196,31 @@ uchar ailow_250A1C(uchar *br)
                         break;
                     case 4: p = 3; break;
                     }
+#ifndef TN_WATCOM_ABI
+                    /* G54 ("AI: Fixed"): "nearer, or a more important kind" takes a far soldier over a
+                     * near one, or a near hut over a soldier, by the order of the sensor's list.
+                     * Fixed: the most important kind (soldiers, then vehicles and big
+                     * installations, aircraft, the other installations), of those the nearest */
+                    /* "AI: Improved", squad mates share targets: all of a squad took the nearest
+                     * enemy of the most important kind, three guns on one soldier while the next
+                     * one shot back unharmed.  For a soldier of the player's side every other
+                     * member of its squad that already has that target counts as port_ai_share =
+                     * 6 squares more, and the target it has as 2 squares less (it does not
+                     * change its mind for a small difference) */
+                    if ((port_ai_imp & 128) && br[5] == 1 && br[0xD] == 1) {
+                        long de = d;
+                        uchar c;
+                        for (c = sq[0xF]; c; c = G4_BRAIN(c)[7])
+                            if (G4_BRAIN(c) != br && G4_BRAIN(c)[0] && G4_BRAIN(c)[0xC3] && G4_BRAIN(c)[0xCA] == (uchar)id)
+                                de += port_ai_share * dunit;
+                        if (br[0xC3] && br[0xCA] == (uchar)id)
+                            de -= 2 * dunit;
+                        d = (ushort)(de < 0 ? 0 : de > 0xFFFE ? 0xFFFE : de);
+                    }
+                    if (AI_FIX(54) ? (p < bestp || (p == bestp && d < bestd)) : (d < bestd || p < bestp)) {
+#else
                     if (d < bestd || p < bestp) {
+#endif
                         bestp = p;
                         bestid = id;
                         bestd = d;
@@ -2107,6 +2234,10 @@ uchar ailow_250A1C(uchar *br)
     }
     if (!found)
         return 0;
+#ifndef TN_WATCOM_ABI
+    if (bestid > 255)                   /* (the test log: the entity's number does not fit +0xCA) */
+        port_ai_note(3, br[3], bestid);
+#endif
     if ((ushort)br[0xCA] != (ushort)bestid) {
         br[0xC9] = G4_ENT(bestid).f21;
         br[0xCA] = (uchar)bestid;
@@ -2163,6 +2294,11 @@ short ailow_250E58(uchar *br, long flag)
     fix d_near = 0, d_tgt = 0;
     uchar computed = 0, ok = 0;
     signed char i;
+#ifndef TN_WATCOM_ABI
+    long best = 0;
+    int best_lob = 0, cand_lob = 0;
+    unsigned long wgt = 0, wtot = 0;
+#endif
 
     switch (br[0xD]) {
     case 1:
@@ -2209,6 +2345,36 @@ short ailow_250E58(uchar *br, long flag)
         score = ai_3598DC * (long)o->range + ai_3598E0 * v10 + v16 * ai_3598E4;
         if (score <= 0)             /* the original compares with a best score it never updates */
             continue;
+#ifndef TN_WATCOM_ABI
+        /* G55 ("AI: Fixed"): each ready weapon gets a score (range, damage, rate of fire), but the
+         * best score is never kept, so the last ready weapon that suits the target is taken.
+         * Fixed, for every side but the squad mates': of those that suit the target one by dice,
+         * the score its weight.  (Always the best score made squad mates win clearly more fights
+         * and enemies hit a lone player a third harder; the dice lower the second, and only the
+         * game's own choice for the squad mates takes the first away: port_ai_g55_mode) */
+        if (AI_FIX(55) && (!(port_ai_g55_var & 3) || (port_ai_g55_var & 3) == br[5]) && port_ai_g55_mode[br[5] == 1 ? 0 : 1]) {
+            int lob = ((uchar *)o)[4] == 1 || w[0] == 0xC;
+            int mode = port_ai_g55_mode[br[5] == 1 ? 0 : 1];    /* (tests) 1 the fix, 2 and 3 variants */
+            if ((port_ai_g55_var >> 2) == 2)
+                mode = 3;
+            if ((port_ai_g55_var >> 2) == 1)
+                mode = 2;
+            if (mode == 3 && ((uchar *)o)[0])       /* (test) damage for the time between shots */
+                score = score * 1000 / (G4_U16(o, 0x16) ? (long)G4_U16(o, 0x16) : 1);
+            if (mode == 2 && res && lob != best_lob) {
+                if (lob)                    /* (test) a lobbed weapon never replaces a direct one */
+                    continue;
+            } else if (mode >= 4) {         /* by dice among those that suit, the score the weight */
+                wgt = (unsigned long)(score > 0xFFFF ? 0xFFFF : score) >> 4;
+                if (mode == 5)
+                    wgt = wgt * wgt >> 6;
+                if (!wgt)
+                    wgt = 1;
+            } else if (score <= best)
+                continue;
+            cand_lob = lob;
+        }
+#endif
         if (w[0] == 7 && br[0xC3] && br[0xC9] && G4_BRAIN(br[0xC9])[0xD] == 3)
             ok = 0;                 /* overwritten below (dead in the original too) */
         if (w[0] == 8) {
@@ -2243,10 +2409,27 @@ short ailow_250E58(uchar *br, long flag)
         } else {
             ok = 1;
         }
+#ifndef TN_WATCOM_ABI
+        if (ok && wgt) {
+            wtot += wgt;
+            if (wtot != wgt &&
+                (((unsigned long)RndRange(game_rnd_text, 0, 0x7FFF) << 15) | (unsigned long)RndRange(game_rnd_text, 0, 0x7FFF)) % wtot >= wgt)
+                ok = 0;
+            wgt = 0;
+        }
+#endif
         if (ok) {
             res = o->range;
             *cur = (uchar)i;
+#ifndef TN_WATCOM_ABI
+            best = score;
+            best_lob = cand_lob;
+#endif
         }
     }
+#ifndef TN_WATCOM_ABI
+    if (res)                            /* (the test log: the weapon chosen) */
+        port_ai_note(8, weap[(signed char)*cur * 15], br[5]);
+#endif
     return (short)res;
 }

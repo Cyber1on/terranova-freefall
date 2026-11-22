@@ -57,6 +57,17 @@ void port_stream_end(int n);
 /* ... the same for the window's thread only, with its own workers (at most 4 threads in all) */
 void port_parallel_display(void (*fn)(void *arg, int part, int thread), void *arg, int n);
 
+/* "AI: Improved" (port/mods/ai.c): a bit of port_ai_imp for each new behaviour */
+#define AI_IMP_RANGE  1         /* soldiers hold at the distance of their weapon */
+#define AI_IMP_BACK   2         /* damaged enemy soldiers take cover */
+#define AI_IMP_STEP   4         /* enemy soldiers step sideways out of fire */
+#define AI_IMP_SEARCH 8         /* enemy soldiers search where they last saw their target */
+#define AI_IMP_LINE   16        /* squad mates step out of the player's line of fire */
+#define AI_IMP_FORM   32        /* the squad's formation is a wedge behind the player */
+#define AI_IMP_SPREAD 64        /* soldiers' places in a squad are 4 times as far apart */
+#define AI_IMP_SHARE  128       /* squad mates do not all take the same target */
+#define AI_IMP_ALL    255
+
 /* diagnostics */
 void port_stub_hit(const char *name, unsigned long addr, const char *library);
 void port_log(const char *fmt, ...);

@@ -183,6 +183,13 @@ tnfree.exe
   FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER
   DEALINGS IN THE FONT SOFTWARE.
 
+Operation Stone Henge (the extra mission) - a mission for the first Terra
+  Nova demo by Joerg Fischer (1999), in Terra Nova: Freefall with his
+  permission. tnfree.exe holds only what he changed in the demo's and the
+  game's files (the difference between the files he worked from and his
+  own); the mission is made from your own files as it is played. The demo
+  and the game are Looking Glass Technologies' (1996).
+
 THIRD-PARTY FILES IN THE MUSIC FOLDER
 =====================================
 

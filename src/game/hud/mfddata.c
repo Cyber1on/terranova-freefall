@@ -35,6 +35,7 @@
 #include "g9_a.h"     /* added at the G5-G8 merge */
 #ifndef TN_WATCOM_ABI
 #include "cockpitpack.h"                /* cockpit packs: the damaged pieces as drawn (P95) */
+#include "visor.h"                      /* ... and the damage on the visor's glass instead */
 #endif
 
 #define REC(i) ((uchar *)&game_391E50[i])
@@ -340,6 +341,9 @@ void mfddata_266C90(void)
     mfd_35ADD2 = game_44136C;
     mfd_35ADD4 = *(ushort *)(suit + 3);
     mfddata_2670B8();
+#ifndef TN_WATCOM_ABI
+    port_visor_begin();                 /* "Visor damage": none yet, from this armour (port/mods/visor.c) */
+#endif
 }
 
 void mfddata_266E84(void)

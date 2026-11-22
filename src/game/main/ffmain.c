@@ -397,6 +397,11 @@ void FFLoadMission(long n, long arg)
     game_359708 = n;
 }
 
+#ifndef TN_WATCOM_ABI
+int port_extra_hint(void);              /* port/mods/extrares.c */
+void hudutil_27B8EC(long which);
+#endif
+
 void MissionSetup(void)
 {
     GameEntity *pe;
@@ -482,6 +487,13 @@ void MissionSetup(void)
     biped_27F0DC();
     ffpipe_29E26C();
     helm_2614D8(((uchar *)&game_pba[game_player_entity])[7]);   /* indexed by the entity id */
+#ifndef TN_WATCOM_ABI
+    /* Freefall: the first demo mission (an extra mission, port/mods/extra.c) starts with the
+     * movement keys' picture in the comm panel: the demo's own MissionSetup has
+     * "if (mission == 1) hudutil_27B8EC(0)" here, the game's has not */
+    if (port_extra_hint())
+        hudutil_27B8EC(0);
+#endif
     path_25BED0();
     mis103_2C9130();
     reticle_reset();
@@ -786,6 +798,10 @@ void main_2458C4(void *text)
         rs[k]->ul.y += offy;
         rs[k]->lr.y += offy;
     }
+#ifndef TN_WATCOM_ABI
+    if (game_in_mission)                /* the box on the mission's screen: the display's to know (platform.c) */
+        port_dialog_box(dlg_rect.ul.x, dlg_rect.ul.y, dlg_rect.lr.x, dlg_rect.lr.y);
+#endif
     if (tnm_cursor_drawn)
         MouseHide();
     if (!game_in_mission)
@@ -879,6 +895,9 @@ void main_2461B0(void)
         options_2CA360();
     dlg_pal_saved = 0;
     GfxBlit(&tnui_full_rect);
+#ifndef TN_WATCOM_ABI
+    port_dialog_box(0, 0, 0, 0);
+#endif
     Free(dlg_save.bits);
     paused = dlg_paused_hooks;
     for (i = 0; i <= 0x16; i++) {

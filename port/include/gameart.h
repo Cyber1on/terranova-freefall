@@ -1,4 +1,5 @@
-/* gameart.h -- the game's resource files, bitmaps and fonts read on the main thread (gameart.c) */
+/* gameart.h -- the game's resource files, bitmaps and fonts read with a reader of our own
+ * (gameart.c): the main thread's screens, and the extra missions (port/mods/extra.c) */
 #ifndef TN_GAMEART_H
 #define TN_GAMEART_H
 #include <stdint.h>
@@ -23,7 +24,10 @@ typedef struct {
 uint32_t ga_rd32(const uint8_t *p);
 unsigned ga_rd16(const uint8_t *p);
 int ga_res_open(GaRes *f, const char *dos);     /* a DOS path of the game's (port_path) */
+int ga_res_open_host(GaRes *f, const char *host);   /* a host path */
 void ga_res_close(GaRes *f);
+int ga_res_info(const GaRes *f, int id, uint32_t *size, int *flags, int *type);    /* its directory entry */
+int ga_res_id(const GaRes *f, unsigned k);      /* the k-th resource's id, -1 past the last */
 /* resource id: a copy (SDL_free it), its size and whether it is compound */
 uint8_t *ga_res_read(const GaRes *f, int id, uint32_t *size, int *compound);
 const uint8_t *ga_item(const uint8_t *b, uint32_t n, unsigned k, uint32_t *size);  /* a compound's item k */

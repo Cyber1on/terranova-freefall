@@ -13,10 +13,8 @@
 uint32_t ga_rd32(const uint8_t *p) { return p[0] | p[1] << 8 | p[2] << 16 | (uint32_t)p[3] << 24; }
 unsigned ga_rd16(const uint8_t *p) { return p[0] | p[1] << 8; }
 
-int ga_res_open(GaRes *f, const char *dos)
+int ga_res_open_host(GaRes *f, const char *host)
 {
-    char host[1100];
-    port_path(dos, host, sizeof host);
     f->d = SDL_LoadFile(host, &f->n);
     if (f->d && (f->n < 0x80 || ga_rd32(f->d + 0x7C) + 6 > f->n)) {
         SDL_free(f->d);
@@ -25,25 +23,35 @@ int ga_res_open(GaRes *f, const char *dos)
     return f->d != NULL;
 }
 
+int ga_res_open(GaRes *f, const char *dos)
+{
+    char host[1100];
+    port_path(dos, host, sizeof host);
+    return ga_res_open_host(f, host);
+}
+
 void ga_res_close(GaRes *f)
 {
     SDL_free(f->d);
     f->d = NULL;
 }
 
-/* the 14-bit LZW of the resource library (src/res/lzw.c), into out[size] */
+/* the 14-bit LZW of the resource library (src/res/lzw.c), into out[size].  (Its tables are the
+ * call's own: the game's thread reads resources here too, port/mods/extra.c.) */
 static void ga_lzw_expand(const uint8_t *src, size_t n, uint8_t *out, uint32_t size)
 {
-    static unsigned short prefix[0x4000];
-    static uint8_t append[0x4000], stack[0x4000];
+    unsigned short *prefix = SDL_malloc(0x4000 * sizeof *prefix);
+    uint8_t *append = SDL_malloc(0x8000), *stack = append ? append + 0x4000 : NULL;
     uint32_t buf = 0, o = 0;
     int cnt = 0, next = 256, old, code, ch, sp;
     size_t p = 0;
+    if (!prefix || !append)
+        goto done;
 #define CODE(v) do { while (cnt <= 24) { buf |= (uint32_t)(p < n ? src[p] : 0) << (24 - cnt); p++; cnt += 8; } \
                      v = (int)(buf >> 18); buf <<= 14; cnt -= 14; } while (0)
     CODE(old);
     if (old > 255)
-        return;
+        goto done;
     ch = old;
     if (o < size)
         out[o++] = (uint8_t)old;
@@ -87,6 +95,44 @@ static void ga_lzw_expand(const uint8_t *src, size_t n, uint8_t *out, uint32_t s
         old = code;
     }
 #undef CODE
+done:
+    SDL_free(prefix);
+    SDL_free(append);
+}
+
+/* resource id's directory entry: its size, flags (1 packed, 2 compound) and type; 0 when not there */
+int ga_res_info(const GaRes *f, int id, uint32_t *size, int *flags, int *type)
+{
+    uint32_t off, i, cnt;
+    if (!f->d)
+        return 0;
+    off = ga_rd32(f->d + 0x7C);
+    cnt = ga_rd16(f->d + off);
+    for (i = 0; i < cnt && off + 6 + i * 10 + 10 <= f->n; i++) {
+        const uint8_t *e = f->d + off + 6 + i * 10;
+        if ((int)ga_rd16(e) == id) {
+            if (size)
+                *size = ga_rd32(e + 2) & 0xFFFFFF;
+            if (flags)
+                *flags = e[5];
+            if (type)
+                *type = e[9];
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* the id of the file's k-th resource, -1 past the last */
+int ga_res_id(const GaRes *f, unsigned k)
+{
+    uint32_t off;
+    if (!f->d)
+        return -1;
+    off = ga_rd32(f->d + 0x7C);
+    if (k >= ga_rd16(f->d + off) || off + 6 + k * 10 + 10 > f->n)
+        return -1;
+    return (int)ga_rd16(f->d + off + 6 + k * 10);
 }
 
 /* resource id: a copy (SDL_free it), its size and whether it is compound */

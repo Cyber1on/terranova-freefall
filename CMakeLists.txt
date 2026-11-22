@@ -7,7 +7,7 @@
 #   Cross-compiling from Linux:       cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/mingw-w64-i686.cmake
 #   Linux 32-bit (for testing):       cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/linux-i386.cmake
 cmake_minimum_required(VERSION 3.16)
-project(TerraNovaFreefall VERSION 1.0.0 LANGUAGES C ASM)
+project(TerraNovaFreefall VERSION 1.2.0 LANGUAGES C ASM)
 
 if(NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
   message(FATAL_ERROR "Terra Nova: Freefall builds as a 32-bit program for now "
@@ -111,7 +111,16 @@ if(FREEFALL_COMMIT)
 else()
   set(FREEFALL_COMMIT "unknown")
 endif()
-string(STRIP "${PROJECT_VERSION} ${FREEFALL_RELEASE_LABEL}" FREEFALL_VERSION_FULL)
+# the version as the player sees it (window title, credits, options screen, log, zip): two
+# numbers, the third only when it is not 0 (owner)
+if(PROJECT_VERSION_PATCH EQUAL 0)
+  set(FREEFALL_VERSION_SHORT "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}")
+else()
+  set(FREEFALL_VERSION_SHORT "${PROJECT_VERSION}")
+endif()
+string(STRIP "${FREEFALL_VERSION_SHORT} ${FREEFALL_RELEASE_LABEL}" FREEFALL_VERSION_SHOWN)
+# the same in tnfree.log, the exe's file properties, README.txt and the zip's name (owner: 1.2, not 1.2.0)
+set(FREEFALL_VERSION_FULL "${FREEFALL_VERSION_SHOWN}")
 if(FREEFALL_RELEASE_LABEL)
   set(FREEFALL_RC_FLAGS "VS_FF_PRERELEASE")
 else()
@@ -143,6 +152,36 @@ add_custom_command(
           ${CMAKE_SOURCE_DIR}/port/res/logo-nostar.png ${CMAKE_SOURCE_DIR}/port/res/menu-wide.png
   COMMENT "Embedding the Freefall logo and the wide main menu")
 
+# ---- "Visor damage": its pictures (made by tools/visor-damage.py), built into tnfree
+# (port/mods/visor.c)
+set(VISOR_PICS)
+foreach(kind shrapnel laser cracks)
+  foreach(style a b c)
+    list(APPEND VISOR_PICS ${kind}-${style}-light ${kind}-${style}-heavy)
+  endforeach()
+endforeach()
+set(VISOR_ARGS)
+set(VISOR_DEPS)
+foreach(pic ${VISOR_PICS})
+  string(REPLACE "-" "_" sym ${pic})
+  list(APPEND VISOR_ARGS port_visor_${sym}=${CMAKE_SOURCE_DIR}/port/res/visor/${pic}.png)
+  list(APPEND VISOR_DEPS ${CMAKE_SOURCE_DIR}/port/res/visor/${pic}.png)
+endforeach()
+add_custom_command(
+  OUTPUT ${GEN}/visor.c
+  COMMAND Python3::Interpreter ${CMAKE_SOURCE_DIR}/tools/embed.py ${GEN}/visor.c ${VISOR_ARGS}
+  DEPENDS ${CMAKE_SOURCE_DIR}/tools/embed.py ${VISOR_DEPS}
+  COMMENT "Embedding the visor damage pictures")
+
+# ---- the fan-made extra missions' patches (what their authors changed in the game's files,
+# made by tools/mission-patch.py), built into tnfree (port/mods/extra.c)
+add_custom_command(
+  OUTPUT ${GEN}/missions.c
+  COMMAND Python3::Interpreter ${CMAKE_SOURCE_DIR}/tools/embed.py ${GEN}/missions.c
+          port_patch_stone_henge=${CMAKE_SOURCE_DIR}/port/res/stone-henge.ffmp
+  DEPENDS ${CMAKE_SOURCE_DIR}/tools/embed.py ${CMAKE_SOURCE_DIR}/port/res/stone-henge.ffmp
+  COMMENT "Embedding the fan missions' patches")
+
 # ---- the options screen's preview pictures (owner's stills of the game, dist/Previews), built
 # into tnfree (port/ui/options.c; a Previews folder next to tnfree.exe goes over them)
 file(GLOB PREVIEW_PICS CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/dist/Previews/*.jpg
@@ -156,7 +195,7 @@ add_custom_command(
 
 add_executable(freefall ${GAME_SOURCES} ${PORT_SOURCES}
                third_party/nuked-opl3/opl3.c
-               ${GEN}/tn_image.S ${GEN}/tn_funcmap.c ${GEN}/tn_stubs.c ${GEN}/fonts.c ${GEN}/logo.c
+               ${GEN}/tn_image.S ${GEN}/tn_funcmap.c ${GEN}/tn_stubs.c ${GEN}/fonts.c ${GEN}/logo.c ${GEN}/missions.c ${GEN}/visor.c
                ${GEN}/previews.S ${GEN}/previews.c)
 target_include_directories(freefall PRIVATE include port/include third_party ${GEN})
 if(WIN32)

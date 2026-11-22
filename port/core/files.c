@@ -36,6 +36,7 @@
 #endif
 #include "platform.h"
 #include "port.h"
+#include "extra.h"
 
 char port_game_dir[1024] = ".";
 char port_cd_dir[1024] = "";
@@ -145,6 +146,11 @@ static int join(const char *base, const char *rel, char *out, int size)
 #endif
 }
 
+int port_host_join(const char *base, const char *rel, char *out, int size)
+{
+    return join(base, rel, out, size);
+}
+
 /* ------------------------------------------------------------------ DOS path -> root + rel */
 static void split_dos(const char *dos, int *root, char *rel, int size)
 {
@@ -207,6 +213,9 @@ static int map_path(const char *dos, char *out, int size, int use)
     int root;
 
     split_dos(dos, &root, rel, sizeof rel);
+    /* an extra mission's own mission file and map, under the game's names (port/mods/extra.c) */
+    if (use == FOR_READ && port_extra_on && port_extra_file(rel, out, size))
+        return 1;
     if (root == ROOT_CD) {
         if (use != FOR_READ)
             return 0;

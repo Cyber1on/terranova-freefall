@@ -528,6 +528,9 @@ void obj_damage(long victim_, long attacker_, long dtype_, uchar *parts, long np
     objdmg_hit_flag = 1;
     if (mode == 0 || amount == 0 || sys == NULL)
         return;
+    /* class 3 units have no armour record (static_286794 gives NULL): the test of its byte 0x14
+     * below and objacc_28B938 went to DOS low memory for them (TN_LOWMEM; docs/BUGS.md G62) */
+    armor = TN_LOWMEM(armor);
     if (victim == game_player_entity && game_441366 != 0)
         return;
     if (game_396E18 != 0 && game_396E18 != 2 && victim == game_player_entity)

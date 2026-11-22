@@ -42,9 +42,12 @@ jobs:
       - name: Build
         run: cmake --build build
       - uses: actions/upload-artifact@v4
+        # a full artifact storage must not fail the build check: the upload is a convenience
+        continue-on-error: true
         with:
           name: tnfree-windows-x86
           path: build/tnfree.exe
+          retention-days: 1     # (the account's artifact storage is small: a day is enough to fetch it)
       - name: Fetch GeneralUser GS
         # the SoundFont for the Music folder (not kept in git): one pinned copy, its SHA-256 checked
         timeout-minutes: 5
@@ -65,9 +68,12 @@ jobs:
           v=$(sed -n 's/^#define FREEFALL_VERSION_FULL "\(.*\)"/\1/p' build/gen/version.h | tr ' ' '-')
           echo "PACKAGE_NAME=tnfree-$v-windows-x86" >> "$GITHUB_ENV"
       - uses: actions/upload-artifact@v4
+        # a full artifact storage must not fail the build check: the upload is a convenience
+        continue-on-error: true
         with:
           name: ${{ env.PACKAGE_NAME }}
           path: package/
+          retention-days: 1
   verification-build:
     # the emulator build of the same C must still compile (the tests need the game, so they don't run here)
     runs-on: ubuntu-24.04

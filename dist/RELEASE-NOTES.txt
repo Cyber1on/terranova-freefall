@@ -1,8 +1,103 @@
 TERRA NOVA: FREEFALL - RELEASE NOTES
 ====================================
 
-1.0.0 - INITIAL RELEASE
------------------------
+1.2 - AI IMPROVEMENTS
+---------------------
+- New option AI: Classic or Fixed (Gameplay page). Classic is the
+  game's AI exactly as it is. Fixed repairs twelve programming
+  mistakes in the 1996 AI (G49 to G60 in BUGS.txt):
+  - each squad mate aims with its own skill (all used the first one's);
+  - squad mates keep the Autodoc until their suit is below half, and the
+    explosive drone until below three quarters (they used them at the
+    first scratch);
+  - "Use ASF Now" no longer ends "Use ASF at Will";
+  - enemies with several weapons use their better weapons more often
+    and hit somewhat harder, most in the later missions; squad mates
+    choose as before;
+  - an enemy squad that a shot passes reacts when it can see who fired
+    (it looked for the player, whoever fired);
+  - soldiers under fire move sooner, targets are chosen by kind and then
+    distance, aircraft attack the nearest soldier, a squad counts its
+    damaged units as damaged, and a blocked squad waits as long at 60
+    frames a second as at 25.
+  The difficulty levels and the squads' tactics are the game's own.
+- AI: Improved, the option's third value: the fixes of Fixed, and new
+  behaviour (the game plays differently from 1996 with it):
+  - enemy soldiers that see you and have a clear shot hold at the
+    distance of their weapon instead of walking up to you;
+  - enemy soldiers under half health take cover out of your line of
+    fire instead of standing until they die;
+  - an enemy soldier that is hit steps 2 squares sideways, across your
+    line of fire;
+  - an enemy soldier that lost sight of you searches around the place
+    it last saw you and then gives up (the 1996 soldier was told where
+    you are two times in seven);
+  - squad mates step out of your line of fire, squads stand 2 squares
+    apart instead of in one heap, and squad mates in formation no
+    longer take a place in front of your gun when they fight;
+  - squad mates prefer an enemy that no other squad mate is already
+    shooting at.
+- The presets set the AI: Classic in the Classic preset, Fixed in
+  Vanilla+, Improved in Freefall. A tnfree.ini of an earlier version
+  keeps its AI setting (its preset reads Custom until you pick a preset
+  again).
+- New option Visor damage (Mods page, with Widescreen and a cockpit
+  mod; On in the Freefall preset): the suit's damage shows on the
+  visor's glass, in the cockpit and the goggles of the Scout, standard
+  and Heavy suits: shrapnel hits, a laser's burn or cracks, each in
+  three styles; a mission picks two kinds and a style of each. The
+  first appears when the armour falls to 73%, the second at 50%; at 37%
+  one turns heavy and at 20% the other, each step with a short flash.
+- Fixed a crash when a tree or bush burned inside the area of a base's
+  building (Burning plants; seen in Operation Oilslick).
+- Mission Selector: Outfit Complete clicked right after the outfitting
+  screen came up skipped the launch video; it plays now.
+- Arms pack: the frame rate could fall to about 20 in goggles view on
+  some processors; fixed.
+- Soldiers, trees and bushes no longer show through a hill inside a
+  base's area, as at the fuel tanks of Operation Oilslick (G61).
+- A crash fixed when a soldier got beyond the edge of the map (P155).
+- A crash fixed when a blast hit a unit with no armour record whose
+  part was already destroyed (G62).
+- Show FPS also writes its numbers into tnfree.log every 5 seconds in a
+  mission.
+
+1.1 - EXTRA MISSIONS
+--------------------
+- The Mission Selector has a new list, Extra Missions, for missions that
+  are not part of the game's campaign.
+- The four missions of the two 1996 demos play in the full game:
+  Operations Madison, Brickdragger, Flashlight and Citadel, with the
+  demos' own briefings, squads, goals and debriefings. Freefall reads them
+  from the demo folders of your copy of the game (TNDEMO1 and TNDEMO2; the
+  Steam release has them). See EXTRA MISSIONS in README.txt.
+- Operation Stone Henge, a fan-made mission by Joerg Fischer (1999) for
+  the first demo, with his permission: made in memory from your own demo
+  and game files.
+- Two lost missions from the game's CD, which the installer never
+  copied: an earlier version of Operation Panama, and Operation
+  Bricklayer, a test mission the developers left behind.
+- After an extra mission you are back on the Extra Missions list, with
+  that mission chosen.
+- The Freefall options screen has two new buttons: ABORT MISSION and EXIT
+  TERRA NOVA. The game asks first, as on its own options screen. The
+  button for the game's own options screen is now called CLASSIC OPTIONS.
+- Infrared: Sci-fi no longer shows the old orange infrared for a moment
+  when it is switched on or off.
+- Infrared: Sci-fi tunes in when you switch it on: 0.2 seconds of torn
+  rows and faint static that settle into the thermal view, and 0.1
+  seconds of the same when you switch it off.
+- The head view cone on the minimap no longer flashes in other colours
+  for a frame when the infrared goes on or off.
+- With a cockpit mod, the game's "Abort Mission?" and "Exit Terra Nova?"
+  box has its black background again in a mission (the 3D view showed
+  through it).
+- General MIDI: Freefall now resets the MIDI device fully when the music
+  starts. A device left in an odd state by another program could play the
+  music with sounds missing.
+
+1.0 - INITIAL RELEASE
+---------------------
 - Terra Nova: Strike Force Centauri runs natively on modern Windows,
   without DOSBox, from your own Steam or GOG copy of the game.
 - Three presets: Classic (the DOS game as it was), Vanilla+ (modern

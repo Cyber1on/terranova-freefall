@@ -35,6 +35,7 @@
 #include "screen.h"
 #include "videosmooth.h"
 #include "gameart.h"
+#include "extra.h"
 
 int port_missions_open;                 /* the screen is up */
 int port_ms_all;                        /* Mission select: All (options.c, tnfree.ini) */
@@ -87,6 +88,16 @@ int port_ms_skip_movie(void)
     if (skip)
         port_log("Mission Selector: a movie skipped on the way to the outfitting\n");
     return skip;
+}
+/* A click or a key of the player's own on a screen of the game (the walk's black is gone: the
+ * outfitting is up, or the screen where the walk gave up): from here on nothing is skipped.  The
+ * movies' skipping lasted a few seconds beyond the last movie skipped, for a row of them, so
+ * Outfit Complete clicked at once skipped the launch's movie too (P153) */
+static void walk_by_hand(void)
+{
+    SDL_LockSpinlock(&walk_lock);
+    skip_until = 0;
+    SDL_UnlockSpinlock(&walk_lock);
 }
 extern int port_menu_msbutton;          /* its button is on the main menu (uiwidget.c) */
 extern int port_lockstep, port_bench;
@@ -296,9 +307,15 @@ typedef struct {
     char name[48];
     int suit;                           /* 0 Scout, 1 Standard, 2 Heavy, 3 Pirate */
     int story[2], nstory;               /* its live-action scenes (movie_tab) */
+    int extra;                          /* an extra mission (extra.h): its number, 0 the campaign's */
 } Mission;
-static Mission list[48];
-static int nlist = -1;
+static Mission camp_list[48], extra_list[16];
+static int ncamp = -1, nextra;
+/* the list shown: the campaign's missions, or the extra missions (the left title's two halves
+ * when there are extra missions: tab) */
+static Mission *list = camp_list;
+static int nlist = -1, tab;
+static int tab_sel[2] = { -1, -1 }, tab_top[2];
 static const char *suit_names[4] = { "Scout", "Standard", "Heavy", "Pirate" };
 
 static void title_case(char *d, size_t n, const char *s)
@@ -332,9 +349,11 @@ static int load_campaign(void)
     uint32_t on, nn, kn[2], in;
     int c, i;
 
-    if (nlist >= 0)
-        return nlist > 0;
-    nlist = 0;
+    if (ncamp >= 0)
+        return ncamp > 0;
+    ncamp = nlist = 0;
+    list = camp_list;
+    tab = 0;
     if (!res_open(&f, "C:\\TNOVA\\DATA\\RESMISS.RES"))
         return 0;
     order = res_read(&f, 0x6AD, &on, &c);
@@ -351,6 +370,7 @@ static int load_campaign(void)
             if (m <= 0 || (m >= 41 && m <= 45))  /* the scenario builder's own missions follow */
                 break;
             ms = &list[nlist++];
+            memset(ms, 0, sizeof *ms);
             ms->m = m;
             s = item(names, nn, (unsigned)(m - 1), &in);
             if (s && in) {
@@ -375,10 +395,24 @@ static int load_campaign(void)
                 ms->story[ms->nstory++] = mission_movie[m][0];
         }
     }
+    /* the extra missions (port/mods/extra.c): the suit is the campaign mission's of their number */
+    for (i = 1, nextra = 0; i <= port_extra_count() && nextra < (int)SDL_arraysize(extra_list); i++) {
+        const ExtraInfo *x = port_extra_info(i);
+        Mission *ms = &extra_list[nextra++];
+        const uint8_t *src = item(kit[0], kn[0], (unsigned)(x->m * 6), &in);
+        memset(ms, 0, sizeof *ms);
+        ms->m = x->m;
+        ms->extra = i;
+        title_case(ms->name, sizeof ms->name, x->name);
+        if (!src || !in || !src[0])
+            src = item(kit[0], kn[0], 0, &in);
+        ms->suit = src && in > 5 ? (src[5] > 3 ? 1 : src[5]) : 1;
+    }
     SDL_free(order);
     SDL_free(names);
     SDL_free(kit[0]);
     SDL_free(kit[1]);
+    ncamp = nlist;
     if (!nlist)
         port_log("Mission Selector: the campaign (RESMISS.RES) not read\n");
     return nlist > 0;
@@ -411,6 +445,11 @@ typedef struct {
     long best;
 } Record;
 static Record rec[64];
+static struct {
+    char key[16];                       /* an extra mission's (extra.h) */
+    Record r;
+} xrec[16];
+static int nxrec;
 static int reached;                     /* the furthest campaign position reached */
 static int pr_loaded;
 static SDL_SpinLock pr_lock;
@@ -433,6 +472,9 @@ static void pr_save(void)
     for (m = 1; m < 64; m++)
         if (rec[m].played)
             fprintf(f, "m%d=%d,%ld,%d\n", m, rec[m].done, rec[m].best, rec[m].medals);
+    for (m = 0; m < nxrec; m++)
+        if (xrec[m].r.played)
+            fprintf(f, "x.%s=%d,%ld,%d\n", xrec[m].key, xrec[m].r.done, xrec[m].r.best, xrec[m].r.medals);
     fclose(f);
 }
 
@@ -465,9 +507,23 @@ static void pr_seed(void)
     port_log("Mission Selector: progress from the saved games: campaign position %d\n", reached);
 }
 
+/* an extra mission's record by its key (made when `make`), or NULL */
+static Record *xrec_of(const char *key, int make)
+{
+    int i;
+    for (i = 0; i < nxrec; i++)
+        if (!strcmp(xrec[i].key, key))
+            return &xrec[i].r;
+    if (!make || nxrec >= (int)SDL_arraysize(xrec) || !key[0] || strlen(key) > 15)
+        return NULL;
+    SDL_snprintf(xrec[nxrec].key, sizeof xrec[nxrec].key, "%s", key);
+    memset(&xrec[nxrec].r, 0, sizeof xrec[nxrec].r);
+    return &xrec[nxrec++].r;
+}
+
 static void pr_load(void)               /* (pr_lock held) */
 {
-    char path[1100], line[128];
+    char path[1100], line[128], key[32];
     FILE *f;
     if (pr_loaded)
         return;
@@ -488,6 +544,14 @@ static void pr_load(void)               /* (pr_lock held) */
             rec[m].done = d != 0;
             rec[m].best = b;
             rec[m].medals = (unsigned char)md;
+        } else if (sscanf(line, "x.%15[^=]=%d,%ld,%d", key, &d, &b, &md) == 4) {
+            Record *r = xrec_of(key, 1);
+            if (r) {
+                r->played = 1;
+                r->done = d != 0;
+                r->best = b;
+                r->medals = (unsigned char)md;
+            }
         }
     }
     fclose(f);
@@ -507,37 +571,43 @@ void port_ms_progress(long pos)
     SDL_UnlockSpinlock(&pr_lock);
 }
 
-/* game thread: mission m ended: won, its score, the player's medals (a bit each) */
+/* game thread: mission m ended: won, its score, the player's medals (a bit each); m < 0: the
+ * extra mission -m */
 void port_ms_record(long m, int won, long score, unsigned medals)
 {
+    const ExtraInfo *x = m < 0 ? port_extra_info((int)-m) : NULL;
+    Record *r;
     int n = 0;
-    if (port_lockstep || port_bench || m <= 0 || m >= 64)
+    if (port_lockstep || port_bench || m == 0 || m >= 64 || (m < 0 && !x))
         return;
     for (; medals; medals &= medals - 1)
         n++;
     SDL_LockSpinlock(&pr_lock);
     pr_load();
-    if (!rec[m].played || score > rec[m].best || (won && !rec[m].done)) {
-        if (!rec[m].played || score > rec[m].best)
-            rec[m].best = score;
-        if (n > rec[m].medals)
-            rec[m].medals = (unsigned char)n;
+    r = x ? xrec_of(x->key, 1) : &rec[m];
+    if (r) {
+        if (!r->played || score > r->best || (won && !r->done)) {
+            if (!r->played || score > r->best)
+                r->best = score;
+            if (n > r->medals)
+                r->medals = (unsigned char)n;
+        }
+        r->played = 1;
+        r->done |= won != 0;
+        pr_save();
     }
-    rec[m].played = 1;
-    rec[m].done |= won != 0;
-    pr_save();
     SDL_UnlockSpinlock(&pr_lock);
 }
 
 static int pos_open(int pos)            /* the list's position pos can be chosen */
 {
-    return port_ms_all || pos <= (reached < 3 ? 3 : reached);
+    return tab || port_ms_all || pos <= (reached < 3 ? 3 : reached);
 }
 
 static int furthest(void)               /* the furthest position reached (at least the first
                                          * after the training) */
 {
-    int p = reached < 3 ? 3 : reached;
+    int p = tab ? 1 : reached < 3 ? 3 : reached;
     return p > nlist ? nlist : p;
 }
 
@@ -555,8 +625,22 @@ static int shown_m = -1, shown_whole = -1;
 static uint32_t mapimg[BH][BW];
 static int map_ok;
 
-static void briefing_load(int m)
+/* a resource of an extra mission's file: a fan mission's own version of it (port/mods/extra.c),
+ * else the file's */
+static uint8_t *xres_read(const Mission *ms, const ResFile *f, int id, uint32_t *n, int *c)
 {
+    unsigned un = 0;
+    uint8_t *b = ms->extra ? port_extra_own(ms->extra, id, &un, c) : NULL;
+    if (!b)
+        return res_read(f, id, n, c);
+    *n = un;
+    return b;
+}
+
+static void briefing_load(const Mission *ms)
+{
+    const ExtraInfo *x = ms->extra ? port_extra_info(ms->extra) : NULL;
+    const int m = x ? x->text_item : ms->m;
     ResFile f = { 0 };
     uint8_t *b;
     uint32_t n, in;
@@ -567,9 +651,9 @@ static void briefing_load(int m)
     const int tw = 250;
 
     nbl = btop = 0;
-    if (!res_open(&f, "C:\\TNOVA\\DATA\\RESPTERM.RES"))
+    if (x ? !ga_res_open_host(&f, x->text_host) : !res_open(&f, "C:\\TNOVA\\DATA\\RESPTERM.RES"))
         return;
-    b = res_read(&f, 1455, &n, &c);
+    b = xres_read(ms, &f, 1455, &n, &c);
     res_close(&f);
     t = c ? item(b, n, (unsigned)m, &in) : NULL;
     if (t) {
@@ -627,8 +711,10 @@ static Label labels[32];
 static int ndots, nlabels, has_drop;
 static float drop_x, drop_y;
 
-static int map_load(int m)
+static int map_load(const Mission *ms)
 {
+    const ExtraInfo *xi = ms->extra ? port_extra_info(ms->extra) : NULL;
+    const int m = ms->m;
     char dos[128], name[64], planet[40];
     ResFile mf = { 0 }, mp = { 0 }, pf = { 0 }, rg = { 0 };
     uint8_t *mn = NULL, *g = NULL, *info = NULL, *kind = NULL, *col = NULL, *shade = NULL, *ppal = NULL;
@@ -641,20 +727,20 @@ static int map_load(int m)
 
     ndots = nlabels = has_drop = 0;
     SDL_snprintf(dos, sizeof dos, "C:\\TNOVA\\DATA\\MISS%d.RES", m);
-    if (!res_open(&mf, dos))
+    if (xi ? !ga_res_open_host(&mf, xi->miss_host) : !res_open(&mf, dos))
         return 0;
     mn = res_read(&mf, 170, &n, &c);
     if (!mn)
         goto out;
     SDL_snprintf(name, sizeof name, "%.*s", (int)(n < 60 ? n : 60), (const char *)mn);
     SDL_snprintf(dos, sizeof dos, "D:\\MAPS\\%s", name);
-    if (!res_open(&mp, dos)) {
+    if (xi ? !ga_res_open_host(&mp, xi->map_host) : !res_open(&mp, dos)) {
         port_log("Mission Selector: map %s not found (the CD's MAPS)\n", name);
         goto out;
     }
     why = "the map's heights";
-    info = res_read(&mp, 0x50, &n, &c);
-    g = res_read(&mp, 0x56, &gn, &c);
+    info = xres_read(ms, &mp, 0x50, &n, &c);
+    g = xres_read(ms, &mp, 0x56, &gn, &c);
     if (!info || n < 0x34 || !g || gn < 512u * 0x603u)
         goto out;
     why = "the planet's file";
@@ -716,7 +802,7 @@ static int map_load(int m)
         }
     ok = 1;
     /* the map's labels, the drop point and the forces (MISSn.RES) */
-    if ((ann = res_read(&mf, 0xAF, &an, &c)) != NULL && c) {
+    if ((ann = xres_read(ms, &mf, 0xAF, &an, &c)) != NULL && c) {
         unsigned k;
         for (k = 0; k < rd16(ann) && nlabels < 32; k++) {
             const uint8_t *a = item(ann, an, k, &in);
@@ -731,13 +817,13 @@ static int map_load(int m)
             SDL_snprintf(lb->t, sizeof lb->t, "%.*s", (int)(in - 0x19 < 47 ? in - 0x19 : 47), (const char *)a + 0x19);
         }
     }
-    if ((dropr = res_read(&mf, 0xB0, &dn, &c)) != NULL && dn >= 8) {
+    if ((dropr = xres_read(ms, &mf, 0xB0, &dn, &c)) != NULL && dn >= 8) {
         has_drop = 1;
         drop_x = (int32_t)rd32(dropr) / 65536.0f;
         drop_y = (int32_t)rd32(dropr + 4) / 65536.0f;
     }
-    sides = res_read(&mf, 0xAE, &sdn, &c);
-    if ((objs = res_read(&mf, 0xAD, &on, &c)) != NULL && c) {
+    sides = xres_read(ms, &mf, 0xAE, &sdn, &c);
+    if ((objs = xres_read(ms, &mf, 0xAD, &on, &c)) != NULL && c) {
         unsigned k;
         for (k = 0; k < rd16(objs) && ndots < 256; k++) {
             const uint8_t *o = item(objs, on, k, &in);
@@ -757,7 +843,8 @@ static int map_load(int m)
     }
 out:
     if (!ok)
-        port_log("Mission Selector: no map preview for mission %d (%s)\n", m, why);
+        port_log("Mission Selector: no map preview for %s %d (%s)\n", xi ? "extra mission" : "mission",
+                 xi ? ms->extra : m, why);
     SDL_free(mn); SDL_free(g); SDL_free(info); SDL_free(kind); SDL_free(col); SDL_free(shade); SDL_free(ppal);
     SDL_free(lim); SDL_free(ovr); SDL_free(ann); SDL_free(dropr); SDL_free(sides); SDL_free(objs);
     SDL_free(ov.px);
@@ -800,14 +887,15 @@ static void mtext(int x, int y, const char *s, uint32_t c)
     }
 }
 
-static void map_make(int m, int whole)
+#define MKEY(ms) ((ms)->extra ? 1000 + (ms)->extra : (ms)->m)     /* shown_m's */
+static void map_make(const Mission *ms, int whole)
 {
     float fx0 = 1e9f, fx1 = -1e9f, fy0 = 1e9f, fy1 = -1e9f, fw, fh, x0, y0, s;
     int i, j, a, b, k;
 
-    if (m != shown_m)
-        map_ok = map_load(m);
-    shown_m = m;
+    if (MKEY(ms) != shown_m)
+        map_ok = map_load(ms);
+    shown_m = MKEY(ms);
     shown_whole = whole;
     memset(mapimg, 0, sizeof mapimg);
     if (!map_ok)
@@ -910,13 +998,28 @@ static void choose(int pos)             /* the list's position pos (1-based) */
         return;
     if (sel != pos) {
         sel = pos;
-        briefing_load(list[pos - 1].m);
+        briefing_load(&list[pos - 1]);
     }
     page_top = (pos - 1) / ROWS * ROWS;
 }
 
+/* the left list: 0 the campaign's missions, 1 the extra missions */
+static void set_tab(int t)
+{
+    if (t == tab || (t && !nextra))
+        return;
+    tab_sel[tab] = sel;
+    tab_top[tab] = page_top;
+    tab = t;
+    list = t ? extra_list : camp_list;
+    nlist = t ? nextra : ncamp;
+    sel = -1;
+    page_top = tab_top[t];
+    choose(tab_sel[t] >= 1 && tab_sel[t] <= nlist && pos_open(tab_sel[t]) ? tab_sel[t] : furthest());
+}
+
 /* ------------------------------------------------------------------ drawing the screen */
-enum { HIT_NONE, HIT_ROW, HIT_PGL, HIT_PGR, HIT_MAPL, HIT_MAPR, HIT_UP, HIT_DOWN, HIT_TRACK, HIT_BRIEF,
+enum { HIT_NONE, HIT_ROW, HIT_TABC, HIT_TABX, HIT_PGL, HIT_PGR, HIT_MAPL, HIT_MAPR, HIT_UP, HIT_DOWN, HIT_TRACK, HIT_BRIEF,
        HIT_VIDEO, HIT_STORY, HIT_MENU, HIT_OPTIONS, HIT_PLAY };
 typedef struct { short x0, y0, x1, y1; } Rect;
 static const Rect hits[] = {
@@ -948,6 +1051,8 @@ static int hit_at(int x, int y, int *row)
         *row = page_top + (y - 62) / 20 + 1;
         return *row <= nlist ? HIT_ROW : HIT_NONE;
     }
+    if (nextra && x >= 16 && x < 301 && y >= 43 && y < 60)     /* the left title's two halves */
+        return x < 158 ? HIT_TABC : HIT_TABX;
     for (i = HIT_PGL; i <= HIT_PLAY; i++)
         if (x >= hits[i].x0 && x < hits[i].x1 && y >= hits[i].y0 && y < hits[i].y1)
             return i;
@@ -968,7 +1073,17 @@ static void draw(void)
     ctext(&fbig, 16, 625, 10, "Mission Selector", 0);
     /* left: the campaign */
     panel(2, 40, 313, 437);
-    titlebox(16, 43, 300, 58, "Campaign Missions");
+    if (!nextra)
+        titlebox(16, 43, 300, 58, "Campaign Missions");
+    else {                              /* two halves: the list shown, and the other one to click */
+        static const char *const tabs[2] = { "Campaign", "Extra Missions" };
+        for (i = 0; i < 2; i++) {
+            int x0 = i ? 160 : 16, x1 = i ? 300 : 156, on = i == tab;
+            box(x0, 43, x1, 58, on ? BLACK : OLIVE);
+            ctext(&fsmall, x0, x1, 43 + (15 - fsmall.h) / 2 + 1, tabs[i],
+                  on || hover == (i ? HIT_TABX : HIT_TABC) ? WHITE : GREY);
+        }
+    }
     for (i = 0, y = 62; i < ROWS; i++, y += 20) {
         int pos = page_top + i + 1, s = pos == sel, open = pos <= nlist && pos_open(pos);
         int c = s ? WHITE : open ? (hover == HIT_ROW && hover_row == pos ? WHITE : GREY) : LOCKED, bg = s ? teal : OLIVE;
@@ -1005,7 +1120,10 @@ static void draw(void)
     titlebox(342, 43, 626, 58, ms ? ms->name : "");
     box(342, 62, 626, 79, OLIVE);
     if (ms) {
-        SDL_snprintf(buf, sizeof buf, "Mission %d of %d    Suit: %s", sel, nlist, suit_names[ms->suit & 3]);
+        if (ms->extra)
+            SDL_snprintf(buf, sizeof buf, "%s    Suit: %s", port_extra_info(ms->extra)->group, suit_names[ms->suit & 3]);
+        else
+            SDL_snprintf(buf, sizeof buf, "Mission %d of %d    Suit: %s", sel, nlist, suit_names[ms->suit & 3]);
         ctext(&fsmall, 342, 626, 66, buf, WHITE);
     }
     box(342, 83, 626, 233, BLACK);      /* the map goes in here, in full colour (to_rgba) */
@@ -1037,7 +1155,7 @@ static void draw(void)
         fill(624, ty, 625, ty + th, LIGHT);
     }
     {
-        int vid = ms && has_briefing_video(ms->m), sto = ms && ms->nstory;
+        int vid = ms && !ms->extra && has_briefing_video(ms->m), sto = ms && ms->nstory;
         box(342, 376, 482, 393, OLIVE);
         ctext(&fsmall, 342, 482, 379, "Video Briefing", !vid ? LOCKED : hover == HIT_VIDEO ? WHITE : GREY);
         box(486, 376, 626, 393, OLIVE);
@@ -1046,9 +1164,12 @@ static void draw(void)
     titlebox(342, 397, 626, 412, "Your Record");
     box(342, 416, 626, 433, OLIVE);
     if (ms) {
-        Record r;
+        Record r = { 0 }, *xr;
         SDL_LockSpinlock(&pr_lock);
-        r = rec[ms->m & 63];
+        if (!ms->extra)
+            r = rec[ms->m & 63];
+        else if ((xr = xrec_of(port_extra_info(ms->extra)->key, 0)) != NULL)
+            r = *xr;
         SDL_UnlockSpinlock(&pr_lock);
         if (!r.played)
             SDL_snprintf(buf, sizeof buf, "Not played yet");
@@ -1078,8 +1199,8 @@ static void to_rgba(void)
         for (i = 0; i < W; i++)
             rgba[y * W + i] = p32[cv[y][i]];
     if (sel >= 1) {
-        if (list[sel - 1].m != shown_m || whole_map != shown_whole)
-            map_make(list[sel - 1].m, whole_map);
+        if (MKEY(&list[sel - 1]) != shown_m || whole_map != shown_whole)
+            map_make(&list[sel - 1], whole_map);
         for (y = 0; y < BH; y++)
             for (i = 0; i < BW; i++)
                 rgba[(BY + y) * W + BX + i] = 0xFF000000u | mapimg[y][i];
@@ -1347,6 +1468,16 @@ static uint64_t fade_at;
 static int eat_up;                      /* the left button's release after a click that left */
 static int fade_restart;                /* F_OPEN_IN: its clock starts after the first drawing */
 
+/* An extra mission played from here is over and the game is going back to its main menu
+ * (port_extra_state, port/mods/extrares.c: its number in the list of extra missions): the
+ * selector comes up again on the Extra Missions list with that mission chosen.  The screen
+ * stays black from then until the main menu is up under it, so the menu does not show on the
+ * way. */
+static void cover(SDL_Renderer *r, float a);
+volatile int port_ms_return;
+static int from_here;                   /* the extra mission started from this screen */
+static uint64_t return_at;
+
 static void set_fade(int f)
 {
     fade = f;
@@ -1415,15 +1546,18 @@ static void play(void)
 
 static void start_mission(int pos)      /* after the fade: the game's button is clicked */
 {
+    const int training = !tab && pos <= 2;
     port_ms_mission = list[pos - 1].m;
+    port_extra_pick = list[pos - 1].extra;  /* an extra mission: the campaign that starts is its own
+                                             * (camplist_2C8E78, port/mods/extrares.c) */
     /* the game's New Game (Skip Instruction) button, New Game for the training missions
      * (uiw_rects 1 and 2 of the main menu) */
     start_x = 186;
-    start_y = pos <= 2 ? 369 : 424;
+    start_y = training ? 369 : 424;
     port_mouse_event(start_x, start_y, 0, 1, 0);
     start_step = 1;
     start_at = port_now_us();
-    if (pos > 2) {                      /* New Game (Skip Instruction): straight to the outfitting */
+    if (!training) {                    /* New Game (Skip Instruction): straight to the outfitting */
         SDL_LockSpinlock(&walk_lock);
         walk_at = start_at;
         skip_until = start_at + 20000000;   /* the campaign's opening movies */
@@ -1433,7 +1567,48 @@ static void start_mission(int pos)      /* after the fade: the game's button is 
         SDL_UnlockSpinlock(&walk_lock);
         port_ms_walk = 1;
     }
-    port_log("Mission Selector: New Campaign at %s (campaign position %d)\n", list[pos - 1].name, pos);
+    from_here = tab != 0;
+    if (tab)
+        port_log("Mission Selector: extra mission %s\n", list[pos - 1].name);
+    else
+        port_log("Mission Selector: New Campaign at %s (campaign position %d)\n", list[pos - 1].name, pos);
+}
+
+static int return_step(SDL_Renderer *r, uint64_t now)
+{
+    int k = port_ms_return, i;
+    if (!k)
+        return 0;
+    if (!from_here || port_missions_open || fade != F_NONE || start_step) {
+        port_ms_return = 0;             /* (started without the selector: lockstep's FREEFALL_EXTRA) */
+        return_at = 0;
+        return 0;
+    }
+    if (!return_at)
+        return_at = now;
+    cover(r, 1);
+    if (!port_menu_msbutton || port_video.w != W || port_video.h != H) {
+        if (now - return_at > 15000000) {       /* the menu never came: as before */
+            port_ms_return = 0;
+            return_at = 0;
+            from_here = 0;
+        }
+        return 1;
+    }
+    port_ms_return = 0;
+    return_at = 0;
+    from_here = 0;
+    open_screen();
+    if (!port_missions_open)
+        return 0;
+    set_tab(1);
+    for (i = 0; i < nlist; i++)
+        if (tab && list[i].extra == k)
+            choose(i + 1);
+    set_fade(F_OPEN_IN);
+    fade_restart = 1;
+    port_log("Mission Selector: back on the Extra Missions list after %s\n", sel >= 1 && sel <= nlist ? list[sel - 1].name : "an extra mission");
+    return 0;
 }
 
 static void scroll(int d)
@@ -1480,6 +1655,13 @@ static void click(int what, int row, int clicks)
         else
             choose(row);
         return;
+    case HIT_TABC: case HIT_TABX:
+        if ((what == HIT_TABX) != tab) {
+            click_sound();
+            movie_stop();
+            set_tab(what == HIT_TABX);
+        }
+        return;
     case HIT_PGL:
         if (page_top <= 0)
             return;
@@ -1495,7 +1677,7 @@ static void click(int what, int row, int clicks)
     case HIT_DOWN: scroll(1); break;
     case HIT_TRACK: scroll(VIS - 1); return;
     case HIT_VIDEO:
-        if (sel < 1 || !has_briefing_video(list[sel - 1].m))
+        if (sel < 1 || list[sel - 1].extra || !has_briefing_video(list[sel - 1].m))
             return;
         click_sound();
         {
@@ -1551,6 +1733,8 @@ int port_missions_event(const SDL_Event *e)
     if (!port_missions_open) {
         if (fade == F_HOLD || fade == F_CLOSE_IN)       /* the menu comes back: its buttons wait */
             return button || e->type == SDL_EVENT_MOUSE_WHEEL;
+        if (port_ms_return && from_here)                /* black, the selector about to come back */
+            return button || e->type == SDL_EVENT_MOUSE_WHEEL || e->type == SDL_EVENT_KEY_DOWN || e->type == SDL_EVENT_KEY_UP;
         if (button && e->button.button == SDL_BUTTON_LEFT && on_button(e->button.x, e->button.y)) {
             if (e->type == SDL_EVENT_MOUSE_BUTTON_UP) {
                 open_screen();          /* (no click sound: the main menu's buttons have none) */
@@ -1559,6 +1743,9 @@ int port_missions_event(const SDL_Event *e)
             }
             return 1;
         }
+        if (!port_ms_walk && (e->type == SDL_EVENT_MOUSE_BUTTON_DOWN ||
+                              (e->type == SDL_EVENT_KEY_DOWN && !e->key.repeat)))
+            walk_by_hand();
         return 0;
     }
     if (fade != F_NONE)                 /* fading: nothing is clicked or pressed */
@@ -1682,7 +1869,10 @@ static void hold_text(SDL_Renderer *r, float a)
         int x, y;
         memset(cv, BLACK, sizeof cv);
         ctext(&fbig, 0, W - 1, 214, list[hold_pos - 1].name, 0);
-        SDL_snprintf(buf, sizeof buf, "A new campaign from mission %d of %d", hold_pos, nlist);
+        if (list[hold_pos - 1].extra)
+            SDL_snprintf(buf, sizeof buf, "%s", port_extra_info(list[hold_pos - 1].extra)->source);
+        else
+            SDL_snprintf(buf, sizeof buf, "A new campaign from mission %d of %d", hold_pos, nlist);
         ctext(&fsmall, 0, W - 1, 246, buf, GREY);
         ctext(&fsmall, 0, W - 1, 262, "Going to the outfitting...", GREY);
         for (y = 0; y < H; y++)
@@ -1794,6 +1984,8 @@ void port_missions_render(SDL_Renderer *r, const SDL_FRect *view)
         }
         return;
     }
+    if (return_step(r, now))
+        return;
     if (!port_missions_open)
         return;
     if (fade == F_OPEN_OUT) {           /* the main menu goes black */

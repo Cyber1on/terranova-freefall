@@ -98,6 +98,8 @@ static int tm_nroof;
 
 static ShapeItem *tm_shape(MeshNode *nd)
 {
+    if (PORT_BURN_NODE(nd))             /* P152: a burning plant or its stump has no roof */
+        return NULL;
     if (nd->ent) {
         GameEntity *e = &game_entities[nd->ent];
         return interact_2973E8(e->cls, e->type);
@@ -170,6 +172,56 @@ static int tm_on(MeshRec *R, MeshRec *O)
                      fmul(dx, R->s) + fmul(dy, R->c), &in);
     return O->dz - R->dz >= top - 0x2000;
 }
+
+/* P152 in docs/BUGS.md: a plant that burns or the stump it leaves ("Burning plants",
+ * port/mods/burn.c) is a node of the port's own in the view's lists (tmpl 0xFF00 + its id, no
+ * map object behind it).  On a square inside a building's area such a node comes into this sort,
+ * which took it for a map object and read the object table at entry 0xFF00 and up, far past
+ * its end.  Its place is the burn's, its edge a thin trunk's (a circle of a quarter square);
+ * a burn that cannot be drawn is left out, as in viewdist_2A250C. */
+static uchar tm_burn(MeshNode *nd, MeshRec *r)
+{
+    struct { short type, npts; fix rad[2]; } trunk = { 2, 0, { 0x4000, 0 } };
+    if (!port_burn_set(nd->tmpl & 0xFF))
+        return 0;
+    r->x = port_burn_ent.x;
+    r->y = port_burn_ent.y;
+    r->lx = ff_view.x - r->x;
+    r->ly = ff_view.y - r->y;
+    r->s = 0;
+    r->c = 0x10000;
+    r->dz = port_burn_ent.z - ff_view.z;
+    return terrmesh_2A00F8(&trunk, r);
+}
+#endif
+
+#ifndef TN_WATCOM_ABI
+/* G61 in docs/BUGS.md: the sorted objects with the square each stands on and how far its
+ * footprint reaches, for weather_2B1F24, which draws them between the area's squares. */
+TmOrder tm_order[TM_ORDER_MAX];
+int tm_order_n;
+static void *tm_rec_bin[TM_ORDER_MAX];
+static fix tm_radius(MeshNode *nd)
+{
+    ShapeItem *sh = tm_shape(nd);
+    fix r = 0;
+    int k;
+    if (!sh)
+        return 0x4000;                  /* a burning plant's trunk (tm_burn) */
+    switch ((ushort)sh->type) {
+    case 1:
+        for (k = 0; k < sh->npts; k++) {
+            fix d = fix_pyth_dist(sh->pt[k][0], sh->pt[k][1]);
+            if (d > r)
+                r = d;
+        }
+        return r;
+    case 2:
+    case 3:
+        return sh->pt[sh->npts][0];
+    }
+    return 0;
+}
 #endif
 
 /* 0x29F2B4: sort the objects of all groups back to front.  tab[i] is row i of the "in front
@@ -183,6 +235,9 @@ void terrmesh_29F2B4(void)
     long cnt;
     s->count = 0;
     s->first = 0;
+#ifndef TN_WATCOM_ABI
+    tm_order_n = 0;
+#endif
     buf = ffmem_2C4F40(0x4B00);
     rec = buf;
     for (g = mesh_groups; g; g = g->next) {
@@ -192,12 +247,25 @@ void terrmesh_29F2B4(void)
         s->count += g->count;
         nd = first = g->first;
         for (;;) {
+#ifndef TN_WATCOM_ABI
+            if (rec - buf < TM_ORDER_MAX)
+                tm_rec_bin[rec - buf] = g;      /* (kept only when the record is: G61) */
+            if (PORT_BURN_NODE(nd)) {   /* P152 */
+                rec->node = nd;
+                if (tm_burn(nd, rec))
+                    rec++;
+                else
+                    s->count--;
+            } else
+#endif
+            {
             terrmesh_29F56C(nd, rec);
             rec->node = nd;
             if (terrmesh_29F6EC(nd, rec))
                 rec++;
             else
                 s->count--;
+            }
             if (nd->next == first)
                 break;
             nd = nd->next;
@@ -258,6 +326,17 @@ void terrmesh_29F2B4(void)
                 for (i = 0; i < cnt && !tab[i]; i++)
                     ;
             nd = buf[i].node;
+#ifndef TN_WATCOM_ABI
+            if (tm_order_n >= 0 && tm_order_n < TM_ORDER_MAX && i < TM_ORDER_MAX) {
+                TmOrder *o = &tm_order[tm_order_n++];
+                o->node = nd;
+                o->bin = tm_rec_bin[i];
+                o->x = buf[i].x;
+                o->y = buf[i].y;
+                o->rad = tm_radius(nd);
+            } else
+                tm_order_n = -1;        /* too many: weather_2B1F24 draws them the game's way */
+#endif
             *link = nd;
             link = &nd->next;
             tab[i] = 0;

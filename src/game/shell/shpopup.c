@@ -155,12 +155,22 @@ static void note_scan(Id id, long count, uchar *list, uchar *n)
     ResUnlock(id);
 }
 
+#ifndef TN_WATCOM_ABI
+extern int port_extra_on;               /* an extra mission is played (port/mods/extrares.c) */
+#endif
+
 long shell_2C16D4(void)
 {
     long f;
 
     if (game_359708 == 0x25 || shell_note_done || shell_note_mission == game_359708)
         return 0;
+#ifndef TN_WATCOM_ABI
+    /* Freefall: an extra mission has no "New Technology" notices (they are the campaign
+     * mission's of its number) */
+    if (port_extra_on)
+        return 0;
+#endif
     f = ResOpenResFile("resmiss.res", 0, 0);
     note_scan(0x6B4, 0xF, shell_note_a, &shell_note_n[0]);
     note_scan(0x6B5, 0xC, shell_note_b, &shell_note_n[1]);

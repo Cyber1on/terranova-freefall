@@ -57,6 +57,7 @@ short save_boxes[2][4];
 #define RECT_FILL(a, b, c, d) WATCOM_CALL(grd_canvas_table[16], (long)(a), (long)(b), (long)(c), (long)(d))
 #ifndef TN_WATCOM_ABI
 extern int port_game_typing;            /* port/ui/options.c */
+void port_extra_end(void);              /* port/mods/extrares.c */
 #endif
 #define CLICK() SndPlay(0x782, 0, 0x40, 1, -1, 0x40, 0)
 #define BUZZ() SndPlay(0x785, 0, 0x40, 1, -1, 0x40, 0)
@@ -246,6 +247,9 @@ void saveload_2C38A8(long a, long rewrite)
 
     (void)a;
     save_loading = 1;
+#ifndef TN_WATCOM_ABI
+    port_extra_end();           /* Freefall: a loaded game is the campaign's (port/mods/extrares.c) */
+#endif
     if (rewrite)
         saveload_2C37F8();
     if (tn_replay_playing) {

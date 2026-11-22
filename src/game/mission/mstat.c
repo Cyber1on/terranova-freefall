@@ -61,6 +61,10 @@
 #include "g9_a.h"
 #include "g10_c.h"     /* added at the G9/G10 merge (owner header of G9/G10 callees) */
 
+#ifndef TN_WATCOM_ABI
+extern int port_extra_on;               /* an extra mission is played (port/mods/extrares.c) */
+#endif
+
 #ifndef TN_LINK_ORIGINAL_DATA
 short mstat_cls_counts[5] = { 1, 0x12, 0xC, 0x11, 0x4A };
 ushort mstat_list_res[3] = { 0x6B4, 0x6B5, 0x6B6 };
@@ -542,7 +546,8 @@ void mstat_2C68E8(void)
     }
     game_440928 = (game_359708 == 0x2E || game_359708 == 0x2F) ? game_359708 - 0x2D : 0;
 #ifndef TN_WATCOM_ABI
-    port_ms_record(game_359708, MS->won, MS->score, (ushort)MS->medals);   /* the Mission Selector's record */
+    /* the Mission Selector's record (of the extra mission, when one is played) */
+    port_ms_record(port_extra_on ? -port_extra_on : game_359708, MS->won, MS->score, (ushort)MS->medals);
 #endif
     camplist_2C8FC8(MS->won);
 }

@@ -16,8 +16,9 @@
  * page's settings fill the middle and right columns (pages[]): buttons (one for each value),
  * sliders (30 ticks, as the game's), lists with arrows, a preview picture.  Gameplay also shows
  * the game's own sound options (volumes, stereo: port_game_option, src/game/shell/options.c).
- * Under them: the help line, KEY BINDINGS, CLOSE, the FREEFALL box (the website) and GAME
- * OPTIONS (the game's own screen, its O key, in a mission).  The mouse only (owner): it
+ * Under them: the help line, KEY BINDINGS, CLOSE; on the left ABORT MISSION over EXIT TERRA
+ * NOVA (the game's own Ctrl+Esc and Alt+X: its yes / no box asks), on the right CLASSIC OPTIONS
+ * (the game's own screen, its O key, in a mission) over the FREEFALL box (the website).  The mouse only (owner): it
  * clicks a button, drags a slider, the wheel changes the setting under it; Esc closes.  A setting that needs another one first is
  * drawn dim (port_screen_usable, opt_usable).
  * The Keys page lists the controls style's actions with their two keys (keys.c): a click on a
@@ -57,6 +58,7 @@ static int esc_held;                    /* Esc opened the options and is still d
 extern unsigned char hud_38FC80;        /* the squad's orders menu is up (src/game/hud/cmdpanel.c) */
 extern int port_missions_open, port_ms_all, port_ms_fading;    /* the Mission Selector (missions.c) */
 void port_missions_changed(void);
+extern int port_ai_fix, port_ai_imp, port_ai_debug;  /* port/mods/ai.c: "AI" and "AI debug display" */
 
 void port_set_smooth_fps(int on)
 {
@@ -67,7 +69,7 @@ void port_set_smooth_fps(int on)
 
 /* the options: Preset and the settings options.c keeps (screen.c keeps the rest) */
 enum { O_PRESET, O_FPS, O_CTRL, O_SENS, O_INV, O_TCAM, O_TLABEL, O_MAPCONE, O_SHOWFPS, O_MUSIC, O_PACK,
-       O_MODSET, O_FULLSCREEN, O_SOUNDFONT, O_ENEMIES, O_RADAR, O_AIM, O_AIMSIGN, O_MSEL, O_COUNT };
+       O_MODSET, O_FULLSCREEN, O_SOUNDFONT, O_ENEMIES, O_RADAR, O_AIM, O_AIMSIGN, O_MSEL, O_AI, O_AIDEBUG, O_COUNT };
 /* the pages: the five settings pages and Mods, the key bindings, the first start's question */
 enum { PG_GAMEPLAY, PG_DISPLAY, PG_DETAIL, PG_COCKPIT, PG_SOUND, PG_MODS, PG_KEYS, PG_WELCOME };
 static int page;                        /* the page shown */
@@ -229,6 +231,7 @@ static int preset_now(void)             /* 0 Classic, 1 Vanilla+, 2 Freefall, -1
         if (!port_smooth_fps == !on && !port_mouselook == !on && !port_auto_targcam == !on &&
             !port_target_label == !on && !port_map_cone == !on && !port_map_enemies == !(p == 2) &&
             port_aim_box == (p > 0 ? AIM_SMALL : AIM_CLASSIC) && !port_aim_sign == !(p == 2) &&
+            (port_ai_imp ? 2 : port_ai_fix != 0) == p &&
             port_screen_is_preset(p) &&
             modset_is(p == 2 ? "Freefall" : "") && !SDL_strcasecmp(port_music_pack, preset_music(p, music)))
             return p;
@@ -260,6 +263,8 @@ static void apply_preset(int p)
     port_map_enemies = p == 2;          /* Show enemies without MFD: Freefall only (owner) */
     port_aim_box = p > 0 ? AIM_SMALL : AIM_CLASSIC;    /* Auto-aim: 20 needs the Classic controls */
     port_aim_sign = p == 2;             /* Auto-aim highlight: Freefall only (owner) */
+    port_ai_fix = p > 0 ? 0xFFF : 0;    /* AI: Classic, Vanilla+ Fixed, Freefall Improved (owner) */
+    port_ai_imp = p == 2 ? AI_IMP_ALL : 0;
     port_screen_preset(p);
     modset_set(p == 2 ? "Freefall" : "");
     if (SDL_strcasecmp(port_music_pack, preset_music(p, music))) {
@@ -299,7 +304,7 @@ static const char *opt_labels[O_COUNT] = {
     "Preset", "Frame rate", "Controls style", "Mouse sensitivity", "Invert mouse", "Auto target camera",
     "Target label", "Head view cone", "Show FPS", "Music", "Music pack", "Mod set", "Fullscreen", "SoundFont for AWE32",
     "Show enemies without MFD", "Radar without MFD (Experimental)", "Auto-aim", "Auto-aim highlight",
-    "Mission select",
+    "Mission select", "AI", "AI debug display",
 };
 
 static int music_index(void)            /* "fm" (earlier builds) is OPL3; "auto" is set to what it
@@ -385,6 +390,12 @@ static void opt_value(int i, char *buf, size_t n)
     case O_MSEL:
         snprintf(buf, n, "%s", port_ms_all ? "All (cheat)" : "Reached");
         break;
+    case O_AI:
+        snprintf(buf, n, "%s", port_ai_imp ? "Improved" : port_ai_fix ? "Fixed" : "Classic");
+        break;
+    case O_AIDEBUG:
+        snprintf(buf, n, "%s", port_ai_debug ? "On" : "Off");
+        break;
     case O_SHOWFPS:
         snprintf(buf, n, "%s", port_show_fps ? "On" : "Off");
         break;
@@ -418,6 +429,7 @@ static const char *opt_help_v(int i, int v)
         case O_FPS: v = port_smooth_fps != 0; break;
         case O_AIM: v = port_aim_box == AIM_CLASSIC ? 2 : port_aim_box ? 1 : 0; break;
         case O_MSEL: v = port_ms_all != 0; break;
+        case O_AI: v = port_ai_imp ? 2 : port_ai_fix != 0; break;
         case O_FULLSCREEN: v = port_fullscreen != 0; break;
         case O_MUSIC: v = music_index(); break;
         case O_TCAM: v = port_auto_targcam != 0; break;
@@ -446,6 +458,9 @@ static const char *opt_help_v(int i, int v)
         return "The crosshair turns red when a shot will connect";   /* (owner) */
     case O_MSEL: return v ? "Mission Selector: every campaign mission" :
                                       "Mission Selector: the missions you reached";
+    case O_AI: return v == 2 ? "Mistakes fixed, and smarter soldiers" : v ? "The AI's programming mistakes fixed" :
+                                "The game's own AI, nothing changed";
+    case O_AIDEBUG: return "Over each unit: tactic, health, target";
     case O_TCAM: return v ? "Left screen shows the target you pick" : "Left screen keeps the squad list";
     case O_TLABEL: return v ? "Distance above the box, Locked under" : "The game's own target text";
     case O_MAPCONE:
@@ -538,6 +553,17 @@ static void opt_change(int i, int dir)
         port_ms_all = !port_ms_all;
         port_missions_changed();
         break;
+    case O_AI:                          /* (the presets': Classic, Vanilla+ Fixed, Freefall Improved) */
+    {   /* Classic, Fixed (a bit for each fix, G49 to G60), Improved (the fixes and a bit for
+         * each new behaviour) */
+        int lv = ((port_ai_imp ? 2 : port_ai_fix != 0) + (dir < 0 ? 2 : 1)) % 3;
+        port_ai_fix = lv ? 0xFFF : 0;
+        port_ai_imp = lv == 2 ? AI_IMP_ALL : 0;
+    }
+        break;
+    case O_AIDEBUG:
+        port_ai_debug = !port_ai_debug;
+        break;
     case O_TCAM:
         port_auto_targcam = !port_auto_targcam;
         break;
@@ -624,6 +650,7 @@ enum { BLACK = 0, ORANGE = 248, BROWN = 249, GREY = 250, LIGHT = 252, WHITE = 24
 static const int colx[3] = { 1, 216, 430 };
 
 static int red_c;                       /* (load_art) */
+static int red_t;                       /* ... a bright red for text */
 
 static int load_art(void)
 {
@@ -669,6 +696,11 @@ static int load_art(void)
             int dr = opal[i * 3] - 150, dg = opal[i * 3 + 1] - 20, db = opal[i * 3 + 2] - 12, d = dr * dr + dg * dg + db * db;
             if (d < best)
                 best = d, red_c = i;
+        }
+        for (i = 1, best = 1 << 30; i < 256; i++) {     /* ... and nearest a bright red (ABORT MISSION, EXIT) */
+            int dr = opal[i * 3] - 235, dg = opal[i * 3 + 1] - 30, db = opal[i * 3 + 2] - 20, d = dr * dr + dg * dg + db * db;
+            if (d < best)
+                best = d, red_t = i;
         }
     }
     art = ok;
@@ -765,7 +797,7 @@ static void blit(const GaBitmap *b, int x, int y)  /* 0 is see-through */
  * (sound) or the pages */
 enum { G_END, G_PANEL, G_BUTTONS, G_SLIDER, G_HEADER, G_PICK, G_PREVIEW, G_PRESS, G_BOX };
 enum { SRC_OPT, SRC_SCR, SRC_GAME, SRC_PAGE, SRC_MODS, SRC_BOX };
-enum { BX_KEYS, BX_CLOSE, BX_WEB, BX_GAME };
+enum { BX_KEYS, BX_CLOSE, BX_WEB, BX_GAME, BX_ABORT, BX_EXIT };
 typedef struct {
     unsigned char kind, src, id, cols;  /* cols: buttons a row (0: all in one) */
     const char *title, *vals;           /* vals: the buttons' names, "Off|On" */
@@ -805,13 +837,14 @@ static const Page pages[PG_KEYS] = {
           { G_BUTTONS, SRC_OPT, O_AIMSIGN, 0, "Auto-aim highlight", ONOFF },
           { G_SLIDER, SRC_OPT, O_SENS, 0, "Mouse sensitivity" },
           { G_BUTTONS, SRC_OPT, O_INV, 0, "Invert mouse", ONOFF },
-          { G_BUTTONS, SRC_GAME, GAME_STEREO, 1, "Stereo sound", "Normal|Reversed" }, { G_END } },
-        { { G_HEADER, 0, 0, 0, "Sound" },
+          { G_BUTTONS, SRC_GAME, GAME_DIFF, 1, "Difficulty level",
+            "Neighborhood Watch|Reserve Duty|Standard Duty|Hazardous Duty|World War" }, { G_END } },
+        { { G_BUTTONS, SRC_GAME, GAME_STEREO, 0, "Stereo sound", "Normal|Reversed" },
+          { G_HEADER, 0, 0, 0, "Sound" },
           { G_SLIDER, SRC_GAME, GAME_FX, 0, "FX volume" },
           { G_SLIDER, SRC_GAME, GAME_MUSIC, 0, "Music volume" },
           { G_SLIDER, SRC_GAME, GAME_SPEECH, 0, "Speech volume" },
-          { G_BUTTONS, SRC_GAME, GAME_DIFF, 1, "Difficulty level",
-            "Neighborhood Watch|Reserve Duty|Standard Duty|Hazardous Duty|World War" },
+          { G_BUTTONS, SRC_OPT, O_AI, 0, "AI", "Classic|Fixed|Improved" },
           { G_BUTTONS, SRC_OPT, O_MSEL, 0, "Mission select", "Reached|All (cheat)" },
           { G_BUTTONS, SRC_GAME, GAME_TIPS, 0, "Tool tips", ONOFF }, { G_END } } },
     [PG_DISPLAY] = {
@@ -862,11 +895,13 @@ static const Page pages[PG_KEYS] = {
           { G_PICK, SRC_SCR, S_ARMS, 0, "Arms mod" },
           { G_PICK, SRC_SCR, S_EFFECTS, 0, "Effects mod" },
           { G_PICK, SRC_SCR, S_OBJPACK, 0, "Objects mod" }, { G_END } },
-        { { G_BUTTONS, SRC_SCR, S_HMOTION, 0, "Dynamic helmet", ONOFF }, { G_END } } },
+        { { G_BUTTONS, SRC_SCR, S_HMOTION, 0, "Dynamic helmet", ONOFF },
+          { G_BUTTONS, SRC_SCR, S_VISOR, 0, "Visor damage", ONOFF }, { G_END } } },
 };
-static const Group boxes[4] = { { G_BOX, SRC_BOX, BX_KEYS }, { G_BOX, SRC_BOX, BX_CLOSE },
-                                { G_BOX, SRC_BOX, BX_WEB }, { G_BOX, SRC_BOX, BX_GAME } };
-static const char *page_help[PG_KEYS] = { "Controls, auto-aim, mouse, sound, difficulty", "Frame rate, 3D resolution, filters",
+static const Group boxes[6] = { { G_BOX, SRC_BOX, BX_KEYS }, { G_BOX, SRC_BOX, BX_CLOSE },
+                                { G_BOX, SRC_BOX, BX_WEB }, { G_BOX, SRC_BOX, BX_GAME },
+                                { G_BOX, SRC_BOX, BX_ABORT }, { G_BOX, SRC_BOX, BX_EXIT } };
+static const char *page_help[PG_KEYS] = { "Controls, auto-aim, mouse, AI, sound, difficulty", "Frame rate, 3D resolution, filters",
                                           "How far land and objects show, sky, water, trees",
                                           "Target label and camera, maps", "Music, music packs, movies, speech",
                                           "Mod zips from the Mods folder" };
@@ -925,7 +960,7 @@ static const Stills *stills_of(const Group *g)
 }
 
 /* in a mission: its controls ran a moment ago, or it stands still for this screen (P134: after
- * a quarter of a second of standing still the mission counted as over, and GAME OPTIONS stayed
+ * a quarter of a second of standing still the mission counted as over, and CLASSIC OPTIONS (then GAME OPTIONS) stayed
  * grey and did nothing) */
 static int in_mission(void)
 {
@@ -948,7 +983,15 @@ static int g_usable(const Group *g)
     case SRC_OPT: return opt_usable(g->id);
     case SRC_SCR: return port_screen_usable(g->id);
     case SRC_GAME: return port_game_option_allowed(g->id);
-    case SRC_BOX: return g->id != BX_GAME || game_o_ok();
+    case SRC_BOX:
+        /* ABORT MISSION and EXIT TERRA NOVA: where the game takes its own keys for them, and not
+         * over its options screen (that has both buttons itself) */
+        switch (g->id) {
+        case BX_GAME: return game_o_ok();
+        case BX_EXIT: return game_o_ok() && !port_game_options_up;
+        case BX_ABORT: return in_mission() && game_o_ok() && !port_game_options_up;
+        }
+        break;
     }
     return 1;
 }
@@ -967,6 +1010,8 @@ static int g_get(const Group *g)        /* the chosen button; -1 none */
         case O_AIM: return port_aim_box == AIM_CLASSIC ? 2 : port_aim_box ? 1 : 0;
         case O_AIMSIGN: return port_aim_sign != 0;
         case O_MSEL: return port_ms_all != 0;
+        case O_AI: return port_ai_imp ? 2 : port_ai_fix != 0;
+        case O_AIDEBUG: return port_ai_debug != 0;
         case O_TCAM: return port_auto_targcam != 0;
         case O_TLABEL: return port_target_label != 0;
         case O_MAPCONE: return port_map_cone != 0;
@@ -1227,6 +1272,9 @@ static const char *g_help(const Group *g)
         case BX_WEB: return "Open the Freefall website in your browser";
         case BX_GAME: return port_game_options_up ? "Back to the game's own options screen" :
                              "The game's own options screen (Alt+O)";
+        case BX_ABORT: return g_usable(g) ? "End this mission now (Ctrl+Esc); the game asks first" :
+                              "Ends a mission; you are not in one";
+        case BX_EXIT: return "Leave Terra Nova (Alt+X); the game asks first";
         }
     }
     return "";
@@ -1453,15 +1501,35 @@ static void help_line(int x1, const char *h)
     ctext(123, x1 - 13, 417, h, WHITE);
 }
 
-static void version_box(void)
+static void version_box(int small)
 {
     char v[32];
+    if (small) {                        /* the settings: at the bottom right, under CLASSIC OPTIONS */
+        panel(536, 441, 636, 465);
+        snprintf(v, sizeof v, "FREEFALL v%s", FREEFALL_VERSION_SHORT);
+        ctext(536, 636, 442, v, WHITE);
+        ctext(536, 636, 453, "(website)", under(536, 441, 637, 466) ? ORANGE : DIM);
+        hit(536, 441, 637, 466, &boxes[BX_WEB], 0, H_ACT);
+        return;
+    }
     panel(4, 412, 104, 465);
-    snprintf(v, sizeof v, "v%s", FREEFALL_VERSION);
+    snprintf(v, sizeof v, "v%s", FREEFALL_VERSION_SHORT);
     ctext(4, 104, 423, "FREEFALL", WHITE);
     ctext(4, 104, 435, v, WHITE);
     ctext(4, 104, 447, "(website)", under(4, 412, 105, 466) ? ORANGE : DIM);
     hit(4, 412, 105, 466, &boxes[BX_WEB], 0, H_ACT);
+}
+
+/* ABORT MISSION, EXIT TERRA NOVA: the two buttons of the left side, one over the other (y: the
+ * button's top) */
+static void side_button(int x, int y, const Group *g, const char *t)
+{
+    int ok = g_usable(g);
+    panel(x, y, x + 100, y + 24);
+    box(x + 8, y + 3, x + 92, y + 19, BLACK);
+    /* (under the mouse in red, not the other buttons' orange: these two end the mission or the game; owner) */
+    ctext(x + 8, x + 92, y + 5, t, !ok ? DIM : under(x, y, x + 101, y + 25) ? (red_t ? red_t : ORANGE) : WHITE);
+    hit(x, y, x + 101, y + 25, g, 0, H_ACT);
 }
 
 static void bottom(const char *help, const char *b1, const char *b2)
@@ -1479,15 +1547,15 @@ static void bottom(const char *help, const char *b1, const char *b2)
         ctext(bx[i] + 13, bx[i] + 197, 446, t[i], hov ? ORANGE : WHITE);
         hit(bx[i], 441, bx[i] + 211, 466, g, 0, H_ACT);
     }
-    version_box();
-    panel(536, 412, 636, 465);
-    {
-        int c = !game ? DIM : under(536, 412, 637, 466) ? ORANGE : WHITE;
-        ctext(536, 636, 423, "GAME", c);
-        ctext(536, 636, 435, "OPTIONS", c);
-    }
-    ctext(536, 636, 447, "(Alt+O)", DIM);
-    hit(536, 412, 637, 466, &boxes[BX_GAME], 0, H_ACT);
+    /* the left side: ABORT MISSION over EXIT TERRA NOVA; the right: CLASSIC OPTIONS (the game's
+     * own options screen) over the FREEFALL box (owner) */
+    side_button(4, 412, &boxes[BX_ABORT], "ABORT MISSION");
+    side_button(4, 441, &boxes[BX_EXIT], "EXIT TERRA NOVA");
+    panel(536, 412, 636, 436);
+    ctext(536, 636, 413, "CLASSIC OPTIONS", !game ? DIM : under(536, 412, 637, 437) ? ORANGE : WHITE);
+    ctext(536, 636, 424, "(Alt+O)", DIM);
+    hit(536, 412, 637, 437, &boxes[BX_GAME], 0, H_ACT);
+    version_box(1);
 }
 
 /* the preview: for the chosen group (or the one under the mouse) with pictures, the picture of
@@ -1691,7 +1759,7 @@ static void draw_welcome(void)
     panel(110, 441, 636, 465);
     box(123, 444, 623, 460, BLACK);
     ctext(123, 623, 446, "Left/Right: choose     Enter: play", WHITE);
-    version_box();
+    version_box(0);
 }
 
 static void welcome_play(int k)
@@ -1747,6 +1815,54 @@ static void open_web(void)
 }
 
 void port_key_tap(SDL_Scancode s);      /* platform.c */
+void port_key_tap_with(int mod, SDL_Scancode s);
+
+/* ABORT MISSION / EXIT TERRA NOVA: this screen closes and the game gets its own key for it
+ * (Ctrl+Esc, Alt+X: main_244A30, src/game/main/ffmain.c), so the game's yes / no box asks, as
+ * for the buttons of its own options screen.  Answered No, this screen comes back (as the
+ * game's own options screen stays up after a No). */
+enum { ASK_NONE, ASK_SENT, ASK_UP, ASK_DOWN };
+static int ask, ask_abort;
+static uint64_t ask_at;
+
+static void ask_game(int abort)
+{
+    port_options_open = 0;
+    port_key_tap_with(abort ? 2 : 1, abort ? SDL_SCANCODE_ESCAPE : SDL_SCANCODE_X);
+    ask = ASK_SENT;
+    ask_abort = abort;
+    ask_at = port_now_us();
+}
+
+static void open_screen(void);
+static void ask_step(void)
+{
+    extern unsigned char game_quitting;         /* the game's: Yes to the exit box */
+    extern long game_35A95C;                    /* ... the mission is ending */
+    uint64_t now = port_now_us();
+    switch (ask) {
+    case ASK_SENT:
+        if (port_game_dialog_up)
+            ask = ASK_UP;
+        else if (now - ask_at > 2000000)
+            ask = ASK_NONE;             /* no box came up */
+        break;
+    case ASK_UP:
+        if (!port_game_dialog_up) {
+            ask = ASK_DOWN;
+            ask_at = now;
+        }
+        break;
+    case ASK_DOWN:                      /* answered: a moment for the game to act on a Yes */
+        if (now - ask_at < 200000)
+            break;
+        ask = ASK_NONE;
+        if (!port_options_open && !port_game_dialog_up && !game_quitting &&
+            !(ask_abort && (game_35A95C || !port_keys_in_mission())))
+            open_screen();
+        break;
+    }
+}
 
 static void box_act(int id)
 {
@@ -1774,6 +1890,11 @@ static void box_act(int id)
             port_options_open = 0;
             port_key_tap(SDL_SCANCODE_O);
         }
+        break;
+    case BX_ABORT:
+    case BX_EXIT:
+        if (g_usable(&boxes[id]))
+            ask_game(id == BX_ABORT);
         break;
     }
 }
@@ -2460,6 +2581,7 @@ void port_options_render(SDL_Renderer *r, const SDL_FRect *view)
     float k;
     int i;
 
+    ask_step();
     menu_colours();
     ffbutton.w = 0;
     ffmenu.w = 0;

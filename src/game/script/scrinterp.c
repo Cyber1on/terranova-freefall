@@ -347,6 +347,11 @@ uchar *ScriptOpLoadIndexed(uchar *pc)
     return pc + 1;
 }
 
+#ifndef TN_WATCOM_ABI
+extern int port_extra_on;               /* an extra mission is played (port/mods/extrares.c) */
+long port_extra_state(long v);
+#endif
+
 /* op 0x23: (address value --) */
 uchar *ScriptOpStore(uchar *pc)
 {
@@ -357,6 +362,12 @@ uchar *ScriptOpStore(uchar *pc)
 
     switch (tag) {
     case 1: case 2:
+#ifndef TN_WATCOM_ABI
+        /* Freefall: the shell's screen number (global 4) while an extra mission is played: it
+         * ends at the main menu, not in the campaign (port/mods/extrares.c) */
+        if (addr == 4 && port_extra_on)
+            v = port_extra_state(v);
+#endif
         *(long *)(script_globals + addr) = v;
         break;
     case 3:

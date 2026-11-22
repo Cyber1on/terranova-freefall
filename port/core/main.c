@@ -63,6 +63,7 @@ int game_main(int argc, char **argv);
 char port_exe_dir[1024];
 int port_start_mission, port_new_campaign;     /* --mission N (camplist.c, ffmain.c) */
 extern int port_ms_all;                         /* Mission select: All (missions.c) */
+extern int port_ai_fix, port_ai_imp, port_ai_debug;          /* AI, AI debug display (port/mods/ai.c) */
 int port_platform_init(void);
 int port_run(int (*fn)(int, char **), int argc, char **argv);
 void port_files_init(const char *user_dir, const char *cd_copy_dir);
@@ -167,6 +168,8 @@ static void ini_write_dirs(const char *game, const char *cd)
         fprintf(f, "auto_aim=off\n");
     fprintf(f, "aim_highlight=%s\n", port_aim_sign ? "on" : "off");
     fprintf(f, "mission_select=%s\n", port_ms_all ? "all" : "reached");
+    fprintf(f, "ai=%s\n", port_ai_imp ? "improved" : port_ai_fix ? "fixed" : "classic");
+    fprintf(f, "ai_debug=%s\n", port_ai_debug ? "on" : "off");
     fprintf(f, "show_fps=%s\n", port_show_fps ? "on" : "off");
     fprintf(f, "smooth_videos=%s\n", port_smooth_videos ? "30" : "off");
     fprintf(f, "music_pack=%s\n", port_music_pack);
@@ -397,6 +400,13 @@ int main(int argc, char **argv)
         ini_read("target_label", v, sizeof v);
         port_target_label = !strcmp(v, "box");
         v[0] = 0;
+        ini_read("ai", v, sizeof v);
+        port_ai_imp = !strcmp(v, "improved") ? AI_IMP_ALL : 0;
+        port_ai_fix = port_ai_imp || !strcmp(v, "fixed") ? 0xFFF : 0;
+        v[0] = 0;
+        ini_read("ai_debug", v, sizeof v);
+        port_ai_debug = !strcmp(v, "on");
+        v[0] = 0;
         ini_read("map_view_cone", v, sizeof v);
         port_map_cone = !strcmp(v, "on");
         v[0] = 0;
@@ -562,13 +572,13 @@ int main(int argc, char **argv)
 const char *port_credit_line(int i)
 {
     static const char *const lines[] = {
-        "^C10", "^3", "^R0",            /* (white, capitals: owner) */
+        "^C10", "^2", "^R0",            /* (white, capitals: owner) */
         "TERRA NOVA: FREEFALL",
         "^2", "^R0",
         "A modern SDL3 port of",
         "Terra Nova: Strike Force Centauri",
         "(Looking Glass Technologies, 1996)",
-        "^2", "^R1",                    /* (the game's tan, as its roles) */
+        "^1", "^R1",                    /* (the game's tan, as its roles) */
         "Created By",
         "^R0",
         "Nikolay \"Cyberion\" Ivliev",
@@ -576,8 +586,12 @@ const char *port_credit_line(int i)
         "MP3 Music Synthesized By",     /* the Freefall Music pack (Music/Freefall-MP3.zip) */
         "^R0",
         "Rich \"Weeds\" Nagel",
-        "^3",                           /* the version at the page's bottom */
-        "Version " FREEFALL_VERSION_FULL,
+        "^1", "^R1",
+        "Operation Stone Henge By",     /* the extra mission (port/mods/extra.c) */
+        "^R0",
+        "Joerg Fischer",
+        "^2",                           /* the version at the page's bottom */
+        "Version " FREEFALL_VERSION_SHOWN,
         "^P" };
     return i >= 0 && i < (int)(sizeof lines / sizeof lines[0]) ? lines[i] : "^P";
 }

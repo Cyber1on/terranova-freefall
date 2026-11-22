@@ -32,19 +32,95 @@
 
 int port_ir_style;                      /* "Infrared": 0 Original, 1 Sci-fi */
 
-/* Sci-fi on and the game's infrared showing: in a mission, and its ramp in the palette (P74:
- * the game leaves game_35ADE0 at 2 after a mission ended in infrared, until the next mission's
- * HudInit, and the options screen in a mission puts up colours of its own over the ramp) */
+/* the game's infrared ramp in the palette, in a mission (P74: the game leaves game_35ADE0 at 2
+ * after a mission ended in infrared, until the next mission's HudInit, and the options screen in
+ * a mission puts up colours of its own over the ramp) */
+static int ramp_set(void)
+{
+    return game_in_mission && grd_pal && !memcmp(grd_pal + 0xB0 * 3, planet_pal_part, sizeof planet_pal_part);
+}
+
+/* Sci-fi on and the game drawing its infrared */
 int port_ir_on(void)
 {
     return port_ir_style && port_ir_showing();
 }
 
-/* the game's infrared showing (Original or Sci-fi): the arms (arms.c) go into its ramp */
+/* the game drawing its infrared (Original or Sci-fi): the arms (arms.c) go into its ramp */
 int port_ir_showing(void)
 {
-    return game_35ADE0 == 2 && game_in_mission && grd_pal &&
-           !memcmp(grd_pal + 0xB0 * 3, planet_pal_part, sizeof planet_pal_part);
+    return game_35ADE0 == 2 && ramp_set();
+}
+
+/* Sci-fi on and an infrared picture on the screen, for the display's thermal colours: also
+ * while the game draws the picture that switches its infrared off (game_35ADE0 3), when the
+ * last infrared picture still shows and the ramp is still in the palette (P147) */
+int port_ir_screen(void)
+{
+    return port_ir_style && (game_35ADE0 == 2 || game_35ADE0 == 3) && ramp_set();
+}
+
+/* the game's infrared off, or the picture that switches it on not drawn yet: the display's
+ * tuning in (platform.c, ir_tune) starts only at a switch from here or to here, not when the
+ * thermal colours go and come back with the options screen, or go at a mission's end */
+int port_ir_idle(void)
+{
+    return game_35ADE0 == 0 || game_35ADE0 == 1;
+}
+
+/* the game is drawing the one picture before its infrared goes on or off: the palette's planet
+ * colours 0xB0..0xE6 are swapped (for the ramp, or back) while that picture is on the screen */
+int port_ir_switching(void)
+{
+    return game_35ADE0 == 1 || game_35ADE0 == 3;
+}
+
+/* The game draws one picture through the planet's tint table (planet_tab3a: the cockpit's
+ * oranges 0x7A..0x81) each time its infrared goes on or off.  Those colours are the same under
+ * both palettes, and the palette changes while that picture is on the screen.  With Sci-fi the
+ * picture goes through this table instead: the same tint in the cockpit's blues (0x30 the
+ * palest), so the thermal view comes and goes with a wash of its own cold colours and not with
+ * one picture in the old infrared's orange (P147). */
+#define WASH_PALE 0x30
+#define WASH_DEEP 0x3A
+#define WASH_FROM 5                     /* the tint's lightest: this far down the blues */
+static uchar wash[2][256];              /* the tint's table; the clouds' (planet_tab3f) */
+
+static void wash_of(uchar *to, const uchar *tab)
+{
+    int first = 0x100 - planet_pal_count, c, k;
+    for (c = 0; c < 256; c++) {
+        /* the tint's colour by day (the planet's, where the ramp may be over it) */
+        int t = tab[c];
+        const uchar *rgb = t >= first ? planet_pal + (t - first) * 3 : grd_pal + t * 3;
+        if (t == c) {                   /* a colour the tint leaves alone */
+            to[c] = (uchar)c;
+            continue;
+        }
+        k = WASH_FROM + (240 - (30 * rgb[0] + 59 * rgb[1] + 11 * rgb[2]) / 100) / 24;
+        to[c] = (uchar)(WASH_PALE + (k < 0 ? 0 : k > WASH_DEEP - WASH_PALE ? WASH_DEEP - WASH_PALE : k));
+    }
+}
+
+/* the table for the switch-over picture (hud_26B8F8, src/game/hud/hudmain.c) */
+uchar *port_ir_wash(uchar *tab)
+{
+    int c;
+    if (!port_ir_style || !tab || !grd_pal)
+        return tab;
+    for (c = WASH_PALE; c <= WASH_DEEP; c++)    /* no blues there (a changed palette): the game's */
+        if (grd_pal[c * 3 + 2] <= grd_pal[c * 3] || grd_pal[c * 3 + 2] <= grd_pal[c * 3 + 1])
+            return tab;
+    wash_of(wash[0], tab);
+    wash_of(wash[1], planet_tab3f);
+    return wash[0];
+}
+
+/* the clouds' and the mirrored sky's table tab under the canvas's table parm (rndsky.c): in the
+ * blues too when that is the switch-over picture's */
+uchar *port_ir_wash_sky(long parm, uchar *tab)
+{
+    return parm == (long)wash[0] && tab == planet_tab3f ? wash[1] : tab;
 }
 
 /* a colour (r, g, b) in the infrared's ramp at heat t0 .. t1 by its brightness (0 the coldest,

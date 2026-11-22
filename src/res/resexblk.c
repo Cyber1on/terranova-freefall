@@ -33,6 +33,10 @@ void WATCOMCALL LzwBlockDestCtrl(long destLoc, LzwCtrl ctrl);
 void WATCOMCALL LzwBlockDestPut(uchar b);
 void ResReadBlocks(int fd, void *buff, long blockSize, long size, ResBlockFunc f_ProcBlock);
 
+#ifndef TN_WATCOM_ABI
+const unsigned char *port_extra_data(unsigned id);
+#endif
+
 /* Extracts a resource in blocks of blockSize bytes (the callback may change the size). */
 void ResExtractInBlocks(Id id, void *buff, long blockSize, ResBlockFunc f_ProcBlock)
 {
@@ -43,6 +47,28 @@ void ResExtractInBlocks(Id id, void *buff, long blockSize, ResBlockFunc f_ProcBl
     if (prd->size == 0 || blockSize == 0)
         return;
 
+#ifndef TN_WATCOM_ABI
+    {
+        /* Freefall: an extra mission's resource in place of the game's (port/mods/extrares.c),
+         * handed over in blocks as ResReadBlocks does with a file's */
+        const unsigned char *x = port_extra_data(id);
+        if (x) {
+            long done = 0, n, next, iBlock = 0;
+            do {
+                n = (long)prd->size - done;
+                if (blockSize <= n)
+                    n = blockSize;
+                memcpy(buff, x + done, n);
+                next = WATCOM_CALL3(f_ProcBlock, buff, n, iBlock);
+                if (next > 0)
+                    blockSize = next;
+                done += n;
+                iBlock++;
+            } while (done < (long)prd->size);
+            return;
+        }
+    }
+#endif
     prd2 = RESDESC2(id);
     fd = resFile[prd->filenum].fd;
     lseek(fd, prd->offset, SEEK_SET);

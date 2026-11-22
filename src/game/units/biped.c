@@ -86,6 +86,12 @@ uchar biped_27E250(fix x, fix y, fix z, terrain_ff *tff)
         return 5;
     if (x < 0 || y < 0)
         k = 0;
+#ifndef TN_WATCOM_ABI
+    /* P155: beyond the map's 512 squares there is no row (the game tests only the near edges
+     * and reads past the row table) */
+    else if (x >= 0x2000000 || y >= 0x2000000)
+        k = 0;
+#endif
     else {
         uchar *row = *(uchar **)(game_map_35BFB4 + 0x84E + (y >> 16) * 4);
         b = row[(x >> 16) * 3] & 0x3F;

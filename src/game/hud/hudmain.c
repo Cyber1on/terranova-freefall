@@ -1261,6 +1261,60 @@ void port_hud_aim_sign(void)
         sign_from = cur;
 }
 
+/* "AI debug display" (port/mods/ai.c): over every unit with a brain in the main view, its
+ * squad's tactic, its health and its target, drawn as the target labels are.  ex: the wide
+ * view's layer is the canvas (its columns left of the game's view), -1 the game's view.
+ * Nothing of the game changes: the places are the wide view's list or drawobj_29CCE0's box */
+extern int port_ai_debug;
+int port_ai_label(int b, char *buf, int n, int *colour);
+static void hud_ai_debug(long ex)
+{
+    port_wide_targ l[PORT_WIDE_TARGS];
+    long n = ex >= 0 ? port_wide_targets(l) : 0, k;
+    char line[0x60];
+    short rect[4], box[GAME_MAX_BRAINS][4], w, h;
+    int b, col, nb = 0, i, tries;
+    long keep = grd_canvas->gc.fcolor;
+    for (b = 1; b < GAME_MAX_BRAINS; b++) {
+        short e = *(short *)((uchar *)&game_brains[b] + 0xB);
+        long x, y;
+        if (e == game_player_entity || !port_ai_label(b, line, sizeof line, &col))
+            continue;
+        if (ex >= 0) {
+            for (k = 0; k < n && l[k].ent != e; k++)
+                ;
+            if (k == n)
+                continue;
+            x = (l[k].x0 + l[k].x1) / 2 + ex;
+            y = l[k].y0;
+        } else {
+            if (!drawobj_29CCE0(HENT(e), rect))
+                continue;
+            x = (rect[0] + rect[2]) / 2;
+            y = rect[1];
+        }
+        y -= 2;
+        /* above the labels already placed that it would cover (units close together) */
+        gr_font_string_size(ResGet((Id)0x1F7), line, &w, &h);
+        for (tries = 0; tries < 12; tries++) {
+            for (i = 0; i < nb; i++)
+                if (x - w / 2 < box[i][2] && x + w / 2 > box[i][0] && y - h < box[i][3] && y > box[i][1])
+                    break;
+            if (i == nb)
+                break;
+            y = box[i][1] - 1;
+        }
+        box[nb][0] = (short)(x - w / 2);
+        box[nb][1] = (short)(y - h);
+        box[nb][2] = (short)(x + w / 2);
+        box[nb][3] = (short)y;
+        nb++;
+        grd_canvas->gc.fcolor = col;
+        port_label_piece(0x1F7, line, x, y, 1, 2, 1);
+    }
+    grd_canvas->gc.fcolor = keep;
+}
+
 /* hud_26A188 in widescreen: the same, its brackets and label drawn on the wide view's layer
  * (port/video/sharp3d.c) where the wide view has the units, also beyond the game's view.  The game's
  * values change as in hud_26A188; the other targets' brackets come from the wide view's list. */
@@ -1293,6 +1347,8 @@ static void hud_targets_wide(HudMsgEv *ev, long ex)
                 wr[1] = wr[3] = l[i].py;
                 hud_bracket(l[i].col, wr);
             }
+            if (port_ai_debug)
+                hud_ai_debug(ex);
             port_s3d_hud_end();
         }
     }
@@ -1362,6 +1418,8 @@ void hud_26A188(HudMsg *m, HudMsgEv *ev)
             return;
         }
     }
+    if ((ushort)ev->code == 2 && port_ai_debug)
+        hud_ai_debug(-1);
 #endif
     if ((ushort)ev->code == 2 && targ_count != 0) {
         for (i = 0; i < targ_count; i++) {
@@ -1976,6 +2034,10 @@ uchar hud_26B8F8(uchar mode)
     if (mode != game_35ADE0) {
         uchar *p = hud_pal_tab[mode];
         long inc, i;
+#ifndef TN_WATCOM_ABI
+        if (mode & 1)                   /* Infrared: Sci-fi, the switch-over picture in its blues */
+            p = port_ir_wash(p);
+#endif
         game_35ADE0 = mode;
         inc = p == planet_tab3b;
         hud_fill_tab[0] = p;

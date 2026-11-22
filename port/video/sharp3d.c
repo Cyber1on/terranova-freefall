@@ -27,6 +27,7 @@
 #include "cockpitpack.h"
 #include "arms.h"
 #include "helmetfx.h"
+#include "visor.h"
 #include "edms.h"
 
 #undef ff_col_ybuf
@@ -1064,6 +1065,11 @@ void port_s3d_render(int slot, void *pview, void *pcam, int mirror)
         port_arms_preload(port_ck_view_suit());     /* the cockpit: the arm's poses ready (P78) */
     if (port_ir_on())                   /* Infrared: Sci-fi (infrared.c) */
         port_ir_sensor(f->high - (size_t)ey * ky * W, W, (h + 2 * ey) * ky, kx, ky);
+    /* "Visor damage": on the glass, over the 3D and the arm (visor.c), with a cockpit mod's
+     * picture in the player's own view (the drone's has no frame: port_ck_view_suit -2) */
+    if (!slot && !mirror && port_visor && ckp)
+        port_visor_draw(f->high, f->tc, f->tc_rows, W, h * ky, ey * ky, tnui_back_canvas.bm.w,
+                        tnui_back_canvas.bm.h, kx, ky, port_hud_goggles(), port_ck_view_suit());
     if (!slot) {
         port_s3d_us = (unsigned)(port_now_us() - t0);
         time_log(port_s3d_us);

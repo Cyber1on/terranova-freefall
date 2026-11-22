@@ -123,9 +123,13 @@ and Show FPS; the page's settings fill the middle and right columns, each a
 row of buttons (the chosen one lit), a slider or a list with arrows. Click
 a button (the mouse only: no keys but Esc, which closes it); the mouse
 wheel changes the setting under the pointer. The line at the bottom says what the setting under the pointer
-does. Under it: KEY BINDINGS, CLOSE, the FREEFALL box (opens the Freefall
-website) and GAME OPTIONS (the game's own options screen, in a mission, or
-back to it when you came from its FREEFALL OPTIONS button).
+does. Under it: KEY BINDINGS and CLOSE. On the right CLASSIC OPTIONS (the
+game's own options screen, in a mission, or back to it when you came from
+its FREEFALL OPTIONS button) and the FREEFALL box (opens the Freefall
+website). On the left: ABORT MISSION (in a mission; the same as
+Ctrl+Esc) and EXIT TERRA NOVA (the same as Alt+X). The game asks "Abort Mission?" or "Exit Terra
+Nova?" first, as for the buttons of its own options screen; No brings
+this screen back. Their text is red under the pointer.
 The Display, Distance & Detail and Cockpit & Maps pages show a picture of
 the game with the setting under the pointer, or the one you chose.
 
@@ -147,7 +151,7 @@ The left column:
                       switches it too; the next start keeps it. The
                       presets leave it as it is.
   Gameplay            Controls style, auto-aim, mouse, mission select,
-                      sound volumes and stereo
+                      AI, sound volumes and stereo
   Display             Frame rate, 3D resolution, widescreen, scaling,
                       anti-aliasing, filters
   Distance & Detail   How far the land, objects and enemies show, fog,
@@ -157,7 +161,8 @@ The left column:
   Mods                Mods (zip files) from the Mods folder
   Show FPS            Game and display frames a second and the 3D drawing
                       time, under the health and energy bars (also a key
-                      you can set in Key bindings).
+                      you can set in Key bindings).  In a mission the
+                      numbers go into tnfree.log every 5 seconds too.
 
 What the presets set (Fullscreen, Mouse sensitivity, Invert mouse, keys,
 Filters, Show FPS and Music stay as you set them):
@@ -167,6 +172,7 @@ Filters, Show FPS and Music stay as you set them):
   Controls style       Classic      Advanced         Advanced
   Auto-aim             20 px        5 px             5 px
   Auto-aim highlight   Off          Off              On
+  AI                   Classic      Fixed            Improved
   Auto target camera   Off          On               On
   Target label         Classic      Around the box   Around the box
   Head view cone       Off          On               On
@@ -195,6 +201,7 @@ Filters, Show FPS and Music stay as you set them):
                                                      Freefall Mod Pack,
                                                      Mods\Freefall.zip)
   Dynamic helmet       Off          Off              On
+  Visor damage         Off          Off              On
   Music pack           Off          Off              Freefall-MP3 (the
                                                      Freefall Music pack,
                                                      see FREEFALL MUSIC;
@@ -225,6 +232,19 @@ An option that needs another one shows grey until that one is on.
                         start: Reached (the default: the missions your
                         campaigns have reached) or All (cheat: every
                         campaign mission). Not part of the presets.
+    AI                  Classic (the game's AI exactly as it is), Fixed
+                        or Improved. Fixed: twelve programming mistakes
+                        of the 1996 AI repaired (G49 to G60 in BUGS.txt).
+                        Squad mates aim with their own skill, keep the
+                        Autodoc and the explosive drone until they need
+                        them and stay on "Use ASF at Will" after "Use
+                        ASF Now"; enemies choose better weapons more
+                        often and react to who fired. Improved: the
+                        fixes, and soldiers that fight with more sense
+                        (see RELEASE-NOTES.txt). The difficulty levels
+                        are the game's own. The presets set it: Classic
+                        in Classic, Fixed in Vanilla+, Improved in
+                        Freefall.
     Sound               FX, Music and Speech volume and Stereo sound
                         (Normal or Reversed): the game's own sound options,
                         the same as on its options screen (Alt+O).
@@ -321,7 +341,8 @@ An option that needs another one shows grey until that one is on.
     Infrared            Classic (the game's) or Sci-fi: the infrared view
                         (I key) as a thermal camera, cold ground blue up to
                         white-hot units and fires; trees, plants and the
-                        ground stay cool.
+                        ground stay cool. Switching it on or off, the view
+                        tunes in for a moment with static.
 
   Cockpit & Maps
     Target label        Classic or Around the box: the target's name to
@@ -414,6 +435,17 @@ An option that needs another one shows grey until that one is on.
                         screen, the numbers by the health bar) move with
                         their part. Only the picture moves: the game, the
                         HUD's buttons and the mouse are where they were.
+    Visor damage        Off or On (grey without Widescreen and a cockpit
+                        mod): the suit's damage shows on the visor's
+                        glass, in the cockpit and in the goggles (Scout,
+                        standard and Heavy suits). Shrapnel hits, a
+                        laser's burn or cracks, each in three styles: a
+                        mission picks two kinds and a style of each. The first appears when the armour
+                        falls to 73%, the second at 50%; at 37% one of
+                        them turns heavy, at 20% the other. Each step
+                        comes with a short flash. With Dynamic helmet the
+                        marks move with the helmet. On in the Freefall
+                        preset.
     Arms pack           Off or a pack: in the goggles view your suit's arm
                         holding the selected weapon (the left one
                         mirrored), aimed at the pointer, swaying with
@@ -595,6 +627,81 @@ mission). The first time, Freefall works it out from your saved games.
 The first mission after the training (Operation Cannonball) and the two
 training missions are always there. "Mission select: All" on the Gameplay
 page lists every mission (for testing).
+
+EXTRA MISSIONS
+--------------
+The Mission Selector has a second list, Extra Missions: click the right
+half of the list's title ("Campaign | Extra Missions"). It is there when
+Freefall finds missions that are not part of the game's campaign: the
+missions of the game's demos, a fan-made mission and the lost missions of
+the game's CD.
+
+The demo missions. Two playable demos of Terra Nova came out in 1996, with
+four missions the game itself does not have:
+  Operation Madison        the first demo; alone, in a Scout suit
+  Operation Brickdragger   the second demo; alone, in a Standard suit
+  Operation Flashlight     the second demo; with Gomez
+  Operation Citadel        the second demo; with Gomez and your brother
+Freefall plays them in the full game, with your presets, options and mods.
+- The Steam release has both demos, in the folders TNDEMO1 and TNDEMO2
+  beside the game's folder: Freefall finds them there, nothing to do.
+- If your copy has no such folders, put the two demos' folders, named
+  TNDEMO1 and TNDEMO2, next to tnfree.exe. One of them alone gives its own
+  missions.
+Freefall only reads the demos' files and changes none of your files.
+
+The list shows the mission's map, the demo's briefing and your record, as
+for a campaign mission (the demos have no video briefings). Play Mission
+takes you to the demo's briefing, then to the outfitting with the suit and
+the weapons the demo gave you (you can change them as in the campaign),
+then to the mission, with the dropship's launch and return movies as in
+the campaign. Its goals, events, squad and time limits are the demo's. In
+Operation Madison, with the Classic controls style, the comm panel shows
+the demo's picture of the movement keys (the game's own keys of 1996; the
+Advanced style has other keys, so the picture is left out: H shows yours).
+
+Operation Stone Henge. A fan-made mission by Joerg Fischer (1999), in
+Freefall with his permission. He made it for the first demo with the
+mission editors of the time: you alone, in a Scout suit, against pirate
+outposts around a spaceport, on a changed land of Operation Sherwood. He
+warns that it is not a mission for beginners: the pirates and their
+captains are better armed than you. His advice: send your drones ahead to
+see where the enemies are, and do not shoot at the SFC troops at the
+spaceport.
+Freefall holds only what he changed, and makes his mission in memory from
+your own files: it needs the first demo (TNDEMO1, see above) and the
+game's CD, as the missions of the campaign do. When one of those files is
+not the one he worked from, the mission is not in the list, and tnfree.log
+says which file.
+
+The lost missions. The game's CD has mission files that the installer
+never copied to the game's folder. Freefall reads them from your copy's CD
+(the CD image or CD folder of the Steam and GOG releases) and lists the
+two that can be played:
+  Operation Panama (Early Version)
+      An earlier version of the campaign's Operation Panama, on the same
+      map, with the pirates' forces placed differently. The briefing, the
+      squad, the goals and the debriefing are the campaign mission's.
+  Operation Bricklayer
+      A test mission the developers left behind, on the map of Operation
+      Eagle Eye: a squad of four against the pirate base. The game still
+      has its name, its squad and a one-line briefing ("This is the
+      mission to Drag the Brick."), but no texts for its goals and no
+      words for the debriefing. It runs with the goals and events the
+      game gives it, which are Operation Eagle Eye's: find the pirate
+      base and lock a target on one of its crates. Nothing on the screen
+      says so, but a few seconds later the mission counts as won; then
+      go back to the dropship. As the mission shows no goals, the
+      dropship comes to the pickup point right at the start and waits
+      there for you. It was never finished, so do not expect a polished
+      mission.
+They were saved in an older form of the mission file, which Freefall
+converts as it reads them.
+
+After the debriefing you are back on the Extra Missions list, with the
+mission you played chosen (the same after Back to Main Menu when you died
+or aborted it): an extra mission is played on its own, starts no campaign
+and writes no saved game. Your record for it is kept in Saves\missions.ini.
 
 STARTING AT A MISSION
 ---------------------

@@ -1141,6 +1141,9 @@ void rndsky_2A7654(long row, long x, long len)
         lt = grd_canvas->gc.fill_parm == (long)planet_tab3b ? planet_tab3c : planet_tab3f;
     else
         lt = 0;
+#ifndef TN_WATCOM_ABI
+    lt = port_ir_wash_sky(grd_canvas->gc.fill_parm, lt);    /* Infrared: Sci-fi, the switch-over picture */
+#endif
     dst = grd_canvas->bm.bits + (ulong)grd_canvas->bm.row * row + x;
 #ifndef TN_WATCOM_ABI
     if (port_s3d_on && !lt && !game_44243F && row < 2048 && sky_band[row] >= 0) {
@@ -1869,6 +1872,7 @@ static void water_full_setup(void)
         wf_lt = grd_canvas->gc.fill_parm == (long)planet_tab3b ? planet_tab3c : planet_tab3f;
     else
         wf_lt = 0;
+    wf_lt = port_ir_wash_sky(grd_canvas->gc.fill_parm, wf_lt);
     {   /* the sky rndsky_2A6BE0 picks (sky_cur is set later in the frame) */
         SkyRec *sk = FF_CAM_NOSKY(&ff_cam) || game_35CADC ? NULL : ff_cam.sky;
         wf_cloud = sk && sk->cloud && !sk->stars && !sky_force;

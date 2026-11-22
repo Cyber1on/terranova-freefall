@@ -176,6 +176,10 @@ void ResReadDirEntries(int filenum, ResDirHeader *pDirHead, uchar add_flags)
     }
 }
 
+#ifndef TN_WATCOM_ABI
+void port_extra_dir(unsigned id);
+#endif
+
 /* Processes a directory entry: fills in the resource descriptor, and loads the resource now
  * if it is flagged load-on-open. */
 void ResProcDirEntry(ResDirEntry *pDirEntry, int filenum, long dataOffset, uchar add_flags)
@@ -200,6 +204,9 @@ void ResProcDirEntry(ResDirEntry *pDirEntry, int filenum, long dataOffset, uchar
     prd2->type = pDirEntry->type;
     prd->next = 0;
     prd->prev = 0;
+#ifndef TN_WATCOM_ABI
+    port_extra_dir(pDirEntry->id);      /* Freefall: an extra mission's own (port/mods/extrares.c) */
+#endif
 
     if (pDirEntry->flags & RDF_LOADONOPEN) {
         currOffset = tell(resFile[filenum].fd);

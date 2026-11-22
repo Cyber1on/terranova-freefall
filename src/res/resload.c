@@ -31,6 +31,10 @@ void *ResLoadResource(Id id)
     return prd->ptr;
 }
 
+#ifndef TN_WATCOM_ABI
+const unsigned char *port_extra_data(unsigned id);
+#endif
+
 /* Reads a resource from its file into buffer (a compound resource keeps its ref table at the
  * start of the buffer).  Always returns TRUE (Freefall: FALSE for a damaged file's ref table). */
 bool ResRetrieve(Id id, void *buffer)
@@ -42,6 +46,16 @@ bool ResRetrieve(Id id, void *buffer)
     long size;
     long tableSize;
 
+#ifndef TN_WATCOM_ABI
+    {
+        /* Freefall: an extra mission's resource in place of the game's (port/mods/extrares.c) */
+        const unsigned char *x = port_extra_data(id);
+        if (x) {
+            memcpy(buffer, x, prd->size);
+            return TRUE;
+        }
+    }
+#endif
     lseek(fd, prd->offset, SEEK_SET);
     size = prd->size;
 

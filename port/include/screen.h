@@ -28,7 +28,7 @@ void port_menu_wide_fill(void *out, int opitch, const uint8_t *scr, int pitch, c
 int port_screen_fxaa_wanted(void);     /* "Anti-aliasing: FXAA" on (and the GPU renderer works) */
 SDL_Texture *port_screen_fxaa(SDL_Renderer *r, SDL_Texture *src, int w, int h);   /* its pass */
 /* the settings screen.c keeps, as the options screen's lines (options.c puts them on its pages) */
-enum { S_SHARP3D, S_WIDE, S_AA, S_FOG, S_TRUECOL, S_MAP, S_EFFECTS, S_OBJPACK, S_CKPACK, S_HMOTION, S_ARMS, S_INFRARED,
+enum { S_SHARP3D, S_WIDE, S_AA, S_FOG, S_TRUECOL, S_MAP, S_EFFECTS, S_OBJPACK, S_CKPACK, S_HMOTION, S_VISOR, S_ARMS, S_INFRARED,
        S_SCALE,
        S_VIDEOS, S_MOVIES,
        S_TERRAIN, S_SMOOTH, S_WATER, S_RIPPLES, S_WATERFX,

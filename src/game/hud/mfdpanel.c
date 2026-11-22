@@ -1210,6 +1210,10 @@ void mfd_26FF38(long ent, long ent2)
     RadioSpeak(k, 0x49);
 }
 
+#ifndef TN_WATCOM_ABI
+extern int port_ai_fix;                 /* port/mods/ai.c: "AI: Fixed", a bit for each of G49 to G60 */
+#define AI_FIX(g) (port_ai_fix >> ((g) - 49) & 1)
+#endif
 void mfd_270090(long ent, long what)
 {
     uchar b = game_entities[(short)ent].f21;
@@ -1232,8 +1236,18 @@ void mfd_270090(long ent, long what)
         break;
     case 0x2A:
         if (*(long *)p > 0) {
+#ifndef TN_WATCOM_ABI
+            /* G51 ("AI: Fixed"): "Use ASF Now" sets the mode to "now" for the one use, and the use
+             * sets it to "Don't use ASF" whatever it was: a squad mate on "Use ASF at Will" (the
+             * mission's start) no longer uses its ASF by itself.  Fixed: back to the mode before */
+            uchar before = br[0x2F];
+#endif
             br[0x2F] = 1;
             ailow_24AE4C(b, *(long *)(p + 4), 1);
+#ifndef TN_WATCOM_ABI
+            if (AI_FIX(51) && before == 2)
+                br[0x2F] = 2;
+#endif
         }
         aimain_24A6A0(b, *(long *)p == 0 ? 0x5C : 1);
         break;

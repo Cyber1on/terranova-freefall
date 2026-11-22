@@ -28,6 +28,11 @@
 #include "g9_a.h"
 #include "g10_b.h"     /* added at the G9/G10 merge */
 
+#ifndef TN_WATCOM_ABI
+void port_extra_begin(int new_campaign);    /* port/mods/extrares.c */
+extern int port_extra_on;
+#endif
+
 #ifndef TN_LINK_ORIGINAL_DATA
 uchar camp_flags[0x30];
 schar camp_sel_b[0xC], camp_sel_c[3], camp_sel_a[0xF];
@@ -118,7 +123,14 @@ void camplist_2C8E54(void)
 
 void camplist_2C8E78(void)
 {
+#ifndef TN_WATCOM_ABI
+    /* Freefall: an extra mission (port/mods/extrares.c) is the Mission Selector's pick for this
+     * New Campaign; any other start of a campaign (the game's own, the scenario builder's) ends
+     * one.  Before resmiss.res is opened: its tables are the extra mission's from here on */
+    int fd = (port_extra_begin(port_new_campaign), ResOpenResFile("resmiss.res", 0, 0));
+#else
     int fd = ResOpenResFile("resmiss.res", 0, 0);
+#endif
     uchar *p = ResLock(0x6AD);
     long m;
 #ifndef TN_WATCOM_ABI
@@ -214,7 +226,8 @@ void camplist_2C8FC8(long flag)
     camplist_2C8CE8(camp_missions, camp_level, 0x3E);
     game_359708 = camp_missions[++camp_pos];
 #ifndef TN_WATCOM_ABI
-    port_ms_progress(camp_pos);         /* the Mission Selector's missions reached */
+    if (!port_extra_on)                 /* (an extra mission is not the campaign's progress) */
+        port_ms_progress(camp_pos);     /* the Mission Selector's missions reached */
 #endif
     camplist_2C8E04();
     shell_2C066C();

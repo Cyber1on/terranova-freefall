@@ -235,6 +235,7 @@ extern int port_start_mission;          /* Freefall --mission N (port/core/main.
                                          * campaign mission N; 0 none */
 extern int port_new_campaign;           /* main_24546C (New Campaign) is in camplist_2C8E78 */
 extern int port_game_dialog_up;          /* main_246094's yes / no box is up (port/ui/options.c: Esc) */
+void port_dialog_box(int x0, int y0, int x1, int y1);    /* ... its place on a mission's screen (port/core/platform.c) */
 void port_log(const char *fmt, ...);    /* port/core/log.c (camplist_2C8E78's --mission line) */
 extern volatile int port_ms_mission;    /* the Mission Selector's mission for New Campaign, once
                                          * (port/ui/missions.c); 0 none */

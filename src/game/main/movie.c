@@ -144,10 +144,20 @@ void intro_2DBF94(void)
 }
 
 /* ------------------------------------------------------------------ 0x2DC014 */
+#ifndef TN_WATCOM_ABI
+extern int port_extra_on;               /* an extra mission is played (port/mods/extrares.c) */
+#endif
+
 long intro_2DC014(long when)
 {
     long m = game_359708;
 
+#ifndef TN_WATCOM_ABI
+    if (port_extra_on)                  /* Freefall: the story scenes and the briefing's video are
+                                         * the campaign mission's of that number, not an extra
+                                         * mission's (the launch and the return play as ever) */
+        return 0;
+#endif
     if (movie_played[m] || !mission_movie[m][0] || mission_movie[m][1] != when)
         return 0;
     if (m != 0x11 && m != 0x1D)
@@ -158,6 +168,10 @@ long intro_2DC014(long when)
 /* ------------------------------------------------------------------ 0x2DC06C */
 long intro_2DC06C(void)
 {
+#ifndef TN_WATCOM_ABI
+    if (port_extra_on)                  /* (see intro_2DC014: the briefing is the text one) */
+        return 0;
+#endif
     return mission_movie_end[game_359708];
 }
 

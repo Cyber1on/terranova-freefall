@@ -75,6 +75,28 @@ static void ailow_24E19C_call(fix *out, uchar *b)
 
 static long iabs(long v) { return v < 0 ? -v : v; }
 
+#ifndef TN_WATCOM_ABI
+void port_ai_note(int what, long a, long b);
+extern int port_ai_hold[2];              /* (tests) percent of the range: Aggressive, Rush */
+long ai_health_pct(uchar *br);          /* ailowa.c */
+#define AI_IMP_RANGE 1                  /* (port/include/port.h) */
+#define AI_IMP_BACK  2
+#define AI_IMP_STEP  4
+#define AI_IMP_SEARCH 8
+#define AI_IMP_LINE   16
+#define AI_IMP_FORM   32
+extern int port_ai_line[3];
+static ulong imp_seen_at[GAME_MAX_BRAINS];   /* "AI: Improved": when each brain last saw its target, */
+static ulong imp_seen_sq[GAME_MAX_BRAINS];   /* ... the target's square then, */
+static uchar imp_tries[GAME_MAX_BRAINS];     /* ... and the places searched since */
+#define IMP_SEARCHES(b) ((port_ai_imp & AI_IMP_SEARCH) && (b)[5] != 1 && (b)[0xD] == 1 && (b)[3] < GAME_MAX_BRAINS)
+ulong ai_imp_hit_at[GAME_MAX_BRAINS];    /* when each brain's unit was last damaged (ailowa.c, message 0x17) */
+extern int port_ai_step[2];
+extern int port_ai_back[3];
+extern int port_ai_imp;                 /* port/mods/ai.c: "AI: Improved", a bit for each new behaviour */
+
+#endif
+
 /* forward dword copy (rep movsd) */
 static void copy_dw(void *dst, const void *src, int n)
 {
@@ -261,6 +283,13 @@ void ailow_251668(uchar *b, long flag, long ent)
             b[0xC4] = 0;
         if (b[0xC4])
             U32(b, 0xC5) = game_time;
+#ifndef TN_WATCOM_ABI
+        if (b[0xC4] && b[3] < GAME_MAX_BRAINS) {
+            imp_seen_at[b[3]] = game_time;
+            imp_seen_sq[b[3]] = U32(b, 0xCC);
+            imp_tries[b[3]] = 0;
+        }
+#endif
     }
     {
         Msg *m = MsgAlloc();
@@ -274,6 +303,28 @@ void ailow_251668(uchar *b, long flag, long ent)
         uchar lost = 0;
 
         if (b[0xC3]) {
+#ifndef TN_WATCOM_ABI
+            /* "AI: Improved", search the last place: the game's soldier that has not seen its
+             * target for 15 seconds throws a die: 1 in 7 it gives up, 2 in 7 it is told where the
+             * target really is, 3 in 7 it takes a random square within 10 of the square it is
+             * going to.  An enemy soldier now goes to a random square within 5 of the place it
+             * last saw the target, a new one every 6 seconds, and gives up after the third. */
+            if (IMP_SEARCHES(b)) {
+                int i = b[3];
+                ushort np[2];
+                if (imp_tries[i] >= 3 || !imp_seen_sq[i] || (ushort)imp_seen_sq[i] == 0xFFFF) {
+                    ulong pt = U32(b, 0x12);
+                    imp_tries[i] = 0;
+                    if (ailow_24FC04(b, 0, 0, 0, SQC(pt), SQC(pt >> 16), 3))
+                        lost = 1;
+                } else if (ailow_251594(imp_seen_sq[i], 5, np)) {
+                    U32(b, 0xCC) = *(ulong *)np;
+                    U32(b, 0xC5) = game_time - 9000;
+                    imp_tries[i]++;
+                    port_ai_note(14, imp_tries[i], b[5]);
+                }
+            } else
+#endif
             switch (RND() % 7) {
             case 0:
                 if (b[5] == 1) {
@@ -359,6 +410,155 @@ static void alert(uchar *b)
     }
 }
 
+#ifndef TN_WATCOM_ABI
+/* "AI: Improved", out of the player's line of fire: a soldier of the player's side that stands
+ * within port_ai_line[0] = 10 squares in front of the player, less than port_ai_line[1] = 0x600
+ * (8 degrees) off the way the player faces, runs port_ai_line[2] = 2 squares to the side it is
+ * already on, and not again for a second.  Not with the order Stay.  The game's squad mates
+ * take no notice of where the player aims.  1: the step is on. */
+static int imp_clear_line(uchar *b)
+{
+    static ulong until[GAME_MAX_BRAINS];
+    short self = BENT(b), pl = game_player_entity;
+    long dx, dy;
+    short off;
+    ushort a, q[2];
+    int i = b[3];
+
+    if (!(port_ai_imp & AI_IMP_LINE) || b[5] != 1 || b[0xD] != 1 || i >= GAME_MAX_BRAINS || self == pl ||
+        SQUAD(b[6])[0xCB] == 4 || !EN(pl).active)
+        return 0;
+    if (until[i] > game_time + 5000)    /* (a new mission: the clock began again) */
+        until[i] = 0;
+    if (game_time < until[i])
+        return 1;
+    dx = EN(self).x - EN(pl).x;
+    dy = EN(self).y - EN(pl).y;
+    if (iabs(dx) > ((long)port_ai_line[0] << 16) || iabs(dy) > ((long)port_ai_line[0] << 16) || (iabs(dx) < 0x8000 && iabs(dy) < 0x8000))
+        return 0;
+    off = (short)(atan2_scaled(dx, dy) - EN(pl).heading);
+    if (off >= port_ai_line[1] || off <= -port_ai_line[1])
+        return 0;
+    a = (ushort)(EN(pl).heading + (off >= 0 ? 0x4000 : 0xC000));
+    q[0] = (ushort)((((long)(((long long)fix_cos(a) * ((long)port_ai_line[2] << 16)) >> 16)) >> 16) + FIXINT(S32(b, 0xC)));
+    q[1] = (ushort)((((long)(((long long)fix_sin(a) * ((long)port_ai_line[2] << 16)) >> 16)) >> 16) + FIXINT(S32(b, 0xE)));
+    if (!ailow_24FC04(b, 0, 0, 0, SQC(q[0]), SQC(q[1]), 3))
+        return 0;
+    port_ai_note(15, 0, b[5]);
+    until[i] = game_time + 1000;
+    return 1;
+}
+
+/* "AI: Improved", step sideways out of fire: an enemy soldier in Aggressive, Cautious or Rush
+ * that sees its target within 16 squares and was damaged in the last 1.5 seconds runs port_ai_step[0] = 2 squares to its left or right
+ * of the line to its target, by dice, and not again for port_ai_step[1] = 1500 ms.  The game's
+ * soldier that is hit plans a new firing place (ailow_24FD3C), which is often where it stands.
+ * 1: the step is on (the caller leaves its movement alone). */
+static int imp_sidestep(uchar *b)
+{
+    static ulong until[GAME_MAX_BRAINS], next[GAME_MAX_BRAINS];
+    long dx, dy;
+    ushort a, q[2];
+    int i = b[3];
+
+    if (!(port_ai_imp & AI_IMP_STEP) || i >= GAME_MAX_BRAINS)
+        return 0;
+    if (next[i] > game_time + 10000 || ai_imp_hit_at[i] > game_time)     /* (a new mission: the clock began again) */
+        next[i] = until[i] = ai_imp_hit_at[i] = 0;
+    if (game_time < until[i])
+        return 1;
+    if (!ai_imp_hit_at[i] || game_time - ai_imp_hit_at[i] > 1500 || game_time < next[i])
+        return 0;
+    dx = FIXINT(S32(b, 0xC)) - FIXINT(S32(b, 0xCA));
+    dy = FIXINT(S32(b, 0xE)) - FIXINT(S32(b, 0xCC));
+    a = (ushort)(atan2_scaled(dx, dy) + ((RND() & 1) ? 0x4000 : 0xC000));
+    q[0] = (ushort)((((long)(((long long)fix_cos(a) * ((long)port_ai_step[0] << 16)) >> 16)) >> 16) + FIXINT(S32(b, 0xC)));
+    q[1] = (ushort)((((long)(((long long)fix_sin(a) * ((long)port_ai_step[0] << 16)) >> 16)) >> 16) + FIXINT(S32(b, 0xE)));
+    next[i] = game_time + port_ai_step[1];
+    if (!ailow_24FC04(b, 0, 0, 0, SQC(q[0]), SQC(q[1]), 3))
+        return 0;
+    port_ai_note(13, 0, b[5]);
+    until[i] = game_time + 1000;
+    return 1;
+}
+
+/* "AI: Improved", hold at the weapon's distance: an enemy soldier that sees its target, has a
+ * clear line to it and is d squares from it stays where it is.  The game's Aggressive walks on
+ * to the target's own square and only steps back under 3 squares.  The distance is two thirds
+ * of the range of the weapon in its hand, 4 to 12 squares, and 2 more once it holds, so that a
+ * target stepping back and forth does not pull it along. */
+static int imp_hold(uchar *b, long d, int rush)
+{
+    static uchar holding[GAME_MAX_BRAINS];
+    uchar *pb;
+    long h;
+
+    if (!(port_ai_imp & AI_IMP_RANGE) || b[5] == 1 || b[0xD] != 1 || b[3] >= GAME_MAX_BRAINS)
+        return 0;
+    if (!b[0xC4] || !b[0xF5]) {
+        holding[b[3]] = 0;
+        return 0;
+    }
+    pb = (uchar *)&game_pba[EN(BENT(b)).slot] + 6;
+    h = (long)ord_table[pb[(S32(pb, 0xC5) >> 24) * 15 + 0x3F]].range * port_ai_hold[rush] / 100;
+    if (h > (rush ? 8 : 12))
+        h = rush ? 8 : 12;
+    if (h < (rush ? 3 : 4))
+        h = rush ? 3 : 4;
+    if (holding[b[3]])
+        h += 2;
+    holding[b[3]] = d <= h;
+    return d <= h;
+}
+
+/* "AI: Improved", damaged enemies fall back: an enemy soldier whose health is under
+ * port_ai_back[0] percent (50) stops attacking and, while its target sees it or has a line to
+ * it, looks for a place out of the target's line, as the game's own Take Cover does for a whole
+ * squad.  The game's soldiers stand or walk on until they die.  1: it does that this frame.
+ * (port_ai_back[2] = 0, tests: it runs 4 squares straight away from the target instead, a step
+ * a second, to 2 squares inside its weapon's range, port_ai_back[1] = 16 at most.) */
+static int imp_fallback(uchar *b)
+{
+    static ulong next[GAME_MAX_BRAINS];
+    uchar *pb;
+    long d, far, dx, dy;
+    ushort a, q[2];
+
+    if (!(port_ai_imp & AI_IMP_BACK) || b[5] == 1 || b[0xD] != 1 || b[3] >= GAME_MAX_BRAINS ||
+        !b[0xC3] || ai_health_pct(b) >= port_ai_back[0])
+        return 0;
+    if (port_ai_back[2]) {              /* to a place the target has no line to, as the game's Take Cover */
+        uchar res;
+        if (b[0xC4] || b[0xF5]) {
+            port_ai_note(12, 0, b[5]);
+            ailow_24FD3C(b, 0, 2, 3, &res);
+        }
+        return 1;
+    }
+    if (!b[0xC4])
+        return 0;
+    dx = FIXINT(S32(b, 0xC)) - FIXINT(S32(b, 0xCA));
+    dy = FIXINT(S32(b, 0xE)) - FIXINT(S32(b, 0xCC));
+    d = fix_fast_pyth_dist(dx, dy);
+    pb = (uchar *)&game_pba[EN(BENT(b)).slot] + 6;
+    far = (long)ord_table[pb[(S32(pb, 0xC5) >> 24) * 15 + 0x3F]].range - 2;
+    if (far > port_ai_back[1])
+        far = port_ai_back[1];
+    if (d >= far)
+        return 0;
+    if (next[b[3]] > game_time + 2000)  /* (a new mission: the clock began again) */
+        next[b[3]] = 0;
+    if (game_time < next[b[3]])
+        return 1;
+    next[b[3]] = game_time + 1000;
+    a = atan2_scaled(dx, dy);
+    q[0] = (ushort)((((long)(((long long)fix_cos(a) * (4L << 16)) >> 16)) >> 16) + FIXINT(S32(b, 0xC)));
+    q[1] = (ushort)((((long)(((long long)fix_sin(a) * (4L << 16)) >> 16)) >> 16) + FIXINT(S32(b, 0xE)));
+    port_ai_note(12, d, b[5]);
+    return ailow_24FC04(b, 0, 0, 0, SQC(q[0]), SQC(q[1]), 3) != 0;
+}
+#endif
+
 void ailow_251C98(uchar *b)
 {
     uchar fa = 0, fb = 0, fc = 0, vis = 0;
@@ -373,6 +573,17 @@ void ailow_251C98(uchar *b)
     uchar u84[4];
     uchar u8c[4];
 
+#ifndef TN_WATCOM_ABI
+    {   /* ("AI: Improved": a new mission's clock begins again, what the brains saw is void) */
+        static ulong clock;
+        if (game_time < clock) {
+            memset(imp_seen_at, 0, sizeof imp_seen_at);
+            memset(imp_seen_sq, 0, sizeof imp_seen_sq);
+            memset(imp_tries, 0, sizeof imp_tries);
+        }
+        clock = game_time;
+    }
+#endif
     ok = (b[0xC3] && b[0xCA]) ? 1 : 0;
     if (game_396E18 && b[0xD] == 3) {
         if (game_396E18 != 2)
@@ -451,6 +662,14 @@ void ailow_251C98(uchar *b)
         }
     }
 
+#ifndef TN_WATCOM_ABI
+    if ((mode == 1 || mode == 2 || mode == 3) && imp_fallback(b))
+        mode = 0xFFFF;
+    if (imp_clear_line(b))
+        mode = 0xFFFF;
+    if (b[0xD] == 1 && b[0xC3])         /* (the test log: a soldier with a target, by what it does) */
+        port_ai_note(10, (short)mode < 0 ? 0 : mode, b[5] | (b[0xC4] ? 4 : 0) | (b[0xF5] ? 8 : 0));
+#endif
     switch ((ushort)(mode + 1)) {
     case 3:                                     /* mode 2 */
         if (!b[0xC3])
@@ -471,6 +690,22 @@ void ailow_251C98(uchar *b)
         {
             long d = fix_fast_pyth_dist(FIXINT(S32(b, 0xC)) - FIXINT(S32(b, 0xCA)),
                                         FIXINT(S32(b, 0xE)) - FIXINT(S32(b, 0xCC)));
+#ifndef TN_WATCOM_ABI
+            if (b[5] != 1 && b[0xD] == 1 && b[0xC4] && d <= 16 && imp_sidestep(b))
+                break;
+            if (imp_hold(b, d, 0)) {
+                port_ai_note(11, d, b[5]);
+                if (b[0xD0])
+                    move_to(b, U32(b, 0xE), 1);
+                break;
+            }
+#endif
+#ifndef TN_WATCOM_ABI
+            /* ("AI: Improved": the firing place below is planned on the target's true place;
+             * a soldier that has not seen it for 4 seconds goes to where it thinks it is) */
+            if (IMP_SEARCHES(b) && !b[0xC4] && game_time - imp_seen_at[b[3]] > 4000 && imp_seen_at[b[3]] <= game_time)
+                goto walk;
+#endif
             if (!fa && d <= 10 && (!b[0xC4] || !b[0xF5])) {
                 ailow_24FD3C(b, 1, 1, 1, &res_ac);
                 break;
@@ -478,6 +713,21 @@ void ailow_251C98(uchar *b)
         }
         /* fall through */
     case 4:                                     /* mode 3 */
+#ifndef TN_WATCOM_ABI
+    walk:
+        if (b[0xC3] && SQUAD(b[6])[0xCB] == 3) {
+            long d = fix_fast_pyth_dist(FIXINT(S32(b, 0xC)) - FIXINT(S32(b, 0xCA)),
+                                        FIXINT(S32(b, 0xE)) - FIXINT(S32(b, 0xCC)));
+            if (b[5] != 1 && b[0xD] == 1 && b[0xC4] && d <= 16 && imp_sidestep(b))
+                break;
+            if (imp_hold(b, d, 1)) {
+                port_ai_note(11, d, b[5]);
+                if (b[0xD0])
+                    move_to(b, U32(b, 0xE), 1);
+                break;
+            }
+        }
+#endif
         if (b[0xC3])
             move_to(b, U32(b, 0xCC), 1);
         break;
@@ -504,6 +754,19 @@ void ailow_251C98(uchar *b)
             case 3: ang = 0x8000; n = 2; break;
             default: ang = 0; n = 2; break;
             }
+#ifndef TN_WATCOM_ABI
+            /* "AI: Improved", a wedge: squad mates in formation that have a target take
+             * places 4 squares to the player's left and right, 2 behind and, the fourth, 2
+             * squares in front of the player's gun.  Now the player is the tip: two places 4 squares away, a little
+             * behind to each side, and two 7 squares away further back; none in front. */
+            if (port_ai_imp & AI_IMP_FORM)
+                switch (b[8]) {
+                case 1: ang = 0x5000; n = 4; break;
+                case 2: ang = 0xB000; n = 4; break;
+                case 3: ang = 0x6800; n = 7; break;
+                default: ang = 0x9800; n = 7; break;
+                }
+#endif
             ailow_24E100(ang, n, p3);
             fix_fast_pyth_dist(p3[0] - EN(BENT(b)).x, p3[1] - EN(BENT(b)).y);
             ailow_24FC04(b, 0, 0, 0, p3[0], p3[1], 3);
@@ -559,6 +822,9 @@ uchar ailow_252758(uchar *b, long tgt)
     }
     if (r)
         return r;
+#ifndef TN_WATCOM_ABI
+    port_ai_note(4, b[3], fix_fast_pyth_dist(FIXINT(EN(t).x - EN(BENT(b)).x), FIXINT(EN(t).y - EN(BENT(b)).y)));   /* (the test log: a shot and its distance) */
+#endif
 
     {
         uchar *sq = SQUAD(b[6]);

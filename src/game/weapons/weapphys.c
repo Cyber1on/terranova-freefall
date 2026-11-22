@@ -47,6 +47,9 @@ static long iabs(long x) { return x < 0 ? (long)(0u - (ulong)x) : x; }
 static long neg(long x) { return (long)(0u - (ulong)x); }
 
 #ifndef TN_WATCOM_ABI
+extern int port_ai_fix;                 /* port/mods/ai.c: "AI: Fixed", a bit for each of G49 to G60 */
+#define AI_FIX(g) (port_ai_fix >> ((g) - 49) & 1)
+void port_ai_note(int what, long a, long b);
 /* G37: the game pushes a soldier back by the whole line from its muzzle to the shot's aim
  * point (st[3..5]) times the weapon's recoil, not by the line's direction.  Aiming at nothing
  * that point is 10 units (60 m) out, but a locked target can be two or three times as far, and in
@@ -280,6 +283,13 @@ void aim_skill(short ent, fix *v)
     }
     if (found) {
         long k = voice_soldier[(uchar)game_391E50[found].voice];
+#ifndef TN_WATCOM_ABI
+        /* G49 ("AI: Fixed"): the game takes the squad member it found as record `found` (1: the
+         * first squad mate), so every squad mate aims with the first one's skill.  Fixed: with
+         * its own */
+        if (AI_FIX(49))
+            k = voice_soldier[(uchar)game_391E50[i].voice];
+#endif
         skill = soldier_skill[k * 0x1EE];
     } else {
         GameEntity *e = &ENT(ent);
@@ -291,6 +301,10 @@ void aim_skill(short ent, fix *v)
         default: skill = 5; break;
         }
     }
+#ifndef TN_WATCOM_ABI
+    if (found)
+        port_ai_note(5, ent, skill);    /* (the test log: a squad mate's aiming skill) */
+#endif
     for (i = 0; i < 3; i++)
         v[i] = ((10 - skill) * v[i]) / 10;
     f21 = ENT(ent).f21;

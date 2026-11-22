@@ -29,16 +29,18 @@ Freefall is not an emulator and does not need DOSBox. The game's program was tur
   - **Freefall**: every improvement on.
 - **Picture:** widescreen with 16:9 cockpits and goggles for every suit, sharp 3D up to 6 times the original resolution, 60 frames a second, longer terrain and object distances, true colour sky and fog, water reflection and ripples, sharp maps, a science-fiction infrared view, screen filters (smooth edges, CRT, scanlines).
 - **Controls:** mouse look, a second controls style with its own key bindings, auto-aim, keys you can rebind, a new help screen.
-- **Freefall Mod Pack included:** new cockpits with a helmet that moves as you turn, your suit's arms, new explosions and effects, trees, bushes and rocks. Every mod is one zip file in the `Mods` folder, and you can make your own: [docs/modding/](docs/modding/).
+- **Freefall Mod Pack included:** new cockpits with a helmet that moves as you turn, damage that shows on the visor's glass, your suit's arms, new explosions and effects, trees, bushes and rocks. Every mod is one zip file in the `Mods` folder, and you can make your own: [docs/modding/](docs/modding/).
 - **Music:** the soundtrack recorded as MP3 by Rich "Weeds" Nagel, SoundFont music (GeneralUser GS, and the game's own AWE32 bank), the Sound Blaster's FM music through an OPL3 emulator, General MIDI. Your own OGG or MP3 packs play too.
 - **Menus and tools:** an options screen in the game's own style, a Mission Selector, a built-in benchmark, movies smoothed to 30 pictures a second.
-- **48 bugs of the original game fixed**, each one documented: [docs/BUGS.md](docs/BUGS.md).
+- **Extra missions:** the four missions of the 1996 demos (Operations Madison, Brickdragger, Flashlight and Citadel) played in the full game, from the demo folders of your own copy, Operation Stone Henge (a fan-made mission by Joerg Fischer, 1999, with his permission) and two lost missions from the game's CD.
+- **AI: Classic, Fixed or Improved:** the game's AI exactly as it is, with twelve of its 1996 programming mistakes repaired (squad mates that aim with their own skill and keep their Autodoc until they need it, enemies that prefer their better weapons), or with new behaviour on top of the fixes (enemy soldiers that hold at the distance of their weapon step sideways when hit, take cover when damaged and search the place they last saw you; squad mates that keep out of your line of fire), and a debug display that shows what every unit is doing.
+- **62 bugs of the original game fixed**, each one documented: [docs/BUGS.md](docs/BUGS.md).
 
 Everything Freefall changes or adds, by version: [docs/CHANGES.md](docs/CHANGES.md).
 
 ## Download and play
 
-1. Get **tnfree-1.0.0-windows-x86.zip** from the [Releases](https://github.com/Cyber1on/terranova-freefall/releases) page.
+1. Get **tnfree-1.2-windows-x86.zip** from the [Releases](https://github.com/Cyber1on/terranova-freefall/releases) page.
 2. Unzip it into a folder of its own that you can write to (not Program Files).
 3. Double-click `tnfree.exe`. It finds a Steam or GOG installation by itself. If it finds none, it asks once for the folder of your game.
 

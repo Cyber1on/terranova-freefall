@@ -79,6 +79,13 @@
 
 static long iabs(long v) { return v < 0 ? -v : v; }
 
+#ifndef TN_WATCOM_ABI
+extern int port_ai_fix;                 /* port/mods/ai.c: "AI: Fixed", a bit for each of G49 to G60 */
+#define AI_FIX(g) (port_ai_fix >> ((g) - 49) & 1)
+extern int port_ai_tick25;              /* ... this frame begins a new 40 ms of game time */
+void port_ai_note(int what, long a, long b);
+#endif
+
 /* fix_atan2 of a vector, scaled down by 128 when a component is above 0x800000 */
 static fixang atan2_scaled(long dx, long dy)
 {
@@ -774,8 +781,27 @@ uchar aiperc_25486C(void *squad, Msg *m)
             f = 1;
         else
             f = RND() % 256 <= 0x10;
-        if (!ailow_2508D0(LEADER_ENT(sq), f))
+#ifndef TN_WATCOM_ABI
+        /* G52 ("AI: Fixed"): an enemy's shot passed near the squad (ailow_252758 sends this).  The
+         * squad takes up the fight when its leader has a line of sight to the shooter, but the
+         * game hands the test the flag f in the shooter's place: it looks from the leader to
+         * entity 1, which is the player, whoever fired.  Fixed: to the unit that fired */
+        if (AI_FIX(52)) {
+            if (!U16(b, 0xB) || !ailow_2508D0(LEADER_ENT(sq), S16(b, 0xB))) {
+                port_ai_note(6, 0, sq[7]);
+                return 1;
+            }
+        } else
+#endif
+        if (!ailow_2508D0(LEADER_ENT(sq), f)) {
+#ifndef TN_WATCOM_ABI
+            port_ai_note(6, 0, sq[7]);  /* (the test log: a shot near the squad, not taken up) */
+#endif
             return 1;
+        }
+#ifndef TN_WATCOM_ABI
+        port_ai_note(6, 1, sq[7]);
+#endif
         k = aimain_24A050(sq + 0x24, 8);
         ORD(sq, k)[1] = 8;
         ORD(sq, k)[0x12] = 0;
@@ -1367,8 +1393,19 @@ void aiperc_2563D0(void *squad)
         sq[0xE2] = 0;
     }
     while ((m = MsgReceive((MsgAddr *)(sq + 3))) != 0) {
-        if (!aiperc_253F70(sq, m) && !sq[0xE2] && !aiperc_25486C(sq, m))
+        if (!aiperc_253F70(sq, m) && !sq[0xE2] && !aiperc_25486C(sq, m)) {
+#ifndef TN_WATCOM_ABI
+            /* G59 ("AI: Fixed"): a message that neither handler knows ends the loop without being
+             * freed: its place in the message pool is lost for the rest of the mission, and
+             * the squad's other messages wait a frame.  Fixed: freed, and the loop goes on */
+            port_ai_note(1, ((uchar *)m)[2], sq[7]);
+            if (AI_FIX(59)) {
+                MsgFree(m);
+                continue;
+            }
+#endif
             break;
+        }
         MsgFree(m);
     }
     if (sq[0xE2])
@@ -1671,6 +1708,12 @@ uchar aiperc_256C90(void *squad)
         }
         return 1;
     }
+#ifndef TN_WATCOM_ABI
+    /* G60 ("AI: Fixed"): a squad whose path could not be found tries again by a 1 in 64 dice roll
+     * every frame: after 2.6 s on average at the game's 25 frames a second, but after 1.1 s at
+     * 60.  Fixed: one roll for each 40 ms of game time */
+    if (!AI_FIX(60) || port_ai_tick25)
+#endif
     if (sq[0x99] && RND() % 64 == 0)
         sq[0x99] = 0;
     if (*(uchar *)U32(sq, 0x95) == 0 && sq[0x99] == 0) {
@@ -1780,6 +1823,13 @@ void aiperc_2571D8(void *squad)
             }
             c = b[7];
         }
+#ifndef TN_WATCOM_ABI
+        /* G58 ("AI: Fixed"): a squad whose count has AI units (+0x11) but whose list has none
+         * alive divides by 0 here (the game's divide handler then gives a place at the map's
+         * far corner).  Fixed: the squad keeps its place */
+        if (AI_FIX(58) && n == 0)
+            return;
+#endif
         S32(sq, 0x16) = (long)(((long long)sx << 16) / (long)(n << 16));
         S32(sq, 0x1A) = (long)(((long long)sy << 16) / (long)(n << 16));
     }
@@ -1993,6 +2043,9 @@ uchar aiperc_257820(void *squad)
     q = (long)(((long long)(long)((ulong)(f * 15) << 16) << 16) / 0x27100000);
     thr = (ulong)(long)(((long long)q * (long)enemy) >> 16);
     ret = own > thr;
+#ifndef TN_WATCOM_ABI
+    port_ai_note(9, ret, sq[7]);        /* (the test log: the strength test's answer) */
+#endif
     a = own < 1 ? 1 : own;
     e = enemy < 1 ? 1 : enemy;
     ratio = a * 100 / e;

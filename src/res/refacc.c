@@ -50,6 +50,13 @@ void *RefGet(Ref ref)
     return REFPTR(prt, REFINDEX(ref));
 }
 
+#ifndef TN_WATCOM_ABI
+/* Freefall: an extra mission's resource in place of the game's (port/mods/extrares.c): the
+ * functions below that read an item or the item table of a resource from its file take them
+ * from there */
+const unsigned char *port_extra_data(unsigned id);
+#endif
+
 /* Allocates and reads the ref table of a compound resource.  NULL if not compound. */
 RefTable *ResReadRefTable(Id id)
 {
@@ -61,6 +68,17 @@ RefTable *ResReadRefTable(Id id)
     if (!(gResDesc2[id].flags & RDF_COMPOUND))
         return NULL;
 
+#ifndef TN_WATCOM_ABI
+    {
+        const unsigned char *x = port_extra_data(id);
+        if (x) {
+            numRefs = ((const RefTable *)x)->numRefs;
+            prt = Malloc(REFTABLESIZE(numRefs));
+            memcpy(prt, x, REFTABLESIZE(numRefs));
+            return prt;
+        }
+    }
+#endif
     lseek(fd, prd->offset, SEEK_SET);
     read(fd, &numRefs, sizeof(RefIndex));
     prt = Malloc(REFTABLESIZE(numRefs));
@@ -79,6 +97,18 @@ int ResExtractRefTable(Id id, RefTable *prt, long size)
     if (!(gResDesc2[id].flags & RDF_COMPOUND))
         return -1;
 
+#ifndef TN_WATCOM_ABI
+    {
+        const unsigned char *x = port_extra_data(id);
+        if (x) {
+            prt->numRefs = ((const RefTable *)x)->numRefs;
+            if ((ulong)REFTABLESIZE(prt->numRefs) > (ulong)size)
+                return -1;
+            memcpy(prt, x, REFTABLESIZE(prt->numRefs));
+            return 0;
+        }
+    }
+#endif
     lseek(fd, prd->offset, SEEK_SET);
     read(fd, &prt->numRefs, sizeof(RefIndex));
     if ((ulong)REFTABLESIZE(prt->numRefs) > (ulong)size)
@@ -102,6 +132,13 @@ int ResNumRefs(Id id)
     if (prd->ptr)
         return ((RefTable *)prd->ptr)->numRefs;
 
+#ifndef TN_WATCOM_ABI
+    {
+        const unsigned char *x = port_extra_data(id);
+        if (x)
+            return ((const RefTable *)x)->numRefs;
+    }
+#endif
     fd = resFile[prd->filenum].fd;
     lseek(fd, prd->offset, SEEK_SET);
     read(fd, &numrefs, sizeof(RefIndex));
@@ -119,6 +156,16 @@ void *RefExtract(RefTable *prt, Ref ref, void *buff)
     long refsize, offset;
     RefIndex numrefs;
 
+#ifndef TN_WATCOM_ABI
+    {
+        const unsigned char *x = port_extra_data(id);
+        if (x) {
+            const RefTable *t = (const RefTable *)x;
+            memcpy(buff, x + t->offset[index], t->offset[index + 1] - t->offset[index]);
+            return buff;
+        }
+    }
+#endif
     if (prt) {
         refsize = prt->offset[index + 1] - prt->offset[index];
         numrefs = prt->numRefs;

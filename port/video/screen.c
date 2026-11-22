@@ -56,6 +56,7 @@
 #include "cockpitpack.h"
 #include "arms.h"
 #include "helmetfx.h"
+#include "visor.h"
 #include "videosmooth.h"
 
 #include "shaders/crt.spv.h"
@@ -175,6 +176,9 @@ void port_screen_load(void (*get)(const char *key, char *out, int size))
     get("screen_helmet", v, sizeof v);
     port_helmet_motion = !SDL_strcasecmp(v, "on") || !SDL_strcasecmp(v, "light") || !SDL_strcasecmp(v, "full");
     v[0] = 0;
+    get("screen_visor", v, sizeof v);
+    port_visor = !SDL_strcasecmp(v, "on");
+    v[0] = 0;
     get("screen_trees", v, sizeof v);
     port_tree_size = !SDL_strcasecmp(v, "realistic");
     v[0] = 0;
@@ -243,6 +247,8 @@ void port_screen_save(FILE *f)
         fprintf(f, "screen_arms=%s\n", port_arms_pack);
     if (port_helmet_motion)
         fprintf(f, "screen_helmet=on\n");
+    if (port_visor)
+        fprintf(f, "screen_visor=on\n");
     if (port_tree_size)
         fprintf(f, "screen_trees=realistic\n");
     if (port_burn)
@@ -626,6 +632,7 @@ int port_screen_usable(int i)
     case S_CKPACK:
         return port_widescreen != 0;
     case S_HMOTION:
+    case S_VISOR:
         return port_widescreen != 0 && port_ck_pack[0] != 0;
     }
     return 1;
@@ -653,6 +660,7 @@ void port_screen_preset(int p)
     port_tree_size = f;
     port_burn = f;
     port_helmet_motion = f;             /* On (owner) */
+    port_visor = f;                     /* On (owner) */
     port_ir_style = p > 0;
     if (p > 0 && !port_smooth_videos)
         vsmooth_start(0, -1);           /* loads in the background; the next movie is smoothed */
@@ -670,7 +678,7 @@ int port_screen_is_preset(int p)
            !fxaa == !f && port_terrain == (on ? 2 : 0) && !port_far_smooth == !f && port_obj_dist == (f ? 2 : v) &&
            !port_enemy_dist == !f && !port_fog == !on && port_truecol == f && port_water_full == on &&
            !port_water_ripples == !on && !port_water_fx == !on && !port_map_smooth && !port_tree_size == !f &&
-           !port_burn == !f && port_helmet_motion == f && !port_ir_style == !on && !port_smooth_videos == !on && !movie_fill;
+           !port_burn == !f && port_helmet_motion == f && port_visor == f && !port_ir_style == !on && !port_smooth_videos == !on && !movie_fill;
 }
 
 int port_screen_is_value(int i)
@@ -754,6 +762,10 @@ const char *port_screen_help_v(int i, int v)
         if (!port_widescreen || !port_ck_pack[0])
             return "Needs a cockpit mod";
         return v ? "The helmet sways with the motion, best at game's 320x400 resolution" : "Off: the helmet is still";
+    case S_VISOR:
+        if (!port_widescreen || !port_ck_pack[0])
+            return "Needs a cockpit mod";
+        return v ? "The suit's damage shows on the visor's glass" : "Off: the visor stays clean";
     case S_ARMS: {
         char packs[1][64];
         if (port_arms_pack[0])
@@ -873,6 +885,9 @@ void port_screen_value(int i, char *buf, size_t n)
     case S_HMOTION:
         SDL_snprintf(buf, n, "%s", port_helmet_motion ? "On" : "Off");
         break;
+    case S_VISOR:
+        SDL_snprintf(buf, n, "%s", port_visor ? "On" : "Off");
+        break;
     case S_TREESIZE:
         SDL_snprintf(buf, n, "%s", port_tree_size ? "Realistic" : "Classic");
         break;
@@ -986,6 +1001,9 @@ void port_screen_change(int i, int dir)
     case S_HMOTION:
         port_helmet_motion = !port_helmet_motion;
         break;
+    case S_VISOR:
+        port_visor = !port_visor;
+        break;
     case S_TREESIZE:
         port_tree_size = !port_tree_size;
         break;
@@ -1050,6 +1068,7 @@ int port_screen_get(int i)
     case S_WATERFX: return port_water_fx != 0;
     case S_MAP: return port_map_smooth != 0;
     case S_HMOTION: return port_helmet_motion != 0;
+    case S_VISOR: return port_visor != 0;
     case S_TREESIZE: return port_tree_size != 0;
     case S_BURN: return port_burn != 0;
     case S_INFRARED: return port_ir_style != 0;

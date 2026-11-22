@@ -65,8 +65,13 @@ int port_map_zoom_ok(const void *map, long zoom);
  * colour table in the game's infrared, else NULL) / port_fog_end around each sharp drawing */
 extern int port_fog;
 extern int port_ir_style;               /* "Infrared": 0 Original, 1 Sci-fi (infrared.c) */
-int port_ir_on(void);                   /* ... on, and the game's infrared showing */
-int port_ir_showing(void);              /* the game's infrared showing (either look) */
+int port_ir_on(void);                   /* ... on, and the game drawing its infrared */
+int port_ir_showing(void);              /* the game drawing its infrared (either look) */
+int port_ir_screen(void);               /* Sci-fi on and an infrared picture on the screen */
+int port_ir_idle(void);                 /* the game's infrared off or only asked for */
+int port_ir_switching(void);            /* the picture before it goes on or off is being drawn */
+unsigned char *port_ir_wash(unsigned char *tab);   /* the switch-over picture's tint with Sci-fi */
+unsigned char *port_ir_wash_sky(long parm, unsigned char *tab);   /* ... and its clouds' */
 int port_ir_heat(int r, int g, int b, float t0, float t1);   /* a colour in its ramp by brightness */
 void port_ir_palette(uint32_t *pal);    /* the display's colours with the thermal ramp */
 void port_ir_sensor(uint8_t *p, int W, int H, int kx, int ky);  /* the sharp view's picture */

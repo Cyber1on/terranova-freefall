@@ -139,10 +139,24 @@ void aimain_249DCC(void)
             G4_U8(G4_BRAIN(i), 0x1A) = 0;
 }
 
+#ifndef TN_WATCOM_ABI
+extern int port_ai_tick25;              /* port/mods/ai.c */
+void port_ai_frame(void);
+#endif
+
 void AISquadLoop(void)
 {
     int i, s;
 
+#ifndef TN_WATCOM_ABI
+    {   /* "AI: Fixed" (G60): this frame begins a new 40 ms of game time (one frame of the game's 25) */
+        static ulong step;
+        ulong now = game_time / 40;
+        port_ai_tick25 = now != step;
+        step = now;
+        port_ai_frame();
+    }
+#endif
     aiglue_253814();
     aimain_249DCC();
     for (i = 0; i < GAME_MAX_SQUADS; i++)

@@ -1110,6 +1110,184 @@ void weather_2B1DCC(void)
     }
 }
 
+#ifndef TN_WATCOM_ABI
+/* length of (x, y), exact to the unit (fix_pyth_dist is too coarse for small numbers) */
+static long g61_len(long x, long y)
+{
+    unsigned long v = (unsigned long)(x * x + y * y), r = 0, bit = 1UL << 30;
+    while (bit > v)
+        bit >>= 2;
+    for (; bit; bit >>= 2)
+        if (v >= r + bit) {
+            v -= r + bit;
+            r = (r >> 1) + bit;
+        } else
+            r >>= 1;
+    return (long)r;
+}
+
+/* G61 in docs/BUGS.md: inside a building's area the game draws all the ground and then all the
+ * objects, in the order of terrmesh_29F2B4.  The areas were meant to be flat; where one holds a
+ * hill (Operation Oilslick's), the soldiers, plants and wrecks behind the hill showed through it.
+ * Here the area's squares are drawn back to front as ever, and each object as soon as the squares
+ * its footprint reaches are drawn, but never before an object the sort puts behind it: so the
+ * ground nearer than an object goes over it, as everywhere outside the areas, and the objects keep
+ * their order among themselves.  0: too many squares or objects, the caller draws the game's way. */
+static int center_merged(TerrBin *first, uchar textured)
+{
+    enum { MAXB = 2048 };
+    static TerrBin *bins[MAXB];
+    static short pos[TM_ORDER_MAX], nat[TM_ORDER_MAX];
+    MeshGroup *s = (MeshGroup *)(strip_427DE0 - 0x40);
+    TerrBin *b;
+    void *fn = 0;
+    long cur = -1;
+    int nb = 0, n = tm_order_n, i, j, k;
+
+    if (n <= 0)
+        return 0;
+    for (b = first; b; b = G6B_BIN_NEXT(b)) {
+        if (nb >= MAXB)
+            return 0;
+        bins[nb++] = b;
+    }
+    /* the bin after which each object is drawn.  A thin one (a plant, a soldier: it stands on
+     * one point, and ground nearer the eye than that point cannot hide a part of it that shows)
+     * right after its own square; a wide one (a building) after the last square its footprint
+     * reaches, or that square's ground would be painted over its walls */
+    for (i = 0; i < n; i++) {
+        TmOrder *o = &tm_order[i];
+        fix R = o->rad + 0x6000;
+        int p = -1, thin_out = 0;
+        if (o->rad <= 0x8000) {
+            for (j = nb - 1; j >= 0; j--)
+                if (bins[j]->x == (o->x >> 16) && bins[j]->y == (o->y >> 16)) {
+                    p = j;
+                    break;
+                }
+        }
+        if (R < 0xB800)
+            R = 0xB800;
+        if (p < 0 && o->rad <= 0x8000) {
+            /* its square is not among the area's (it stands at the edge, in a square of the land
+             * around): before the first square on the line from it to the eye */
+            long ex = ff_view.x >> 8, ey = ff_view.y >> 8, ox = (o->x >> 8) - ex, oy = (o->y >> 8) - ey;
+            long d = g61_len(ox, oy);
+            p = nb - 1;
+            if (d >= 64)
+                for (j = 0; j < nb; j++) {
+                    long bx = bins[j]->x * 256 + 128 - ex, by = bins[j]->y * 256 + 128 - ey;
+                    long t = (bx * ox + by * oy) / d, perp = (bx * oy - by * ox) / d;
+                    if (perp <= 192 && perp >= -192 && t < d) {
+                        p = j - 1;
+                        break;
+                    }
+                }
+            thin_out = 1;
+        } else if (p < 0)
+            for (j = nb - 1; j > p; j--) {
+                fix dx = (((fix)bins[j]->x << 16) | 0x8000) - o->x, dy = (((fix)bins[j]->y << 16) | 0x8000) - o->y;
+                if (dx <= R && dx >= -R && dy <= R && dy >= -R && fix_pyth_dist(dx, dy) <= R)
+                    p = j;
+            }
+        if (p < 0 && !thin_out)
+            p = nb - 1;
+        nat[i] = (short)p;
+        /* never before an object the game's sort puts behind it, where the two are close
+         * together (far apart, the squares' own order decides) */
+        for (k = 0; k < i; k++)
+            if (pos[k] > p) {
+                TmOrder *q = &tm_order[k];
+                fix lim = o->rad + q->rad + 0x4000, dx = q->x - o->x, dy = q->y - o->y;
+                if (dx <= lim && dx >= -lim && dy <= lim && dy >= -lim)
+                    p = pos[k];
+            }
+        pos[i] = (short)p;
+    }
+    {   /* FREEFALL_G61_CHECK=1 (tests): for every thin object, the squares on the line from the
+         * eye to it must be drawn after it, and those on the line beyond it before it */
+        static int chk = -1;
+        static long frames, objs, before, after, shown, held;
+        if (chk < 0)
+            chk = SDL_getenv("FREEFALL_G61_CHECK") != NULL;
+        if (chk) {
+            for (i = 0; i < n; i++) {
+                TmOrder *o = &tm_order[i];
+                long ex = ff_view.x >> 8, ey = ff_view.y >> 8, ox = (o->x >> 8) - ex, oy = (o->y >> 8) - ey;  /* 1/256 square */
+                long d = g61_len(ox, oy);
+                if (o->rad > 0x8000 || d < 512)
+                    continue;
+                if (nat[i] != pos[i]) {     /* held back for a wide object beside it */
+                    held++;
+                    continue;
+                }
+                objs++;
+                for (j = 0; j < nb; j++) {
+                    long bx = bins[j]->x * 256 + 128 - ex, by = bins[j]->y * 256 + 128 - ey;
+                    long t = (bx * ox + by * oy) / d, perp = (bx * oy - by * ox) / d;
+                    int bad = 0;
+                    if (perp > 100 || perp < -100)
+                        continue;
+                    if (t > 0 && t < d - 384 && j <= pos[i])
+                        bad = 1, before++;
+                    if (t > d + 384 && j > pos[i])
+                        bad = 2, after++;
+                    if (bad && shown < 40) {
+                        shown++;
+                        SDL_Log("G61 check: object %d at %ld,%ld rad %lx (pos %d of %d) eye %ld,%ld: square %d,%d (bin %d) drawn %s it",
+                                i, (long)(o->x >> 16), (long)(o->y >> 16), (long)o->rad, pos[i], nb, ex >> 8, ey >> 8, bins[j]->x, bins[j]->y, j,
+                                bad == 1 ? "before" : "after");
+                    }
+                }
+            }
+            if (++frames % 100 == 0)
+                SDL_Log("G61 check: %ld frames, %ld thin objects, %ld squares in front drawn before, %ld squares behind drawn after, %ld held",
+                        frames, objs, before, after, held);
+        }
+    }
+    wx_in_center = 1;
+    for (j = -1; j < nb; j++) {
+        if (j >= 0) {
+            uchar fl;
+            b = bins[j];
+            if (b->band != cur) {
+                cur = b->band;
+                fn = terr_poly_fns[G6B_BAND_MODE(cur)];
+                if (wx_grid_mode)
+                    fn = WATCOM_FN(weather_2B2690);
+            }
+            if (textured)
+                weather_2B12D0(b);
+            fl = G6B_BIN_FL(b);
+            if (fl & 2) {
+                if (fl & 1) {
+                    draw_tri(fn, G6B_BIN_B(b), b);
+                    draw_tri(fn, G6B_BIN_A(b), b);
+                } else
+                    draw_tri(fn, G6B_BIN_B(b), b);
+                probe_check();
+            } else if (fl & 1) {
+                draw_tri(fn, G6B_BIN_A(b), b);
+                probe_check();
+            }
+        }
+        for (k = 0; k < n; k++) {
+            MeshNode *nd = tm_order[k].node, *nx, *f = s->first;
+            if (pos[k] != j)
+                continue;
+            nx = nd->next;
+            nd->next = nd;
+            s->first = nd;
+            viewdist_2A250C(s, 3);
+            nd->next = nx;
+            s->first = f;
+        }
+    }
+    wx_in_center = 0;
+    return 1;
+}
+#endif
+
 void weather_2B1F24(void)
 {
     static const uchar rows[9] = { 1, 6, 4, 3, 2, 0, 7, 5, 8 };
@@ -1137,6 +1315,15 @@ void weather_2B1F24(void)
             }
             continue;
         }
+#ifndef TN_WATCOM_ABI
+        {   /* G61 (FREEFALL_G61_OFF=1: the game's order, for comparing) */
+            static int off = -1;
+            if (off < 0)
+                off = SDL_getenv("FREEFALL_G61_OFF") != NULL;
+            if (!off && *(long *)(strip_427DE0 - 0x40) && center_merged(b, textured))
+                continue;
+        }
+#endif
         wx_in_center = 1;
         for (; b; b = G6B_BIN_NEXT(b)) {
             uchar fl;

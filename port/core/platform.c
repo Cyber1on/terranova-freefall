@@ -255,6 +255,12 @@ void port_frame_limit(void)
     game_frames++;
     port_game_options_apply();          /* the options screen's sound settings (options.c) */
     port_pf_frame();                    /* the 3D view's copy of the map (mapedge.c) */
+    {
+        extern volatile int port_test_req;      /* a test script's T<n> (port/test/play.c) */
+        extern void port_test_run(void);
+        if (port_test_req)
+            port_test_run();
+    }
     if (port_lockstep) {                /* frame comparison runs: no real time (lockstep.c) */
         port_lockstep_frame();
         return;
@@ -586,7 +592,7 @@ static void key_event(SDL_Scancode s, int down)
     phys_event(s, down);
 }
 
-/* the game's own key pressed and let go (options.c: its GAME OPTIONS box presses O), past the
+/* the game's own key pressed and let go (options.c: its CLASSIC OPTIONS box presses O), past the
  * key bindings: with O bound to an action the box pressed that action (P131) */
 void port_key_tap(SDL_Scancode s)
 {
@@ -602,6 +608,24 @@ void port_key_tap(SDL_Scancode s)
             port_kb_scancode(0xE0);
         port_kb_scancode((uint8_t)((c & 0x7F) | (up ? 0x80 : 0)));
     }
+}
+
+/* a key pressed and let go with Alt (mod 1) or Ctrl (2) held, as the game's keyboard gets it: the
+ * game's own Alt+X (exit) and Ctrl+Esc (abort the mission) for the options screen's buttons */
+void port_key_tap_with(int mod, SDL_Scancode s)
+{
+    unsigned c = (unsigned)s < SDL_SCANCODE_COUNT ? set1[s] : 0;
+    uint8_t m = mod == 1 ? 0x38 : 0x1D;
+    int up;
+    if (!c)
+        return;
+    port_kb_scancode(m);
+    for (up = 0; up < 2; up++) {
+        if (c & 0x100)
+            port_kb_scancode(0xE0);
+        port_kb_scancode((uint8_t)((c & 0x7F) | (up ? 0x80 : 0)));
+    }
+    port_kb_scancode((uint8_t)(m | 0x80));
 }
 
 /* ------------------------------------------------------------------ display */
@@ -659,6 +683,7 @@ static int ckp_tw, ckp_th;
 static struct {
     unsigned serial, pal, f;
     int xh0, ok;
+    short tip[4];
     double hit;
 } ckp_made;
 /* ... "Helmet motion" with the layered helmet (ckp.parts): the frame (the screen, the picture,
@@ -761,7 +786,7 @@ static uint32_t tc_faded(uint32_t v, int c)
 }
 
 static unsigned pal_seen = ~0u, grade_seen;
-static int ir_seen;                     /* port_ir_on() at the last regrade */
+static int ir_seen;                     /* port_ir_screen() at the last regrade */
 static int renderer_gpu;                /* the renderer was made for the screen filters' shaders */
 static SDL_FRect dst_rect;
 int port_window_w, port_window_h;       /* the window's pixels at the last present (bench.c) */
@@ -970,6 +995,106 @@ static float ck_col(int gx, int gy, int w)
     return (gx + 0.5f) * ck.cw / w;
 }
 
+/* Infrared: Sci-fi switching: the 3D views tune in, like a camera finding its signal, for
+ * IR_TUNE_ON_US when the thermal colours come on and for IR_TUNE_OFF_US when they go (the day's
+ * picture tunes in then).  The picture's rows are shifted sideways in bands and some of them carry
+ * static (runs of a pale blue and a navy, mixed half and half with the picture: not a flash,
+ * owner), both settling to nothing.  Only the 3D's pixels: what the HUD drew over the view stays
+ * as it is.  The display's own (present: the moment the thermal colours come on or go), a new
+ * look every IR_TUNE_STEP_US whatever the display's and the game's rates; the views' pictures
+ * are made again each time meanwhile (ck_compose, sharp3d_compose_now) */
+#define IR_TUNE_ON_US 200000
+#define IR_TUNE_OFF_US 100000
+#define IR_TUNE_STEP_US 16667
+static uint64_t ir_tune_t0;             /* when the thermal colours came on or went (0: not tuning in) */
+static uint64_t ir_tune_us;             /* ... for how long */
+static int ir_tune_armed = 1;           /* the game's infrared has been off since the last tuning in */
+static struct {
+    int on;
+    float t;                            /* 0 the switch .. 1 the end */
+    uint32_t seed;                      /* this present's */
+} ir_tune;
+
+typedef struct {                        /* a row of the view's picture in it */
+    int st, sh, run, cell;
+    uint32_t seed;
+} IrRow;
+
+static uint32_t ir_hash(uint32_t a, uint32_t b, uint32_t c)
+{
+    uint32_t r = a * 0x9E3779B1u ^ b * 0x85EBCA77u ^ c * 0xC2B2AE3Du;
+    r ^= r >> 15;
+    r *= 0x2C1B3C6Du;
+    r ^= r >> 12;
+    r *= 0x297A2D39u;
+    r ^= r >> 15;
+    return r;
+}
+
+/* row Y of a picture hw x hh */
+static void ir_tune_row(IrRow *r, int Y, int hw, int hh)
+{
+    float t = ir_tune.t, q = 1 - t;
+    int bh = hh / 57 > 0 ? hh / 57 : 1, ch = hh / 170 > 0 ? hh / 170 : 1, band, amp;
+    uint32_t seed = ir_tune.seed;
+    if (Y < 0)
+        Y = 0;
+    band = Y / bh;
+    if (ir_hash((uint32_t)(band >> 1), 3, seed) & 1)    /* (some bands twice as high) */
+        band &= ~1;
+    amp = (int)(hw * 30 / 1024 * q * q);
+    r->sh = amp > 0 ? (int)(ir_hash((uint32_t)band, 1, seed) % (uint32_t)(2 * amp + 1)) - amp : 0;
+    r->cell = Y / ch;
+    r->st = (ir_hash((uint32_t)r->cell, 2, seed) & 0xFFFF) < (uint32_t)(65536 * 0.35f * SDL_powf(q, 1.2f));
+    r->run = hw * 15 / 1024 > 0 ? hw * 15 / 1024 : 1;
+    r->seed = seed;
+}
+
+/* the 3D's pixel at X of that row (hi: the row of the picture, hw wide; tc: its full colours or
+ * NULL; p3: the 3D's colours, a3 their top byte) */
+static inline uint32_t ir_tune_px(const IrRow *r, int X, const uint8_t *hi, const uint32_t *tc, const uint32_t *p3,
+                                  uint32_t a3, int hw)
+{
+    uint32_t c;
+    int Xs = X - r->sh;
+    if (Xs < 0)
+        Xs += hw;
+    else if (Xs >= hw)
+        Xs -= hw;
+    c = tc && tc[Xs] ? tc_px(tc_faded(tc[Xs], hi[Xs]), a3) : p3[hi[Xs]];
+    if (r->st) {                        /* static: half the picture, half a pale blue or a navy */
+        uint32_t n = (ir_hash((uint32_t)(X / r->run), (uint32_t)r->cell, r->seed) & 0xFF) < 100 ? 0x7882DCu : 0x0A0A3Cu;
+        c = 0xFF000000u | (((c & 0xFEFEFEu) + (n & 0xFEFEFEu)) >> 1);
+    }
+    return c;
+}
+
+/* the game's yes / no box ("Abort Mission?", "Exit Terra Nova?"; main_2458C4 in
+ * src/game/main/ffmain.c) while it is on a mission's screen: its rectangle on the game's screen
+ * (x1 <= x0: none).  The game thread sets it before it draws the box and takes it away after the
+ * screen under it is back.  The box is the screen's there, whatever its colours: its black is
+ * colour 0, a cockpit pack's see-through one, so the 3D showed through it (P148); and the
+ * targets' brackets and labels, which the display lays over the 3D, stay under it */
+static volatile short dlg_box[4];
+
+void port_dialog_box(int x0, int y0, int x1, int y1)
+{
+    dlg_box[2] = 0;
+    dlg_box[0] = (short)x0;
+    dlg_box[1] = (short)y0;
+    dlg_box[3] = (short)(y1 - 1);
+    dlg_box[2] = (short)(x1 > x0 && y1 > y0 ? x1 - 1 : 0);  /* (the last column and row, as a help box's) */
+}
+
+static int dlg_box_get(short *r)
+{
+    r[0] = dlg_box[0];
+    r[1] = dlg_box[1];
+    r[2] = dlg_box[2];
+    r[3] = dlg_box[3];
+    return r[2] > r[0] && r[3] >= r[1];
+}
+
 /* a new picture of the widescreen view laid into the window's colours (ck_compose), 16 rows a
  * part on the window's threads (port_parallel_display, P59) */
 typedef struct {
@@ -985,6 +1110,8 @@ typedef struct {
     int eyk;                            /* the picture's rows above the view's (f->ey * ky) */
     int sh;                             /* the screen's rows */
     int lay;                            /* the layered helmet (its parts: ckp.parts) */
+    short dlg[4];                       /* the game's yes / no box on the screen (dlg_box; [2] <= [0]: none) */
+    int tune;                           /* Infrared: Sci-fi tuning in (ir_tune) */
 } CkRows;
 
 static int covered(int b, const int *x0, const int *x1, int n)
@@ -1047,11 +1174,15 @@ static void ck_rows(void *arg, int part, int thread)
         uint32_t *d = (uint32_t *)((uint8_t *)pixels + (size_t)Y * tpitch);
         const port_s3d_frame *gr[PORT_S3D_SLOTS];
         int ng = 0, j, cx0[3], cx1[3], nc = 0;
+        int dl = rw->dlg[2] > rw->dlg[0] && sy >= rw->dlg[1] && sy <= rw->dlg[3];   /* the yes / no box's row */
+        IrRow tr;
         uint8_t hc;
         if (Yv < 0 || Yv >= f->h * ky) {     /* (rows the layered helmet's view has more) */
             SDL_memset(d, 0, (size_t)hw * 4);
             continue;
         }
+        if (rw->tune)
+            ir_tune_row(&tr, Yv, hw, f->h * ky);
         for (i = 0; i < f->cov_n; i++)  /* the goggles' screens on this row: the HUD's there */
             if (sy >= f->cov[i][1] && sy < f->cov[i][3]) {
                 cx0[nc] = f->cov[i][0] - f->x;
@@ -1082,7 +1213,8 @@ static void ck_rows(void *arg, int part, int thread)
             if (hm && b >= 0 && b < f->w && hm[b])     /* a HUD picture (the weapon's box): in front of
                                                          * the targets' brackets too (P125) */
                 d[X] = 0xFF000000u | disp32[scr[b]];
-            else if (hud && hud[X / kx])     /* the targets' brackets and labels */
+            else if (hud && hud[X / kx] &&   /* the targets' brackets and labels (under the yes / no box) */
+                     !(dl && b + f->x >= rw->dlg[0] && b + f->x <= rw->dlg[2]))
                 d[X] = 0xFF000000u | disp32[hud[X / kx]];
             else if (nc && b >= 0 && b < f->w && covered(b, cx0, cx1, nc))
                 d[X] = 0xFF000000u | disp32[scr[b]];    /* a goggles' screen */
@@ -1107,6 +1239,8 @@ static void ck_rows(void *arg, int part, int thread)
                 else if (!dm && inv && scr[b] != low[b] &&
                          scr[b] != ckp.art[(size_t)sy * rw->sw + f->x + b])
                     d[X] = 0xFF000000u | disp32[scr[b]];
+                else if (rw->tune)
+                    d[X] = ir_tune_px(&tr, X, hi, tc, p3, a3, hw);
                 else if (tc && tc[X])
                     d[X] = tc_px(tc_faded(tc[X], hi[X]), a3);
                 else
@@ -1118,6 +1252,8 @@ static void ck_rows(void *arg, int part, int thread)
             else if (b >= 0 && b < f->w && win[b] && scr[b] != low[b] &&
                      !(tip && b + f->x >= f->tip_x0 && b + f->x <= f->tip_x1))
                 d[X] = 0xFF000000u | disp32[scr[b]];    /* the HUD drew here */
+            else if (rw->tune)
+                d[X] = ir_tune_px(&tr, X, hi, tc, p3, a3, hw);
             else if (tc && tc[X])   /* True colour */
                 d[X] = tc_px(tc_faded(tc[X], hi[X]), a3);
             else
@@ -1171,7 +1307,11 @@ static void ck_rows_one(void *arg, int part, int thread)
         uint32_t *db = (uint32_t *)((uint8_t *)rw->pixb + (size_t)Y * rw->bpitch);
         const port_s3d_frame *gr[PORT_S3D_SLOTS];
         int ng = 0, j, cx0[3], cx1[3], nc = 0;
+        int dl = rw->dlg[2] > rw->dlg[0] && sy >= rw->dlg[1] && sy <= rw->dlg[3];   /* the yes / no box's row */
+        IrRow tr;
         uint8_t hc;
+        if (rw->tune)
+            ir_tune_row(&tr, Y, hw, hh);
         if (Yv < 0 || Yv >= f->h * ky) {     /* the layered helmet's rows more: the 3D, and in the
                                          * frame the screen's own pixels (what the HUD drew there,
                                          * e.g. the weapon's picture below the view: it moves with
@@ -1179,7 +1319,8 @@ static void ck_rows_one(void *arg, int part, int thread)
             int gy = f->y + (Yv < 0 ? -((-Yv + ky - 1) / ky) : Yv / ky);
             for (X = 0; X < hw; X++) {
                 int gx = rw->xh0 + X / kx - E, C = rw->xh0 + X / kx;
-                dw[X] = tc && tc[X] ? tc_px(tc_faded(tc[X], hi[X]), a3) : p3[hi[X]];
+                dw[X] = rw->tune ? ir_tune_px(&tr, X, hi, tc, p3, a3, hw)
+                                 : tc && tc[X] ? tc_px(tc_faded(tc[X], hi[X]), a3) : p3[hi[X]];
                 /* (only in the helmet's parts: in its window, the 3D) */
                 /* (and in the pack's holes where the screen is not the game's art: what the HUD
                  * drew there, the pirate's weapon box in the 320 x 200 cockpit above the view) */
@@ -1203,8 +1344,10 @@ static void ck_rows_one(void *arg, int part, int thread)
             int b = l1[X], C = rw->xh0 + X / kx, gx = C - E;
             int on = gx >= 0 && gx < sw, inv = b >= 0 && b < f->w, inc = C >= 0 && C < cw;
             const port_s3d_frame *g = NULL;
-            uint32_t w3 = tc && tc[X] ? tc_px(tc_faded(tc[X], hi[X]), a3) : p3[hi[X]], fr = 0;
-            db[X] = hud && hud[X / kx] && !(hm && inv && hm[b]) ? 0xFF000000u | disp32[hud[X / kx]] : 0;
+            uint32_t w3 = rw->tune ? ir_tune_px(&tr, X, hi, tc, p3, a3, hw)
+                                   : tc && tc[X] ? tc_px(tc_faded(tc[X], hi[X]), a3) : p3[hi[X]], fr = 0;
+            int dlc = dl && gx >= rw->dlg[0] && gx <= rw->dlg[2];       /* in the yes / no box */
+            db[X] = hud && hud[X / kx] && !(hm && inv && hm[b]) && !dlc ? 0xFF000000u | disp32[hud[X / kx]] : 0;
             if (hud_over_3d(rw, X, Yv, &hc)) {
                 if (rw->lay && inc && sy >= 0 && sy < rw->sh &&
                     ckp_part_at(rw, sy, C, X, Yv)) {
@@ -1245,8 +1388,12 @@ static void ck_rows_one(void *arg, int part, int thread)
                     dw[X] = w3;
                     continue;
                 }
-                if (fr && rw->lay && inc && sy >= 0 && sy < rw->sh && !ckp_part_at(rw, sy, C, X, Yv))
+                if (fr && rw->lay && inc && sy >= 0 && sy < rw->sh && !ckp_part_at(rw, sy, C, X, Yv)) {
+                    if (dlc && on)      /* the yes / no box over the window: the screen's, with the
+                                         * world (the frame's parts do not carry the window) */
+                        w3 = fr;
                     fr = 0;             /* (the window's half of an edge pixel: see ckp_part_at) */
+                }
             }
             dw[X] = w3;
             df[X] = fr;
@@ -1384,6 +1531,7 @@ typedef struct {
     const port_s3d_frame *f;
     void *pixels;
     int pitch, tpitch, w, h, E, cw, s, xh0, paused;
+    short tip[4];                       /* a popup help box or the yes / no box: the screen's ([2] <= [0]: none) */
     double hit;                         /* the hit's static: 1 full */
     uint32_t seed;
 } CkpRows;
@@ -1422,7 +1570,7 @@ static void ckp_rows(void *arg, int part, int thread)
             vl = f->low + r;
             hm = f->hudm ? f->hudm + r : NULL;
         }
-        if (f && f->tip_x1 > f->tip_x0 && Y >= f->tip_y0 && Y <= f->tip_y1)
+        if (rw->tip[2] > rw->tip[0] && Y >= rw->tip[1] && Y <= rw->tip[3])
             tip = 1;
         if (rw->hit > 0 && hl_scr)      /* these rows of the screens in static? */
             for (j = 0; j < s; j++)
@@ -1444,7 +1592,7 @@ static void ckp_rows(void *arg, int part, int thread)
             int hud_hole = vw && v >= 0 && v < f->w && !vw[v] && gx >= 0 && gx < w && !o[gx] && sr[gx];
             int show = beside || gx < 0 || gx >= w || sr[gx] == o[gx] || (!o[gx] && !hud_hole) ||
                        (vw && v >= 0 && v < f->w && (vw[v] || o[gx]) && vs[v] == vl[v]);
-            int tipc = !beside && tip && gx >= f->tip_x0 && gx <= f->tip_x1, gs = 0;
+            int tipc = !beside && tip && gx >= rw->tip[0] && gx <= rw->tip[2], gs = 0;
             for (j = 0; j < ng && !gs; j++)
                 gs = gx >= gx0[j] && gx < gx1[j];
             /* (the targets' brackets and labels stay behind the pack's art: its art goes over
@@ -1483,10 +1631,20 @@ static void ckp_layer(int w, int h, int pitch, const uint8_t *src, const port_s3
     int cw = ckp.pw, s = ckp.s, y, same, xh0 = f ? ck.xh0 : 0, TW = cw * s;
     double hit = 0;
     unsigned fs = f ? f->serial : 0;
+    short tip[4] = { 0, 0, 0, 0 };
     SDL_FRect r = { 0, 0, (float)tw, (float)th };
 
     if (w > 320 || h > 400)
         return;
+    if (!dlg_box_get(tip)) {            /* the yes / no box (with no view's picture too), or the help box */
+        tip[2] = 0;
+        if (f && f->tip_x1 > f->tip_x0) {
+            tip[0] = f->tip_x0;
+            tip[1] = f->tip_y0;
+            tip[2] = f->tip_x1;
+            tip[3] = f->tip_y1;
+        }
+    }
     {                                   /* the hit's static */
         port_helmet_state hs;
         port_helmet_get(&hs);
@@ -1511,7 +1669,7 @@ static void ckp_layer(int w, int h, int pitch, const uint8_t *src, const port_s3
         ckp_made.ok = 0;
     }
     same = ckp_made.ok && ckp_made.serial == ckp.serial && ckp_made.pal == disp32_serial &&
-           ckp_made.f == fs && ckp_made.xh0 == xh0 &&
+           ckp_made.f == fs && ckp_made.xh0 == xh0 && !memcmp(ckp_made.tip, tip, sizeof tip) &&
            hit <= 0 && ckp_made.hit <= 0;
     for (y = 0; y < h; y++)             /* the screen as last time? (and keep it) */
         if (memcmp(ckp_scr + (size_t)y * w, src + (size_t)y * pitch, w)) {
@@ -1537,6 +1695,7 @@ static void ckp_layer(int w, int h, int pitch, const uint8_t *src, const port_s3
             c.s = s;
             c.xh0 = xh0;
             c.paused = port_game_paused();
+            memcpy(c.tip, tip, sizeof tip);
             c.hit = hit;
             c.seed = hl_rand();
             port_parallel_display(ckp_rows, &c, (h + 15) / 16);
@@ -1547,6 +1706,7 @@ static void ckp_layer(int w, int h, int pitch, const uint8_t *src, const port_s3
         ckp_made.pal = disp32_serial;
         ckp_made.f = fs;
         ckp_made.xh0 = xh0;
+        memcpy(ckp_made.tip, tip, sizeof tip);
         ckp_made.hit = hit;
     }
     SDL_RenderTexture(renderer, ckp_tex, NULL, &r);
@@ -1859,7 +2019,21 @@ static SDL_Texture *ck_compose(int w, int h, int pitch, const uint8_t *src, cons
     int E = f ? f->wide_e : port_s3d_wide_e, cw, tw, th, Kx = kx, Ky = ky;
     int cwid, chei, hx, hy, one = 0, lay = 0, fin;
     SDL_FRect vr = { 0, 0, 0, 0 };
+    port_s3d_frame fdlg;
+    short dbox[4];
+    int dlg = dlg_box_get(dbox);        /* the game's yes / no box is on the screen */
 
+    if (!dlg)
+        dbox[2] = 0;
+    if (dlg && ckp_on && f) {           /* with a cockpit pack's picture: the screen's there, as a help
+                                         * box (P148) */
+        fdlg = *f;
+        fdlg.tip_x0 = dbox[0];
+        fdlg.tip_y0 = dbox[1];
+        fdlg.tip_x1 = dbox[2];
+        fdlg.tip_y1 = dbox[3];
+        f = &fdlg;
+    }
     if (ckp_on) {
         E = (ckp.pw - w) / 2;
         Kx = kx % ckp.s ? kx * ckp.s : kx;
@@ -1947,7 +2121,7 @@ static SDL_Texture *ck_compose(int w, int h, int pitch, const uint8_t *src, cons
         int paused = port_game_paused();      /* the screen as it is (sharp3d_compose) */
         const port_s3d_frame *sv[PORT_S3D_SLOTS] = { NULL };
         double cu = ckp_on ? f->x + E + f->w / 2.0 : (f->x + f->w / 2.0) * cw / w;
-        unsigned pk = ckp_on ? ckp.serial ^ (one ? 0x80000000u : 0) : 0;
+        unsigned pk = (ckp_on ? ckp.serial ^ (one ? 0x80000000u : 0) : 0) ^ (dlg ? 0x40000000u : 0);
         void *pixels, *pixf = NULL, *pixb = NULL;
         int fpitch = 0, bpitch = 0;
         ck.fx = f->x;
@@ -2001,7 +2175,7 @@ static SDL_Texture *ck_compose(int w, int h, int pitch, const uint8_t *src, cons
                 sv[i] = g;
             same &= (sv[i] ? sv[i]->serial : 0) == ck_made.side[i];
         }
-        if (ck_tex && f->scr && !paused && f->serial == ck_made.serial && disp32_serial == ck_made.pal &&
+        if (ck_tex && f->scr && !paused && !ir_tune.on && f->serial == ck_made.serial && disp32_serial == ck_made.pal &&
             ck.xh0 == ck_made.xh0 && cw == ck_made.cw && pk == ck_made.pack && same) {
             /* the same picture as last time */
             if (one)
@@ -2041,7 +2215,7 @@ static SDL_Texture *ck_compose(int w, int h, int pitch, const uint8_t *src, cons
                 c.kx = kx;
                 c.ky = ky;
                 c.paused = paused;
-                c.ir = port_ir_on();
+                c.ir = port_ir_screen();
                 c.pack = ckp_on;
                 c.E = E;
                 c.cw = cw;
@@ -2054,6 +2228,8 @@ static SDL_Texture *ck_compose(int w, int h, int pitch, const uint8_t *src, cons
                 c.eyk = f->ey * ky;
                 c.sh = h;
                 c.lay = lay && ckp.parts;
+                SDL_memcpy(c.dlg, dbox, sizeof c.dlg);
+                c.tune = ir_tune.on && !f->map;
                 tc_prep(f);
                 port_parallel_display(one ? ck_rows_one : ck_rows, &c, (hh + 15) / 16);
             }
@@ -2062,7 +2238,7 @@ static SDL_Texture *ck_compose(int w, int h, int pitch, const uint8_t *src, cons
                 SDL_UnlockTexture(ckv_tex);
                 SDL_UnlockTexture(ckb_tex);
             }
-            ck_made.serial = f->serial;
+            ck_made.serial = ir_tune.on ? 0 : f->serial;    /* (tuning in: made again at the next present) */
             ck_made.pal = disp32_serial;
             for (i = 0; i < PORT_S3D_SLOTS; i++)
                 ck_made.side[i] = sv[i] ? sv[i]->serial : 0;
@@ -2163,6 +2339,16 @@ pointer:
             hlp_draw(ckf_target, tw, th, h);
         else
             SDL_RenderTexture(renderer, ckf_target, NULL, &fr);
+        /* the game's yes / no box over the helmet's parts: the parts stay where the head's
+         * motion left them (the game stands still under the box), and one that had moved lay
+         * over the box's edge with its art and outline (owner).  The box's rectangle of the
+         * screen once more, still, over them all */
+        if (lay && dlg && dbox[2] > dbox[0] && dbox[3] >= dbox[1] && dbox[0] >= 0 && dbox[1] >= 0 &&
+            dbox[2] < w && dbox[3] < h && texture) {
+            SDL_FRect sr = { (float)dbox[0], (float)dbox[1], (float)(dbox[2] - dbox[0] + 1), (float)(dbox[3] - dbox[1] + 1) };
+            SDL_FRect dr = { (float)((dbox[0] + E) * Kx), (float)(dbox[1] * Ky), sr.w * Kx, sr.h * Ky };
+            SDL_RenderTexture(renderer, texture, &sr, &dr);
+        }
     }
     if (port_now_us() - ck_cur_seen < 150000 && cursor_tex(&cwid, &chei, &hx, &hy)) {
         int px, py, inview = 0;         /* the game's pointer, or the real one beyond its picture */
@@ -2203,6 +2389,7 @@ typedef struct {
     const uint8_t *src;
     void *pixels;
     int pitch, tpitch, hw, hh, kx, ky, paused, ir, nomask, cx0, cy0, cx1, cy1;
+    int tune;                           /* Infrared: Sci-fi tuning in (ir_tune) */
 } S3dRows;
 
 static void s3d_rows(void *arg, int part, int thread)
@@ -2227,14 +2414,17 @@ static void s3d_rows(void *arg, int part, int thread)
             p0 = p1 = 0;
         const uint8_t *low = f->low + (size_t)ly * f->w;
         const uint8_t *hm = f->hudm ? f->hudm + (size_t)ly * f->w : NULL;     /* HUD pictures */
-        const uint8_t *hi = f->high + (size_t)Y * hw;
+        const uint8_t *hi = f->high + (size_t)Y * hw, *hi0 = hi;
         const uint32_t *p3 = s3d_aa && !f->map ? disp3d : disp32;     /* the 3D's colours */
-        const uint32_t *tc = f->tc && f->tc_rows[Y] && !rw->ir ? f->tc + (size_t)Y * hw : NULL;
+        const uint32_t *tc = f->tc && f->tc_rows[Y] && !rw->ir ? f->tc + (size_t)Y * hw : NULL, *tc0 = tc;
         uint32_t a3 = p3[0] & 0xFF000000u;
         uint32_t *d = (uint32_t *)((uint8_t *)pixels + (size_t)Y * tpitch), *d0 = d;
-        int lx, k;
-        for (k = 0; k < f->ex; k++, hi++, tc = tc ? tc + 1 : NULL)  /* widescreen: the sides as drawn */
-            *d++ = tc && *tc ? tc_px(tc_faded(*tc, *hi), a3) : p3[*hi];
+        int lx, k, tune = rw->tune;
+        IrRow tr;
+        if (tune)
+            ir_tune_row(&tr, Y, hw, rw->hh);
+        for (k = 0; k < f->ex; k++, hi++, d++, tc = tc ? tc + 1 : NULL)    /* widescreen: the sides as drawn */
+            *d = tune ? ir_tune_px(&tr, k, hi0, tc0, p3, a3, hw) : tc && *tc ? tc_px(tc_faded(*tc, *hi), a3) : p3[*hi];
         for (lx = 0; lx < f->w; lx++) {
             /* the screen as copied with the picture (the game may have copied the next
              * frame's since); the screen itself under the pointer, which the game draws
@@ -2247,6 +2437,11 @@ static void s3d_rows(void *arg, int part, int thread)
                 hi += kx;
                 if (tc)
                     tc += kx;
+            } else if (tune) {      /* Infrared: Sci-fi tuning in */
+                for (k = 0; k < kx; k++, hi++, d++)
+                    *d = ir_tune_px(&tr, (int)(hi - hi0), hi0, tc0, p3, a3, hw);
+                if (tc)
+                    tc += kx;
             } else if (tc)          /* True colour: its full colours where it has them */
                 for (k = 0; k < kx; k++, hi++, tc++)
                     *d++ = *tc ? tc_px(tc_faded(*tc, *hi), a3) : p3[*hi];
@@ -2254,8 +2449,9 @@ static void s3d_rows(void *arg, int part, int thread)
                 for (k = 0; k < kx; k++)
                     *d++ = p3[*hi++];
         }
-        for (k = 0; k < f->ex; k++, hi++, tc = tc ? tc + 1 : NULL)
-            *d++ = tc && *tc ? tc_px(tc_faded(*tc, *hi), a3) : p3[*hi];
+        for (k = 0; k < f->ex; k++, hi++, d++, tc = tc ? tc + 1 : NULL)
+            *d = tune ? ir_tune_px(&tr, (int)(hi - hi0), hi0, tc0, p3, a3, hw)
+                      : tc && *tc ? tc_px(tc_faded(*tc, *hi), a3) : p3[*hi];
         if (s3d_aa && f->lab_n)
             label_alpha(f, Y, d0);
     }
@@ -2375,11 +2571,12 @@ static SDL_Texture *sharp3d_compose_now(int w, int h, int pitch, const uint8_t *
         SDL_RenderTexture(renderer, texture, NULL, NULL);
     for (i = 0; i < PORT_S3D_SLOTS; i++) {
         const port_s3d_frame *f = fs[i];
-        int hw, hh, Y, tpitch;
+        int hw, hh, Y, tpitch, tune;
         void *pixels;
         SDL_FRect r;
         if (!f)
             continue;
+        tune = ir_tune.on && !f->map;          /* Infrared: Sci-fi tuning in */
         hw = f->w * kx + 2 * f->ex;
         hh = f->h * ky;
         if (!s3d_tex[i] || s3d_tw[i] != hw || s3d_th[i] != hh) {
@@ -2397,12 +2594,12 @@ static SDL_Texture *sharp3d_compose_now(int w, int h, int pitch, const uint8_t *
         }
         /* the same picture as at the last present (the game makes 25 or 60 a second, the display
          * shows more), with the pointer where it was: the texture holds it already */
-        if (f->scr && !paused && f->serial == s3d_made[i].serial && cx0 == s3d_made[i].cx0 && cy0 == s3d_made[i].cy0 &&
-            cx1 == s3d_made[i].cx1 && cy1 == s3d_made[i].cy1 && disp32_serial == s3d_made[i].pal)
+        if (f->scr && !paused && !tune && f->serial == s3d_made[i].serial && cx0 == s3d_made[i].cx0 &&
+            cy0 == s3d_made[i].cy0 && cx1 == s3d_made[i].cx1 && cy1 == s3d_made[i].cy1 && disp32_serial == s3d_made[i].pal)
             goto draw;
         if (!SDL_LockTexture(s3d_tex[i], NULL, &pixels, &tpitch))
             continue;
-        s3d_made[i].serial = f->serial;
+        s3d_made[i].serial = tune ? 0 : f->serial;      /* (tuning in: made again at the next present) */
         s3d_made[i].cx0 = cx0;
         s3d_made[i].cy0 = cy0;
         s3d_made[i].cx1 = cx1;
@@ -2420,7 +2617,8 @@ static SDL_Texture *sharp3d_compose_now(int w, int h, int pitch, const uint8_t *
             c.kx = kx;
             c.ky = ky;
             c.paused = paused;
-            c.ir = port_ir_on();
+            c.ir = port_ir_screen();
+            c.tune = tune;
             c.nomask = s3d_nomask;
             c.cx0 = cx0;
             c.cy0 = cy0;
@@ -2470,10 +2668,12 @@ static SDL_Texture *sharp3d_compose(int w, int h, int pitch, const uint8_t *src,
  * drawing time for the 3D resolution and terrain detail (sharp3d.c), averaged over half a second,
  * centred under the cockpit's health and energy bars, under the goggles' compass, or at the top
  * of the screen outside missions */
+static uint64_t present_t0;             /* when this present began (the FPS meter's log line) */
+
 static void fps_meter(int ww, int wh)
 {
-    static uint64_t t0;
-    static unsigned long frames0, presents, us_sum, us_n;
+    static uint64_t t0, log_t0, log_work;
+    static unsigned long frames0, presents, us_sum, us_n, log_frames0, log_presents, log_us, log_n;
     static char line[96];
     uint64_t now = port_now_us();
     float s = wh >= 1400 ? 3.0f : wh >= 700 ? 2.0f : 1.0f;
@@ -2483,6 +2683,29 @@ static void fps_meter(int ww, int wh)
     if (port_s3d_wanted() && port_s3d_us) {
         us_sum += port_s3d_us;
         us_n++;
+        log_us += port_s3d_us;
+        log_n++;
+    }
+    /* in a mission, every 5 seconds a line in the log too, with what the picture was made of:
+     * a report of a low frame rate then comes with its numbers (the display's work is the time
+     * a picture takes here before it is handed to the graphics card) */
+    log_presents++;
+    log_work += now - present_t0;
+    if (!port_bench && (!log_t0 || now - log_t0 >= 5000000)) {
+        extern unsigned char game_in_mission;
+        if (log_t0 && game_in_mission && log_presents) {
+            double sec = (now - log_t0) / 1e6;
+            port_log("FPS: game %.0f, display %.0f, 3D %.1f ms, display's work %.1f ms; %s, 3D detail %dx, "
+                     "window %dx%d, %s, dynamic helmet %s\n",
+                     (game_frames - log_frames0) / sec, log_presents / sec, log_n ? log_us / 1000.0 / log_n : 0.0,
+                     log_work / 1000.0 / log_presents, port_hud_goggles() ? "goggles" : "cockpit", port_sharp3d,
+                     ww, wh, renderer_gpu ? "graphics card renderer" : "plain renderer",
+                     port_helmet_motion ? "on" : "off");
+        }
+        log_t0 = now;
+        log_frames0 = game_frames;
+        log_presents = log_us = log_n = 0;
+        log_work = 0;
     }
     if (!t0 || now - t0 >= 500000) {
         if (t0) {
@@ -2530,6 +2753,7 @@ static void present(void)
     int w = port_video.w, h = port_video.h, pitch = port_video.pitch, ww, wh, x, y, menu_wide;
     uint32_t start = port_video.start;
 
+    present_t0 = port_now_us();
     if (port_screen_gpu_wanted() != renderer_gpu)   /* a screen filter that needs shaders, on or off */
         make_renderer();
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -2537,7 +2761,32 @@ static void present(void)
     if (w > 0 && h > 0 && pitch > 0 && start + (uint64_t)pitch * (h - 1) + w <= PORT_VRAM_KB * 1024u) {
         void *pixels;
         int tpitch;
-        int ir = port_ir_on();
+        int ir = port_ir_screen();
+        uint64_t now_us = port_now_us();
+        /* Sci-fi's tuning in: from a switch of the game's infrared only (on: it was off since the
+         * last one; off: the game says it is off), not when the thermal colours go and come back
+         * with the options screen over them or go at a mission's end */
+        if (ir && !ir_seen && ir_tune_armed) {
+            ir_tune_armed = 0;
+            ir_tune_t0 = now_us ? now_us : 1;
+            ir_tune_us = IR_TUNE_ON_US;
+        } else if (!ir && ir_seen && port_ir_idle()) {
+            ir_tune_t0 = now_us ? now_us : 1;
+            ir_tune_us = IR_TUNE_OFF_US;
+        }
+        if (port_ir_idle())
+            ir_tune_armed = 1;
+        ir_tune.on = 0;
+        if (ir_tune_t0) {
+            uint64_t step = (now_us > ir_tune_t0 ? now_us - ir_tune_t0 : 0) / IR_TUNE_STEP_US;
+            if (step * IR_TUNE_STEP_US >= ir_tune_us || (ir_tune_us == IR_TUNE_ON_US ? !ir : ir))
+                ir_tune_t0 = 0;
+            else {
+                ir_tune.on = 1;
+                ir_tune.t = (float)(step * IR_TUNE_STEP_US) / ir_tune_us;
+                ir_tune.seed = ir_hash((uint32_t)step, (uint32_t)ir_tune_t0, 7);
+            }
+        }
         if (pal_seen != port_video.pal_serial || grade_seen != port_screen_serial() || ir != ir_seen) {
             pal_seen = port_video.pal_serial;
             grade_seen = port_screen_serial();
@@ -2990,14 +3239,26 @@ void port_mouselook_add(int turn, int look)
  * FREEFALL_SCRIPT="ms:action;..." with action k<SDL key name> (press and release), d<key> / u<key>
  * (hold down / release), m<x>,<y> (move the pointer, game pixels), c (left click), q (quit),
  * M<x>,<y> (move to window pixel x,y), P / p<x>,<y> (left button down / up there), Q<x>,<y> (right
- * click there), v<x>,<y> (the real mouse to window pixel x,y).  A time written +ms counts from the
- * moment a mission starts (the script waits there until one does). */
+ * click there), v<x>,<y> (the real mouse to window pixel x,y), G1 / G0 (the mission ends as after
+ * the pickup, its first goal met / not met).  A time written +ms counts from the moment a mission
+ * starts (the script waits there until one does). */
 static char *script;
 static uint64_t script_due, script_mission;
+
+static int script_end;                  /* G: frames the mission's end is still asked for */
 
 static void run_script(void)
 {
     char *semi, *colon;
+    if (script_end) {                   /* (a mission's own script may take the pick-up back) */
+        extern long strike_35BF40, ordn_goal_c;
+        if (ordn_goal_c)                /* the game's script took it: the mission is ending */
+            script_end = 0;
+        else {
+            strike_35BF40 = 1;
+            script_end--;
+        }
+    }
     while (script && *script) {
         colon = strchr(script, ':');
         if (!colon)
@@ -3090,6 +3351,18 @@ static void run_script(void)
             port_mouse_event(0, 0, mouse_buttons, 0, 1);
         } else if (colon[0] == 'o') {   /* one of the game's own options (8 = the difficulty, 1 to 5) */
             port_game_option_set(atoi(colon + 1), strchr(colon, ',') ? atoi(strchr(colon, ',') + 1) : 0);
+        } else if (colon[0] == 'G') {   /* G1 / G0: the mission ends now, its first goal met / not */
+            extern void ordnance_29188C(long kind);
+            if (colon[1] == '1')
+                ordnance_29188C(1);     /* (the script's own "objective met") */
+            script_end = 200;
+        } else if (colon[0] == 'T') {   /* T1 the goals' targets die, T2 the pickup point comes
+                                         * to the player, T3 the player dies (port/test/play.c) */
+            extern volatile int port_test_req;
+            port_test_req = atoi(colon + 1);
+        } else if (colon[0] == 'S') {   /* S<ms>: a screenshot every so many ms from now on */
+            shot_every = (uint64_t)atol(colon + 1) * 1000;
+            shot_next = 0;
         } else if (colon[0] == 'q')
             port_request_quit();
         script = semi ? semi + 1 : NULL;
@@ -3323,12 +3596,12 @@ int port_run(game_entry fn, int argc, char **argv)
         /* Fullscreen on (tnfree.ini, read before this): full screen from the start; leaving it
          * gives the window this size */
         fullscreen = port_fullscreen;
-        window = SDL_CreateWindow("Terra Nova: Freefall " FREEFALL_VERSION_FULL, ww, wh,
+        window = SDL_CreateWindow("Terra Nova: Freefall " FREEFALL_VERSION_SHOWN, ww, wh,
                                   SDL_WINDOW_RESIZABLE | (fullscreen ? SDL_WINDOW_FULLSCREEN : 0));
         if (!window && fullscreen) {    /* full screen failed: a window */
             port_log("Fullscreen: cannot start full screen (%s), a window instead\n", SDL_GetError());
             fullscreen = port_fullscreen = 0;
-            window = SDL_CreateWindow("Terra Nova: Freefall " FREEFALL_VERSION_FULL, ww, wh,
+            window = SDL_CreateWindow("Terra Nova: Freefall " FREEFALL_VERSION_SHOWN, ww, wh,
                                       SDL_WINDOW_RESIZABLE);
         }
     }

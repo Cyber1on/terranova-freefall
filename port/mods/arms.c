@@ -500,6 +500,7 @@ void port_arms_draw(uint8_t *high, uint32_t *tc, const uint8_t *tc_rows, int W, 
     int left, best = -1, i, x, y, X0, X1, Y0, Y1, want = mount == 2 || mount == 3 ? mount : 0, snap = 0, ir;
     static int last_mount, shown;       /* the arm drawn: 2 left, 3 right, 0 none */
     static float drop = 1;              /* how far it is lowered: 0 up .. 1 below the view */
+    static int *col, col_n;             /* the picture's column of each of the view's columns */
     const unsigned char *pix;
     Pose *p;
 
@@ -681,6 +682,18 @@ void port_arms_draw(uint8_t *high, uint32_t *tc, const uint8_t *tc_rows, int W, 
     if (Y0 < 0) Y0 = 0;
     if (X1 > W) X1 = W;
     if (Y1 > (Hd > H ? Hd : H)) Y1 = Hd > H ? Hd : H;    /* (the rows drawn below the view too) */
+    /* the picture's column of each of the view's columns, worked out once for the picture and not
+     * for every pixel: the pixel loop below has whole numbers only (P154) */
+    if (X1 > X0 && col_n < W) {
+        int *n = realloc(col, (size_t)W * sizeof *n);
+        if (n) {
+            col = n;
+            col_n = W;
+        } else
+            Y1 = Y0;                    /* (no memory: no arm in this picture) */
+    }
+    for (x = X0; x < X1 && Y0 < Y1; x++)
+        col[x] = (int)((x - ox) / kx) - p->bx0;
     for (y = Y0; y < Y1; y++) {
         int syi = (int)((y - oy) / ky) - p->by0;
         const unsigned char *srow;
@@ -690,7 +703,7 @@ void port_arms_draw(uint8_t *high, uint32_t *tc, const uint8_t *tc_rows, int W, 
             continue;
         srow = pix + (size_t)syi * p->bw;
         for (x = X0; x < X1; x++) {
-            int sxi = (int)((x - ox) / kx) - p->bx0, dx = left ? W - 1 - x : x;
+            int sxi = col[x], dx = left ? W - 1 - x : x;
             unsigned char c;
             if (sxi < 0 || sxi >= p->bw || !(c = srow[sxi]))
                 continue;

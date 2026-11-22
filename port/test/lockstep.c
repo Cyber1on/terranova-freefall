@@ -31,6 +31,10 @@
  *                                    pixel x,y, decimal), S (back on the screen), g (gimbal mode
  *                                    on / off), L<turn>,<look> (the mouse's head turn and look
  *                                    in angle units, decimal, as mouselook gives them)
+ *   FREEFALL_LOCKSTEP_DIFF=n         difficulty level of the mission, 1 Neighborhood Watch .. 5 World War
+ *                                    (default: the saved option)
+ *   FREEFALL_LOCKSTEP_TICKS=n        the clock's milliseconds a frame in place of 0x32 (40: the game's 25
+ *                                    frames a second; the AI's tests, aitest.c)
  *   FREEFALL_LOCKSTEP_HEAP=k         every k frames, the heap blocks too (Linux build)
  *   FREEFALL_LOCKSTEP_ALIGN=list     "size:low;..." blocks placed like the original's, modulo
  *                                    64 KB (Linux build; see aligned_malloc)
@@ -52,11 +56,13 @@
 #include "platform.h"
 #include "port.h"
 #include "sharp3d.h"
+#include "extra.h"
 #ifndef _WIN32
 #include <pthread.h>
 #endif
 
 void port_exit(int code);
+void port_ai_summary(void);             /* port/mods/ai.c: the AI test log's last line */
 
 int port_lockstep;
 
@@ -216,8 +222,15 @@ static void start_mission_part1(void)
 {
     static const unsigned char load_pat[] = { 0x2A, 0x25, 0x00, 0x02 };    /* native 37 = FFLoadMission */
     unsigned long sh = U32(SHELL_THREAD);
+    const char *x = getenv("FREEFALL_EXTRA");
     if (sh)
         call1(F_SCRIPT_KILL, (long)sh);
+    if (x && atoi(x) > 0) {             /* FREEFALL_EXTRA=k: the extra mission k (port/mods/extra.c) */
+        port_extra_pick = atoi(x);
+        port_extra_begin(1);
+        if (port_extra_on)
+            mission = port_extra_mission();
+    }
     U32(MISSION_NO) = mission;
     call1(F_NATIVE_31, 0);
     call1(F_NATIVE_44, 0);
@@ -320,6 +333,7 @@ void port_lockstep_init(void)
     if ((s = getenv("FREEFALL_LOCKSTEP_FRAMES")) != NULL) dump_frames = atol(s);
     if ((s = getenv("FREEFALL_LOCKSTEP_INPUT")) != NULL) input = strdup(s);
     if ((s = getenv("FREEFALL_LOCKSTEP_HEAP")) != NULL) heap_every = atol(s);
+    if ((s = getenv("FREEFALL_LOCKSTEP_TICKS")) != NULL && atol(s) > 0) tpf = atol(s);
     if (heap_every)
         heap_init();
 #ifndef _WIN32
@@ -334,8 +348,12 @@ void port_lockstep_frame(void)
     static int was_in;
     if (nframe == 0 && dump)
         write_stack_range();
-    if (mission && nframe == 0)
+    if (mission && nframe == 0) {
+        const char *d = getenv("FREEFALL_LOCKSTEP_DIFF");
+        if (d && atol(d) >= 1 && atol(d) <= 5)
+            port_game_option_set(8, atol(d));
         start_mission_part1();
+    }
     else if (mission && nframe == 1)
         start_mission_part2();
     else if (mission) {
@@ -347,6 +365,7 @@ void port_lockstep_frame(void)
                 fclose(dump);
             dump = NULL;
             port_log("lockstep: the mission ended at frame %lu\n", nframe);
+            port_ai_summary();
             if (port_bench)
                 port_bench_cut();
             port_exit(0);
@@ -360,6 +379,7 @@ void port_lockstep_frame(void)
             fclose(dump);
             dump = NULL;
             port_log("lockstep: done\n");
+            port_ai_summary();
             port_exit(0);
         }
         write_frame();

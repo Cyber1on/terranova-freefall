@@ -234,6 +234,14 @@ typedef struct {
 } MeshRec;
 LG_STATIC_ASSERT(sizeof(MeshRec) == 0x30, MeshRec_size);
 extern MeshGroup *mesh_groups;          /* 0x438E90 (set by the weather code, G6b) */
+#ifndef TN_WATCOM_ABI
+/* G61: the objects of a building's area in the sort's order (terrmesh_29F2B4), each with the
+ * square it came from, its place and its footprint's radius; -1: more than fit */
+#define TM_ORDER_MAX 400
+typedef struct { MeshNode *node; void *bin; fix x, y, rad; } TmOrder;
+extern TmOrder tm_order[TM_ORDER_MAX];
+extern int tm_order_n;
+#endif
 
 long terrmesh_29EEF0(FfView *view, void *strips);           /* 0x29EEF0 first map building in view */
 void terrmesh_29F2B4(void);                                 /* 0x29F2B4 depth sort */
